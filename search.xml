@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title><![CDATA[免越獄 iOS12 Badge Color Changer]]></title>
+      <url>/Non-Jailbreak_iOS12_Badge_Color_Changer.html</url>
+      <content type="html"><![CDATA[<p>　　iOS 12 免越獄 修改桌面app Badge 顏色</p>
+<a id="more"></a>
+<p><a href="https://twitter.com/AltichaDev/status/1091159960828985344" target="_blank" rel="external">twitter 原文</a><br><br><a href="https://www.reddit.com/r/sideloaded/comments/alye4r/release_ios_12_badge_color_changer/" target="_blank" rel="external">reddit 原文</a><br></p>
+<blockquote>
+<p>主要利用 iOS 12～iOS 12.1.2 漏洞，提權，然後tfp0 patch <br><br>再去修改 “/private/var/mobile/Library/Caches/MappedImageCache/Persistent/SBIconBadgeView.BadgeBackground.cpbitmap” <br><br>就能達成修改顏色了 <br></p>
+<blockquote>
+<p><a href="tps://alticha.github.io/Badges.ipa" target="_blank" rel="external">下載 ipa</a><br><img src="https://i.imgur.com/rA7Ha6G.jpg" alt=""><br><br><br><br><img src="https://i.imgur.com/7ILcy7m.jpgit" alt="app 運行畫面"><br><br></p>
+<h2 id="Get-color-codes"><a href="#Get-color-codes" class="headerlink" title="Get color codes"></a><a href="https://htmlcolorpicker.com/" target="_blank" rel="external">Get color codes</a></h2></blockquote>
+</blockquote>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Python 開發必備神器之一：virtualenv]]></title>
       <url>/Python%20%E9%96%8B%E7%99%BC%E5%BF%85%E5%82%99%E7%A5%9E%E5%99%A8%E4%B9%8B%E4%B8%80%EF%BC%9Avirtualenv.html</url>
       <content type="html"><![CDATA[<p>　　並獨立出 Python 環境。可使每個項目環境與其他項目獨立開來，保持環境的干淨，解決包衝突問題。</p>
