@@ -16,6 +16,38 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Xcode10 配置 Logos 語法高亮]]></title>
+      <url>/Xcode10LogosSupports.html</url>
+      <content type="html"><![CDATA[<p>　　Xcode10 配置 Logos 語法高亮、模糊輸入
+　　</p>
+<a id="more"></a>
+<h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><ol>
+<li>備份 /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources</li>
+<li>下載<a href="https://github.com/s2339956/Logos-Xcode" target="_blank" rel="external">連結</a>，或者 clone 到電腦上<pre><code>git clone https://github.com/s2339956/Logos-Xcode
+</code></pre></li>
+<li>到剛下載的目錄下的src目錄(Logos-Xcode/src)</li>
+<li>確保已經關閉結束運行 Xcode</li>
+<li>使用python3 執行 xclangspec_generator.py 腳本</li>
+<li>執行 <code>chmod +x install.sh</code>，使 install.sh 預備執行權限</li>
+<li>執行 <code>sudo ./install.sh</code></li>
+<li>開始享用</li>
+</ol>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>Select Editor -&gt; Syntax Coloring -&gt; Logos on the menu. <br><br><img src="https://github.com/s2339956/Logos-Xcode/blob/master/imgs/SS_hook.png" alt=""><br><img src="https://github.com/s2339956/Logos-Xcode/blob/master/imgs/SS_Live.png" alt=""><br><img src="https://github.com/s2339956/Logos-Xcode/blob/master/imgs/SS_end.png" alt=""></p>
+<hr>
+]]></content>
+      
+        <categories>
+            
+            <category> Xcode </category>
+            
+            <category> Logos </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[過去 iOS APP 安全檢測心得]]></title>
       <url>/iOS_APP_Safety_Detection_Experience.html</url>
       <content type="html"><![CDATA[<p>　　iOS APP 安全檢測一些心得總結</p>

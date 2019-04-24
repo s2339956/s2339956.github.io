@@ -15,18 +15,16 @@
 
 
 
-<meta name="description" content="Xcode lldb 我經常使用的小伎倆">
-<meta name="keywords" content="Xcode,lldb,調適">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Xcode lldb 小技能">
-<meta property="og:url" content="http://s2339956.github.io/Xcode-lldb-小技能.html">
+<meta name="description" content="哲人無憂，智者常樂。並不是因為所愛的一切他都擁有了，而是所擁有的一切他都愛。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tin Blog">
+<meta property="og:url" content="http://s2339956.github.io/categories/Xcode/index.html">
 <meta property="og:site_name" content="Tin Blog">
-<meta property="og:description" content="Xcode lldb 我經常使用的小伎倆">
+<meta property="og:description" content="哲人無憂，智者常樂。並不是因為所愛的一切他都擁有了，而是所擁有的一切他都愛。">
 <meta property="og:locale" content="zh-Hant-TW">
-<meta property="og:updated_time" content="2017-11-22T13:16:42.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xcode lldb 小技能">
-<meta name="twitter:description" content="Xcode lldb 我經常使用的小伎倆">
+<meta name="twitter:title" content="Tin Blog">
+<meta name="twitter:description" content="哲人無憂，智者常樂。並不是因為所愛的一切他都擁有了，而是所擁有的一切他都愛。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Xcode lldb 小技能 | Tin Blog</title>
+<title>Category: Xcode | Tin Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -68,10 +66,10 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: true,
+        isPost: false,
         isArchive: false,
         isTag: false,
-        isCategory: false,
+        isCategory: true,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
         search: true
@@ -281,241 +279,56 @@
     </div>
     <link class="menu-list" tags="標籤" friends="友情連結" about="關於我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Xcode-lldb-小技能" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/Xcode-lldb-小技能.html" class="article-date">
-      <time datetime="2017-11-21T10:43:06.000Z" itemprop="datePublished">2017-11-21</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/Xcode10LogosSupports.html" class="archive-article-date">
+      <time datetime="2019-04-23T06:30:51.000Z" itemprop="datePublished">04-23</time>
 </a>
 
 
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Xcode lldb 小技能
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/Xcode10LogosSupports.html">Xcode10 配置 Logos 語法高亮</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="article-info info-on-archive">
           
-        <p>　　Xcode lldb 我經常使用的小伎倆</p>
-<a id="more"></a>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>下中斷點, 即可發現, 右下角出現 lldb 字樣, 就能開始輸入指令使用囉～</p>
-<p><a href="https://imgur.com/0jBCoit" target="_blank" rel="external">開始使用 lldb </a></p>
-<h1 id="help-指令"><a href="#help-指令" class="headerlink" title="help 指令"></a>help 指令</h1><p>最間單指令是 help，它會列出所有的指令。如果你忘記了一個指令是做什麼的，或者想知道更多的話，你可以聽過 <code>help &lt;command&gt;</code> 來離解更多，例如 <code>help print</code> 或者 <code>help thread</code>。如果你甚至忘記了 help 指令是做什麼的，你可以試試 help help。不過你如果知道怎麼做，那就說明你大概還沒有忘光這個指令。😛</p>
-<h1 id="打印資訊"><a href="#打印資訊" class="headerlink" title="打印資訊"></a>打印資訊</h1><p>打印某些資訊時, 我習慣使用 <code>po</code> (<code>print object</code> 的縮寫), 這樣就不用每次為了得到某些資訊都得下 print or NSLog 然後重新運行</p>
-<p><a href="https://imgur.com/9mEhr2e" target="_blank" rel="external">po</a></p>
-<h1 id="修改數值"><a href="#修改數值" class="headerlink" title="修改數值"></a>修改數值</h1><p><code>expression</code><br>也能簡寫成 <code>e</code><br>可以動態的去修改, 某些值<br>最常使用在, 如果在測試階段時, 想強迫它進某一個判斷使用</p>
-<p><a href="https://imgur.com/TCQ3VHn" target="_blank" rel="external">expression</a></p>
-<p><a href="https://imgur.com/V7qaaDH" target="_blank" rel="external">expression</a></p>
-
-      
-    </div>
-    
-  </div>
-  
-    
-    <div class="copyright">
-        <p><span>本文標題:</span><a href="/Xcode-lldb-小技能.html">Xcode lldb 小技能</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主頁">Tin</a></p>
-        <p><span>發布時間:</span>2017-11-21, 18:43:06</p>
-        <p><span>最後更新:</span>2017-11-22, 21:16:42</p>
-        <p>
-            <span>原始連結:</span><a class="post-url" href="/Xcode-lldb-小技能.html" title="Xcode lldb 小技能">http://s2339956.github.io/Xcode-lldb-小技能.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://s2339956.github.io/Xcode-lldb-小技能.html　　作者: Tin" title="點擊複製文章連結"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文連結及作者。
-        </p>
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Xcode/">Xcode</a><a class="article-category-link" href="/categories/Xcode/Logos/">Logos</a>
     </div>
 
 
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/Reveal14 使用.html">
-                    Reveal 14版 環境搭建
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017-11-19-21-37.html">
-                    2017-11-19-21:37
-                </a>
-            </div>
-        
-    </nav>
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目錄</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用"><span class="toc-number">1.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#help-指令"><span class="toc-number">2.</span> <span class="toc-text">help 指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#打印資訊"><span class="toc-number">3.</span> <span class="toc-text">打印資訊</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改數值"><span class="toc-number">4.</span> <span class="toc-text">修改數值</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
-
-    <script>
-        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享給QQ好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="複製網址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="透過郵件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章QRcode"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+          
         </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Xcode lldb 小技能　| Tin Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-    
-        <section id="comments">
-    <style> aside.comment-bar { margin: auto 30px; }</style>
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function(){
-            this.page.url = 'http://s2339956.github.io/Xcode-lldb-小技能.html';
-            this.page.identifier = 'Xcode-lldb-小技能.html';
-        };
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = '//s2339956.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        }
-    </script>
-    
-    <aside class="comment-bar">
-        <a href="javascript:void(0);">
-            <i class="fa fa-commenting-o animated infinite pulse"></i>
-            <i class="fa fa-spinner fa-pulse"></i>
-            <span class="count-comment"></span>
-        </a>
-    </aside>
-    <script>
-        var $commentBar = $("#comments aside.comment-bar");
-        var load$hide = function(){
-            $commentBar.find("a > i").toggle();
-            loadComment();
-            $commentBar.fadeOut(800);
-        }
-        $commentBar.click(function(){
-            load$hide();
-        })
-        $commentBar.children("a").hover(function(){
-            load$hide();
-        })
-        if (window.location.hash === "#comments") {
-            load$hide();
-        }
-    </script>
-
-</section>
-
-
-    // Add comment count
-    <script id="dsq-count-scr" src="//s2339956.disqus.com/count.js" async></script>
-    <span class="disqus-comment-count" data-disqus-identifier="Xcode-lldb-小技能.html"></span>
-    <span class="disqus-comment-count" data-disqus-url="http://s2339956.github.io/Xcode-lldb-小技能.html"></span>
-    <script>
-        $(".disqus-comment-count").hide();
-        var $disqusCount = $(".disqus-comment-count");
-        $disqusCount.bind("DOMNodeInserted", function(e) {
-            $(".count-comment").text(
-                $(this).text().replace(/[^0-9]/ig,"")
-            )
-            DISQUSWIDGETS.getCount({reset: true});
-        })
-    </script>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
     
 
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/Reveal14 使用.html" title="上一篇: Reveal 14版 環境搭建">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2017-11-19-21-37.html" title="下一篇: 2017-11-19-21:37">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Game_plug-in development_principle.html">遊戲外掛開發原理</a></li><li class="post-list-item"><a class="post-list-link" href="/Xcode10LogosSupports.html">Xcode10 配置 Logos 語法高亮</a></li><li class="post-list-item"><a class="post-list-link" href="/iOS_APP_Safety_Detection_Experience.html">過去 iOS APP 安全檢測心得</a></li><li class="post-list-item"><a class="post-list-link" href="/Non-Jailbreak_Shoot_The Moon_Reverse.html">免越獄 ShootMoon.app 逆向</a></li><li class="post-list-item"><a class="post-list-link" href="/Non-Jailbreak_iOS12_Badge_Color_Changer.html">免越獄 iOS12 Badge Color Changer</a></li><li class="post-list-item"><a class="post-list-link" href="/Python 開發必備神器之一：virtualenv.html">Python 開發必備神器之一：virtualenv</a></li><li class="post-list-item"><a class="post-list-link" href="/跳過iOS網頁視頻廣告，這樣就可以簡單做到.html">跳過iOS網頁視頻廣告，這樣就可以簡單做到</a></li><li class="post-list-item"><a class="post-list-link" href="/Reveal14 使用.html">Reveal 14版 環境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/Xcode-lldb-小技能.html">Xcode lldb 小技能</a></li><li class="post-list-item"><a class="post-list-link" href="/2017-11-19-21-37.html">2017-11-19-21:37</a></li><li class="post-list-item"><a class="post-list-link" href="/Python.html">Python join 語法使用</a></li><li class="post-list-item"><a class="post-list-link" href="/Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html">Obj-C 動態取得 Class 屬性名稱 and 屬性質值</a></li><li class="post-list-item"><a class="post-list-link" href="/xcode.html">Xcode 中斷點 簡介</a></li><li class="post-list-item"><a class="post-list-link" href="/markdown-table-style.html">Markdown 表格樣式調整與自適應優化</a></li><li class="post-list-item"><a class="post-list-link" href="/常用-Hexo-指令.html">常用 Hexo 指令</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
     <div class="outer">
