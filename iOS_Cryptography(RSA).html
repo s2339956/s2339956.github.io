@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1122613-3d34ffb888fe6ebe.png">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1122613-ce908da3ee97ec69.png">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1122613-0717e6a5458fcf3d.png">
-<meta property="og:updated_time" content="2019-04-30T06:49:25.478Z">
+<meta property="og:updated_time" content="2019-04-30T06:55:05.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 密碼學(RSA)">
 <meta name="twitter:description" content="iOS 密碼學(RSA)，粗略介紹。">
@@ -394,9 +394,9 @@
 <ol>
 <li>要想求出私鑰 d 。由於ed = φ(n)k + 1。要知道e和φ(n);<br></li>
 <li>e是知道的，但是要得到 φ(n)，必須知道p1 和 p2。<br></li>
-<li>由於 n=p1*p2。只有將n因數分解才能算出。<br></li>
+<li>由於 n=p1*p2。只有將n因數分解才能算出。<br><br><br><br><br></li>
 </ol>
-<h2 id="3-RSA終端命令"><a href="#3-RSA終端命令" class="headerlink" title="3. RSA終端命令"></a>3. RSA終端命令</h2><p>由於Mac系統內的 OpenSSL(開源加密庫)，所以我們可以直接在iTerm上使用命令來玩RSA. OpenSSL中RSA算法常用指令主要有三個：</p>
+<h2 id="3-RSA終端命令"><a href="#3-RSA終端命令" class="headerlink" title="3. RSA終端命令"></a>3. RSA終端命令</h2><p><br><br>由於Mac系統內的 OpenSSL(開源加密庫)，所以我們可以直接在iTerm上使用命令來玩RSA. OpenSSL中RSA算法常用指令主要有三個：<br></p>
 <table>
 <thead>
 <tr>
@@ -419,6 +419,7 @@
 </tr>
 </tbody>
 </table>
+<p><br></p>
 <h4 id="1-生成RSA私鑰，密鑰長度為1024bit"><a href="#1-生成RSA私鑰，密鑰長度為1024bit" class="headerlink" title="1. 生成RSA私鑰，密鑰長度為1024bit"></a>1. 生成RSA私鑰，密鑰長度為1024bit</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 生成RSA私鑰，密鑰長度為1024bit</span><br><span class="line">openssl genrsa -out private.pem 1024</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  Downloads openssl genrsa -out private.pem 1024</span><br><span class="line">Generating RSA private key, 1024 bit long modulus</span><br><span class="line">........+++++</span><br><span class="line">................................+++++</span><br><span class="line">e is 65537 (0x10001)</span><br></pre></td></tr></table></figure>
 <h4 id="2-從私鑰中提取公鑰"><a href="#2-從私鑰中提取公鑰" class="headerlink" title="2. 從私鑰中提取公鑰"></a>2. 從私鑰中提取公鑰</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 從私鑰中提取公鑰</span><br><span class="line">openssl rsa -in private.pem -pubout -out public.pem</span><br></pre></td></tr></table></figure>
@@ -427,6 +428,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  Downloads openssl rsa -in private.pem -text -out private.txt</span><br><span class="line">cat private.txt</span><br><span class="line">writing RSA key</span><br><span class="line">Private-Key: (1024 bit)</span><br><span class="line">modulus:</span><br><span class="line">    00:c6:46:ac:0e:4f:3b:01:2f:15:f3:94:23:50:32:</span><br></pre></td></tr></table></figure>
 <h4 id="4-通過公鑰加密數據，私鑰解密數據"><a href="#4-通過公鑰加密數據，私鑰解密數據" class="headerlink" title="4. 通過公鑰加密數據，私鑰解密數據"></a>4. 通過公鑰加密數據，私鑰解密數據</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 新建一個文件，在文件中隨意輸入內容，比如輸入字符串”Hello“</span><br><span class="line">vim message.txt</span><br><span class="line">// 查看文件</span><br><span class="line">cat message.txt</span><br><span class="line">// 通過公鑰進行加密</span><br><span class="line">openssl rsautl -encrypt -in message.txt -inkey public.pem -pubin -out enc.txt</span><br><span class="line">// 通過私鑰進行解密</span><br><span class="line">openssl rsautl -decrypt -in enc.txt -inkey private.pem -out dec.txt</span><br><span class="line">// 查看加密後的文件</span><br><span class="line">cat enc.txt</span><br><span class="line">// 查看解密後的文件</span><br><span class="line">cat dec.txt</span><br></pre></td></tr></table></figure>
 <h4 id="5-通過私鑰加密數據，公鑰解密數據"><a href="#5-通過私鑰加密數據，公鑰解密數據" class="headerlink" title="5. 通過私鑰加密數據，公鑰解密數據"></a>5. 通過私鑰加密數據，公鑰解密數據</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 私鑰加密</span><br><span class="line">openssl rsautl -sign -in message.txt -inkey private.pem -out enc_2.txt</span><br><span class="line">// 公鑰加密</span><br><span class="line">openssl rsautl -verify -in enc_2.txt -inkey public.pem -pubin -out dec_2.txt</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
 <h2 id="4-總結："><a href="#4-總結：" class="headerlink" title="4. 總結："></a>4. 總結：</h2><ol>
 <li>由於RSA加密解密用的不是一套數據，所以其保證了安全性。</li>
 <li>由於私鑰過大，所以效率較低</li>
@@ -444,7 +446,7 @@
         <p><span>本文標題:</span><a href="/iOS_Cryptography(RSA).html">iOS 密碼學(RSA)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主頁">Tin</a></p>
         <p><span>發布時間:</span>2019-04-30, 14:49:11</p>
-        <p><span>最後更新:</span>2019-04-30, 14:49:25</p>
+        <p><span>最後更新:</span>2019-04-30, 14:55:05</p>
         <p>
             <span>原始連結:</span><a class="post-url" href="/iOS_Cryptography(RSA).html" title="iOS 密碼學(RSA)">http://s2339956.github.io/iOS_Cryptography(RSA).html</a>
             <span class="copy-path" data-clipboard-text="原文: http://s2339956.github.io/iOS_Cryptography(RSA).html　　作者: Tin" title="點擊複製文章連結"><i class="fa fa-clipboard"></i></span>
