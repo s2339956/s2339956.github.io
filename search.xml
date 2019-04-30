@@ -68,7 +68,7 @@
 <li>最終由φ(n)得到e 和 d 。 <br><br>總共生成6個數字：p1、p2、n、φ(n)、e、d <br></li>
 </ol>
 </blockquote>
-<p><br><br><br><br>關於RSA的安全：<br><br>除了公鑰用到了n和e 其餘的4個數字是不公開的。<br><br>目前破解RSA得到d的方式如下：<br></p>
+<p><br><br>關於RSA的安全：<br><br>除了公鑰用到了n和e 其餘的4個數字是不公開的。<br><br>目前破解RSA得到d的方式如下：<br></p>
 <ol>
 <li>要想求出私鑰 d 。由於ed = φ(n)k + 1。要知道e和φ(n);<br></li>
 <li>e是知道的，但是要得到 φ(n)，必須知道p1 和 p2。<br></li>
