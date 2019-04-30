@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1122613-3d34ffb888fe6ebe.png">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1122613-ce908da3ee97ec69.png">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1122613-0717e6a5458fcf3d.png">
-<meta property="og:updated_time" content="2019-04-30T06:56:45.614Z">
+<meta property="og:updated_time" content="2019-04-30T07:33:00.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 密碼學(RSA)">
 <meta name="twitter:description" content="iOS 密碼學(RSA)，粗略介紹。">
@@ -337,11 +337,11 @@
 <li>RSA終端命令</li>
 <li>總結</li>
 </ol>
-<h2 id="1-什麼是密碼學"><a href="#1-什麼是密碼學" class="headerlink" title="1. 什麼是密碼學"></a>1. 什麼是密碼學</h2><p>密碼學的歷史大致可以追溯到兩千年前，相傳古羅馬名將凱撒大帝為了防止敵方截獲情報，用密碼傳送情報。凱撒的做法很簡單，就是對二十幾個羅馬字母建立一張對應表。這樣，如果不知道密碼本，即使截獲一段信息也看不懂。</p>
+<h2 id="什麼是密碼學"><a href="#什麼是密碼學" class="headerlink" title="什麼是密碼學"></a>什麼是密碼學</h2><p>密碼學的歷史大致可以追溯到兩千年前，相傳古羅馬名將凱撒大帝為了防止敵方截獲情報，用密碼傳送情報。凱撒的做法很簡單，就是對二十幾個羅馬字母建立一張對應表。這樣，如果不知道密碼本，即使截獲一段信息也看不懂。</p>
 <p>從凱撒大帝時代到上世紀70年代這段很長的時間裡，密碼學的發展非常的緩慢，因為設計者基本上靠經驗。沒有運用數學原理。<br>在1976年以前，所有的加密方法都是同一種模式：加密、解密使用同一種算法。在交互數據的時候，彼此通信的雙方就必須將規則告訴對方，否則沒法解密。那麼加密和解密的規則（簡稱密鑰），它保護就顯得尤其重要。傳遞密鑰就成為了最大的隱患。這種加密方式被成為對稱<a href="https://zh.wikipedia.org/wiki/%E5%B0%8D%E7%A8%B1%E5%AF%86%E9%91%B0%E5%8A%A0%E5%AF%86" target="_blank" rel="external">密鑰演算法（英語：Symmetric-key algorithm）</a>。</p>
 <p>1976年，兩位美國計算機學家 迪菲（W.Diffie）、赫爾曼（ M.Hellman ） 提出了一種嶄新構思，可以在不直接傳遞密鑰的情況下，完成密鑰交換。這被稱為”迪菲赫爾曼密鑰交換”算法。開創了密碼學研究的新方向。</p>
 <p>1977年三位麻省理工學院的數學家羅納德·李維斯特（Ron Rivest）、阿迪·薩莫爾（Adi Shamir）和倫納德·阿德曼（Leonard Adleman）一起設計了一種算法，可以實現非對稱加密。這個算法用他們三個人的名字命名，叫做RSA算法。<br>也就是說「<a href="https://zh.wikipedia.org/wiki/%E8%BF%AA%E8%8F%B2-%E8%B5%AB%E7%88%BE%E6%9B%BC%E5%AF%86%E9%91%B0%E4%BA%A4%E6%8F%9B" target="_blank" rel="external">迪菲-赫爾曼密鑰交換(英語：Diffie–Hellman key exchange，縮寫為D-H)</a>」在密碼學歷史的車輪中成為了一個轉折點。</p>
-<h2 id="2-RSA數學原理"><a href="#2-RSA數學原理" class="headerlink" title="2. RSA數學原理"></a>2. RSA數學原理</h2><p>我們先把所有需要用到的公式定理列出來：</p>
+<h2 id="RSA數學原理"><a href="#RSA數學原理" class="headerlink" title="RSA數學原理"></a>RSA數學原理</h2><p>我們先把所有需要用到的公式定理列出來：</p>
 <ol>
 <li><a href="https://zh.wikipedia.org/wiki/%E6%A8%A1%E9%99%A4" target="_blank" rel="external">取模運算</a></li>
 <li><a href="https://zh.wikipedia.org/zh-tw/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0" target="_blank" rel="external">歐拉函數φ</a></li>
@@ -364,10 +364,10 @@
 <center><img src="https://upload-images.jianshu.io/upload_images/1122613-3d34ffb888fe6ebe.png" alt=""></center>
 
 <h4 id="4-模反元素"><a href="#4-模反元素" class="headerlink" title="4. 模反元素"></a>4. 模反元素</h4><p>如果兩個正整數e和x互質，那麼一定可以找到整數d，使得 e*d-1 被x整除。那麼d就是e對於x的”模反元素”。</p>
-<center><img src="https://upload-images.jianshu.io/upload_images/1122613-ce908da3ee97ec69.png" alt=""></center>
+<center><br><img src="https://upload-images.jianshu.io/upload_images/1122613-ce908da3ee97ec69.png" alt=""><br></center>
 
-<h4 id="5-迪菲赫爾曼密鑰交換"><a href="#5-迪菲赫爾曼密鑰交換" class="headerlink" title="5. 迪菲赫爾曼密鑰交換"></a>5. 迪菲赫爾曼密鑰交換</h4><center><img src="https://upload-images.jianshu.io/upload_images/1122613-0717e6a5458fcf3d.png" alt=""></center>
 
+<h4 id="5-迪菲赫爾曼密鑰交換"><a href="#5-迪菲赫爾曼密鑰交換" class="headerlink" title="5. 迪菲赫爾曼密鑰交換"></a>5. 迪菲赫爾曼密鑰交換</h4><center><br><br><img src="https://upload-images.jianshu.io/upload_images/1122613-0717e6a5458fcf3d.png" alt=""><br><br></center>
 
 <p>如上圖：<br><br>客戶端持有一個隨機數13 ，服務端持有隨機數15，再選一對特殊的數，3是17的<a href="https://zh.wikipedia.org/wiki/%E5%8E%9F%E6%A0%B9" target="_blank" rel="external">原根</a>。<br>兩端交換的都是密文，就算中間被劫持，也不知道最後需要的傳輸的內容是10 <br><br>那麼這個10就是最後真正的密鑰。</p>
 <p>證明過程：<br></p>
@@ -382,6 +382,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m^e mod n = c</span><br><span class="line">c^d  mod n = m</span><br></pre></td></tr></table></figure>
 <p>這個公式也就是我們最後的RSA加密公式！ ！ ！<br><br>其中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">公鑰： n和e</span><br><span class="line">私鑰： n和d</span><br><span class="line">明文: m</span><br><span class="line">密文: c</span><br><span class="line">d是e對於φ(n)的&quot;模反元素&quot;。</span><br></pre></td></tr></table></figure>
+<p><br></p>
 <blockquote>
 <p>補充：</p>
 <ol>
@@ -396,7 +397,7 @@
 <li>e是知道的，但是要得到 φ(n)，必須知道p1 和 p2。<br></li>
 <li>由於 n=p1*p2。只有將n因數分解才能算出。<br><br><br><br><br></li>
 </ol>
-<h2 id="3-RSA終端命令"><a href="#3-RSA終端命令" class="headerlink" title="3. RSA終端命令"></a>3. RSA終端命令</h2><p><br><br>由於Mac系統內的 OpenSSL(開源加密庫)，所以我們可以直接在iTerm上使用命令來玩RSA. OpenSSL中RSA算法常用指令主要有三個：<br></p>
+<h2 id="RSA終端命令"><a href="#RSA終端命令" class="headerlink" title="RSA終端命令"></a>RSA終端命令</h2><p><br><br>由於Mac系統內的 OpenSSL(開源加密庫)，所以我們可以直接在iTerm上使用命令來玩RSA. OpenSSL中RSA算法常用指令主要有三個：<br></p>
 <table>
 <thead>
 <tr>
@@ -429,10 +430,10 @@
 <h4 id="4-通過公鑰加密數據，私鑰解密數據"><a href="#4-通過公鑰加密數據，私鑰解密數據" class="headerlink" title="4. 通過公鑰加密數據，私鑰解密數據"></a>4. 通過公鑰加密數據，私鑰解密數據</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 新建一個文件，在文件中隨意輸入內容，比如輸入字符串”Hello“</span><br><span class="line">vim message.txt</span><br><span class="line">// 查看文件</span><br><span class="line">cat message.txt</span><br><span class="line">// 通過公鑰進行加密</span><br><span class="line">openssl rsautl -encrypt -in message.txt -inkey public.pem -pubin -out enc.txt</span><br><span class="line">// 通過私鑰進行解密</span><br><span class="line">openssl rsautl -decrypt -in enc.txt -inkey private.pem -out dec.txt</span><br><span class="line">// 查看加密後的文件</span><br><span class="line">cat enc.txt</span><br><span class="line">// 查看解密後的文件</span><br><span class="line">cat dec.txt</span><br></pre></td></tr></table></figure>
 <h4 id="5-通過私鑰加密數據，公鑰解密數據"><a href="#5-通過私鑰加密數據，公鑰解密數據" class="headerlink" title="5. 通過私鑰加密數據，公鑰解密數據"></a>5. 通過私鑰加密數據，公鑰解密數據</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 私鑰加密</span><br><span class="line">openssl rsautl -sign -in message.txt -inkey private.pem -out enc_2.txt</span><br><span class="line">// 公鑰加密</span><br><span class="line">openssl rsautl -verify -in enc_2.txt -inkey public.pem -pubin -out dec_2.txt</span><br></pre></td></tr></table></figure>
 <p><br><br><br></p>
-<h2 id="4-總結："><a href="#4-總結：" class="headerlink" title="4. 總結："></a>4. 總結：</h2><ol>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><ol>
 <li>由於RSA加密解密用的不是一套數據，所以其保證了安全性。</li>
 <li>由於私鑰過大，所以效率較低</li>
-<li>如果有一天量子計算機被普及(計算速度極快)，那麼1024位已經不足以讓RSA安全。</li>
+<li>如果有一天量子計算機被普及(計算速度極快)，那麼1024位已經不足以讓RSA安全。<br><br><br><br><br><br></li>
 </ol>
 <hr>
 
@@ -446,7 +447,7 @@
         <p><span>本文標題:</span><a href="/iOS_Cryptography(RSA).html">iOS 密碼學(RSA)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主頁">Tin</a></p>
         <p><span>發布時間:</span>2019-04-30, 14:49:11</p>
-        <p><span>最後更新:</span>2019-04-30, 14:56:45</p>
+        <p><span>最後更新:</span>2019-04-30, 15:33:00</p>
         <p>
             <span>原始連結:</span><a class="post-url" href="/iOS_Cryptography(RSA).html" title="iOS 密碼學(RSA)">http://s2339956.github.io/iOS_Cryptography(RSA).html</a>
             <span class="copy-path" data-clipboard-text="原文: http://s2339956.github.io/iOS_Cryptography(RSA).html　　作者: Tin" title="點擊複製文章連結"><i class="fa fa-clipboard"></i></span>
@@ -476,7 +477,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目錄</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#導引"><span class="toc-number">1.</span> <span class="toc-text">導引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什麼是密碼學"><span class="toc-number">2.</span> <span class="toc-text">1. 什麼是密碼學</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-RSA數學原理"><span class="toc-number">3.</span> <span class="toc-text">2. RSA數學原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-取模運算"><span class="toc-number">3.0.1.</span> <span class="toc-text">1. 取模運算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-歐拉函數φ"><span class="toc-number">3.0.2.</span> <span class="toc-text">2. 歐拉函數φ</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-歐拉定理，費馬小定理"><span class="toc-number">3.0.3.</span> <span class="toc-text">3. 歐拉定理，費馬小定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-模反元素"><span class="toc-number">3.0.4.</span> <span class="toc-text">4. 模反元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-迪菲赫爾曼密鑰交換"><span class="toc-number">3.0.5.</span> <span class="toc-text">5. 迪菲赫爾曼密鑰交換</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-RSA終端命令"><span class="toc-number">4.</span> <span class="toc-text">3. RSA終端命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-生成RSA私鑰，密鑰長度為1024bit"><span class="toc-number">4.0.1.</span> <span class="toc-text">1. 生成RSA私鑰，密鑰長度為1024bit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-從私鑰中提取公鑰"><span class="toc-number">4.0.2.</span> <span class="toc-text">2. 從私鑰中提取公鑰</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-將私鑰轉換成為明文"><span class="toc-number">4.0.3.</span> <span class="toc-text">3. 將私鑰轉換成為明文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-通過公鑰加密數據，私鑰解密數據"><span class="toc-number">4.0.4.</span> <span class="toc-text">4. 通過公鑰加密數據，私鑰解密數據</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-通過私鑰加密數據，公鑰解密數據"><span class="toc-number">4.0.5.</span> <span class="toc-text">5. 通過私鑰加密數據，公鑰解密數據</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-總結："><span class="toc-number">5.</span> <span class="toc-text">4. 總結：</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#導引"><span class="toc-number">1.</span> <span class="toc-text">導引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什麼是密碼學"><span class="toc-number">2.</span> <span class="toc-text">什麼是密碼學</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSA數學原理"><span class="toc-number">3.</span> <span class="toc-text">RSA數學原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-取模運算"><span class="toc-number">3.0.1.</span> <span class="toc-text">1. 取模運算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-歐拉函數φ"><span class="toc-number">3.0.2.</span> <span class="toc-text">2. 歐拉函數φ</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-歐拉定理，費馬小定理"><span class="toc-number">3.0.3.</span> <span class="toc-text">3. 歐拉定理，費馬小定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-模反元素"><span class="toc-number">3.0.4.</span> <span class="toc-text">4. 模反元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-迪菲赫爾曼密鑰交換"><span class="toc-number">3.0.5.</span> <span class="toc-text">5. 迪菲赫爾曼密鑰交換</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSA終端命令"><span class="toc-number">4.</span> <span class="toc-text">RSA終端命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-生成RSA私鑰，密鑰長度為1024bit"><span class="toc-number">4.0.1.</span> <span class="toc-text">1. 生成RSA私鑰，密鑰長度為1024bit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-從私鑰中提取公鑰"><span class="toc-number">4.0.2.</span> <span class="toc-text">2. 從私鑰中提取公鑰</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-將私鑰轉換成為明文"><span class="toc-number">4.0.3.</span> <span class="toc-text">3. 將私鑰轉換成為明文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-通過公鑰加密數據，私鑰解密數據"><span class="toc-number">4.0.4.</span> <span class="toc-text">4. 通過公鑰加密數據，私鑰解密數據</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-通過私鑰加密數據，公鑰解密數據"><span class="toc-number">4.0.5.</span> <span class="toc-text">5. 通過私鑰加密數據，公鑰解密數據</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#總結"><span class="toc-number">5.</span> <span class="toc-text">總結</span></a></li></ol>
         
     </div>
     <style>
