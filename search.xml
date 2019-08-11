@@ -245,45 +245,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[無限試用 Navicat Premium]]></title>
-      <url>/%E7%84%A1%E9%99%90%E8%A9%A6%E7%94%A8Navicat%20Premium.html</url>
-      <content type="html"><![CDATA[<p>　　逆向攻破，無限試用。</p>
-<a id="more"></a>
-<p>經過一段時間後，試用期已到期，無法再繼續享受 Navicat Premium，所帶來的方便，如下圖: <br></p>
-<p><img src="/images/Unlimited-trial-NavicatPremium/maturity.png" alt=""><br><br><br><br><br>決定來研究一下，該app相關的內碼，<br><br>在此聲明，該文章純屬學習研究，請勿用於其他途徑。<br><br><br><br><br></p>
-<ol>
-<li>找出二進制文件(mach-O、unix執行檔)，<br><br><code>/Applications/Navicat Premium.app/Contents/MacOS/Navicat Premium</code></li>
-<li>使用 Hopper Disassembler v4 Standard Edition (4.5.13)，來對二進制文件反編譯</li>
-<li>搜索字串<code>http://www.navicat.com/cht/store</code>，<br><br>找到</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span># 找到使用者</span><br><span class="line">0000000102d5bf5b         db         "http://www.navicat.com/cht/store", 0       ; DATA XREF=cfstring_http___www_navicat_com_cht_store</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 相關地址</span><br><span class="line">0000000103c2b600         dq         0x0000000104750310, 0x00000000000007c8, 0x0000000102d5bf5b, 0x0000000000000020 ; "http://www.navicat.com/cht/store", DATA XREF=qword_103f773b8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 使用者</span><br><span class="line">0000000103f773b8         dq         0x0000000103c2b600                          ; @"http://www.navicat.com/cht/store", DATA XREF=+[Registration ApplicationChecking:isLaunch:]+481, +[Registration ApplicationChecking:isLaunch:]+899, +[Registration ApplicationChecking:isLaunch:]+5518, +[Registration ApplicationChecking:isLaunch:]+5758, +[Registration ApplicationChecking:isLaunch:]+6039, +[Registration ApplicationChecking:isLaunch:]+9206, -[Registration BuyNow:]+52</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># ↑ [Registration ApplicationChecking:isLaunch:]，如名得知，這可能是一個檢查方法</span><br></pre></td></tr></table></figure>
-<p>查看一下方法的匯編程式碼(assembly language)，</p>
-<p><img src="/images/Unlimited-trial-NavicatPremium/assemblyLanguage.png" alt=""></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov        ebx, eax</span><br><span class="line">cmp        ebx, 0xffffffff</span><br><span class="line">je         loc_100325e47</span><br></pre></td></tr></table></figure>
-<p>其關鍵指令如上，賦值給<code>ebx</code>，再進行判斷<code>exb</code>如果等於1，就跳轉至地址<code>loc_100325e47</code>，然而如果不等於則跳轉至<code>loc_100325e47</code>，<code>loc_100325e47</code>也是通過檢測後執行的方法。<br><br></p>
-<ol>
-<li>修改指令 </li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mov        ebx, 0x0</span><br><span class="line">je         loc_100325e47</span><br></pre></td></tr></table></figure>
-<p>直接跳過判斷指令，來到最終目的。</p>
-<ol>
-<li>儲存並輸出</li>
-<li>拖回原位置，並取代</li>
-</ol>
-<p><img src="/images/Unlimited-trial-NavicatPremium/fulfil.png" alt=""></p>
-<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>此app對於購買流程的安全保護，幾乎可以說是零，對於一般攻擊者而言，很容易就可以完成了，另外也能使用插件的方式去hook相關方法再去繞過檢測，但如果熟悉匯編程式碼(assembly language)，在操作繞過方面會比較簡易且快速，另外呼籲大家務必支持正版，杜絕盜版。</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> MacOS </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Python 開發必備神器之一：virtualenv]]></title>
       <url>/Python%20%E9%96%8B%E7%99%BC%E5%BF%85%E5%82%99%E7%A5%9E%E5%99%A8%E4%B9%8B%E4%B8%80%EF%BC%9Avirtualenv.html</url>
       <content type="html"><![CDATA[<p>　　並獨立出 Python 環境。可使每個項目環境與其他項目獨立開來，保持環境的干淨，解決包衝突問題。</p>
