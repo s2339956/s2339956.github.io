@@ -4,8 +4,25 @@
 
     
   <url>
+    <loc>http://s2339956.github.io/%E7%84%A1%E9%99%90%E8%A9%A6%E7%94%A8Navicat%20Premium.html</loc>
+    <lastmod>2019-08-11T14:26:57.150Z</lastmod>
+    <data>
+        <display>
+        <title>無限試用 Navicat Premium</title>
+        <pubTime>2018-08-11T09:30:22.000Z</pubTime>
+        
+        <tag>MacOS</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://s2339956.github.io/iOS_Cryptography(RSA).html</loc>
-    <lastmod>2019-04-30T07:33:00.430Z</lastmod>
+    <lastmod>2019-04-30T07:33:00.000Z</lastmod>
     <data>
         <display>
         <title>iOS 密碼學(RSA)</title>
@@ -23,7 +40,7 @@
     
   <url>
     <loc>http://s2339956.github.io/Xcode10LogosSupports.html</loc>
-    <lastmod>2019-04-24T06:53:46.977Z</lastmod>
+    <lastmod>2019-04-24T06:53:46.000Z</lastmod>
     <data>
         <display>
         <title>Xcode10 配置 Logos 語法高亮</title>
@@ -45,7 +62,7 @@
     
   <url>
     <loc>http://s2339956.github.io/Game_plug-in%20development_principle.html</loc>
-    <lastmod>2019-04-23T06:50:47.468Z</lastmod>
+    <lastmod>2019-04-23T06:50:47.000Z</lastmod>
     <data>
         <display>
         <title>遊戲外掛開發原理</title>
@@ -60,7 +77,7 @@
     
   <url>
     <loc>http://s2339956.github.io/iOS_APP_Safety_Detection_Experience.html</loc>
-    <lastmod>2019-03-12T06:47:21.321Z</lastmod>
+    <lastmod>2019-03-12T06:47:21.000Z</lastmod>
     <data>
         <display>
         <title>過去 iOS APP 安全檢測心得</title>
@@ -77,7 +94,7 @@
     
   <url>
     <loc>http://s2339956.github.io/Non-Jailbreak_Shoot_The%20Moon_Reverse.html</loc>
-    <lastmod>2019-03-07T09:20:33.508Z</lastmod>
+    <lastmod>2019-03-07T09:20:33.000Z</lastmod>
     <data>
         <display>
         <title>免越獄 ShootMoon.app 逆向</title>
@@ -94,7 +111,7 @@
     
   <url>
     <loc>http://s2339956.github.io/Non-Jailbreak_iOS12_Badge_Color_Changer.html</loc>
-    <lastmod>2019-03-05T06:49:39.085Z</lastmod>
+    <lastmod>2019-03-05T06:49:39.000Z</lastmod>
     <data>
         <display>
         <title>免越獄 iOS12 Badge Color Changer</title>
@@ -111,7 +128,7 @@
     
   <url>
     <loc>http://s2339956.github.io/Python%20%E9%96%8B%E7%99%BC%E5%BF%85%E5%82%99%E7%A5%9E%E5%99%A8%E4%B9%8B%E4%B8%80%EF%BC%9Avirtualenv.html</loc>
-    <lastmod>2018-06-05T03:43:05.960Z</lastmod>
+    <lastmod>2018-06-05T03:43:05.000Z</lastmod>
     <data>
         <display>
         <title>Python 開發必備神器之一：virtualenv</title>
@@ -128,7 +145,7 @@
     
   <url>
     <loc>http://s2339956.github.io/Reveal14%20%E4%BD%BF%E7%94%A8.html</loc>
-    <lastmod>2018-06-05T03:32:45.160Z</lastmod>
+    <lastmod>2018-06-05T03:32:45.000Z</lastmod>
     <data>
         <display>
         <title>Reveal 14版 環境搭建</title>
@@ -145,7 +162,7 @@
     
   <url>
     <loc>http://s2339956.github.io/%E8%B7%B3%E9%81%8EiOS%E7%B6%B2%E9%A0%81%E8%A6%96%E9%A0%BB%E5%BB%A3%E5%91%8A%EF%BC%8C%E9%80%99%E6%A8%A3%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%B0%A1%E5%96%AE%E5%81%9A%E5%88%B0.html</loc>
-    <lastmod>2018-06-05T03:32:31.570Z</lastmod>
+    <lastmod>2018-06-05T03:32:31.000Z</lastmod>
     <data>
         <display>
         <title>跳過iOS網頁視頻廣告，這樣就可以簡單做到</title>
@@ -162,7 +179,7 @@
     
   <url>
     <loc>http://s2339956.github.io/Obj-C-%E5%8B%95%E6%85%8B%E5%8F%96%E5%BE%97-Class-%E5%B1%AC%E6%80%A7%E5%90%8D%E7%A8%B1-and-%E5%B1%AC%E6%80%A7%E8%B3%AA%E5%80%BC.html</loc>
-    <lastmod>2018-01-05T13:24:32.850Z</lastmod>
+    <lastmod>2018-01-05T13:24:32.000Z</lastmod>
     <data>
         <display>
         <title>Obj-C 動態取得 Class 屬性名稱 and 屬性質值</title>
@@ -179,7 +196,7 @@
     
   <url>
     <loc>http://s2339956.github.io/Xcode-lldb-%E5%B0%8F%E6%8A%80%E8%83%BD.html</loc>
-    <lastmod>2017-11-22T13:16:42.610Z</lastmod>
+    <lastmod>2017-11-22T13:16:42.000Z</lastmod>
     <data>
         <display>
         <title>Xcode lldb 小技能</title>
@@ -196,7 +213,7 @@
     
   <url>
     <loc>http://s2339956.github.io/Python.html</loc>
-    <lastmod>2017-11-21T10:01:16.820Z</lastmod>
+    <lastmod>2017-11-21T10:01:16.000Z</lastmod>
     <data>
         <display>
         <title>Python join 語法使用</title>
@@ -213,7 +230,7 @@
     
   <url>
     <loc>http://s2339956.github.io/2017-11-19-21-37.html</loc>
-    <lastmod>2017-11-19T13:39:49.510Z</lastmod>
+    <lastmod>2017-11-19T13:39:49.000Z</lastmod>
     <data>
         <display>
         <title>2017-11-19-21:37</title>
@@ -229,7 +246,7 @@
     
   <url>
     <loc>http://s2339956.github.io/xcode.html</loc>
-    <lastmod>2017-11-16T03:23:51.920Z</lastmod>
+    <lastmod>2017-11-16T03:23:51.000Z</lastmod>
     <data>
         <display>
         <title>Xcode 中斷點 簡介</title>
@@ -246,7 +263,7 @@
     
   <url>
     <loc>http://s2339956.github.io/markdown-table-style.html</loc>
-    <lastmod>2017-11-15T10:09:40.050Z</lastmod>
+    <lastmod>2017-11-15T10:09:40.000Z</lastmod>
     <data>
         <display>
         <title>Markdown 表格樣式調整與自適應優化</title>
@@ -271,7 +288,7 @@
     
   <url>
     <loc>http://s2339956.github.io/%E5%B8%B8%E7%94%A8-Hexo-%E6%8C%87%E4%BB%A4.html</loc>
-    <lastmod>2017-11-15T01:49:38.520Z</lastmod>
+    <lastmod>2017-11-15T01:49:38.000Z</lastmod>
     <data>
         <display>
         <title>常用 Hexo 指令</title>
