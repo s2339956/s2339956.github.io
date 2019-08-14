@@ -125,15 +125,15 @@
                     <ul class="menu">
                         
                             <li role="presentation" class="text-center">
-                                <a href="/"><i class="fa ./img/icons8-home-page-80.png"></i>Home</a>
+                                <a href="/"><i class="fa icons8-home-page-80.png"></i>Home</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
-                                <a href="/archives/"><i class="fa ./img/icons8-time-80.png"></i>時間軸</a>
+                                <a href="/archives/"><i class="fa icons8-time-80.png"></i>時間軸</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
-                                <a href="/about/"><i class="fa ./img/about.png"></i>About</a>
+                                <a href="/about/"><i class="fa about.png"></i>About</a>
                             </li>
                         
                     </ul>
@@ -252,23 +252,25 @@
 
     <div id="comments">
         
-	
-  <script id="dsq-count-scr" src="https://s2339956.disqus.com/count.js" async></script>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
 
-
+<div id="gitalk-container"></div>
 <script type="text/javascript">
-  var disqus_config = function () {
-    this.page.url = 'http://s2339956.github.io/iOS_APP_Safety_Detection_Experience.html';
-    this.page.identifier = 'iOS_APP_Safety_Detection_Experience.html';
-    this.page.title = '過去 iOS APP 安全檢測心得';
-  };
-  var d = document, s = d.createElement('script');
-  s.src = 'https://s2339956.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', '' + +new Date());
-  (d.head || d.body).appendChild(s);
+    var gitalk = new Gitalk({
+        // Gitalk配置
+        language: "zh-Hant-TW",
+        clientID: "963ce46b3653bea85cac",
+        clientSecret: "e3e6d59e4e9b0b7c7d639a92decbdfecc771e67e",
+        repo: "s2339956.github.is",
+        owner: "s2339956",
+        admin: ["s2339956"],
+        id: md5(location.pathname),
+        distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
 </script>
-
-
 
 
     </div>
