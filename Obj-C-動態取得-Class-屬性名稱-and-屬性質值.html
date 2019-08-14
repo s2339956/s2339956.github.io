@@ -1,330 +1,187 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="zh-Hant-TW">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Tin Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://s2339956.github.io">
+    <!--SEO-->
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
+    <meta name="keywords" content="{{ page.keywords }}">
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no" />
-<meta name="author" content="Tin" />
+
+    <meta name="description" content="　　Objective-C 擴充 NSArray 實現動態取得類別屬性, 縮減程式碼使用
+
+
+12345678910111213141516171819202122232425262728#im...">
 
 
 
-<meta name="description" content="Objective-C 擴充 NSArray 實現動態取得類別屬性, 縮減程式碼使用">
-<meta name="keywords" content="Objective-C,動態,NSArray">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Obj-C 動態取得 Class 屬性名稱 and 屬性質值">
-<meta property="og:url" content="http://s2339956.github.io/Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html">
-<meta property="og:site_name" content="Tin Blog">
-<meta property="og:description" content="Objective-C 擴充 NSArray 實現動態取得類別屬性, 縮減程式碼使用">
-<meta property="og:locale" content="zh-Hant-TW">
-<meta property="og:updated_time" content="2018-01-05T13:24:32.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Obj-C 動態取得 Class 屬性名稱 and 屬性質值">
-<meta name="twitter:description" content="Objective-C 擴充 NSArray 實現動態取得類別屬性, 縮減程式碼使用">
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
 
-<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+    <!--Title-->
+
+
+<title>Obj-C 動態取得 Class 屬性名稱 and 屬性質值 | Tin Blog</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
 
 
+    <link rel="icon" href="/img/favicon.png">
 
-    <link rel="shortcut icon" href="/img/favicon.png">
-
-
-
-    <link href="//cdn.baomitu.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+    
 
 
 
-    <link href="//cdn.baomitu.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
 
 
 
-    <script src="//cdn.baomitu.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.baomitu.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
 
-
-<link rel="stylesheet" href="/css/style.css">
-
-
-
-<link href="//cdn.baomitu.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-
-
-<title>Obj-C 動態取得 Class 屬性名稱 and 屬性質值 | Tin Blog</title>
-
-<script src="//cdn.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdn.baomitu.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-<script>
-    var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: false,
-        isPost: true,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        fancybox_js: "//cdn.baomitu.com/fancybox/2.1.5/jquery.fancybox.min.js",
-        scrollreveal: "//cdn.baomitu.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: true
-    }
-</script>
-
-
-    <script>
-        yiliaConfig.jquery_ui = [true, "//cdn.baomitu.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.baomitu.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
-    </script>
-
-
-
-    <script> yiliaConfig.rootUrl = "\/";</script>
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
 
 
 
 
 
+
+    
 
 </head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">Tin</a></h1>
-        </hgroup>
-
-        
-        <p class="header-subtitle">星星給予仰望者光芒</p>
-        
-
-        
-            <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-            </form>
-            <div id="local-search-result"></div>
-            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
-        
-
-
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 星星給予仰望者光芒 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://s2339956.github.io">Tin Blog</a>
                 </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>選單</li>
-                        <li>標籤</li>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
                         
-                        <li>友情連結</li>
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
                         
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>時間軸</a>
+                            </li>
                         
-                        <li>關於我</li>
+                            <li role="presentation" class="text-center">
+                                <a href="/about/"><i class="fa "></i>About</a>
+                            </li>
                         
                     </ul>
                 </div>
             </div>
-        
-
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主頁</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">標籤</a></li>
-                        
-                            <li><a href="/about/">關於我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" href="mailto:s2339956@gmail.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" href="https://github.com/s2339956" title="GitHub"></a>
-                            
-                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
-                            
-                                <a class="fa 微信" href="/s2339956" title="微信"></a>
-                            
-                                <a class="fa Instagram" href="https://www.instagram.com/s2339956/" title="Instagram"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Table/">Table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://charles.iiilab.com/">Charles</a>
-                    
-                    </div>
-                </section>
-                
-
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">專注於 iOS App</div>
-                </section>
-                
-            </div>
         </div>
-    </header>                
-</div>
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Tin</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">Tin</a></h1>
-            </hgroup>
-            
-            <p class="header-subtitle">星星給予仰望者光芒</p>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主頁</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/">標籤</a></li>
-                
-                    <li><a href="/about/">關於我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="mailto:s2339956@gmail.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/s2339956" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
-                            
-                                <a class="fa 微信" target="_blank" href="/s2339956" title="微信"></a>
-                            
-                                <a class="fa Instagram" target="_blank" href="https://www.instagram.com/s2339956/" title="Instagram"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
-    <link class="menu-list" tags="標籤" friends="友情連結" about="關於我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Obj-C-動態取得-Class-屬性名稱-and-屬性質值" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html" class="article-date">
-      <time datetime="2017-11-16T12:22:37.000Z" itemprop="datePublished">2017-11-16</time>
-</a>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Obj-C 動態取得 Class 屬性名稱 and 屬性質值">
+            
+	            Obj-C 動態取得 Class 屬性名稱 and 屬性質值
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            
+        </span>
+    
 
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/Objective-C/">Objective-C</a>
+                
+            </span>
+        </span>
+    
 
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2017/11/16</span>
+        </span>
+        
+    
+</div>
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>635</strong>天之前發表，文章内容可能已經過時。
+            </p>
+        
     </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Obj-C 動態取得 Class 屬性名稱 and 屬性質值
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
+    <div class="post-body post-content">
         <p>　　Objective-C 擴充 NSArray 實現動態取得類別屬性, 縮減程式碼使用</p>
 <a id="more"></a>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import "NSArray+Extension.h"</span></span><br><span class="line"><span class="comment">#import &lt;objc/runtime.h&gt; // 導入運行時文件</span></span><br><span class="line"><span class="meta">@implementation NSArray (Extension)</span></span><br><span class="line"></span><br><span class="line">// 返回當前類別所有屬性</span><br><span class="line">+ (instancetype)getProperties:(Class)cls&#123;</span><br><span class="line"></span><br><span class="line">    // 取得當前類別所以屬性</span><br><span class="line">    unsigned int count; // 記錄屬性個數</span><br><span class="line">    objc_property_t *properties = class_copyPropertyList(cls, &amp;count);</span><br><span class="line">    //</span><br><span class="line">    NSMutableArray *mArray = [NSMutableArray array];</span><br><span class="line">    <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line"></span><br><span class="line">        // An opaque type that represents an Objective-C declared property.</span><br><span class="line">        // objc_property_t 屬性類型</span><br><span class="line">        objc_property_t property = properties[i];</span><br><span class="line">        // 獲取屬性的名稱 C語言 字串</span><br><span class="line">        const char *cName = property_getName(property);</span><br><span class="line">        // 轉換為 Objective C 字串</span><br><span class="line">        NSString *name = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];</span><br><span class="line"></span><br><span class="line">        [mArray addObject:name];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mArray.copy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@end</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt;= [datas count]; i++) &#123;</span><br><span class="line">        //取得所有屬性 ，檢查屬性值使否空</span><br><span class="line">        NSArray *names = [NSArray getProperties:[datas[i] class]];// #import "NSArray+Extension.h" 使用分類(擴充)</span><br><span class="line">        <span class="keyword">for</span> (NSString *name <span class="keyword">in</span> names) &#123;</span><br><span class="line">            // 取得Property的值</span><br><span class="line">            id propertyValue = [datas[i] valueForKey:name];</span><br><span class="line">            NSLog(@<span class="string">"checkJoinMemberAPIPostParameter \npropertyName: %@, propertyValue: %@"</span>, name, propertyValue);</span><br><span class="line">            <span class="keyword">if</span> !(propertyValue) &#123;</span><br><span class="line">                // 如果等於空 表示沒有值</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//    &#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>這種方式可以使用在, 如果你有許多欄位要判斷的時候</p>
 <blockquote>
@@ -333,289 +190,126 @@
 </blockquote>
 <hr>
 
-      
     </div>
     
-  </div>
-  
-    
-    <div class="copyright">
-        <p><span>本文標題:</span><a href="/Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html">Obj-C 動態取得 Class 屬性名稱 and 屬性質值</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主頁">Tin</a></p>
-        <p><span>發布時間:</span>2017-11-16, 20:22:37</p>
-        <p><span>最後更新:</span>2018-01-05, 21:24:32</p>
-        <p>
-            <span>原始連結:</span><a class="post-url" href="/Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html" title="Obj-C 動態取得 Class 屬性名稱 and 屬性質值">http://s2339956.github.io/Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://s2339956.github.io/Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html　　作者: Tin" title="點擊複製文章連結"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文連結及作者。
-        </p>
+    <div class="post-footer">
+        <div>
+            
+                轉載聲明：商業轉載請聯繫作者獲得授權, 非商業轉載請註明出處 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
     </div>
-
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/Python.html">
-                    Python join 語法使用
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/xcode.html">
-                    Xcode 中斷點 簡介
-                </a>
-            </div>
-        
-    </nav>
-
-  
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目錄</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用方法"><span class="toc-number">1.</span> <span class="toc-text">使用方法</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
-
-    <script>
-        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
-    </script>
-
-
-
+<div class="article-nav prev-next-wrap clearfix">
     
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享給QQ好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="複製網址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="透過郵件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章QRcode"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Obj-C 動態取得 Class 屬性名稱 and 屬性質值　| Tin Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-    
-        <section id="comments">
-    <style> aside.comment-bar { margin: auto 30px; }</style>
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function(){
-            this.page.url = 'http://s2339956.github.io/Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html';
-            this.page.identifier = 'Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html';
-        };
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = '//s2339956.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        }
-    </script>
-    
-    <aside class="comment-bar">
-        <a href="javascript:void(0);">
-            <i class="fa fa-commenting-o animated infinite pulse"></i>
-            <i class="fa fa-spinner fa-pulse"></i>
-            <span class="count-comment"></span>
+        <a href="/Python.html" class="pre-post btn btn-default" title='Python join 語法使用'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Python join 語法使用</span>
         </a>
-    </aside>
-    <script>
-        var $commentBar = $("#comments aside.comment-bar");
-        var load$hide = function(){
-            $commentBar.find("a > i").toggle();
-            loadComment();
-            $commentBar.fadeOut(800);
-        }
-        $commentBar.click(function(){
-            load$hide();
-        })
-        $commentBar.children("a").hover(function(){
-            load$hide();
-        })
-        if (window.location.hash === "#comments") {
-            load$hide();
-        }
-    </script>
-
-</section>
-
-
-    // Add comment count
-    <script id="dsq-count-scr" src="//s2339956.disqus.com/count.js" async></script>
-    <span class="disqus-comment-count" data-disqus-identifier="Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html"></span>
-    <span class="disqus-comment-count" data-disqus-url="http://s2339956.github.io/Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html"></span>
-    <script>
-        $(".disqus-comment-count").hide();
-        var $disqusCount = $(".disqus-comment-count");
-        $disqusCount.bind("DOMNodeInserted", function(e) {
-            $(".count-comment").text(
-                $(this).text().replace(/[^0-9]/ig,"")
-            )
-            DISQUSWIDGETS.getCount({reset: true});
-        })
-    </script>
-
     
+    
+        <a href="/xcode.html" class="next-post btn btn-default" title='Xcode 中斷點 簡介'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Xcode 中斷點 簡介</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
 
 
-
-
-    <div class="scroll" id="post-nav-button">
+    <div id="comments">
         
-            <a href="/Python.html" title="上一篇: Python join 語法使用">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '說些什麼',
+            notify: false,
+            verify: true,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hant-TW'.toLowerCase()
+        })
+    </script>
 
-        
-            <a href="/xcode.html" title="下一篇: Xcode 中斷點 簡介">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
+
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/iOS_Cryptography(RSA).html">iOS 密碼學(RSA)</a></li><li class="post-list-item"><a class="post-list-link" href="/Xcode10LogosSupports.html">Xcode10 配置 Logos 語法高亮</a></li><li class="post-list-item"><a class="post-list-link" href="/Game_plug-in development_principle.html">遊戲外掛開發原理</a></li><li class="post-list-item"><a class="post-list-link" href="/iOS_APP_Safety_Detection_Experience.html">過去 iOS APP 安全檢測心得</a></li><li class="post-list-item"><a class="post-list-link" href="/Non-Jailbreak_Shoot_The Moon_Reverse.html">免越獄 ShootMoon.app 逆向</a></li><li class="post-list-item"><a class="post-list-link" href="/Non-Jailbreak_iOS12_Badge_Color_Changer.html">免越獄 iOS12 Badge Color Changer</a></li><li class="post-list-item"><a class="post-list-link" href="/Python 開發必備神器之一：virtualenv.html">Python 開發必備神器之一：virtualenv</a></li><li class="post-list-item"><a class="post-list-link" href="/跳過iOS網頁視頻廣告，這樣就可以簡單做到.html">跳過iOS網頁視頻廣告，這樣就可以簡單做到</a></li><li class="post-list-item"><a class="post-list-link" href="/Reveal14 使用.html">Reveal 14版 環境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/Xcode-lldb-小技能.html">Xcode lldb 小技能</a></li><li class="post-list-item"><a class="post-list-link" href="/2017-11-19-21-37.html">2017-11-19-21:37</a></li><li class="post-list-item"><a class="post-list-link" href="/Python.html">Python join 語法使用</a></li><li class="post-list-item"><a class="post-list-link" href="/Obj-C-動態取得-Class-屬性名稱-and-屬性質值.html">Obj-C 動態取得 Class 屬性名稱 and 屬性質值</a></li><li class="post-list-item"><a class="post-list-link" href="/xcode.html">Xcode 中斷點 簡介</a></li><li class="post-list-item"><a class="post-list-link" href="/markdown-table-style.html">Markdown 表格樣式調整與自適應優化</a></li><li class="post-list-item"><a class="post-list-link" href="/常用-Hexo-指令.html">常用 Hexo 指令</a></li></ul>
 
 
 
 
-    <script>
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
         
-    </script>
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2017-2019 Tin
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、簡單且強大的網誌框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄網誌主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用方法"><span class="toc-text">使用方法</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
             </div>
         </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
     </div>
 </footer>
-    </div>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
     
-<script data-main="/js/main.js" src="//cdn.baomitu.com/require.js/2.2.0/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
-
-
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-109722991-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
-<script>
-    // Open in New Window
-    
-        var oOpenInNew = {
-            
-            
-            
-            
-            
-            
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-            
-             friends: "#js-friends a", 
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
-    
-</script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-  </div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
 </body>
 </html>
