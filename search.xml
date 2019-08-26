@@ -3,6 +3,43 @@
   
     
     <entry>
+      <title><![CDATA[apple api get app versions]]></title>
+      <url>/apple_api_get_app_versions.html</url>
+      <content type="html"><![CDATA[<p>　　通過 apple api 取得舊版 app ID</p>
+<a id="more"></a>
+
+
+<h5 id="apple-api-get-app-versions"><a href="#apple-api-get-app-versions" class="headerlink" title="apple api get app versions"></a>apple api get app versions</h5><p>GET:<br><br><code>&quot;https://api.unlimapps.com/v1/apple_apps/{ID}/versions&quot;</code><br><br><br><br><br><code>ID: 請填入app編號</code><br><br><br><br><br>Response:<br><br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;id&quot;: &quot;87945b4e-24de-4677-81c8-6f980839c8e5&quot;,</span><br><span class="line">        &quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">        &quot;bundle_version&quot;: &quot;10.49&quot;,</span><br><span class="line">        &quot;external_identifier&quot;: &quot;815198513&quot;,</span><br><span class="line">        &quot;created_at&quot;: &quot;2016-01-06T04:26:55.666Z&quot;,</span><br><span class="line">        &quot;updated_at&quot;: &quot;2016-01-06T04:26:55.666Z&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;id&quot;: &quot;3bf5ea73-0cd0-45ef-92c3-3a89b9c3543c&quot;,</span><br><span class="line">        &quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">        &quot;bundle_version&quot;: &quot;10.50&quot;,</span><br><span class="line">        &quot;external_identifier&quot;: &quot;815713258&quot;,</span><br><span class="line">        &quot;created_at&quot;: &quot;2016-01-11T14:51:41.430Z&quot;,</span><br><span class="line">        &quot;updated_at&quot;: &quot;2017-09-28T10:11:10.467Z&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;id&quot;: &quot;707e50be-82d0-480e-9da6-e9c3b4f9a7fd&quot;,</span><br><span class="line">        &quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">        &quot;bundle_version&quot;: &quot;10.38&quot;,</span><br><span class="line">        &quot;external_identifier&quot;: &quot;813553231&quot;,</span><br><span class="line">        &quot;created_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;,</span><br><span class="line">        &quot;updated_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    ......</span><br></pre></td></tr></table></figure>
+
+<p>解析:<br><br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&quot;id&quot;: &quot;707e50be-82d0-480e-9da6-e9c3b4f9a7fd&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;bundle_version&quot;: &quot;10.38&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;external_identifier&quot;: &quot;813553231&quot;,</span><br><span class="line">## 此為下載舊版app的id</span><br><span class="line">&quot;created_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;updated_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;</span><br><span class="line">##</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/apple_api_get_app_versions/postman.png" alt=""></p>
+<h5 id="app-id-取得方式"><a href="#app-id-取得方式" class="headerlink" title="app id 取得方式"></a>app id 取得方式</h5><p>如圖所示，直接在apple官方網中搜索，取得對應 ID</p>
+<p><img src="/images/apple_api_get_app_versions/getAppID.png" alt=""></p>
+]]></content>
+      
+        <categories>
+            
+            <category> MacOS </category>
+            
+            <category> app </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> MacOS </tag>
+            
+            <tag> app </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[無限試用 Navicat Premium]]></title>
       <url>/%E7%84%A1%E9%99%90%E8%A9%A6%E7%94%A8Navicat%20Premium.html</url>
       <content type="html"><![CDATA[<p>　　逆向攻破，無限試用。</p>

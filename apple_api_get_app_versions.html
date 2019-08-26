@@ -18,10 +18,14 @@
     <link rel="dns-prefetch" href="http://s2339956.github.io">
     <!--SEO-->
 
-    <meta name="keywords" content="">
+    <meta name="keywords" content="MacOS,app">
 
 
-    <meta name="description" content="我不問 + 你不說 = 這就是距離;我問了 + 你不說 = 隔閡;我問了 + 你說了 = 信任;你不說 + 我不問 = 這就是默契;我不問 + 你說了 = 這就是依賴。心若親近，言行必如流水般自...">
+    <meta name="description" content="　　通過 apple api 取得舊版 app ID
+
+
+
+apple api get app versionsGET:&quot;https://api.unlimapps.com/v1/ap...">
 
 
 
@@ -33,7 +37,7 @@
     <!--Title-->
 
 
-<title>2017-11-19-21:37 | Tin Blog</title>
+<title>apple api get app versions | Tin Blog</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
@@ -146,16 +150,16 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="2017-11-19-21:37">
+        <h1 id="apple api get app versions">
             
-	            2017-11-19-21:37
+	            apple api get app versions
             
         </h1>
         <div class="post-meta">
     
         <span class="categories-meta fa-wrap">
             <i class="fa fa-folder-open-o"></i>
-            
+            <a class="category-link" href="/categories/MacOS/">MacOS</a> <a class="category-link" href="/categories/MacOS/app/">app</a>
         </span>
     
 
@@ -163,6 +167,8 @@
         <span class="fa-wrap">
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/MacOS/">MacOS</a> <a class="tag-link" href="/tags/app/">app</a>
                 
             </span>
         </span>
@@ -172,7 +178,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2017/11/19</span>
+            <span class="date-meta">2019/08/26</span>
         </span>
         
             <span class="fa-wrap">
@@ -184,14 +190,22 @@
 </div>
             
             
-            <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>644</strong>天之前發表，文章内容可能已經過時。
-            </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <p>我不問 + 你不說 = 這就是距離;<br>我問了 + 你不說 = 隔閡;<br>我問了 + 你說了 = 信任;<br>你不說 + 我不問 = 這就是默契;<br>我不問 + 你說了 = 這就是依賴。<br>心若親近，言行必如流水般自然;<br>心若疏遠，言行如如三秋之樹般蕭瑟。<br>不怕身隔天涯，只怕心在南北。</p>
+        <p>　　通過 apple api 取得舊版 app ID</p>
+<a id="more"></a>
+
+
+<h5 id="apple-api-get-app-versions"><a href="#apple-api-get-app-versions" class="headerlink" title="apple api get app versions"></a>apple api get app versions</h5><p>GET:<br><br><code>&quot;https://api.unlimapps.com/v1/apple_apps/{ID}/versions&quot;</code><br><br><br><br><br><code>ID: 請填入app編號</code><br><br><br><br><br>Response:<br><br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;id&quot;: &quot;87945b4e-24de-4677-81c8-6f980839c8e5&quot;,</span><br><span class="line">        &quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">        &quot;bundle_version&quot;: &quot;10.49&quot;,</span><br><span class="line">        &quot;external_identifier&quot;: &quot;815198513&quot;,</span><br><span class="line">        &quot;created_at&quot;: &quot;2016-01-06T04:26:55.666Z&quot;,</span><br><span class="line">        &quot;updated_at&quot;: &quot;2016-01-06T04:26:55.666Z&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;id&quot;: &quot;3bf5ea73-0cd0-45ef-92c3-3a89b9c3543c&quot;,</span><br><span class="line">        &quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">        &quot;bundle_version&quot;: &quot;10.50&quot;,</span><br><span class="line">        &quot;external_identifier&quot;: &quot;815713258&quot;,</span><br><span class="line">        &quot;created_at&quot;: &quot;2016-01-11T14:51:41.430Z&quot;,</span><br><span class="line">        &quot;updated_at&quot;: &quot;2017-09-28T10:11:10.467Z&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;id&quot;: &quot;707e50be-82d0-480e-9da6-e9c3b4f9a7fd&quot;,</span><br><span class="line">        &quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">        &quot;bundle_version&quot;: &quot;10.38&quot;,</span><br><span class="line">        &quot;external_identifier&quot;: &quot;813553231&quot;,</span><br><span class="line">        &quot;created_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;,</span><br><span class="line">        &quot;updated_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    ......</span><br></pre></td></tr></table></figure>
+
+<p>解析:<br><br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&quot;id&quot;: &quot;707e50be-82d0-480e-9da6-e9c3b4f9a7fd&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;bundle_version&quot;: &quot;10.38&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;external_identifier&quot;: &quot;813553231&quot;,</span><br><span class="line">## 此為下載舊版app的id</span><br><span class="line">&quot;created_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;updated_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;</span><br><span class="line">##</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/apple_api_get_app_versions/postman.png" alt=""></p>
+<h5 id="app-id-取得方式"><a href="#app-id-取得方式" class="headerlink" title="app id 取得方式"></a>app id 取得方式</h5><p>如圖所示，直接在apple官方網中搜索，取得對應 ID</p>
+<p><img src="/images/apple_api_get_app_versions/getAppID.png" alt=""></p>
 
     </div>
     
@@ -209,15 +223,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/Xcode-lldb-小技能.html" class="pre-post btn btn-default" title='Xcode lldb 小技能'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Xcode lldb 小技能</span>
-        </a>
     
-    
-        <a href="/Python.html" class="next-post btn btn-default" title='Python join 語法使用'>
+        <a href="/無限試用Navicat Premium.html" class="next-post btn btn-default" title='無限試用 Navicat Premium'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Python join 語法使用</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">無限試用 Navicat Premium</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -258,7 +267,7 @@
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <p>暂无目录</p>
+            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#apple-api-get-app-versions"><span class="toc-text">apple api get app versions</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#app-id-取得方式"><span class="toc-text">app id 取得方式</span></a></li></ol>
         
     </div>
 </aside>
