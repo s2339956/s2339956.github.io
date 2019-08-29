@@ -3,6 +3,72 @@
   
     
     <entry>
+      <title><![CDATA[MacOS 開機自動運行(Boot Automatically)]]></title>
+      <url>/mac_Boot_Automatically.html</url>
+      <content type="html"><![CDATA[<p>　　MacOS 開機自動運行(Boot Automatically)</p>
+<a id="more"></a>
+
+
+<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Mac 的開機啟動項目一般會在 「系統偏好設定」 ＞「使用者與群組」＞「登入項目」可以找得到。<br><br>但是有時候也有例外。<br></p>
+<p>因工作需要，有時需要掛上 VPN (Pulse Secure)，但這 APP 實在讓我有點困擾，一重啟電腦，他就自動運行…. <br><br>完全不管我是否有需要… <br><br><br><br>MacOS是有分成登入項目(Login Items) 與 啟動項目(Startup Items)兩種。</p>
+<h3 id="Startup-Items"><a href="#Startup-Items" class="headerlink" title="Startup Items"></a>Startup Items</h3><p>早期版本的 OS X 依賴於兩個資料夾</p>
+<ul>
+<li>/Library/StartupItems </li>
+<li>/System/Library/StartupItems</li>
+</ul>
+<p>來保存指定在啟動 Mac 時加載的項目。Apple 現在不鼓勵使用啟動項，但有些程式（主要是較舊的應用程式）仍然使用這種機制。通常你的 <code>/System/Library/StartupItems</code> 資料夾應為空; 但如果它包含您不再使用的內容，則可以將不需要的項目拖到垃圾桶中，以防止下次啟動 Mac 時自動加載。</p>
+<h3 id="Launch-daemons-and-agents"><a href="#Launch-daemons-and-agents" class="headerlink" title="Launch daemons and agents"></a>Launch daemons and agents</h3><p>自從 OS X 10.4 Tiger 以來，Apple 已經為開發人員提供了另一種自動啟動項目的機制：啟動守護進程和代理，由 launchd 進程控制。此方法比登錄項或啟動項提供更大的靈活性，但對用戶而言不太透明。</p>
+<p>UNIX 窗簾背後：launchd 不是直接打開應用程式，而是加載特殊格式的 .plist 文檔（XML首選項文件），指定應該啟動什麼以及在什麼情況下啟動。有時這些啟動項目在後台持續運行，有時它們按預定的時間間隔運行，有時它們會根據需要運行 </p>
+<ul>
+<li>例如，響應某個文件或資料夾中的更改等事件 </li>
+<li>然後退出。</li>
+</ul>
+<p>launchd 使用的 .plist 文件可以佔用五個資料夾中的任何一個，它們的位置決定了項目加載的時間和權限：</p>
+<ul>
+<li>/Library/LaunchDaemons 和 /System/Library/LaunchDaemons中的項目在 Mac 啟動時加載，並以 root 用戶身份運行。</li>
+<li>/Library/LaunchAgents 和 /System/Library/LaunchAgents 中的項在任何用戶登錄時加載，並以該用戶身份運行。</li>
+<li>/Users/your-username/Library/LaunchAgents 中的項僅在特定用戶登錄時加載，並以該用戶身份運行。</li>
+</ul>
+<p>其中位於 System 資料夾中的 <code>/System/Library/LaunchDaemons</code> 和 <code>/System/Library/LaunchAgents</code> 是作為 OS X 的一部分包含的組件，他們對於保持 MAC 的正常運行非常重要，千萬不要動它們！！！</p>
+<p>對於其它資料夾中的項目，你可以依照需求隨意修改他們。例如禁用它們或更改它們運行的頻率。但在此之前，最好要瞭解它的作用方式。</p>
+<h3 id="關閉-Pulse-Secure-自動啟動"><a href="#關閉-Pulse-Secure-自動啟動" class="headerlink" title="關閉 Pulse Secure 自動啟動"></a>關閉 Pulse Secure 自動啟動</h3><p>使用終端機(Terminal)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜ ~ cd /Library/LaunchAgents</span><br></pre></td></tr></table></figure>
+
+<p>找到 <code>net.pulsesecure.pulsetray.plist</code></p>
+<p><img src="/images/mac_Boot_Automatically/iTerm.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  LaunchAgents sudo vim net.pulsesecure.pulsetray.plist</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/mac_Boot_Automatically/iTerm1.png" alt=""></p>
+<p>修改其中的 Disabled 改為 ture 即可，重開機後就不會再出現哩！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--Disabled 原本應該為 false--&gt;</span><br><span class="line">&lt;key&gt;Disabled&lt;/key&gt;</span><br><span class="line">&lt;true/&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="開機自動運行"><a href="#開機自動運行" class="headerlink" title="開機自動運行"></a>開機自動運行</h3><p>下指令<br><code>sudo vim /Library/LaunchDaemons/com.go.agent.plist</code></p>
+<p>修改其中的片段，指定為自己的腳本或者程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span><br><span class="line">&lt;plist version=&quot;1.0&quot;&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">        &lt;key&gt;Label&lt;/key&gt;</span><br><span class="line">        &lt;string&gt;com.go.agent&lt;/string&gt;</span><br><span class="line">        &lt;key&gt;ProgramArguments&lt;/key&gt;</span><br><span class="line">        &lt;array&gt;</span><br><span class="line">        &lt;string&gt;python&lt;/string&gt;</span><br><span class="line">        &lt;string&gt;/Users/leedani/Downloads/goagent/local/proxy.py（修改為存放goagent proxy.py的路徑）&lt;/string&gt;</span><br><span class="line">        &lt;/array&gt;</span><br><span class="line">        &lt;key&gt;RunAtLoad&lt;/key&gt;</span><br><span class="line">        &lt;true/&gt;</span><br><span class="line">&lt;/dict&gt;</span><br><span class="line">&lt;/plist&gt;</span><br></pre></td></tr></table></figure>
+
+<p>下指令<br><code>launchctl load /Library/LaunchDaemons/com.go.agent.plist</code></p>
+]]></content>
+      
+        <categories>
+            
+            <category> MacOS </category>
+            
+            <category> app </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> MacOS </tag>
+            
+            <tag> app </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[apple api get app versions]]></title>
       <url>/apple_api_get_app_versions.html</url>
       <content type="html"><![CDATA[<p>　　通過 apple api 取得舊版 app ID</p>

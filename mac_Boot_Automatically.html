@@ -18,12 +18,14 @@
     <link rel="dns-prefetch" href="http://s2339956.github.io">
     <!--SEO-->
 
-    <meta name="keywords" content="{{ page.keywords }}">
+    <meta name="keywords" content="MacOS,app">
 
 
-    <meta name="description" content="　　在網頁上看一些視頻的時候，難免會遇到一些視頻廣告。這些長達30秒甚至1分鐘的視頻廣告是挺令人討厭的。那麼怎麼跳過這些煩人的廣告呢？Tin教你一個小技巧。
+    <meta name="description" content="　　MacOS 開機自動運行(Boot Automatically)
 
-如何跳過視頻廣告其實iOS自帶就有...">
+
+
+前言Mac 的開機啟動項目一般會在 「系統偏好設定」 ＞「使用者與群組」＞「登入項目」可以找得到。但是有時候也有例外。...">
 
 
 
@@ -35,7 +37,7 @@
     <!--Title-->
 
 
-<title>跳過iOS網頁視頻廣告，這樣就可以簡單做到 | Tin Blog</title>
+<title>MacOS 開機自動運行(Boot Automatically) | Tin Blog</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
@@ -148,16 +150,16 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="跳過iOS網頁視頻廣告，這樣就可以簡單做到">
+        <h1 id="MacOS 開機自動運行(Boot Automatically)">
             
-	            跳過iOS網頁視頻廣告，這樣就可以簡單做到
+	            MacOS 開機自動運行(Boot Automatically)
             
         </h1>
         <div class="post-meta">
     
         <span class="categories-meta fa-wrap">
             <i class="fa fa-folder-open-o"></i>
-            
+            <a class="category-link" href="/categories/MacOS/">MacOS</a> <a class="category-link" href="/categories/MacOS/app/">app</a>
         </span>
     
 
@@ -166,7 +168,7 @@
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
                 
-                    <a class="tag-link" href="/tags/iOS/">iOS</a>
+                    <a class="tag-link" href="/tags/MacOS/">MacOS</a> <a class="tag-link" href="/tags/app/">app</a>
                 
             </span>
         </span>
@@ -176,7 +178,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2018/06/04</span>
+            <span class="date-meta">2019/08/29</span>
         </span>
         
             <span class="fa-wrap">
@@ -188,26 +190,51 @@
 </div>
             
             
-            <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>450</strong>天之前發表，文章内容可能已經過時。
-            </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <p>　　在網頁上看一些視頻的時候，難免會遇到一些視頻廣告。這些長達30秒甚至1分鐘的視頻廣告是挺令人討厭的。那麼怎麼跳過這些煩人的廣告呢？Tin教你一個小技巧。</p>
+        <p>　　MacOS 開機自動運行(Boot Automatically)</p>
 <a id="more"></a>
-<h1 id="如何跳過視頻廣告"><a href="#如何跳過視頻廣告" class="headerlink" title="如何跳過視頻廣告"></a>如何跳過視頻廣告</h1><p>其實iOS自帶就有跳過網頁視頻廣告的功能。視頻廣告的長短不一樣，而一般都是由幾個短的廣告拼接而成的。下面就以腾讯視頻為例：</p>
-<p>1.在視頻廣告播放時，我們進入iOS自帶的控制中心，如圖：<br><img src="http://jabizb.com/read/play/play014/0141.png" alt="腾讯視頻"></p>
-<p>2.重按或者長按控制中心的音樂播放器部件，打開音樂播放界面，如圖：<br><img src="http://jabizb.com/read/play/play014/0142.png" alt="音樂播放界面"></p>
-<p>3.拖動播放界面的進度條，把進度條拖到最後，如圖：<br><img src="http://jabizb.com/read/play/play014/0143.png" alt="進度條拖到最後"></p>
-<p>4.回到播放的視頻網頁，發現當前廣告播完了，開始播下一個廣告了如圖：<br><img src="http://jabizb.com/read/play/play014/0144.png" alt="廣告播完"></p>
-<p>5.有些長的廣告是由短的廣告拼接而成的，所以我們要重複上面的步驟，多拖幾次進度條，即可以跳過全部廣告了。</p>
-<h1 id="支援-iOS-版本"><a href="#支援-iOS-版本" class="headerlink" title="支援 iOS 版本"></a>支援 iOS 版本</h1><p>實測:</p>
+
+
+<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Mac 的開機啟動項目一般會在 「系統偏好設定」 ＞「使用者與群組」＞「登入項目」可以找得到。<br><br>但是有時候也有例外。<br></p>
+<p>因工作需要，有時需要掛上 VPN (Pulse Secure)，但這 APP 實在讓我有點困擾，一重啟電腦，他就自動運行…. <br><br>完全不管我是否有需要… <br><br><br><br>MacOS是有分成登入項目(Login Items) 與 啟動項目(Startup Items)兩種。</p>
+<h3 id="Startup-Items"><a href="#Startup-Items" class="headerlink" title="Startup Items"></a>Startup Items</h3><p>早期版本的 OS X 依賴於兩個資料夾</p>
 <ul>
-<li>iphone6 10.2.1</li>
-<li>iphoneX 11.1.2</li>
+<li>/Library/StartupItems </li>
+<li>/System/Library/StartupItems</li>
 </ul>
+<p>來保存指定在啟動 Mac 時加載的項目。Apple 現在不鼓勵使用啟動項，但有些程式（主要是較舊的應用程式）仍然使用這種機制。通常你的 <code>/System/Library/StartupItems</code> 資料夾應為空; 但如果它包含您不再使用的內容，則可以將不需要的項目拖到垃圾桶中，以防止下次啟動 Mac 時自動加載。</p>
+<h3 id="Launch-daemons-and-agents"><a href="#Launch-daemons-and-agents" class="headerlink" title="Launch daemons and agents"></a>Launch daemons and agents</h3><p>自從 OS X 10.4 Tiger 以來，Apple 已經為開發人員提供了另一種自動啟動項目的機制：啟動守護進程和代理，由 launchd 進程控制。此方法比登錄項或啟動項提供更大的靈活性，但對用戶而言不太透明。</p>
+<p>UNIX 窗簾背後：launchd 不是直接打開應用程式，而是加載特殊格式的 .plist 文檔（XML首選項文件），指定應該啟動什麼以及在什麼情況下啟動。有時這些啟動項目在後台持續運行，有時它們按預定的時間間隔運行，有時它們會根據需要運行 </p>
+<ul>
+<li>例如，響應某個文件或資料夾中的更改等事件 </li>
+<li>然後退出。</li>
+</ul>
+<p>launchd 使用的 .plist 文件可以佔用五個資料夾中的任何一個，它們的位置決定了項目加載的時間和權限：</p>
+<ul>
+<li>/Library/LaunchDaemons 和 /System/Library/LaunchDaemons中的項目在 Mac 啟動時加載，並以 root 用戶身份運行。</li>
+<li>/Library/LaunchAgents 和 /System/Library/LaunchAgents 中的項在任何用戶登錄時加載，並以該用戶身份運行。</li>
+<li>/Users/your-username/Library/LaunchAgents 中的項僅在特定用戶登錄時加載，並以該用戶身份運行。</li>
+</ul>
+<p>其中位於 System 資料夾中的 <code>/System/Library/LaunchDaemons</code> 和 <code>/System/Library/LaunchAgents</code> 是作為 OS X 的一部分包含的組件，他們對於保持 MAC 的正常運行非常重要，千萬不要動它們！！！</p>
+<p>對於其它資料夾中的項目，你可以依照需求隨意修改他們。例如禁用它們或更改它們運行的頻率。但在此之前，最好要瞭解它的作用方式。</p>
+<h3 id="關閉-Pulse-Secure-自動啟動"><a href="#關閉-Pulse-Secure-自動啟動" class="headerlink" title="關閉 Pulse Secure 自動啟動"></a>關閉 Pulse Secure 自動啟動</h3><p>使用終端機(Terminal)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜ ~ cd /Library/LaunchAgents</span><br></pre></td></tr></table></figure>
+
+<p>找到 <code>net.pulsesecure.pulsetray.plist</code></p>
+<p><img src="/images/mac_Boot_Automatically/iTerm.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  LaunchAgents sudo vim net.pulsesecure.pulsetray.plist</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/mac_Boot_Automatically/iTerm1.png" alt=""></p>
+<p>修改其中的 Disabled 改為 ture 即可，重開機後就不會再出現哩！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--Disabled 原本應該為 false--&gt;</span><br><span class="line">&lt;key&gt;Disabled&lt;/key&gt;</span><br><span class="line">&lt;true/&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="開機自動運行"><a href="#開機自動運行" class="headerlink" title="開機自動運行"></a>開機自動運行</h3><p>下指令<br><code>sudo vim /Library/LaunchDaemons/com.go.agent.plist</code></p>
+<p>修改其中的片段，指定為自己的腳本或者程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span><br><span class="line">&lt;plist version=&quot;1.0&quot;&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">        &lt;key&gt;Label&lt;/key&gt;</span><br><span class="line">        &lt;string&gt;com.go.agent&lt;/string&gt;</span><br><span class="line">        &lt;key&gt;ProgramArguments&lt;/key&gt;</span><br><span class="line">        &lt;array&gt;</span><br><span class="line">        &lt;string&gt;python&lt;/string&gt;</span><br><span class="line">        &lt;string&gt;/Users/leedani/Downloads/goagent/local/proxy.py（修改為存放goagent proxy.py的路徑）&lt;/string&gt;</span><br><span class="line">        &lt;/array&gt;</span><br><span class="line">        &lt;key&gt;RunAtLoad&lt;/key&gt;</span><br><span class="line">        &lt;true/&gt;</span><br><span class="line">&lt;/dict&gt;</span><br><span class="line">&lt;/plist&gt;</span><br></pre></td></tr></table></figure>
+
+<p>下指令<br><code>launchctl load /Library/LaunchDaemons/com.go.agent.plist</code></p>
 
     </div>
     
@@ -225,15 +252,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/Python 開發必備神器之一：virtualenv.html" class="pre-post btn btn-default" title='Python 開發必備神器之一：virtualenv'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Python 開發必備神器之一：virtualenv</span>
-        </a>
     
-    
-        <a href="/Reveal14 使用.html" class="next-post btn btn-default" title='Reveal 14版 環境搭建'>
+        <a href="/apple_api_get_app_versions.html" class="next-post btn btn-default" title='apple api get app versions'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Reveal 14版 環境搭建</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">apple api get app versions</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -274,7 +296,7 @@
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何跳過視頻廣告"><span class="toc-text">如何跳過視頻廣告</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#支援-iOS-版本"><span class="toc-text">支援 iOS 版本</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Startup-Items"><span class="toc-text">Startup Items</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Launch-daemons-and-agents"><span class="toc-text">Launch daemons and agents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#關閉-Pulse-Secure-自動啟動"><span class="toc-text">關閉 Pulse Secure 自動啟動</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#開機自動運行"><span class="toc-text">開機自動運行</span></a>
         
     </div>
 </aside>
