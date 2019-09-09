@@ -24,19 +24,27 @@
 <li><p>在 iTerm2 上，下指令 iproxy 1111 1111 <br><br> <img src="/images/iOS_lldb+debugserver/iTerm.png" alt=""></p>
 </li>
 <li><p>在 iTerm2 上，開啟第二個分頁(command+T)，SSH 連線至手機，<br> 其操作可以讓mac 與 iphone 在同一個 wifi 下，會更好操作。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.111.1</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.111.1</span><br></pre></td></tr></table></figure>
 
 <p> 密碼統一預設為: alpine <br><br> <img src="/images/iOS_lldb+debugserver/ssh.png" alt=""></p>
 </li>
 <li><p>在 ssh 分頁中下指令: <code>ps -e</code>，可以找出當前運行中的 app，比如我們要 attach 的進程編號為 693，我們可以輸入如下命令：<code>debugserver *:1111 -a 693</code> <br> </p>
 <ul>
-<li>Chimera 越獄: <code>/Developer/usr/bin/debugserver localhost:1234 -a 693</code></li>
-<li>unc0ver 越獄: <code>debugserver localhost:1234 -a 693</code></li>
-<li>如果要用 debugserver 啓動 app，而不是附加到已經啓動的 app，則使用 <code>debugserver localhost:1111 &lt;app mach-O 路徑&gt;</code>，例如: <code>debugserver localhost:1234 /var/containers/Bundle/Application/107F3307-2900-4720-B9BA-0C7792D89DF2/APP_TO_DEBUG.app/APP_TO_DEBUG</code></li>
+<li><p>Chimera 越獄: </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Developer/usr/bin/debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>unc0ver 越獄: </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure>
+
+
+</li>
 </ul>
 </li>
-<li><p>在 iTerm2 上，開啟第第三個分頁，下指令: <code>lldb</code>，進入 lldb 界面，使用 process connect 指令連接至手機上。 用 WiFi 連接到 iOS 設備時：process connect connect://localhost:1234 <br><br> <img src="/images/iOS_lldb+debugserver/lldb.png" alt=""></p>
-</li>
+</ol>
+<pre><code>- 如果要用 debugserver 啓動 app，而不是附加到已經啓動的 app，則使用 `debugserver localhost:1111 &lt;app mach-O 路徑&gt;`，例如:
+
+    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 /var/containers/Bundle/Application/107F3307-2900-4720-B9BA-0C7792D89DF2/APP_TO_DEBUG.app/APP_TO_DEBUG</span><br></pre></td></tr></table></figure></code></pre><ol start="4">
+<li>在 iTerm2 上，開啟第第三個分頁，下指令: <code>lldb</code>，進入 lldb 界面，使用 process connect 指令連接至手機上。 用 WiFi 連接到 iOS 設備時：process connect connect://localhost:1234 <br><br> <img src="/images/iOS_lldb+debugserver/lldb.png" alt=""></li>
 </ol>
 <h3 id="調適"><a href="#調適" class="headerlink" title="調適"></a>調適</h3><p>其餘奧秘，就留給大家研究嘗試一下吧～ <br><br><img src="/images/iOS_lldb+debugserver/debug.png" alt=""></p>
 <h3 id="錯誤"><a href="#錯誤" class="headerlink" title="錯誤"></a>錯誤</h3><p><code>error：failed to get reply to handshake packet</code><br></p>
@@ -189,7 +197,7 @@
 <li>使用 Hopper Disassembler v4 Standard Edition (4.5.13)，來對二進制文件反編譯</li>
 <li>搜索字串<code>http://www.navicat.com/cht/store</code>，<br><br>找到</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span># 找到使用者</span><br><span class="line">0000000102d5bf5b         db         "http://www.navicat.com/cht/store", 0       ; DATA XREF=cfstring_http___www_navicat_com_cht_store</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 相關地址</span><br><span class="line">0000000103c2b600         dq         0x0000000104750310, 0x00000000000007c8, 0x0000000102d5bf5b, 0x0000000000000020 ; "http://www.navicat.com/cht/store", DATA XREF=qword_103f773b8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 使用者</span><br><span class="line">0000000103f773b8         dq         0x0000000103c2b600                          ; @"http://www.navicat.com/cht/store", DATA XREF=+[Registration ApplicationChecking:isLaunch:]+481, +[Registration ApplicationChecking:isLaunch:]+899, +[Registration ApplicationChecking:isLaunch:]+5518, +[Registration ApplicationChecking:isLaunch:]+5758, +[Registration ApplicationChecking:isLaunch:]+6039, +[Registration ApplicationChecking:isLaunch:]+9206, -[Registration BuyNow:]+52</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># ↑ [Registration ApplicationChecking:isLaunch:]，如名得知，這可能是一個檢查方法</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 找到使用者</span></span></span><br><span class="line">0000000102d5bf5b         db         "http://www.navicat.com/cht/store", 0       ; DATA XREF=cfstring_http___www_navicat_com_cht_store</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 相關地址</span></span></span><br><span class="line">0000000103c2b600         dq         0x0000000104750310, 0x00000000000007c8, 0x0000000102d5bf5b, 0x0000000000000020 ; "http://www.navicat.com/cht/store", DATA XREF=qword_103f773b8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 使用者</span></span></span><br><span class="line">0000000103f773b8         dq         0x0000000103c2b600                          ; @"http://www.navicat.com/cht/store", DATA XREF=+[Registration ApplicationChecking:isLaunch:]+481, +[Registration ApplicationChecking:isLaunch:]+899, +[Registration ApplicationChecking:isLaunch:]+5518, +[Registration ApplicationChecking:isLaunch:]+5758, +[Registration ApplicationChecking:isLaunch:]+6039, +[Registration ApplicationChecking:isLaunch:]+9206, -[Registration BuyNow:]+52</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># ↑ [Registration ApplicationChecking:isLaunch:]，如名得知，這可能是一個檢查方法</span></span></span><br></pre></td></tr></table></figure>
 
 <p>查看一下方法的匯編程式碼(assembly language)，</p>
 <p><img src="/images/Unlimited-trial-NavicatPremium/assemblyLanguage.png" alt=""></p>

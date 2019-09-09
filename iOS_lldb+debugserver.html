@@ -212,19 +212,27 @@
 <li><p>在 iTerm2 上，下指令 iproxy 1111 1111 <br><br> <img src="/images/iOS_lldb+debugserver/iTerm.png" alt=""></p>
 </li>
 <li><p>在 iTerm2 上，開啟第二個分頁(command+T)，SSH 連線至手機，<br> 其操作可以讓mac 與 iphone 在同一個 wifi 下，會更好操作。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.111.1</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.111.1</span><br></pre></td></tr></table></figure>
 
 <p> 密碼統一預設為: alpine <br><br> <img src="/images/iOS_lldb+debugserver/ssh.png" alt=""></p>
 </li>
 <li><p>在 ssh 分頁中下指令: <code>ps -e</code>，可以找出當前運行中的 app，比如我們要 attach 的進程編號為 693，我們可以輸入如下命令：<code>debugserver *:1111 -a 693</code> <br> </p>
 <ul>
-<li>Chimera 越獄: <code>/Developer/usr/bin/debugserver localhost:1234 -a 693</code></li>
-<li>unc0ver 越獄: <code>debugserver localhost:1234 -a 693</code></li>
-<li>如果要用 debugserver 啓動 app，而不是附加到已經啓動的 app，則使用 <code>debugserver localhost:1111 &lt;app mach-O 路徑&gt;</code>，例如: <code>debugserver localhost:1234 /var/containers/Bundle/Application/107F3307-2900-4720-B9BA-0C7792D89DF2/APP_TO_DEBUG.app/APP_TO_DEBUG</code></li>
+<li><p>Chimera 越獄: </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Developer/usr/bin/debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>unc0ver 越獄: </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure>
+
+
+</li>
 </ul>
 </li>
-<li><p>在 iTerm2 上，開啟第第三個分頁，下指令: <code>lldb</code>，進入 lldb 界面，使用 process connect 指令連接至手機上。 用 WiFi 連接到 iOS 設備時：process connect connect://localhost:1234 <br><br> <img src="/images/iOS_lldb+debugserver/lldb.png" alt=""></p>
-</li>
+</ol>
+<pre><code>- 如果要用 debugserver 啓動 app，而不是附加到已經啓動的 app，則使用 `debugserver localhost:1111 &lt;app mach-O 路徑&gt;`，例如:
+
+    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 /var/containers/Bundle/Application/107F3307-2900-4720-B9BA-0C7792D89DF2/APP_TO_DEBUG.app/APP_TO_DEBUG</span><br></pre></td></tr></table></figure></code></pre><ol start="4">
+<li>在 iTerm2 上，開啟第第三個分頁，下指令: <code>lldb</code>，進入 lldb 界面，使用 process connect 指令連接至手機上。 用 WiFi 連接到 iOS 設備時：process connect connect://localhost:1234 <br><br> <img src="/images/iOS_lldb+debugserver/lldb.png" alt=""></li>
 </ol>
 <h3 id="調適"><a href="#調適" class="headerlink" title="調適"></a>調適</h3><p>其餘奧秘，就留給大家研究嘗試一下吧～ <br><br><img src="/images/iOS_lldb+debugserver/debug.png" alt=""></p>
 <h3 id="錯誤"><a href="#錯誤" class="headerlink" title="錯誤"></a>錯誤</h3><p><code>error：failed to get reply to handshake packet</code><br></p>
