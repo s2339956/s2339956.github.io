@@ -21,11 +21,11 @@
     <meta name="keywords" content="iOS,app">
 
 
-    <meta name="description" content="　　iOS lldb + debugserver 動態調適
+    <meta name="description" content="　　openSSH 顯示中文
 
 
 
-前言關於 iOS 動態調適有許多方式，這邊介紹一種比較容易的方法，通過 MacOS 中的 Xcode 自帶的 lldb 與 de...">
+有些 app 的進程名稱可能是中文，還有一些應用創建的目錄可以也會是中文，在 SSH 上使用 debugserver 沒有辦法輸入中文的進程名稱，也沒辦法在 ...">
 
 
 
@@ -37,7 +37,7 @@
     <!--Title-->
 
 
-<title>iOS lldb + debugserver | Tin Blog</title>
+<title>openSSH Show Chinese | Tin Blog</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
@@ -150,9 +150,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="iOS lldb + debugserver">
+        <h1 id="openSSH Show Chinese">
             
-	            iOS lldb + debugserver
+	            openSSH Show Chinese
             
         </h1>
         <div class="post-meta">
@@ -193,60 +193,14 @@
     </div>
     
     <div class="post-body post-content">
-        <p>　　iOS lldb + debugserver 動態調適</p>
+        <p>　　openSSH 顯示中文</p>
 <a id="more"></a>
 
 
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>關於 iOS 動態調適有許多方式，這邊介紹一種比較容易的方法，<br>通過 MacOS 中的 Xcode 自帶的 lldb 與 debugserver 來操作，可以比較便捷的使用，其中也能學習到 lldb 相關的指令，使用於日後正向開發操作上。 <br><br><br><br>在一般開發，使用 Xcode build 至 iphone(實體機) 中，會在手機上創建一個 debugserver，已進行動態調適 (debug)，然而在動態分析上，能通過越獄權限的提升，來自主構建 debugserver，依附至欲分析之app上，達成動態分析與調適。<br></p>
-<h3 id="準備"><a href="#準備" class="headerlink" title="準備"></a>準備</h3><p>事前準備</p>
-<ul>
-<li>macOS 10.14+</li>
-<li>Xcode 10.3</li>
-<li>iphone iOS 12.4 (<a href="https://github.com/pwn20wndstuff/Undecimus" target="_blank" rel="noopener">JB: unc0ver</a>)</li>
-<li>openSSH （安裝於 iphone 上）</li>
-<li><a href="https://github.com/libimobiledevice/usbmuxd" target="_blank" rel="noopener">usbmuxd</a> （安裝於 mac 上）</li>
-<li><a href="https://www.iterm2.com/" target="_blank" rel="noopener">iTerm2</a> （或者其他終端機）</li>
-</ul>
-<p>由於 iOS 11 之前需求簽名與添加權限，有些許的難度，但在 iOS 12 之後，不需要再簽名與權限，所以統一使用12.4來操作。</p>
-<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ol>
-<li><p>在 iTerm2 上，下指令 iproxy 1111 1111 <br><br> <img src="/images/iOS_lldb+debugserver/iTerm.png" alt=""></p>
-</li>
-<li><p>在 iTerm2 上，開啟第二個分頁(command+T)，SSH 連線至手機，<br> 其操作可以讓mac 與 iphone 在同一個 wifi 下，會更好操作。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.111.1</span><br></pre></td></tr></table></figure>
-
-<p> 密碼統一預設為: alpine <br><br> <img src="/images/iOS_lldb+debugserver/ssh.png" alt=""></p>
-</li>
-<li><p>在 ssh 分頁中下指令: <code>ps -e</code>，可以找出當前運行中的 app，比如我們要 attach 的進程編號為 693，我們可以輸入如下命令：<code>debugserver *:1111 -a 693</code> <br> </p>
-<ul>
-<li><p>Chimera 越獄: </p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Developer/usr/bin/debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>unc0ver 越獄: </p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-</li>
-</ol>
-<pre><code>- 如果要用 debugserver 啓動 app，而不是附加到已經啓動的 app，則使用 `debugserver localhost:1111 &lt;app mach-O 路徑&gt;`，例如:
-
-    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 /var/containers/Bundle/Application/107F3307-2900-4720-B9BA-0C7792D89DF2/APP_TO_DEBUG.app/APP_TO_DEBUG</span><br></pre></td></tr></table></figure></code></pre><ol start="4">
-<li>在 iTerm2 上，開啟第第三個分頁，下指令: <code>lldb</code>，進入 lldb 界面，使用 process connect 指令連接至手機上。 用 WiFi 連接到 iOS 設備時：process connect connect://localhost:1234 <br><br> <img src="/images/iOS_lldb+debugserver/lldb.png" alt=""></li>
-</ol>
-<h3 id="調適"><a href="#調適" class="headerlink" title="調適"></a>調適</h3><p>其餘奧秘，就留給大家研究嘗試一下吧～ <br><br><img src="/images/iOS_lldb+debugserver/debug.png" alt=""></p>
-<h3 id="錯誤"><a href="#錯誤" class="headerlink" title="錯誤"></a>錯誤</h3><p><code>error：failed to get reply to handshake packet</code><br></p>
-<ol>
-<li>wget <a href="http://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.bz2" target="_blank" rel="noopener">http://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.bz2</a> </li>
-<li>tar xjfv usbmuxd-1.0.8.tar.bz2</li>
-<li>cd usbmuxd-1.0.8/python-clinet/</li>
-<li>python2 tcprelay.py -t 1111:1111</li>
-<li>lldb 連接時輸入 process connect connect://localhost:1111</li>
-</ol>
-<h6 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h6><ul>
-<li>usbmuxd 退出: command + C</li>
-<li>ssh 退出: exit</li>
-<li>lldb 退出: exit</li>
+<p>有些 app 的進程名稱可能是中文，還有一些應用創建的目錄可以也會是中文，在 SSH 上使用 debugserver 沒有辦法輸入中文的進程名稱，也沒辦法在 SSH 上操作中文的目錄，網上試了一些方法，不過還是不管用，後來在 Cydia 安裝了一個插件 Local Prefiles in UTF-8 就搞定了，這個插件在 BigBoss 源。<br><br><br>使用前<br><br><br><img src="/images/openSSH_Show_Chinese/ps-e_Show2.png" alt=""><br><br><br>使用後<br><br><br><img src="/images/openSSH_Show_Chinese/ps-e_Show1.png" alt=""></p>
+<h6 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h6><ul>
+<li>iOS 12.4 (<a href="https://github.com/pwn20wndstuff/Undecimus" target="_blank" rel="noopener">JB: unc0ver</a>)</li>
+<li>Chimera 越獄 不需要安裝此插件</li>
 </ul>
 
     </div>
@@ -265,15 +219,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/openSSH_Show_Chinese.html" class="pre-post btn btn-default" title='openSSH Show Chinese'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">openSSH Show Chinese</span>
-        </a>
     
-    
-        <a href="/mac_Boot_Automatically.html" class="next-post btn btn-default" title='MacOS 開機自動運行(Boot Automatically)'>
+        <a href="/iOS_lldb+debugserver.html" class="next-post btn btn-default" title='iOS lldb + debugserver'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">MacOS 開機自動運行(Boot Automatically)</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">iOS lldb + debugserver</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -314,7 +263,7 @@
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#準備"><span class="toc-text">準備</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作"><span class="toc-text">操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#調適"><span class="toc-text">調適</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#錯誤"><span class="toc-text">錯誤</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#備註"><span class="toc-text">備註</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#環境"><span class="toc-text">環境</span></a></li></ol>
         
     </div>
 </aside>
