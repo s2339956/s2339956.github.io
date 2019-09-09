@@ -18,12 +18,14 @@
     <link rel="dns-prefetch" href="http://s2339956.github.io">
     <!--SEO-->
 
-    <meta name="keywords" content="{{ page.keywords }}">
+    <meta name="keywords" content="iOS,app">
 
 
-    <meta name="description" content="　　使用 Reveal 14版, 來看 App 裸奔～
+    <meta name="description" content="　　iOS lldb + debugserver 動態調適
 
-介紹Reveal 是 Mac os 平台上的一款開發者調適 iOS app 的 Mac[開發軟體]Reveal Mac 版它能夠在運行時...">
+
+
+前言關於 iOS 動態調適有許多方式，這邊介紹一種比較容易的方法，通過 MacOS 中的 Xcode 自帶的 lldb 與 de...">
 
 
 
@@ -35,7 +37,7 @@
     <!--Title-->
 
 
-<title>Reveal 14版 環境搭建 | Tin Blog</title>
+<title>iOS lldb + debugserver | Tin Blog</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
@@ -148,16 +150,16 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Reveal 14版 環境搭建">
+        <h1 id="iOS lldb + debugserver">
             
-	            Reveal 14版 環境搭建
+	            iOS lldb + debugserver
             
         </h1>
         <div class="post-meta">
     
         <span class="categories-meta fa-wrap">
             <i class="fa fa-folder-open-o"></i>
-            
+            <a class="category-link" href="/categories/iOS/">iOS</a> <a class="category-link" href="/categories/iOS/app/">app</a>
         </span>
     
 
@@ -166,7 +168,7 @@
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
                 
-                    <a class="tag-link" href="/tags/iOS/">iOS</a>
+                    <a class="tag-link" href="/tags/app/">app</a> <a class="tag-link" href="/tags/iOS/">iOS</a>
                 
             </span>
         </span>
@@ -176,7 +178,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2018/05/23</span>
+            <span class="date-meta">2019/09/09</span>
         </span>
         
             <span class="fa-wrap">
@@ -188,19 +190,48 @@
 </div>
             
             
-            <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>474</strong>天之前發表，文章内容可能已經過時。
-            </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <p>　　使用 Reveal 14版, 來看 App 裸奔～</p>
+        <p>　　iOS lldb + debugserver 動態調適</p>
 <a id="more"></a>
-<h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p><a href="https://revealapp.com/" target="_blank" rel="noopener">Reveal</a> 是 Mac os 平台上的一款開發者調適 iOS app 的 Mac[開發軟體]<br><a href="https://revealapp.com/" target="_blank" rel="noopener">Reveal</a> Mac 版它能夠在運行時調適和修改iOS app。<a href="https://revealapp.com/" target="_blank" rel="noopener">Reveal</a> 能連接到設備上的 app ，並允許開發者編輯各種用户界面參數，這反過來會立即反應在程序的 UI 上。<br>[<a href="https://revealapp.com/" target="_blank" rel="noopener">Reveal</a> 在官網售價119美元，約合台幣3570元]。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/656644-1307312b296bb34e.png" alt="Reveal 運行"></p>
-<h1 id="搭建準備"><a href="#搭建準備" class="headerlink" title="搭建準備"></a>搭建準備</h1><p>1.安裝好 <a href="https://revealapp.com/" target="_blank" rel="noopener">Reveal</a><br>2.準備一隻已越獄 iOS10 iPhone (目前工具只支持iOS8~iOS10)<br>3.承接二項, 將設備安裝 <a href="https://github.com/Naville/Reveal2Loader" target="_blank" rel="noopener">Reveal2Loader</a><br>4.承接二項, 將設備安裝 <a href="https://cydia.saurik.com/package/openssh/" target="_blank" rel="noopener">OpenSSH</a></p>
-<h1 id="環境搭建"><a href="#環境搭建" class="headerlink" title="環境搭建"></a>環境搭建</h1><p>1.運行 <a href="https://revealapp.com/" target="_blank" rel="noopener">Reveal</a><br>2.點擊 help -&gt; Show Reveal Library in finder -&gt; iOS Library -&gt; RevealServer.framework, 複製路徑<br>3.複製 RevealServer.framework 至 設備路徑 /Library/Frameworks (ssh 相關使用就不多說了～),<br>scp -r <code>第二點複製的路徑</code> root@<code>192.168.2.X</code>:/Library/Frameworks (高亮的部分需修改)<br>4.到手機設定上, 找到剛安裝的 Reveal2Loader, 選取想讓他裸奔的 App<br>5.就能開始欣賞他裸奔囉 <img src="https://user-gold-cdn.xitu.io/2017/12/14/16052b31b8eb30f4?imageslim" alt="連接運行"></p>
+
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>關於 iOS 動態調適有許多方式，這邊介紹一種比較容易的方法，<br>通過 MacOS 中的 Xcode 自帶的 lldb 與 debugserver 來操作，可以比較便捷的使用，其中也能學習到 lldb 相關的指令，使用於日後正向開發操作上。 <br><br><br><br>在一般開發，使用 Xcode build 至 iphone(實體機) 中，會在手機上創建一個 debugserver，已進行動態調適 (debug)，然而在動態分析上，能通過越獄權限的提升，來自主構建 debugserver，依附至欲分析之app上，達成動態分析與調適。<br></p>
+<h3 id="準備"><a href="#準備" class="headerlink" title="準備"></a>準備</h3><p>事前準備</p>
+<ul>
+<li>macOS 10.14+</li>
+<li>Xcode 10.3</li>
+<li>iphone iOS 12.4 (<a href="https://github.com/pwn20wndstuff/Undecimus" target="_blank" rel="noopener">JB: unc0ver</a>)</li>
+<li>openSSH （安裝於 iphone 上）</li>
+<li><a href="https://github.com/libimobiledevice/usbmuxd" target="_blank" rel="noopener">usbmuxd</a> （安裝於 mac 上）</li>
+<li><a href="https://www.iterm2.com/" target="_blank" rel="noopener">iTerm2</a> （或者其他終端機）</li>
+</ul>
+<p>由於 iOS 11 之前需求簽名與添加權限，有些許的難度，但在 iOS 12 之後，不需要再簽名與權限，所以統一使用12.4來操作。</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ol>
+<li><p>在 iTerm2 上，下指令 iproxy 1111 1111 <br><br> <img src="/images/iOS_lldb+debugserver/iTerm.png" alt=""></p>
+</li>
+<li><p>在 iTerm2 上，開啟第二個分頁(command+T)，SSH 連線至手機，<br> 其操作可以讓mac 與 iphone 在同一個 wifi 下，會更好操作。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.111.1</span><br></pre></td></tr></table></figure>
+
+<p> 密碼統一預設為: alpine <br><br> <img src="/images/iOS_lldb+debugserver/ssh.png" alt=""></p>
+</li>
+<li><p>在 ssh 分頁中下指令: <code>ps -e</code>，可以找出當前運行中的 app，比如我們要 attach 的進程編號為 693，我們可以輸入如下命令：<code>debugserver *:1111 -a 693</code> <br> </p>
+<ul>
+<li>Chimera 越獄: <code>/Developer/usr/bin/debugserver localhost:1234 -a 693</code></li>
+<li>unc0ver 越獄: <code>debugserver localhost:1234 -a 693</code></li>
+<li>如果要用 debugserver 啓動 app，而不是附加到已經啓動的 app，則使用 <code>debugserver localhost:1111 &lt;app mach-O 路徑&gt;</code>，例如: <code>debugserver localhost:1234 /var/containers/Bundle/Application/107F3307-2900-4720-B9BA-0C7792D89DF2/APP_TO_DEBUG.app/APP_TO_DEBUG</code></li>
+</ul>
+</li>
+<li><p>在 iTerm2 上，開啟第第三個分頁，下指令: <code>lldb</code>，進入 lldb 界面，使用 process connect 指令連接至手機上。 用 WiFi 連接到 iOS 設備時：process connect connect://localhost:1234 <br><br> <img src="/images/iOS_lldb+debugserver/lldb.png" alt=""></p>
+</li>
+</ol>
+<h3 id="調適"><a href="#調適" class="headerlink" title="調適"></a>調適</h3><p>其餘奧秘，就留給大家研究嘗試一下吧～ <br><br><img src="/images/iOS_lldb+debugserver/debug.png" alt=""></p>
+<h6 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h6><ul>
+<li>usbmuxd 退出: command + C</li>
+<li>ssh 退出: exit</li>
+<li>lldb 退出: exit</li>
+</ul>
 
     </div>
     
@@ -218,15 +249,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/跳過iOS網頁視頻廣告，這樣就可以簡單做到.html" class="pre-post btn btn-default" title='跳過iOS網頁視頻廣告，這樣就可以簡單做到'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">跳過iOS網頁視頻廣告，這樣就可以簡單做到</span>
-        </a>
     
-    
-        <a href="/Xcode-lldb-小技能.html" class="next-post btn btn-default" title='Xcode lldb 小技能'>
+        <a href="/mac_Boot_Automatically.html" class="next-post btn btn-default" title='MacOS 開機自動運行(Boot Automatically)'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Xcode lldb 小技能</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">MacOS 開機自動運行(Boot Automatically)</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -267,7 +293,7 @@
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介紹"><span class="toc-text">介紹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建準備"><span class="toc-text">搭建準備</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#環境搭建"><span class="toc-text">環境搭建</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#準備"><span class="toc-text">準備</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作"><span class="toc-text">操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#調適"><span class="toc-text">調適</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#備註"><span class="toc-text">備註</span></a></li></ol></li></ol></li></ol></li></ol>
         
     </div>
 </aside>

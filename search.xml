@@ -3,6 +3,69 @@
   
     
     <entry>
+      <title><![CDATA[iOS lldb + debugserver]]></title>
+      <url>/iOS_lldb+debugserver.html</url>
+      <content type="html"><![CDATA[<p>　　iOS lldb + debugserver 動態調適</p>
+<a id="more"></a>
+
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>關於 iOS 動態調適有許多方式，這邊介紹一種比較容易的方法，<br>通過 MacOS 中的 Xcode 自帶的 lldb 與 debugserver 來操作，可以比較便捷的使用，其中也能學習到 lldb 相關的指令，使用於日後正向開發操作上。 <br><br><br><br>在一般開發，使用 Xcode build 至 iphone(實體機) 中，會在手機上創建一個 debugserver，已進行動態調適 (debug)，然而在動態分析上，能通過越獄權限的提升，來自主構建 debugserver，依附至欲分析之app上，達成動態分析與調適。<br></p>
+<h3 id="準備"><a href="#準備" class="headerlink" title="準備"></a>準備</h3><p>事前準備</p>
+<ul>
+<li>macOS 10.14+</li>
+<li>Xcode 10.3</li>
+<li>iphone iOS 12.4 (<a href="https://github.com/pwn20wndstuff/Undecimus" target="_blank" rel="noopener">JB: unc0ver</a>)</li>
+<li>openSSH （安裝於 iphone 上）</li>
+<li><a href="https://github.com/libimobiledevice/usbmuxd" target="_blank" rel="noopener">usbmuxd</a> （安裝於 mac 上）</li>
+<li><a href="https://www.iterm2.com/" target="_blank" rel="noopener">iTerm2</a> （或者其他終端機）</li>
+</ul>
+<p>由於 iOS 11 之前需求簽名與添加權限，有些許的難度，但在 iOS 12 之後，不需要再簽名與權限，所以統一使用12.4來操作。</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ol>
+<li><p>在 iTerm2 上，下指令 iproxy 1111 1111 <br><br> <img src="/images/iOS_lldb+debugserver/iTerm.png" alt=""></p>
+</li>
+<li><p>在 iTerm2 上，開啟第二個分頁(command+T)，SSH 連線至手機，<br> 其操作可以讓mac 與 iphone 在同一個 wifi 下，會更好操作。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.111.1</span><br></pre></td></tr></table></figure>
+
+<p> 密碼統一預設為: alpine <br><br> <img src="/images/iOS_lldb+debugserver/ssh.png" alt=""></p>
+</li>
+<li><p>在 ssh 分頁中下指令: <code>ps -e</code>，可以找出當前運行中的 app，比如我們要 attach 的進程編號為 693，我們可以輸入如下命令：<code>debugserver *:1111 -a 693</code> <br> </p>
+<ul>
+<li>Chimera 越獄: <code>/Developer/usr/bin/debugserver localhost:1234 -a 693</code></li>
+<li>unc0ver 越獄: <code>debugserver localhost:1234 -a 693</code></li>
+<li>如果要用 debugserver 啓動 app，而不是附加到已經啓動的 app，則使用 <code>debugserver localhost:1111 &lt;app mach-O 路徑&gt;</code>，例如: <code>debugserver localhost:1234 /var/containers/Bundle/Application/107F3307-2900-4720-B9BA-0C7792D89DF2/APP_TO_DEBUG.app/APP_TO_DEBUG</code></li>
+</ul>
+</li>
+<li><p>在 iTerm2 上，開啟第第三個分頁，下指令: <code>lldb</code>，進入 lldb 界面，使用 process connect 指令連接至手機上。 用 WiFi 連接到 iOS 設備時：process connect connect://localhost:1234 <br><br> <img src="/images/iOS_lldb+debugserver/lldb.png" alt=""></p>
+</li>
+</ol>
+<h3 id="調適"><a href="#調適" class="headerlink" title="調適"></a>調適</h3><p>其餘奧秘，就留給大家研究嘗試一下吧～ <br><br><img src="/images/iOS_lldb+debugserver/debug.png" alt=""></p>
+<h6 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h6><ul>
+<li>usbmuxd 退出: command + C</li>
+<li>ssh 退出: exit</li>
+<li>lldb 退出: exit</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> iOS </category>
+            
+            <category> app </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> app </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[MacOS 開機自動運行(Boot Automatically)]]></title>
       <url>/mac_Boot_Automatically.html</url>
       <content type="html"><![CDATA[<p>　　MacOS 開機自動運行(Boot Automatically)</p>
@@ -60,9 +123,9 @@
         
         <tags>
             
-            <tag> MacOS </tag>
-            
             <tag> app </tag>
+            
+            <tag> MacOS </tag>
             
         </tags>
         
@@ -97,9 +160,9 @@
         
         <tags>
             
-            <tag> MacOS </tag>
-            
             <tag> app </tag>
+            
+            <tag> MacOS </tag>
             
         </tags>
         
@@ -150,9 +213,9 @@
         
         <tags>
             
-            <tag> MacOS </tag>
-            
             <tag> app </tag>
+            
+            <tag> MacOS </tag>
             
         </tags>
         
