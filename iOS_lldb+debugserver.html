@@ -227,6 +227,14 @@
 </li>
 </ol>
 <h3 id="調適"><a href="#調適" class="headerlink" title="調適"></a>調適</h3><p>其餘奧秘，就留給大家研究嘗試一下吧～ <br><br><img src="/images/iOS_lldb+debugserver/debug.png" alt=""></p>
+<h3 id="錯誤"><a href="#錯誤" class="headerlink" title="錯誤"></a>錯誤</h3><p><code>error：failed to get reply to handshake packet</code><br></p>
+<ol>
+<li>wget <a href="http://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.bz2" target="_blank" rel="noopener">http://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.bz2</a> </li>
+<li>tar xjfv usbmuxd-1.0.8.tar.bz2</li>
+<li>cd usbmuxd-1.0.8/python-clinet/</li>
+<li>python2 tcprelay.py -t 1111:1111</li>
+<li>lldb 連接時輸入 process connect connect://localhost:1111</li>
+</ol>
 <h6 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h6><ul>
 <li>usbmuxd 退出: command + C</li>
 <li>ssh 退出: exit</li>
@@ -293,7 +301,7 @@
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#準備"><span class="toc-text">準備</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作"><span class="toc-text">操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#調適"><span class="toc-text">調適</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#備註"><span class="toc-text">備註</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#準備"><span class="toc-text">準備</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作"><span class="toc-text">操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#調適"><span class="toc-text">調適</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#錯誤"><span class="toc-text">錯誤</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#備註"><span class="toc-text">備註</span></a></li></ol></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
