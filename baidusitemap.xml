@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>http://s2339956.github.io/Analysis_.a_static_library.html</loc>
+    <lastmod>2019-09-18T04:27:07.431Z</lastmod>
+    <data>
+        <display>
+        <title>Analysis .a static library</title>
+        <pubTime>2019-09-18T04:14:25.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>app</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="http://s2339956.github.io/categories/iOS/"/>
+          
+             
+              <breadCrumb title="app" url="http://s2339956.github.io/categories/iOS/app/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://s2339956.github.io/openSSH_Show_Chinese.html</loc>
     <lastmod>2019-09-09T10:17:19.058Z</lastmod>
     <data>
@@ -61,9 +86,9 @@
         <title>MacOS 開機自動運行(Boot Automatically)</title>
         <pubTime>2019-08-29T05:36:12.000Z</pubTime>
         
-        <tag>MacOS</tag>
-         
         <tag>app</tag>
+         
+        <tag>MacOS</tag>
          
          
            
@@ -86,9 +111,9 @@
         <title>apple api get app versions</title>
         <pubTime>2019-08-26T09:51:32.000Z</pubTime>
         
-        <tag>MacOS</tag>
-         
         <tag>app</tag>
+         
+        <tag>MacOS</tag>
          
          
            
@@ -112,9 +137,9 @@
         <title>無限試用 Navicat Premium</title>
         <pubTime>2019-08-11T09:30:22.000Z</pubTime>
         
-        <tag>MacOS</tag>
-         
         <tag>app</tag>
+         
+        <tag>MacOS</tag>
          
          
            

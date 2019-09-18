@@ -3,6 +3,75 @@
   
     
     <entry>
+      <title><![CDATA[Analysis .a static library]]></title>
+      <url>/Analysis_.a_static_library.html</url>
+      <content type="html"><![CDATA[<p>　　分析 .a 靜態庫</p>
+<a id="more"></a>
+
+
+
+
+<h3 id="分析-a-靜態庫"><a href="#分析-a-靜態庫" class="headerlink" title="分析 .a 靜態庫"></a>分析 .a 靜態庫</h3><p>靜態庫 .a 就是一組 .o 文件的 ar 包，可以用<code>ar -t</code>查看 .a 包含的所有 .o 。<br></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar -x somelib_armv7.a</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  CheckBundleIDSDK ar -t libDGCCheckBundleID_arm64.a</span><br><span class="line">__.SYMDEF</span><br><span class="line">1.o</span><br><span class="line">10.o</span><br><span class="line">11.o</span><br><span class="line">12.o</span><br><span class="line">13.o</span><br><span class="line">14.o</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+
+<p>這是一個經過混淆加密後的 object code:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">➜  CheckBundleIDSDK cat 1.o</span><br><span class="line">����</span><br><span class="line">    � �� �__text__TEXT �</span><br><span class="line"><span class="meta">%</span>�__StaticInit__TEXT�4</span><br><span class="line">                       �__cstring__TEXT��__objc_methname__TEXT�^�__objc_classn__mod_init_func__DAT�ype__TEXT</span><br><span class="line">                   	__cfstring__DATA @�</span><br><span class="line">                                           __objc_classlist__DATA�</span><br><span class="line">                                                                  __objc_imageinfo__DATA__objc_const__DATAp��</span><br><span class="line">__bss__DATA�__asm__LLVM��    __o__compact_unwind__LD�@�	`</span><br><span class="line">p�W���O��&#123;������</span><br></pre></td></tr></table></figure>
+
+<h3 id="報錯"><a href="#報錯" class="headerlink" title="報錯"></a>報錯</h3><p>ar 指令提取 .o 的時候報錯：is a fat file (use libtool(1) or lipo(1) and ar(1) on it)<br>在解壓縮 .a 文件時，報錯：is a fat file (use libtool(1) or lipo(1) and ar(1) on it)，原因是 .a 文件包含了多個 cpu 架構，比如arm64, armv7, armv7s等。</p>
+<p>解決方法：首先使用如下指令解壓出需要的架構（其中”CheckBundleIDSDK.a”代表需要解壓的 .a 文件)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span># 解壓縮 64位元</span><br><span class="line">lipo CheckBundleIDSDK.a -thin arm64 -output somelib_arm64.a</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 解壓縮 v7s位元</span><br><span class="line">lipo CheckBundleIDSDK.a -thin armv7s -output somelib_armv7s.a</span><br></pre></td></tr></table></figure>
+
+<p>這樣獲得解壓出來的.a（somelib_arm64.a，somelib_armv7s.a）後，再使用如下命令解壓獲得.o文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar -x somelib_armv7.a -o</span><br></pre></td></tr></table></figure>
+
+<h4 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h4><p>armv7、armv7s、arm64都是ARM處理器的指令集 <br><br>i386、x86_64 是Mac處理器的指令集<br></p>
+<p>目前市面上手機幾乎是arm64，故其他可以不用太過關注。</p>
+<table>
+<thead>
+<tr>
+<th>ARM 指令集</th>
+<th>設備</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>arm64</td>
+<td><p> iPhone6s </p><p> iphone6s plus </p><p> iPhone6</p><p> iPhone6 plus </p><p> iPhone5S </p><p> iPad Air </p><p> iPad mini2(iPad mini with Retina Display)</p></td>
+</tr>
+<tr>
+<td>armv7s</td>
+<td><p> iPhone5 </p><p> iPhone5C </p><p> iPad4(iPad with Retina Display)</p></td>
+</tr>
+<tr>
+<td>armv7</td>
+<td><p> iPhone4 </p><p> iPhone4S </p><p> iPad2… 等</p></td>
+</tr>
+</tbody></table>
+<p>i386 是針對 intel 通用微處理器32位處理器<br><br>x86_64 是針對 x86 架構的64位處理器<br></p>
+<p>模擬器32位處理器測試需要 i386 架構，<br><br>模擬器64位處理器測試需要 x86_64 架構，<br><br>真機32位處理器需要 armv7, 或者 armv7s 架構，<br><br>真機64位處理器需要 arm64 架構。<br></p>
+]]></content>
+      
+        <categories>
+            
+            <category> iOS </category>
+            
+            <category> app </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> app </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[openSSH Show Chinese]]></title>
       <url>/openSSH_Show_Chinese.html</url>
       <content type="html"><![CDATA[<p>　　openSSH 顯示中文</p>
@@ -172,9 +241,9 @@
         
         <tags>
             
-            <tag> MacOS </tag>
-            
             <tag> app </tag>
+            
+            <tag> MacOS </tag>
             
         </tags>
         
@@ -209,9 +278,9 @@
         
         <tags>
             
-            <tag> MacOS </tag>
-            
             <tag> app </tag>
+            
+            <tag> MacOS </tag>
             
         </tags>
         
@@ -230,7 +299,7 @@
 <li>使用 Hopper Disassembler v4 Standard Edition (4.5.13)，來對二進制文件反編譯</li>
 <li>搜索字串<code>http://www.navicat.com/cht/store</code>，<br><br>找到</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 找到使用者</span></span></span><br><span class="line">0000000102d5bf5b         db         "http://www.navicat.com/cht/store", 0       ; DATA XREF=cfstring_http___www_navicat_com_cht_store</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 相關地址</span></span></span><br><span class="line">0000000103c2b600         dq         0x0000000104750310, 0x00000000000007c8, 0x0000000102d5bf5b, 0x0000000000000020 ; "http://www.navicat.com/cht/store", DATA XREF=qword_103f773b8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 使用者</span></span></span><br><span class="line">0000000103f773b8         dq         0x0000000103c2b600                          ; @"http://www.navicat.com/cht/store", DATA XREF=+[Registration ApplicationChecking:isLaunch:]+481, +[Registration ApplicationChecking:isLaunch:]+899, +[Registration ApplicationChecking:isLaunch:]+5518, +[Registration ApplicationChecking:isLaunch:]+5758, +[Registration ApplicationChecking:isLaunch:]+6039, +[Registration ApplicationChecking:isLaunch:]+9206, -[Registration BuyNow:]+52</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># ↑ [Registration ApplicationChecking:isLaunch:]，如名得知，這可能是一個檢查方法</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span># 找到使用者</span><br><span class="line">0000000102d5bf5b         db         "http://www.navicat.com/cht/store", 0       ; DATA XREF=cfstring_http___www_navicat_com_cht_store</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 相關地址</span><br><span class="line">0000000103c2b600         dq         0x0000000104750310, 0x00000000000007c8, 0x0000000102d5bf5b, 0x0000000000000020 ; "http://www.navicat.com/cht/store", DATA XREF=qword_103f773b8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 使用者</span><br><span class="line">0000000103f773b8         dq         0x0000000103c2b600                          ; @"http://www.navicat.com/cht/store", DATA XREF=+[Registration ApplicationChecking:isLaunch:]+481, +[Registration ApplicationChecking:isLaunch:]+899, +[Registration ApplicationChecking:isLaunch:]+5518, +[Registration ApplicationChecking:isLaunch:]+5758, +[Registration ApplicationChecking:isLaunch:]+6039, +[Registration ApplicationChecking:isLaunch:]+9206, -[Registration BuyNow:]+52</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># ↑ [Registration ApplicationChecking:isLaunch:]，如名得知，這可能是一個檢查方法</span><br></pre></td></tr></table></figure>
 
 <p>查看一下方法的匯編程式碼(assembly language)，</p>
 <p><img src="/images/Unlimited-trial-NavicatPremium/assemblyLanguage.png" alt=""></p>
@@ -262,9 +331,9 @@
         
         <tags>
             
-            <tag> MacOS </tag>
-            
             <tag> app </tag>
+            
+            <tag> MacOS </tag>
             
         </tags>
         
