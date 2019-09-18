@@ -18,14 +18,17 @@
     <link rel="dns-prefetch" href="http://s2339956.github.io">
     <!--SEO-->
 
-    <meta name="keywords" content="app,MacOS">
+    <meta name="keywords" content="iOS,app">
 
 
-    <meta name="description" content="　　MacOS 開機自動運行(Boot Automatically)
+    <meta name="description" content="　　分析 .a 靜態庫
 
 
 
-前言Mac 的開機啟動項目一般會在 「系統偏好設定」 ＞「使用者與群組」＞「登入項目」可以找得到。但是有時候也有例外。...">
+
+
+分析 .a 靜態庫靜態庫 .a 就是一組 .o 文件的 ar 包，可以用ar -t查看 .a 包含的所有 .o 。
+1ar -x somelib_armv7.a...">
 
 
 
@@ -37,7 +40,7 @@
     <!--Title-->
 
 
-<title>MacOS 開機自動運行(Boot Automatically) | Tin Blog</title>
+<title>Analysis .a static library | Tin Blog</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
@@ -150,16 +153,16 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="MacOS 開機自動運行(Boot Automatically)">
+        <h1 id="Analysis .a static library">
             
-	            MacOS 開機自動運行(Boot Automatically)
+	            Analysis .a static library
             
         </h1>
         <div class="post-meta">
     
         <span class="categories-meta fa-wrap">
             <i class="fa fa-folder-open-o"></i>
-            <a class="category-link" href="/categories/MacOS/">MacOS</a> <a class="category-link" href="/categories/MacOS/app/">app</a>
+            <a class="category-link" href="/categories/iOS/">iOS</a> <a class="category-link" href="/categories/iOS/app/">app</a>
         </span>
     
 
@@ -168,7 +171,7 @@
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
                 
-                    <a class="tag-link" href="/tags/MacOS/">MacOS</a> <a class="tag-link" href="/tags/app/">app</a>
+                    <a class="tag-link" href="/tags/app/">app</a> <a class="tag-link" href="/tags/iOS/">iOS</a>
                 
             </span>
         </span>
@@ -178,7 +181,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2019/08/29</span>
+            <span class="date-meta">2019/09/18</span>
         </span>
         
             <span class="fa-wrap">
@@ -193,48 +196,51 @@
     </div>
     
     <div class="post-body post-content">
-        <p>　　MacOS 開機自動運行(Boot Automatically)</p>
+        <p>　　分析 .a 靜態庫</p>
 <a id="more"></a>
 
 
-<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Mac 的開機啟動項目一般會在 「系統偏好設定」 ＞「使用者與群組」＞「登入項目」可以找得到。<br><br>但是有時候也有例外。<br></p>
-<p>因工作需要，有時需要掛上 VPN (Pulse Secure)，但這 APP 實在讓我有點困擾，一重啟電腦，他就自動運行…. <br><br>完全不管我是否有需要… <br><br><br><br>MacOS是有分成登入項目(Login Items) 與 啟動項目(Startup Items)兩種。</p>
-<h3 id="Startup-Items"><a href="#Startup-Items" class="headerlink" title="Startup Items"></a>Startup Items</h3><p>早期版本的 OS X 依賴於兩個資料夾</p>
-<ul>
-<li>/Library/StartupItems </li>
-<li>/System/Library/StartupItems</li>
-</ul>
-<p>來保存指定在啟動 Mac 時加載的項目。Apple 現在不鼓勵使用啟動項，但有些程式（主要是較舊的應用程式）仍然使用這種機制。通常你的 <code>/System/Library/StartupItems</code> 資料夾應為空; 但如果它包含您不再使用的內容，則可以將不需要的項目拖到垃圾桶中，以防止下次啟動 Mac 時自動加載。</p>
-<h3 id="Launch-daemons-and-agents"><a href="#Launch-daemons-and-agents" class="headerlink" title="Launch daemons and agents"></a>Launch daemons and agents</h3><p>自從 OS X 10.4 Tiger 以來，Apple 已經為開發人員提供了另一種自動啟動項目的機制：啟動守護進程和代理，由 launchd 進程控制。此方法比登錄項或啟動項提供更大的靈活性，但對用戶而言不太透明。</p>
-<p>UNIX 窗簾背後：launchd 不是直接打開應用程式，而是加載特殊格式的 .plist 文檔（XML首選項文件），指定應該啟動什麼以及在什麼情況下啟動。有時這些啟動項目在後台持續運行，有時它們按預定的時間間隔運行，有時它們會根據需要運行 </p>
-<ul>
-<li>例如，響應某個文件或資料夾中的更改等事件 </li>
-<li>然後退出。</li>
-</ul>
-<p>launchd 使用的 .plist 文件可以佔用五個資料夾中的任何一個，它們的位置決定了項目加載的時間和權限：</p>
-<ul>
-<li>/Library/LaunchDaemons 和 /System/Library/LaunchDaemons中的項目在 Mac 啟動時加載，並以 root 用戶身份運行。</li>
-<li>/Library/LaunchAgents 和 /System/Library/LaunchAgents 中的項在任何用戶登錄時加載，並以該用戶身份運行。</li>
-<li>/Users/your-username/Library/LaunchAgents 中的項僅在特定用戶登錄時加載，並以該用戶身份運行。</li>
-</ul>
-<p>其中位於 System 資料夾中的 <code>/System/Library/LaunchDaemons</code> 和 <code>/System/Library/LaunchAgents</code> 是作為 OS X 的一部分包含的組件，他們對於保持 MAC 的正常運行非常重要，千萬不要動它們！！！</p>
-<p>對於其它資料夾中的項目，你可以依照需求隨意修改他們。例如禁用它們或更改它們運行的頻率。但在此之前，最好要瞭解它的作用方式。</p>
-<h3 id="關閉-Pulse-Secure-自動啟動"><a href="#關閉-Pulse-Secure-自動啟動" class="headerlink" title="關閉 Pulse Secure 自動啟動"></a>關閉 Pulse Secure 自動啟動</h3><p>使用終端機(Terminal)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜ ~ cd /Library/LaunchAgents</span><br></pre></td></tr></table></figure>
 
-<p>找到 <code>net.pulsesecure.pulsetray.plist</code></p>
-<p><img src="/images/mac_Boot_Automatically/iTerm.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  LaunchAgents sudo vim net.pulsesecure.pulsetray.plist</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/mac_Boot_Automatically/iTerm1.png" alt=""></p>
-<p>修改其中的 Disabled 改為 ture 即可，重開機後就不會再出現哩！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--Disabled 原本應該為 false--&gt;</span><br><span class="line">&lt;key&gt;Disabled&lt;/key&gt;</span><br><span class="line">&lt;true/&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="分析-a-靜態庫"><a href="#分析-a-靜態庫" class="headerlink" title="分析 .a 靜態庫"></a>分析 .a 靜態庫</h3><p>靜態庫 .a 就是一組 .o 文件的 ar 包，可以用<code>ar -t</code>查看 .a 包含的所有 .o 。<br></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar -x somelib_armv7.a</span><br></pre></td></tr></table></figure>
 
-<h3 id="開機自動運行"><a href="#開機自動運行" class="headerlink" title="開機自動運行"></a>開機自動運行</h3><p>下指令<br><code>sudo vim /Library/LaunchDaemons/com.go.agent.plist</code></p>
-<p>修改其中的片段，指定為自己的腳本或者程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span><br><span class="line">&lt;plist version=&quot;1.0&quot;&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">        &lt;key&gt;Label&lt;/key&gt;</span><br><span class="line">        &lt;string&gt;com.go.agent&lt;/string&gt;</span><br><span class="line">        &lt;key&gt;ProgramArguments&lt;/key&gt;</span><br><span class="line">        &lt;array&gt;</span><br><span class="line">        &lt;string&gt;python&lt;/string&gt;</span><br><span class="line">        &lt;string&gt;/Users/leedani/Downloads/goagent/local/proxy.py（修改為存放goagent proxy.py的路徑）&lt;/string&gt;</span><br><span class="line">        &lt;/array&gt;</span><br><span class="line">        &lt;key&gt;RunAtLoad&lt;/key&gt;</span><br><span class="line">        &lt;true/&gt;</span><br><span class="line">&lt;/dict&gt;</span><br><span class="line">&lt;/plist&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  CheckBundleIDSDK ar -t libDGCCheckBundleID_arm64.a</span><br><span class="line">__.SYMDEF</span><br><span class="line">1.o</span><br><span class="line">10.o</span><br><span class="line">11.o</span><br><span class="line">12.o</span><br><span class="line">13.o</span><br><span class="line">14.o</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
 
-<p>下指令<br><code>launchctl load /Library/LaunchDaemons/com.go.agent.plist</code></p>
+<p>這是一個經過混淆加密後的 object code:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">➜  CheckBundleIDSDK cat 1.o</span><br><span class="line">����</span><br><span class="line">    � �� �__text__TEXT �</span><br><span class="line"><span class="meta">%</span>�__StaticInit__TEXT�4</span><br><span class="line">                       �__cstring__TEXT��__objc_methname__TEXT�^�__objc_classn__mod_init_func__DAT�ype__TEXT</span><br><span class="line">                   	__cfstring__DATA @�</span><br><span class="line">                                           __objc_classlist__DATA�</span><br><span class="line">                                                                  __objc_imageinfo__DATA__objc_const__DATAp��</span><br><span class="line">__bss__DATA�__asm__LLVM��    __o__compact_unwind__LD�@�	`</span><br><span class="line">p�W���O��&#123;������</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="報錯"><a href="#報錯" class="headerlink" title="報錯"></a>報錯</h3><p>在解壓縮 .a 文件時，報錯：is a fat file (use libtool(1) or lipo(1) and ar(1) on it)，原因是 .a 文件包含了多個 cpu 架構，比如arm64, armv7, armv7s等。</p>
+<p>解決方法：首先使用如下指令解壓出需要的架構（其中”CheckBundleIDSDK.a”代表需要解壓的 .a 文件)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span># 解壓縮 64指令集</span><br><span class="line">lipo CheckBundleIDSDK.a -thin arm64 -output somelib_arm64.a</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 解壓縮 v7s指令集</span><br><span class="line">lipo CheckBundleIDSDK.a -thin armv7s -output somelib_armv7s.a</span><br></pre></td></tr></table></figure>
+
+<p>這樣獲得解壓出來的.a（somelib_arm64.a，somelib_armv7s.a）後，再使用如下命令解壓獲得.o文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar -x somelib_armv7.a -o</span><br></pre></td></tr></table></figure>
+
+<h4 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h4><p>armv7、armv7s、arm64都是ARM處理器的指令集 <br><br>i386、x86_64 是Mac處理器的指令集<br></p>
+<p>目前市面上手機幾乎是arm64，故其他可以不用太過關注。</p>
+<table>
+<thead>
+<tr>
+<th>ARM 指令集</th>
+<th>設備</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>arm64</td>
+<td><p> iPhone6s </p><p> iphone6s plus </p><p> iPhone6</p><p> iPhone6 plus </p><p> iPhone5S </p><p> iPad Air </p><p> iPad mini2(iPad mini with Retina Display)</p></td>
+</tr>
+<tr>
+<td>armv7s</td>
+<td><p> iPhone5 </p><p> iPhone5C </p><p> iPad4(iPad with Retina Display)</p></td>
+</tr>
+<tr>
+<td>armv7</td>
+<td><p> iPhone4 </p><p> iPhone4S </p><p> iPad2… 等</p></td>
+</tr>
+</tbody></table>
+<p>i386 是針對 intel 通用微處理器32位處理器<br><br>x86_64 是針對 x86 架構的64位處理器<br></p>
+<p>模擬器32位處理器測試需要 i386 架構，<br><br>模擬器64位處理器測試需要 x86_64 架構，<br><br>真機32位處理器需要 armv7, 或者 armv7s 架構，<br><br>真機64位處理器需要 arm64 架構。<br></p>
 
     </div>
     
@@ -252,15 +258,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/iOS_lldb+debugserver.html" class="pre-post btn btn-default" title='iOS lldb + debugserver'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">iOS lldb + debugserver</span>
-        </a>
     
-    
-        <a href="/apple_api_get_app_versions.html" class="next-post btn btn-default" title='apple api get app versions'>
+        <a href="/openSSH_Show_Chinese.html" class="next-post btn btn-default" title='openSSH Show Chinese'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">apple api get app versions</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">openSSH Show Chinese</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -301,7 +302,7 @@
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Startup-Items"><span class="toc-text">Startup Items</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Launch-daemons-and-agents"><span class="toc-text">Launch daemons and agents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#關閉-Pulse-Secure-自動啟動"><span class="toc-text">關閉 Pulse Secure 自動啟動</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#開機自動運行"><span class="toc-text">開機自動運行</span></a>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#分析-a-靜態庫"><span class="toc-text">分析 .a 靜態庫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#報錯"><span class="toc-text">報錯</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#後記"><span class="toc-text">後記</span></a></li></ol></li></ol>
         
     </div>
 </aside>
