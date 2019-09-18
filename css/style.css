@@ -277,9 +277,9 @@ pre {
   overflow: hidden;
   white-space: nowrap;
   background-image: -webkit-linear-gradient(left, #cddc39, #e67e22 25%, #cddc39 50%, #e67e22 75%, #cddc39) !important;
-  -webkit-text-fill-color: transparent!important;
-  -webkit-background-clip: text!important;
-  background-size: 200% 100%!important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-size: 200% 100% !important;
   animation: masked-animation 2s infinite linear !important;
 }
 .main-header .main-header-box .branding h2:hover {
@@ -484,6 +484,7 @@ pre {
 .post .post-body p {
   font-size: 1em;
   line-height: 1.5;
+  word-break: break-all;
 }
 .post .post-body p img {
   max-width: 100%;
@@ -917,7 +918,7 @@ pre {
   border: 1px solid #ebebeb;
   padding: 2px 7px;
   color: #959595;
-  font-size: 1em!important;
+  font-size: 1em !important;
   line-height: 1.5em;
   display: inline-block;
   margin: 0 5px 5px 0;
