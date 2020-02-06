@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hant-TW">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,20 +19,20 @@
     <link rel="dns-prefetch" href="http://s2339956.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="iOS,app">
+<meta name="keywords" content="iOS,app" />
 
 
 <meta name="description" content="　　iOS lldb + debugserver 動態調適
 
 
 
-前言關於 iOS 動態調適有許多方式，這邊介紹一種比較容易的方法，通過 MacOS 中的 Xcode 自帶的 lldb 與 de...">
+前言關於 iOS 動態調適有許多方式，這邊介紹一種比較容易的方法，通過 MacOS 中的 Xcode 自帶的 lldb 與 de..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -49,9 +49,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -81,7 +83,7 @@ ga('send', 'pageview');
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 4.2.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -167,7 +169,7 @@ ga('send', 'pageview');
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/app/">app</a> <a class="tag-link" href="/tags/iOS/">iOS</a>
+            <a class="tag-link" href="/tags/app/" rel="tag">app</a> <a class="tag-link" href="/tags/iOS/" rel="tag">iOS</a>
             
         </span>
     </span>
@@ -208,32 +210,28 @@ ga('send', 'pageview');
 </ul>
 <p>由於 iOS 11 之前需求簽名與添加權限，有些許的難度，但在 iOS 12 之後，不需要再簽名與權限，所以統一使用12.4來操作。</p>
 <h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ol>
-<li><p>在 iTerm2 上，下指令 iproxy 1111 1111 <br><br> <img src="/images/iOS_lldb+debugserver/iTerm.png" alt=""></p>
+<li><p>在 iTerm2 上，下指令 iproxy 1111 1111 <br><br> <img src="source/images/iOS_lldb+debugserver/iTerm.png" alt=""></p>
 </li>
 <li><p>在 iTerm2 上，開啟第二個分頁(command+T)，SSH 連線至手機，<br> 其操作可以讓mac 與 iphone 在同一個 wifi 下，會更好操作。</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.111.1</span><br></pre></td></tr></table></figure>
-
-<p> 密碼統一預設為: alpine <br><br> <img src="/images/iOS_lldb+debugserver/ssh.png" alt=""></p>
+<p> 密碼統一預設為: alpine <br><br> <img src="source/images/iOS_lldb+debugserver/ssh.png" alt=""></p>
 </li>
 <li><p>在 ssh 分頁中下指令: <code>ps -e</code>，可以找出當前運行中的 app，比如我們要 attach 的進程編號為 693，我們可以輸入如下命令：<code>debugserver *:1111 -a 693</code> <br> </p>
 <ul>
 <li><p>Chimera 越獄: </p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Developer/usr/bin/debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Developer/usr/bin/debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure></li>
 <li><p>unc0ver 越獄: </p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure>
-
-
+</li>
+<li><p>如果要用 debugserver 啓動 app，而不是附加到已經啓動的 app，則使用 <code>debugserver localhost:1111 &lt;app mach-O 路徑&gt;</code>，例如:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 /var/containers/Bundle/Application/107F3307-2900-4720-B9BA-0C7792D89DF2/APP_TO_DEBUG.app/APP_TO_DEBUG</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
+<li><p>在 iTerm2 上，開啟第第三個分頁，下指令: <code>lldb</code>，進入 lldb 界面，使用 process connect 指令連接至手機上。 用 WiFi 連接到 iOS 設備時：process connect connect://localhost:1234 <br><br> <img src="source/images/iOS_lldb+debugserver/lldb.png" alt=""></p>
+</li>
 </ol>
-<pre><code>- 如果要用 debugserver 啓動 app，而不是附加到已經啓動的 app，則使用 `debugserver localhost:1111 &lt;app mach-O 路徑&gt;`，例如:
-
-    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 /var/containers/Bundle/Application/107F3307-2900-4720-B9BA-0C7792D89DF2/APP_TO_DEBUG.app/APP_TO_DEBUG</span><br></pre></td></tr></table></figure></code></pre><ol start="4">
-<li>在 iTerm2 上，開啟第第三個分頁，下指令: <code>lldb</code>，進入 lldb 界面，使用 process connect 指令連接至手機上。 用 WiFi 連接到 iOS 設備時：process connect connect://localhost:1234 <br><br> <img src="/images/iOS_lldb+debugserver/lldb.png" alt=""></li>
-</ol>
-<h3 id="調適"><a href="#調適" class="headerlink" title="調適"></a>調適</h3><p>其餘奧秘，就留給大家研究嘗試一下吧～ <br><br><img src="/images/iOS_lldb+debugserver/debug.png" alt=""></p>
+<h3 id="調適"><a href="#調適" class="headerlink" title="調適"></a>調適</h3><p>其餘奧秘，就留給大家研究嘗試一下吧～ <br><br><img src="source/images/iOS_lldb+debugserver/debug.png" alt=""></p>
 <h3 id="錯誤"><a href="#錯誤" class="headerlink" title="錯誤"></a>錯誤</h3><p><code>error：failed to get reply to handshake packet</code><br></p>
 <ol>
 <li>wget <a href="http://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.bz2" target="_blank" rel="noopener">http://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.bz2</a> </li>
@@ -365,6 +363,8 @@ gitalk.render('gitalk-container');
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

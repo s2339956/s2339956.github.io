@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hant-TW">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,19 +19,19 @@
     <link rel="dns-prefetch" href="http://s2339956.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="Markdown,Table,CSS,JavaScript">
+<meta name="keywords" content="Markdown,Table,CSS,JavaScript" />
 
 
 <meta name="description" content="　　Markdown 寫的表格最終會被解析成 HTML 格式，如果使用的編輯器支持自定義 CSS，就能方便的調整樣式。如果可以引入 JavaScript，樣式自適應也能較好地實現。
 
 
-See ...">
+See ..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -48,9 +48,11 @@ See ...">
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -80,7 +82,7 @@ ga('send', 'pageview');
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 4.2.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -166,7 +168,7 @@ ga('send', 'pageview');
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/CSS/">CSS</a> <a class="tag-link" href="/tags/JavaScript/">JavaScript</a> <a class="tag-link" href="/tags/Markdown/">Markdown</a> <a class="tag-link" href="/tags/Table/">Table</a>
+            <a class="tag-link" href="/tags/CSS/" rel="tag">CSS</a> <a class="tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a> <a class="tag-link" href="/tags/Markdown/" rel="tag">Markdown</a> <a class="tag-link" href="/tags/Table/" rel="tag">Table</a>
             
         </span>
     </span>
@@ -210,17 +212,18 @@ ga('send', 'pageview');
 &lt;tr&gt;: table row 表行
 &lt;td&gt;: table data 單元格内容</code></pre><h3 id="基本樣式"><a href="#基本樣式" class="headerlink" title="基本樣式"></a>基本樣式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*表格寬度*/</span></span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">65em</span>; <span class="comment">/*表格最大寬度，避免表格過寬*/</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*表格外邊框設置*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> auto; <span class="comment">/*外邊距*/</span></span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse; <span class="comment">/*使用單一線條的邊框*/</span></span><br><span class="line">    <span class="attribute">empty-cells</span>: show; <span class="comment">/*單元格無内容依舊繪製邊框*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span>,</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">35px</span>; <span class="comment">/*統一每一行的默認高度*/</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*内部邊框樣式*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="comment">/*内邊距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="表頭樣式"><a href="#表頭樣式" class="headerlink" title="表頭樣式"></a>表頭樣式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold; <span class="comment">/*加粗*/</span></span><br><span class="line">    <span class="attribute">text-align</span>: center <span class="meta">!important</span>; <span class="comment">/*内容居中，加上 !important 避免被 Markdown 樣式覆蓋*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(158,188,226,0.2); <span class="comment">/*背景色*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="表頭樣式"><a href="#表頭樣式" class="headerlink" title="表頭樣式"></a>表頭樣式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold; <span class="comment">/*加粗*/</span></span><br><span class="line">    <span class="attribute">text-align</span>: center <span class="meta">!important</span>; <span class="comment">/*内容居中，加上 !important 避免被 Markdown 樣式覆蓋*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.2</span>); <span class="comment">/*背景色*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="隔行變色"><a href="#隔行變色" class="headerlink" title="隔行變色"></a>隔行變色</h3><ul>
 <li>使用選擇器選取復數行設置背景色。一般 Markdown 表格編譯後都有 <code>&lt;tbody&gt;</code> 包裹内容，那下面就相當於從表格第二行開始技術</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">tbody</span> <span class="selector-tag">tr</span><span class="selector-pseudo">:nth-child(2n)</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(158,188,226,0.12);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">tbody</span> <span class="selector-tag">tr</span><span class="selector-pseudo">:nth-child(2n)</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.12</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="懸浮變色"><a href="#懸浮變色" class="headerlink" title="懸浮變色"></a>懸浮變色</h3><ul>
 <li>滑鼠懸浮時該行改變背景色</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">tr</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#efefef</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
 <h2 id="自適應優化"><a href="#自適應優化" class="headerlink" title="自適應優化"></a>自適應優化</h2><p>表格用 Markdown 書寫，編輯器解析，因而只能在已經生成好的程式碼上進行自適應優化。</p>
 <h3 id="表頭不換行"><a href="#表頭不換行" class="headerlink" title="表頭不換行"></a>表頭不換行</h3><ul>
@@ -247,6 +250,7 @@ ga('send', 'pageview');
 <li>同时添加如下 CSS</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.table-area</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
 <ul>
 <li>To be added</li>
@@ -276,7 +280,7 @@ ga('send', 'pageview');
     </a>
     
     
-    <a href="/常用-Hexo-指令.html" class="next-post btn btn-default" title='常用 Hexo 指令'>
+    <a href="/%E5%B8%B8%E7%94%A8-Hexo-%E6%8C%87%E4%BB%A4.html" class="next-post btn btn-default" title='常用 Hexo 指令'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             常用 Hexo 指令</span><i class="fa fa-angle-right fa-fw"></i>
@@ -369,6 +373,8 @@ gitalk.render('gitalk-container');
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

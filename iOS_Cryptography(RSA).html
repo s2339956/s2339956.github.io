@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hant-TW">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,7 +19,7 @@
     <link rel="dns-prefetch" href="http://s2339956.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="{{ page.keywords }}">
+<meta name="keywords" content="{{ page.keywords }}" />
 
 
 <meta name="description" content="　　iOS 密碼學(RSA)，粗略介紹。
@@ -33,13 +33,13 @@ RSA數學原理
 RSA終端命令
 總結
 
-什麼是密碼學密碼學的歷史大致可以追溯到兩千年...">
+什麼是密碼學密碼學的歷史大致可以追溯到兩千年..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -56,9 +56,11 @@ RSA終端命令
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -88,7 +90,7 @@ ga('send', 'pageview');
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 4.2.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -247,19 +249,18 @@ ga('send', 'pageview');
 
 <p>如上圖：<br><br>客戶端持有一個隨機數13 ，服務端持有隨機數15，再選一對特殊的數，3是17的<a href="https://zh.wikipedia.org/wiki/%E5%8E%9F%E6%A0%B9" target="_blank" rel="noopener">原根</a>。<br>兩端交換的都是密文，就算中間被劫持，也不知道最後需要的傳輸的內容是10 <br><br>那麼這個10就是最後真正的密鑰。</p>
 <p>證明過程：<br></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">==&gt;		3^(13 * 15) mod 17 = 3^(13 * 15) mod 17 </span><br><span class="line">根據模冪運算 ((m^e mod n)^d) mod n = m^(e*d) mod n</span><br><span class="line">==&gt;		(3^13 mod 17)^13 mod 17 = (3^15 mod 17)^15 mod 17</span><br><span class="line">由於	3^13 mod 17 = 12</span><br><span class="line">		3^15 mod 17 = 6</span><br><span class="line">==&gt;		6^13 mod 17 =  12^15 mod 17 = 10</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x3D;&#x3D;&gt;		3^(13 * 15) mod 17 &#x3D; 3^(13 * 15) mod 17 </span><br><span class="line">根據模冪運算 ((m^e mod n)^d) mod n &#x3D; m^(e*d) mod n</span><br><span class="line">&#x3D;&#x3D;&gt;		(3^13 mod 17)^13 mod 17 &#x3D; (3^15 mod 17)^15 mod 17</span><br><span class="line">由於	3^13 mod 17 &#x3D; 12</span><br><span class="line">		3^15 mod 17 &#x3D; 6</span><br><span class="line">&#x3D;&#x3D;&gt;		6^13 mod 17 &#x3D;  12^15 mod 17 &#x3D; 10</span><br></pre></td></tr></table></figure>
 <p>設</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m=3, e=13, d=15, n=17, C=12</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m&#x3D;3, e&#x3D;13, d&#x3D;15, n&#x3D;17, C&#x3D;12</span><br></pre></td></tr></table></figure>
 
 <p>那麼</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m^e mod n = c</span><br><span class="line">c^d mod n = (m^e mod n)^d mod n = m^(e*d) mod n</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m^e mod n &#x3D; c</span><br><span class="line">c^d mod n &#x3D; (m^e mod n)^d mod n &#x3D; m^(e*d) mod n</span><br></pre></td></tr></table></figure>
 
 <p>又由於上面模反元素，最後得出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m^(e*d) mod n = m</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m^(e*d) mod n &#x3D; m</span><br></pre></td></tr></table></figure>
 
 <p>所以得出最終結論：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m^e mod n = c</span><br><span class="line">c^d  mod n = m</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m^e mod n &#x3D; c</span><br><span class="line">c^d  mod n &#x3D; m</span><br></pre></td></tr></table></figure>
 
 <p>這個公式也就是我們最後的RSA加密公式！ ！ ！<br><br>其中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">公鑰： n和e</span><br><span class="line">私鑰： n和d</span><br><span class="line">明文: m</span><br><span class="line">密文: c</span><br><span class="line">d是e對於φ(n)的&quot;模反元素&quot;。</span><br></pre></td></tr></table></figure>
@@ -315,21 +316,19 @@ ga('send', 'pageview');
 <td align="left"></td>
 </tr>
 </tbody></table>
-<h4 id="1-生成RSA私鑰，密鑰長度為1024bit"><a href="#1-生成RSA私鑰，密鑰長度為1024bit" class="headerlink" title="1. 生成RSA私鑰，密鑰長度為1024bit"></a>1. 生成RSA私鑰，密鑰長度為1024bit</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 生成RSA私鑰，密鑰長度為1024bit</span><br><span class="line">openssl genrsa -out private.pem 1024</span><br></pre></td></tr></table></figure>
+<h4 id="1-生成RSA私鑰，密鑰長度為1024bit"><a href="#1-生成RSA私鑰，密鑰長度為1024bit" class="headerlink" title="1. 生成RSA私鑰，密鑰長度為1024bit"></a>1. 生成RSA私鑰，密鑰長度為1024bit</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 生成RSA私鑰，密鑰長度為1024bit</span><br><span class="line">openssl genrsa -out private.pem 1024</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  Downloads openssl genrsa -out private.pem 1024</span><br><span class="line">Generating RSA private key, 1024 bit long modulus</span><br><span class="line">........+++++</span><br><span class="line">................................+++++</span><br><span class="line">e is 65537 (0x10001)</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-從私鑰中提取公鑰"><a href="#2-從私鑰中提取公鑰" class="headerlink" title="2. 從私鑰中提取公鑰"></a>2. 從私鑰中提取公鑰</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 從私鑰中提取公鑰</span><br><span class="line">openssl rsa -in private.pem -pubout -out public.pem</span><br></pre></td></tr></table></figure>
-
+<h4 id="2-從私鑰中提取公鑰"><a href="#2-從私鑰中提取公鑰" class="headerlink" title="2. 從私鑰中提取公鑰"></a>2. 從私鑰中提取公鑰</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 從私鑰中提取公鑰</span><br><span class="line">openssl rsa -in private.pem -pubout -out public.pem</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  Downloads openssl rsa -in private.pem -pubout -out public.pem</span><br><span class="line">writing RSA key</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-將私鑰轉換成為明文"><a href="#3-將私鑰轉換成為明文" class="headerlink" title="3. 將私鑰轉換成為明文"></a>3. 將私鑰轉換成為明文</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 將私鑰轉換成為明文</span><br><span class="line">openssl rsa -in private.pem -text -out private.txt cat private.txt</span><br></pre></td></tr></table></figure>
-
+<h4 id="3-將私鑰轉換成為明文"><a href="#3-將私鑰轉換成為明文" class="headerlink" title="3. 將私鑰轉換成為明文"></a>3. 將私鑰轉換成為明文</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 將私鑰轉換成為明文</span><br><span class="line">openssl rsa -in private.pem -text -out private.txt cat private.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  Downloads openssl rsa -in private.pem -text -out private.txt</span><br><span class="line">cat private.txt</span><br><span class="line">writing RSA key</span><br><span class="line">Private-Key: (1024 bit)</span><br><span class="line">modulus:</span><br><span class="line">    00:c6:46:ac:0e:4f:3b:01:2f:15:f3:94:23:50:32:</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-通過公鑰加密數據，私鑰解密數據"><a href="#4-通過公鑰加密數據，私鑰解密數據" class="headerlink" title="4. 通過公鑰加密數據，私鑰解密數據"></a>4. 通過公鑰加密數據，私鑰解密數據</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 新建一個文件，在文件中隨意輸入內容，比如輸入字符串”Hello“</span><br><span class="line">vim message.txt</span><br><span class="line">// 查看文件</span><br><span class="line">cat message.txt</span><br><span class="line">// 通過公鑰進行加密</span><br><span class="line">openssl rsautl -encrypt -in message.txt -inkey public.pem -pubin -out enc.txt</span><br><span class="line">// 通過私鑰進行解密</span><br><span class="line">openssl rsautl -decrypt -in enc.txt -inkey private.pem -out dec.txt</span><br><span class="line">// 查看加密後的文件</span><br><span class="line">cat enc.txt</span><br><span class="line">// 查看解密後的文件</span><br><span class="line">cat dec.txt</span><br></pre></td></tr></table></figure>
+<h4 id="4-通過公鑰加密數據，私鑰解密數據"><a href="#4-通過公鑰加密數據，私鑰解密數據" class="headerlink" title="4. 通過公鑰加密數據，私鑰解密數據"></a>4. 通過公鑰加密數據，私鑰解密數據</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 新建一個文件，在文件中隨意輸入內容，比如輸入字符串”Hello“</span><br><span class="line">vim message.txt</span><br><span class="line">&#x2F;&#x2F; 查看文件</span><br><span class="line">cat message.txt</span><br><span class="line">&#x2F;&#x2F; 通過公鑰進行加密</span><br><span class="line">openssl rsautl -encrypt -in message.txt -inkey public.pem -pubin -out enc.txt</span><br><span class="line">&#x2F;&#x2F; 通過私鑰進行解密</span><br><span class="line">openssl rsautl -decrypt -in enc.txt -inkey private.pem -out dec.txt</span><br><span class="line">&#x2F;&#x2F; 查看加密後的文件</span><br><span class="line">cat enc.txt</span><br><span class="line">&#x2F;&#x2F; 查看解密後的文件</span><br><span class="line">cat dec.txt</span><br></pre></td></tr></table></figure>
 
-<h4 id="5-通過私鑰加密數據，公鑰解密數據"><a href="#5-通過私鑰加密數據，公鑰解密數據" class="headerlink" title="5. 通過私鑰加密數據，公鑰解密數據"></a>5. 通過私鑰加密數據，公鑰解密數據</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 私鑰加密</span><br><span class="line">openssl rsautl -sign -in message.txt -inkey private.pem -out enc_2.txt</span><br><span class="line">// 公鑰加密</span><br><span class="line">openssl rsautl -verify -in enc_2.txt -inkey public.pem -pubin -out dec_2.txt</span><br></pre></td></tr></table></figure>
+<h4 id="5-通過私鑰加密數據，公鑰解密數據"><a href="#5-通過私鑰加密數據，公鑰解密數據" class="headerlink" title="5. 通過私鑰加密數據，公鑰解密數據"></a>5. 通過私鑰加密數據，公鑰解密數據</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 私鑰加密</span><br><span class="line">openssl rsautl -sign -in message.txt -inkey private.pem -out enc_2.txt</span><br><span class="line">&#x2F;&#x2F; 公鑰加密</span><br><span class="line">openssl rsautl -verify -in enc_2.txt -inkey public.pem -pubin -out dec_2.txt</span><br></pre></td></tr></table></figure>
 
 <br>
 <br>
@@ -366,7 +365,7 @@ ga('send', 'pageview');
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/無限試用Navicat Premium.html" class="pre-post btn btn-default" title='無限試用 Navicat Premium'>
+    <a href="/%E7%84%A1%E9%99%90%E8%A9%A6%E7%94%A8Navicat%20Premium.html" class="pre-post btn btn-default" title='無限試用 Navicat Premium'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             無限試用 Navicat Premium</span>
@@ -466,6 +465,8 @@ gitalk.render('gitalk-container');
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>

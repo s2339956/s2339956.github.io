@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-Hant-TW">
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,7 +19,7 @@
     <link rel="dns-prefetch" href="http://s2339956.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="iOS,app">
+<meta name="keywords" content="iOS,app" />
 
 
 <meta name="description" content="　　分析 .a 靜態庫
@@ -29,13 +29,13 @@
 
 
 分析 .a 靜態庫靜態庫 .a 就是一組 .o 文件的 ar 包，可以用ar -t查看 .a 包含的所有 .o 。
-1ar -x somelib_armv7.a...">
+1ar -x somelib_armv7.a..." />
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
     <!--Title-->
 
 <title>
@@ -52,9 +52,11 @@
 
     
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
     
 <div class="hide">
     <script type="text/javascript">
@@ -84,7 +86,7 @@ ga('send', 'pageview');
 
     
 
-</head></html>
+<meta name="generator" content="Hexo 4.2.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -170,7 +172,7 @@ ga('send', 'pageview');
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/app/">app</a> <a class="tag-link" href="/tags/iOS/">iOS</a>
+            <a class="tag-link" href="/tags/app/" rel="tag">app</a> <a class="tag-link" href="/tags/iOS/" rel="tag">iOS</a>
             
         </span>
     </span>
@@ -204,14 +206,16 @@ ga('send', 'pageview');
 <h3 id="分析-a-靜態庫"><a href="#分析-a-靜態庫" class="headerlink" title="分析 .a 靜態庫"></a>分析 .a 靜態庫</h3><p>靜態庫 .a 就是一組 .o 文件的 ar 包，可以用<code>ar -t</code>查看 .a 包含的所有 .o 。<br></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar -x somelib_armv7.a</span><br></pre></td></tr></table></figure>
 
+
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  CheckBundleIDSDK ar -t libDGCCheckBundleID_arm64.a</span><br><span class="line">__.SYMDEF</span><br><span class="line">1.o</span><br><span class="line">10.o</span><br><span class="line">11.o</span><br><span class="line">12.o</span><br><span class="line">13.o</span><br><span class="line">14.o</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
 
 <p>這是一個經過混淆加密後的 object code:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">➜  CheckBundleIDSDK cat 1.o</span><br><span class="line">����</span><br><span class="line">    � �� �__text__TEXT �</span><br><span class="line"><span class="meta">%</span>�__StaticInit__TEXT�4</span><br><span class="line">                       �__cstring__TEXT��__objc_methname__TEXT�^�__objc_classn__mod_init_func__DAT�ype__TEXT</span><br><span class="line">                   	__cfstring__DATA @�</span><br><span class="line">                                           __objc_classlist__DATA�</span><br><span class="line">                                                                  __objc_imageinfo__DATA__objc_const__DATAp��</span><br><span class="line">__bss__DATA�__asm__LLVM��    __o__compact_unwind__LD�@�	`</span><br><span class="line">p�W���O��&#123;������</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">➜  CheckBundleIDSDK cat 1.o</span><br><span class="line">����</span><br><span class="line">    � �� �__text__TEXT �</span><br><span class="line"><span class="meta">%</span><span class="bash">�__StaticInit__TEXT�4</span></span><br><span class="line">                       �__cstring__TEXT��__objc_methname__TEXT�^�__objc_classn__mod_init_func__DAT�ype__TEXT</span><br><span class="line">                   	__cfstring__DATA @�</span><br><span class="line">                                           __objc_classlist__DATA�</span><br><span class="line">                                                                  __objc_imageinfo__DATA__objc_const__DATAp��</span><br><span class="line">__bss__DATA�__asm__LLVM��    __o__compact_unwind__LD�@�	`</span><br><span class="line">p�W���O��&#123;������</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
 
 <h3 id="報錯"><a href="#報錯" class="headerlink" title="報錯"></a>報錯</h3><p>在解壓縮 .a 文件時，報錯：is a fat file (use libtool(1) or lipo(1) and ar(1) on it)，原因是 .a 文件包含了多個 cpu 架構，比如arm64, armv7, armv7s等。</p>
 <p>解決方法：首先使用如下指令解壓出需要的架構（其中”CheckBundleIDSDK.a”代表需要解壓的 .a 文件)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span># 解壓縮 64指令集</span><br><span class="line">lipo CheckBundleIDSDK.a -thin arm64 -output somelib_arm64.a</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># 解壓縮 v7s指令集</span><br><span class="line">lipo CheckBundleIDSDK.a -thin armv7s -output somelib_armv7s.a</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 解壓縮 64指令集</span></span></span><br><span class="line">lipo CheckBundleIDSDK.a -thin arm64 -output somelib_arm64.a</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 解壓縮 v7s指令集</span></span></span><br><span class="line">lipo CheckBundleIDSDK.a -thin armv7s -output somelib_armv7s.a</span><br></pre></td></tr></table></figure>
 
 <p>這樣獲得解壓出來的.a（somelib_arm64.a，somelib_armv7s.a）後，再使用如下命令解壓獲得.o文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar -x somelib_armv7.a -o</span><br></pre></td></tr></table></figure>
@@ -358,6 +362,8 @@ gitalk.render('gitalk-container');
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 </body>
 </html>
