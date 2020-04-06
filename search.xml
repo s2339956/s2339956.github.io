@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>macOS 定時任務</title>
+      <link href="/macOS_%E5%AE%9A%E6%99%82%E4%BB%BB%E5%8B%99.html"/>
+      <url>/macOS_%E5%AE%9A%E6%99%82%E4%BB%BB%E5%8B%99.html</url>
+      
+        <content type="html"><![CDATA[<p>　　macOS 定時執行 shell 腳本</p><a id="more"></a><ol><li><p>執行命令：crontab -e</p></li><li><p>按 i 編輯文件，添加命令如下：</p><br>`10 12 * * * sh /home/uploadFile.sh`<p> 10 12 * * * 指每天12點10分開始執行該定時任務<br> 分 时 日 月 周<br> sh /home/uploadFile.sh 指執行 home目錄下的腳本uploadFile.sh</p></li><li><p>按ESC返回命令行模式，再按:wq保存並退出，定時任務創建成功。</p></li></ol><br>ps: 關鍵是 sh 比須加上才可以順利執行。]]></content>
+      
+      
+      <categories>
+          
+          <category> macOS </category>
+          
+          <category> Shell </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+            <tag> Shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Android unlock &amp; magisk root</title>
       <link href="/Android_unlock_magisk_root.html"/>
       <url>/Android_unlock_magisk_root.html</url>
