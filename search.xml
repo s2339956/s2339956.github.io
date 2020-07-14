@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>macOS_Time_Machine_時光機首次備份加速法</title>
+      <link href="/macOS_Time_Machine_%E6%99%82%E5%85%89%E6%A9%9F%E9%A6%96%E6%AC%A1%E5%82%99%E4%BB%BD%E5%8A%A0%E9%80%9F%E6%B3%95.html"/>
+      <url>/macOS_Time_Machine_%E6%99%82%E5%85%89%E6%A9%9F%E9%A6%96%E6%AC%A1%E5%82%99%E4%BB%BD%E5%8A%A0%E9%80%9F%E6%B3%95.html</url>
+      
+        <content type="html"><![CDATA[<p>　　如何解除 Time Machine 時光機備份時的限速封印</p><a id="more"></a><p>用電腦一段時間的人，都知道備份的重要性。<br><br>macOS 內建的時光機功能大概是對 Mac 使用者來說最方便的工具之一，既不用額外付費，<br><br>而且備份於無形，出問題或是重新安裝 macOS 時復原的相容性也高。<br><br>最近購入一顆 1TB 的外接硬碟，<br><br>大約 1TB 的首次備份竟然整整花了 48 小時都無法完成！<br><br>上網找了資訊，原因是 macOS 的時光機備份設有限流，<br><br>避免備份時影響到正在執行的工作，但是首次備時就悲劇了。<br><br>解除方式也很簡單，確定程式都關掉，時光機也沒啟動後，打開終端機程式，並輸入下面指令後按 Enter：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl debug.lowpri_throttle_enabled&#x3D;0</span><br></pre></td></tr></table></figure><p>這時你會發現時光機的備份速度變快很多，等首次備份完畢後，<br><br>重新開機或是再執行下面指令，即可恢復原先有限流的狀態：<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl debug.lowpri_throttle_enabled&#x3D;1</span><br></pre></td></tr></table></figure><p>參考資訊：<a href="https://www.imore.com/how-speed-your-time-machine-backups" target="_blank" rel="noopener">How to speed up your Time Machine backups</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> macOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>轉_最差勁的上司常問的五個問題</title>
       <link href="/%E8%BD%89_%E6%9C%80%E5%B7%AE%E5%8B%81%E7%9A%84%E4%B8%8A%E5%8F%B8%E5%B8%B8%E5%95%8F%E7%9A%84%E4%BA%94%E5%80%8B%E5%95%8F%E9%A1%8C.html"/>
       <url>/%E8%BD%89_%E6%9C%80%E5%B7%AE%E5%8B%81%E7%9A%84%E4%B8%8A%E5%8F%B8%E5%B8%B8%E5%95%8F%E7%9A%84%E4%BA%94%E5%80%8B%E5%95%8F%E9%A1%8C.html</url>
