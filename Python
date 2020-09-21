@@ -19,10 +19,13 @@
     <link rel="dns-prefetch" href="http://s2339956.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="" />
+<meta name="keywords" content="{{ page.keywords }}" />
 
 
-<meta name="description" content="我不問 + 你不說 = 這就是距離;我問了 + 你不說 = 隔閡;我問了 + 你說了 = 信任;你不說 + 我不問 = 這就是默契;我不問 + 你說了 = 這就是依賴。心若親近，言行必如流水般自..." />
+<meta name="description" content="　　Python 神奇的 Join 使用
+
+
+最近開始嘗試寫 blog, 記錄一些過程但每次都必須要輸入一些指令 生成 部署實在讓我有點煩, 懶惰癌無限擴張自己寫了一個 python 的小軟件讓..." />
 
 
 <meta name="robots" content="all" />
@@ -33,7 +36,7 @@
 
 <title>
     
-    2017-11-19-21:37 |
+    Python join 語法使用 |
     
     Tin Blog
 </title>
@@ -148,9 +151,9 @@ ga('send', 'pageview');
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="2017-11-19-21:37">
+        <h1 id="Python join 語法使用">
             
-            2017-11-19-21:37
+            Python join 語法使用
             
         </h1>
         <div class="post-meta">
@@ -164,6 +167,8 @@ ga('send', 'pageview');
     <span class="fa-wrap">
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Python/" rel="tag">Python</a>
             
         </span>
     </span>
@@ -194,7 +199,16 @@ ga('send', 'pageview');
     </div>
     
     <div class="post-body post-content">
-        <p>我不問 + 你不說 = 這就是距離;<br>我問了 + 你不說 = 隔閡;<br>我問了 + 你說了 = 信任;<br>你不說 + 我不問 = 這就是默契;<br>我不問 + 你說了 = 這就是依賴。<br>心若親近，言行必如流水般自然;<br>心若疏遠，言行如如三秋之樹般蕭瑟。<br>不怕身隔天涯，只怕心在南北。</p>
+        <p>　　Python 神奇的 Join 使用</p>
+<a id="more"></a>
+
+<p>最近開始嘗試寫 blog, 記錄一些過程<br>但每次都必須要輸入一些指令 生成 部署<br>實在讓我有點煩, 懶惰癌無限擴張<br>自己寫了一個 python 的小軟件<br>讓我只要確認路徑正確, 按下確定, 就能讓它自己完成這些小事情<br>就剛好使用了, 這個方法來打印出相關資訊</p>
+<h3 id="展示一下用法"><a href="#展示一下用法" class="headerlink" title="展示一下用法"></a>展示一下用法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 為自己 Hexo 的安装路徑</span></span><br><span class="line">hexo_install_folder = self.userinput</span><br><span class="line">target_folder_path = str(hexo_install_folder + <span class="string">&#x27;/source/_posts/&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 當前目錄下所有 檔案名稱 是個陣列 Array</span></span><br><span class="line">cur_filename_list = os.listdir(cur_folder_path)</span><br><span class="line">print(cur_filename_list) <span class="comment"># 直接打印 是沒問題的</span></span><br><span class="line"><span class="comment"># label 顯示相關訊息</span></span><br><span class="line">self.displayText[<span class="string">&quot;text&quot;</span>] = <span class="string">&quot; &quot;</span>.join(str(x) <span class="keyword">for</span> x <span class="keyword">in</span> cur_filename_list)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="解釋"><a href="#解釋" class="headerlink" title="解釋"></a>解釋</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 這邊結果會是 例如: 一個空格 加上 名稱</span></span><br><span class="line"><span class="comment">## 具體運作是, 取得 cur_filename_list 每一個內容 轉 String, 然後在前面加上 &quot;空格&quot;</span></span><br><span class="line"><span class="comment">## 再把他們都串起來, 變成一個字串</span></span><br><span class="line"><span class="comment">## 簡單來說 就是</span></span><br><span class="line"><span class="comment">## 返回值</span></span><br><span class="line"><span class="comment">## 回傳通過指定的字串連接陣列中元素後生成的新字串</span></span><br><span class="line"><span class="string">&quot; &quot;</span>.join(str(x) <span class="keyword">for</span> x <span class="keyword">in</span> cur_filename_list)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<hr>
 
     </div>
     
@@ -213,17 +227,17 @@ ga('send', 'pageview');
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/Xcode-lldb-%E5%B0%8F%E6%8A%80%E8%83%BD.html" class="pre-post btn btn-default" title='Xcode lldb 小技能'>
+    <a href="/2017-11-19-21-37.html" class="pre-post btn btn-default" title='2017-11-19-21:37'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            Xcode lldb 小技能</span>
+            2017-11-19-21:37</span>
     </a>
     
     
-    <a href="/Python" class="next-post btn btn-default" title='Python join 語法使用'>
+    <a href="/Obj-C-%E5%8B%95%E6%85%8B%E5%8F%96%E5%BE%97-Class-%E5%B1%AC%E6%80%A7%E5%90%8D%E7%A8%B1-and-%E5%B1%AC%E6%80%A7%E8%B3%AA%E5%80%BC.html" class="next-post btn btn-default" title='Obj-C 動態取得 Class 屬性名稱 and 屬性質值'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            Python join 語法使用</span><i class="fa fa-angle-right fa-fw"></i>
+            Obj-C 動態取得 Class 屬性名稱 and 屬性質值</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -259,7 +273,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <p>暫無目錄</p>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%95%E7%A4%BA%E4%B8%80%E4%B8%8B%E7%94%A8%E6%B3%95"><span class="toc-text">展示一下用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8B"><span class="toc-text">解釋</span></a></li></ol>
         
     </div>
 </aside>

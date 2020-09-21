@@ -82,7 +82,7 @@ ga('send', 'pageview');
 
     
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -168,7 +168,7 @@ ga('send', 'pageview');
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/Python/" rel="tag">Python</a>
+            <a class="tag-none-link" href="/tags/Python/" rel="tag">Python</a>
             
         </span>
     </span>
@@ -192,7 +192,7 @@ ga('send', 'pageview');
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                794</strong>
+                838</strong>
             天之前發表，文章内容可能已經過時。
         </p>
         
@@ -229,7 +229,7 @@ ga('send', 'pageview');
 <h2 id="設置環境參數"><a href="#設置環境參數" class="headerlink" title="設置環境參數"></a>設置環境參數</h2><p>把下面兩行添加到 <code>~/.bashrc（或者~/.zshrc）</code> 裡。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f /usr/local/bin/virtualenvwrapper.sh ]; then</span><br><span class="line">   export WORKON_HOME=$HOME/.virtualenvs</span><br><span class="line">   source /usr/local/bin/virtualenvwrapper.sh</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 <p>其中，<code>.virtualenvs</code> 是可以自定義的虛擬環境管理目錄。</p>
-<p>然後執行：<code>source ~/.bashrc</code>，就可以使用 virtualenvwrapper 了。Windows 安裝過程，請参考<a href="http://virtualenvwrapper.readthedocs.io/en/latest/install.html" target="_blank" rel="noopener">官方文件</a>。</p>
+<p>然後執行：<code>source ~/.bashrc</code>，就可以使用 virtualenvwrapper 了。Windows 安裝過程，請参考<a target="_blank" rel="noopener" href="http://virtualenvwrapper.readthedocs.io/en/latest/install.html">官方文件</a>。</p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>創建虛擬環境：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkvirtualenv venv</span><br></pre></td></tr></table></figure>
 <p>注意：mkvirtualenv 也可以使用 virtualenv 的參數，比如 –python 來指定 Python 版本。創建虛擬環境後，會自動切換到此虛擬環境裡。虛擬環境目錄都在 WORKON_HOME 裡。</p>
@@ -302,7 +302,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安裝-virtualenv"><span class="toc-text">安裝 virtualenv</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本用法"><span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#創建項目的虛擬環境"><span class="toc-text">創建項目的虛擬環境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用虛擬環境"><span class="toc-text">使用虛擬環境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用-virtualenvwrapper"><span class="toc-text">使用 virtualenvwrapper</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-virtualenvwrapper"><span class="toc-text">安装 virtualenvwrapper</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#設置環境參數"><span class="toc-text">設置環境參數</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用方法"><span class="toc-text">使用方法</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-virtualenv"><span class="toc-text">安裝 virtualenv</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%B5%E5%BB%BA%E9%A0%85%E7%9B%AE%E7%9A%84%E8%99%9B%E6%93%AC%E7%92%B0%E5%A2%83"><span class="toc-text">創建項目的虛擬環境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%99%9B%E6%93%AC%E7%92%B0%E5%A2%83"><span class="toc-text">使用虛擬環境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-virtualenvwrapper"><span class="toc-text">使用 virtualenvwrapper</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-virtualenvwrapper"><span class="toc-text">安装 virtualenvwrapper</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E7%BD%AE%E7%92%B0%E5%A2%83%E5%8F%83%E6%95%B8"><span class="toc-text">設置環境參數</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a></li></ol></li></ol>
         
     </div>
 </aside>

@@ -82,7 +82,7 @@ ga('send', 'pageview');
 
     
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -168,7 +168,7 @@ ga('send', 'pageview');
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/CSS/" rel="tag">CSS</a> <a class="tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a> <a class="tag-link" href="/tags/Markdown/" rel="tag">Markdown</a> <a class="tag-link" href="/tags/Table/" rel="tag">Table</a>
+            <a class="tag-none-link" href="/tags/CSS/" rel="tag">CSS</a> <a class="tag-none-link" href="/tags/JavaScript/" rel="tag">JavaScript</a> <a class="tag-none-link" href="/tags/Markdown/" rel="tag">Markdown</a> <a class="tag-none-link" href="/tags/Table/" rel="tag">Table</a>
             
         </span>
     </span>
@@ -192,7 +192,7 @@ ga('send', 'pageview');
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                995</strong>
+                1040</strong>
             天之前發表，文章内容可能已經過時。
         </p>
         
@@ -202,7 +202,7 @@ ga('send', 'pageview');
         <p>　　Markdown 寫的表格最終會被解析成 HTML 格式，如果使用的編輯器支持自定義 CSS，就能方便的調整樣式。如果可以引入 JavaScript，樣式自適應也能較好地實現。</p>
 <a id="more"></a>
 
-<p data-height="300" data-theme-id="0" data-slug-hash="ONyKqb" data-default-tab="css" data-user="MOxFIVE" class="codepen">See the Pen <a href="http://codepen.io/MOxFIVE/pen/ONyKqb/" target="_blank" rel="noopener">Table style</a> by MOxFIVE (<a href="http://codepen.io/MOxFIVE" target="_blank" rel="noopener">@MOxFIVE</a>) on <a href="http://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p>
+<p data-height="300" data-theme-id="0" data-slug-hash="ONyKqb" data-default-tab="css" data-user="MOxFIVE" class="codepen">See the Pen <a target="_blank" rel="noopener" href="http://codepen.io/MOxFIVE/pen/ONyKqb/">Table style</a> by MOxFIVE (<a target="_blank" rel="noopener" href="http://codepen.io/MOxFIVE">@MOxFIVE</a>) on <a target="_blank" rel="noopener" href="http://codepen.io">CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <h2 id="樣式調整"><a href="#樣式調整" class="headerlink" title="樣式調整"></a>樣式調整</h2><h3 id="基礎概念"><a href="#基礎概念" class="headerlink" title="基礎概念"></a>基礎概念</h3><pre><code>&lt;table&gt;: 表格
@@ -239,12 +239,12 @@ ga('send', 'pageview');
 <h3 id="表格滾動條"><a href="#表格滾動條" class="headerlink" title="表格滾動條"></a>表格滾動條</h3><ul>
 <li>添加 JavaScript 代碼，用一個 <code>&lt;div&gt;</code> 把表格包裹起来，父元素寬度不足時顯示横向滾動條，避免表格撑破布局</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[].slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">'table'</span>)).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">el</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> wrapper = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">    wrapper.className = <span class="string">'table-area'</span>;</span><br><span class="line">    el.parentNode.insertBefore(wrapper, el);</span><br><span class="line">    el.parentNode.removeChild(el);</span><br><span class="line">    wrapper.appendChild(el);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[].slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;table&#x27;</span>)).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">el</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> wrapper = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">    wrapper.className = <span class="string">&#x27;table-area&#x27;</span>;</span><br><span class="line">    el.parentNode.insertBefore(wrapper, el);</span><br><span class="line">    el.parentNode.removeChild(el);</span><br><span class="line">    wrapper.appendChild(el);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>jQuery</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"table"</span>).wrap(<span class="string">"&lt;div class='table-area'&gt;&lt;/div&gt;"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;table&quot;</span>).wrap(<span class="string">&quot;&lt;div class=&#x27;table-area&#x27;&gt;&lt;/div&gt;&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>同时添加如下 CSS</li>
@@ -273,7 +273,7 @@ ga('send', 'pageview');
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/xcode.html" class="pre-post btn btn-default" title='Xcode 中斷點 簡介'>
+    <a href="/xcode" class="pre-post btn btn-default" title='Xcode 中斷點 簡介'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             Xcode 中斷點 簡介</span>
@@ -319,7 +319,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#樣式調整"><span class="toc-text">樣式調整</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基礎概念"><span class="toc-text">基礎概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本樣式"><span class="toc-text">基本樣式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表頭樣式"><span class="toc-text">表頭樣式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#隔行變色"><span class="toc-text">隔行變色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#懸浮變色"><span class="toc-text">懸浮變色</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自適應優化"><span class="toc-text">自適應優化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#表頭不換行"><span class="toc-text">表頭不換行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#首列不換行"><span class="toc-text">首列不換行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表格滾動條"><span class="toc-text">表格滾動條</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A3%E5%BC%8F%E8%AA%BF%E6%95%B4"><span class="toc-text">樣式調整</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A4%8E%E6%A6%82%E5%BF%B5"><span class="toc-text">基礎概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A8%A3%E5%BC%8F"><span class="toc-text">基本樣式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E9%A0%AD%E6%A8%A3%E5%BC%8F"><span class="toc-text">表頭樣式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%94%E8%A1%8C%E8%AE%8A%E8%89%B2"><span class="toc-text">隔行變色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%87%B8%E6%B5%AE%E8%AE%8A%E8%89%B2"><span class="toc-text">懸浮變色</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E9%81%A9%E6%87%89%E5%84%AA%E5%8C%96"><span class="toc-text">自適應優化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E9%A0%AD%E4%B8%8D%E6%8F%9B%E8%A1%8C"><span class="toc-text">表頭不換行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%96%E5%88%97%E4%B8%8D%E6%8F%9B%E8%A1%8C"><span class="toc-text">首列不換行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC%E6%BB%BE%E5%8B%95%E6%A2%9D"><span class="toc-text">表格滾動條</span></a></li></ol></li></ol>
         
     </div>
 </aside>

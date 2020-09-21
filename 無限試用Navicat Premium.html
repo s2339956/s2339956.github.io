@@ -83,7 +83,7 @@ ga('send', 'pageview');
 
     
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -169,7 +169,7 @@ ga('send', 'pageview');
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/MacOS/" rel="tag">MacOS</a> <a class="tag-link" href="/tags/app/" rel="tag">app</a>
+            <a class="tag-none-link" href="/tags/MacOS/" rel="tag">MacOS</a> <a class="tag-none-link" href="/tags/app/" rel="tag">app</a>
             
         </span>
     </span>
@@ -193,7 +193,7 @@ ga('send', 'pageview');
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                362</strong>
+                406</strong>
             天之前發表，文章内容可能已經過時。
         </p>
         
@@ -204,30 +204,30 @@ ga('send', 'pageview');
 <a id="more"></a>
 
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>經過一段時間後，試用期已到期，無法再繼續享受 Navicat Premium，所帶來的方便，如下圖: <br></p>
-<p><img src="source/images/Unlimited-trial-NavicatPremium/maturity.png" alt=""><br><br><br><br><br>決定來研究一下，該app相關的內碼，<br><br>在此聲明，該文章純屬學習研究，請勿用於其他途徑。<br><br><br><br><br></p>
+<p><img src="source/images/Unlimited-trial-NavicatPremium/maturity.png" alt><br><br><br><br><br>決定來研究一下，該app相關的內碼，<br><br>在此聲明，該文章純屬學習研究，請勿用於其他途徑。<br><br><br><br><br></p>
 <h3 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h3><ol>
 <li>找出二進制文件(mach-O、unix執行檔)，<br><br><code>/Applications/Navicat Premium.app/Contents/MacOS/Navicat Premium</code></li>
 <li>使用 Hopper Disassembler v4 Standard Edition (4.5.13)，來對二進制文件反編譯</li>
 <li>搜索字串<code>http://www.navicat.com/cht/store</code>，<br><br>找到</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 找到使用者</span></span></span><br><span class="line">0000000102d5bf5b         db         "http://www.navicat.com/cht/store", 0       ; DATA XREF=cfstring_http___www_navicat_com_cht_store</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 相關地址</span></span></span><br><span class="line">0000000103c2b600         dq         0x0000000104750310, 0x00000000000007c8, 0x0000000102d5bf5b, 0x0000000000000020 ; "http://www.navicat.com/cht/store", DATA XREF=qword_103f773b8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 使用者</span></span></span><br><span class="line">0000000103f773b8         dq         0x0000000103c2b600                          ; @"http://www.navicat.com/cht/store", DATA XREF=+[Registration ApplicationChecking:isLaunch:]+481, +[Registration ApplicationChecking:isLaunch:]+899, +[Registration ApplicationChecking:isLaunch:]+5518, +[Registration ApplicationChecking:isLaunch:]+5758, +[Registration ApplicationChecking:isLaunch:]+6039, +[Registration ApplicationChecking:isLaunch:]+9206, -[Registration BuyNow:]+52</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># ↑ [Registration ApplicationChecking:isLaunch:]，如名得知，這可能是一個檢查方法</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 找到使用者</span></span></span><br><span class="line">0000000102d5bf5b         db         &quot;http://www.navicat.com/cht/store&quot;, 0       ; DATA XREF=cfstring_http___www_navicat_com_cht_store</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 相關地址</span></span></span><br><span class="line">0000000103c2b600         dq         0x0000000104750310, 0x00000000000007c8, 0x0000000102d5bf5b, 0x0000000000000020 ; &quot;http://www.navicat.com/cht/store&quot;, DATA XREF=qword_103f773b8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 使用者</span></span></span><br><span class="line">0000000103f773b8         dq         0x0000000103c2b600                          ; @&quot;http://www.navicat.com/cht/store&quot;, DATA XREF=+[Registration ApplicationChecking:isLaunch:]+481, +[Registration ApplicationChecking:isLaunch:]+899, +[Registration ApplicationChecking:isLaunch:]+5518, +[Registration ApplicationChecking:isLaunch:]+5758, +[Registration ApplicationChecking:isLaunch:]+6039, +[Registration ApplicationChecking:isLaunch:]+9206, -[Registration BuyNow:]+52</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># ↑ [Registration ApplicationChecking:isLaunch:]，如名得知，這可能是一個檢查方法</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>查看一下方法的匯編程式碼(assembly language)，</p>
-<p><img src="source/images/Unlimited-trial-NavicatPremium/assemblyLanguage.png" alt=""></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov        ebx, eax</span><br><span class="line">cmp        ebx, 0xffffffff</span><br><span class="line">je         loc_100325e47</span><br></pre></td></tr></table></figure>
+<p><img src="source/images/Unlimited-trial-NavicatPremium/assemblyLanguage.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov        ebx, eax</span><br><span class="line">cmp        ebx, 0xffffffff</span><br><span class="line">je         loc_100325e47</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>其關鍵指令如上，賦值給<code>ebx</code>，再進行判斷<code>exb</code>如果等於1，就跳轉至地址<code>loc_100325e47</code>，然而如果不等於則跳轉至<code>loc_100325e47</code>，<code>loc_100325e47</code>也是通過檢測後執行的方法。<br><br></p>
 <ol start="4">
 <li>修改指令 </li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mov        ebx, 0x0</span><br><span class="line">je         loc_100325e47</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mov        ebx, 0x0</span><br><span class="line">je         loc_100325e47</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>直接跳過判斷指令，來到最終目的。</p>
 <ol start="5">
 <li>儲存並輸出</li>
 <li>拖回原位置，並取代</li>
 </ol>
-<p><img src="source/images/Unlimited-trial-NavicatPremium/fulfil.png" alt=""></p>
+<p><img src="source/images/Unlimited-trial-NavicatPremium/fulfil.png" alt></p>
 <h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>此app對於購買流程的安全保護，幾乎可以說是零，對於一般攻擊者而言，很容易就可以完成了，另外也能使用插件的方式去hook相關方法再去繞過檢測，但如果熟悉匯編程式碼(assembly language)，在操作繞過方面會比較簡易且快速，另外呼籲大家務必支持正版，杜絕盜版。</p>
 
     </div>
@@ -293,7 +293,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#過程"><span class="toc-text">過程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#總結"><span class="toc-text">總結</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8E%E7%A8%8B"><span class="toc-text">過程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-text">總結</span></a></li></ol>
         
     </div>
 </aside>

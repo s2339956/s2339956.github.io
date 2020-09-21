@@ -86,7 +86,7 @@ ga('send', 'pageview');
 
     
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -172,7 +172,7 @@ ga('send', 'pageview');
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/app/" rel="tag">app</a> <a class="tag-link" href="/tags/iOS/" rel="tag">iOS</a>
+            <a class="tag-none-link" href="/tags/app/" rel="tag">app</a> <a class="tag-none-link" href="/tags/iOS/" rel="tag">iOS</a>
             
         </span>
     </span>
@@ -212,34 +212,34 @@ ga('send', 'pageview');
 <li>twrp-3.2.1-0-m7.img</li>
 </ol>
 <h4 id="unlock"><a href="#unlock" class="headerlink" title="unlock"></a>unlock</h4><ol>
-<li>go to <a href="https://www.htcdev.com/" target="_blank" rel="noopener">HTCdev</a></li>
-<li>login HTCdev<br> <img src="/images/Android_unlock_magisk_root/htcdev_login.png" alt=""></li>
-<li>Click on “unlock bootloader”<br> <img src="/images/Android_unlock_magisk_root/ClickOnUnlock.png" alt=""></li>
-<li>Click on “Get Started”<br> <img src="/images/Android_unlock_magisk_root/ClickOnGetStarted.png" alt=""></li>
-<li>Select your device<br> <img src="/images/Android_unlock_magisk_root/PleaseSelectYourDevice.png" alt=""></li>
-<li>Click on Begin Unlock Bootloader<br> <img src="/images/Android_unlock_magisk_root/BeginUnlockBootloader.png" alt=""></li>
-<li>Selecte Yes<br> <img src="/images/Android_unlock_magisk_root/SelecteYes.png" alt=""></li>
-<li>Click on Proceed to Unlock Instructions, need to tick<br> <img src="/images/Android_unlock_magisk_root/UnlockInstructions.png" alt=""></li>
-<li>接下來僅需照著官方步驟來操作，官方畫面為windows，mac 請自行意會<br> <img src="/images/Android_unlock_magisk_root/UnlockInstructions1.png" alt=""><br> 或者參考一下 <a href="https://dacota.tw/blog/post/30546572" target="_blank" rel="noopener">雲爸</a></li>
+<li>go to <a target="_blank" rel="noopener" href="https://www.htcdev.com/">HTCdev</a></li>
+<li>login HTCdev<br> <img src="/images/Android_unlock_magisk_root/htcdev_login.png" alt></li>
+<li>Click on “unlock bootloader”<br> <img src="/images/Android_unlock_magisk_root/ClickOnUnlock.png" alt></li>
+<li>Click on “Get Started”<br> <img src="/images/Android_unlock_magisk_root/ClickOnGetStarted.png" alt></li>
+<li>Select your device<br> <img src="/images/Android_unlock_magisk_root/PleaseSelectYourDevice.png" alt></li>
+<li>Click on Begin Unlock Bootloader<br> <img src="/images/Android_unlock_magisk_root/BeginUnlockBootloader.png" alt></li>
+<li>Selecte Yes<br> <img src="/images/Android_unlock_magisk_root/SelecteYes.png" alt></li>
+<li>Click on Proceed to Unlock Instructions, need to tick<br> <img src="/images/Android_unlock_magisk_root/UnlockInstructions.png" alt></li>
+<li>接下來僅需照著官方步驟來操作，官方畫面為windows，mac 請自行意會<br> <img src="/images/Android_unlock_magisk_root/UnlockInstructions1.png" alt><br> 或者參考一下 <a target="_blank" rel="noopener" href="https://dacota.tw/blog/post/30546572">雲爸</a></li>
 </ol>
 <h4 id="Magisk-root"><a href="#Magisk-root" class="headerlink" title="Magisk root"></a>Magisk root</h4><ol>
-<li><p>download <a href="https://drive.google.com/file/d/1VSzwSSdgbmdLBJtQodPJbsG0SSCc1O23/view" target="_blank" rel="noopener">twrp-3.2.1-0-m7.img</a>。</p>
+<li><p>download <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1VSzwSSdgbmdLBJtQodPJbsG0SSCc1O23/view">twrp-3.2.1-0-m7.img</a>。</p>
 </li>
-<li><p>download <a href="https://github.com/topjohnwu/Magisk/releases" target="_blank" rel="noopener">Magisk</a>，需下載兩個 apk(Magisk Manager v7.5.1)與zip(Magisk v20.3)。</p>
+<li><p>download <a target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk/releases">Magisk</a>，需下載兩個 apk(Magisk Manager v7.5.1)與zip(Magisk v20.3)。</p>
 </li>
 <li><p>將 apk 安裝至手機，與zip 上傳至手機上。</p>
 </li>
-<li><p>將手機與電腦連接，下指令 <code>adb reboot bootloader</code> ，畫面應該如下：<br> <img src="/images/Android_unlock_magisk_root/m7-bootloader.png" alt=""></p>
+<li><p>將手機與電腦連接，下指令 <code>adb reboot bootloader</code> ，畫面應該如下：<br> <img src="/images/Android_unlock_magisk_root/m7-bootloader.png" alt></p>
 </li>
 <li><p>下指令 <code>fastboot flash recovery twrp-3.2.1-0-m7.img</code></p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  android platform-tools/fastboot flash recovery twrp-3.2.1-0-m7.img</span><br><span class="line">Sending 'recovery' (12756 KB)                      OKAY [  1.592s]</span><br><span class="line">Writing 'recovery'                                 OKAY [  0.870s]</span><br><span class="line">Finished. Total time: 2.464s</span><br></pre></td></tr></table></figure></li>
-<li><p>至手機使用音量鍵移動，電源鍵選擇至以下畫面。<br> <img src="/images/Android_unlock_magisk_root/HBOOT.png" alt=""><br> 再來移動到 RECOVERY 反藍處按電源，<br><br> 就可以切換到以下twrp-Recovery 畫面。</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  android platform-tools/fastboot flash recovery twrp-3.2.1-0-m7.img</span><br><span class="line">Sending &#x27;recovery&#x27; (12756 KB)                      OKAY [  1.592s]</span><br><span class="line">Writing &#x27;recovery&#x27;                                 OKAY [  0.870s]</span><br><span class="line">Finished. Total time: 2.464s</span><br></pre></td></tr></table></figure></li>
+<li><p>至手機使用音量鍵移動，電源鍵選擇至以下畫面。<br> <img src="/images/Android_unlock_magisk_root/HBOOT.png" alt><br> 再來移動到 RECOVERY 反藍處按電源，<br><br> 就可以切換到以下twrp-Recovery 畫面。</p>
 </li>
-<li><p>點擊 Install 。<br> <img src="/images/Android_unlock_magisk_root/Screenshot_2020-02-21-01-08-44.png" alt=""></p>
+<li><p>點擊 Install 。<br> <img src="/images/Android_unlock_magisk_root/Screenshot_2020-02-21-01-08-44.png" alt></p>
 </li>
-<li><p>選擇第三步上傳的檔案。<br> <img src="/images/Android_unlock_magisk_root/Screenshot_2020-02-21-01-09-08.png" alt=""></p>
+<li><p>選擇第三步上傳的檔案。<br> <img src="/images/Android_unlock_magisk_root/Screenshot_2020-02-21-01-09-08.png" alt></p>
 </li>
-<li><p>滑動至右安裝。<br> <img src="/images/Android_unlock_magisk_root/Screenshot_2020-02-21-01-09-15.png" alt=""></p>
+<li><p>滑動至右安裝。<br> <img src="/images/Android_unlock_magisk_root/Screenshot_2020-02-21-01-09-15.png" alt></p>
 </li>
 <li><p>完成 ROOT 程序後，選 Reboot system 重開機。</p>
 </li>
@@ -312,7 +312,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTC-New-One-m7-unlock-amp-magisk-root"><span class="toc-text">HTC New One (m7) unlock &amp; magisk root</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#準備工具"><span class="toc-text">準備工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unlock"><span class="toc-text">unlock</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Magisk-root"><span class="toc-text">Magisk root</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTC-New-One-m7-unlock-amp-magisk-root"><span class="toc-text">HTC New One (m7) unlock &amp; magisk root</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%96%E5%82%99%E5%B7%A5%E5%85%B7"><span class="toc-text">準備工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unlock"><span class="toc-text">unlock</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Magisk-root"><span class="toc-text">Magisk root</span></a></li></ol></li></ol>
         
     </div>
 </aside>

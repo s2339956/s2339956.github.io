@@ -83,7 +83,7 @@ ga('send', 'pageview');
 
     
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -169,7 +169,7 @@ ga('send', 'pageview');
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/Xcode/" rel="tag">Xcode</a>
+            <a class="tag-none-link" href="/tags/Xcode/" rel="tag">Xcode</a>
             
         </span>
     </span>
@@ -193,7 +193,7 @@ ga('send', 'pageview');
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                995</strong>
+                1039</strong>
             天之前發表，文章内容可能已經過時。
         </p>
         
@@ -261,7 +261,7 @@ ga('send', 'pageview');
     </a>
     
     
-    <a href="/markdown-table-style.html" class="next-post btn btn-default" title='Markdown 表格樣式調整與自適應優化'>
+    <a href="/markdown-table-style" class="next-post btn btn-default" title='Markdown 表格樣式調整與自適應優化'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             Markdown 表格樣式調整與自適應優化</span><i class="fa fa-angle-right fa-fw"></i>
@@ -300,7 +300,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#中斷點"><span class="toc-text">中斷點</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式："><span class="toc-text">中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#普通中斷點："><span class="toc-text">普通中斷點：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Swift-Error-Breakpoint："><span class="toc-text">Swift Error Breakpoint：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exception-Breakpoint："><span class="toc-text">Exception Breakpoint：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Symbolic-Breakpoint："><span class="toc-text">Symbolic Breakpoint：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Test-Failure-Breakpoint"><span class="toc-text">Test Failure Breakpoint</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%B7%E9%BB%9E"><span class="toc-text">中斷點</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%B7%E9%BB%9E%EF%BC%88breakpoint%EF%BC%89%E9%99%A4%E4%BA%86%E6%99%AE%E9%80%9A%E7%9A%84%E4%B8%AD%E6%96%B7%E5%A4%96%EF%BC%8C%E9%82%84%E6%9C%89%E4%BA%94%E7%A8%AE%E7%89%B9%E6%AE%8A%E7%9A%84%E5%BD%A2%E5%BC%8F%EF%BC%9A"><span class="toc-text">中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E4%B8%AD%E6%96%B7%E9%BB%9E%EF%BC%9A"><span class="toc-text">普通中斷點：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Swift-Error-Breakpoint%EF%BC%9A"><span class="toc-text">Swift Error Breakpoint：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exception-Breakpoint%EF%BC%9A"><span class="toc-text">Exception Breakpoint：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Symbolic-Breakpoint%EF%BC%9A"><span class="toc-text">Symbolic Breakpoint：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Test-Failure-Breakpoint"><span class="toc-text">Test Failure Breakpoint</span></a></li></ol></li></ol>
         
     </div>
 </aside>

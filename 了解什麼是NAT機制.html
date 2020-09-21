@@ -19,13 +19,14 @@
     <link rel="dns-prefetch" href="http://s2339956.github.io">
     <!--SEO-->
 
-<meta name="keywords" content="{{ page.keywords }}" />
+<meta name="keywords" content="Network" />
 
 
-<meta name="description" content="　　Python 神奇的 Join 使用
+<meta name="description" content="　　了解什麼是NAT機制？
 
 
-最近開始嘗試寫 blog, 記錄一些過程但每次都必須要輸入一些指令 生成 部署實在讓我有點煩, 懶惰癌無限擴張自己寫了一個 python 的小軟件讓..." />
+
+了解什麼是NAT機制？網絡地址轉換（Network Address Translation，NAT）機制的問題在於，NAT設備自動屏蔽了非內網主機主動發起的連接..." />
 
 
 <meta name="robots" content="all" />
@@ -36,7 +37,7 @@
 
 <title>
     
-    Python join 語法使用 |
+    了解什麼是NAT機制 |
     
     Tin Blog
 </title>
@@ -82,7 +83,7 @@ ga('send', 'pageview');
 
     
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -151,16 +152,16 @@ ga('send', 'pageview');
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Python join 語法使用">
+        <h1 id="了解什麼是NAT機制">
             
-            Python join 語法使用
+            了解什麼是NAT機制
             
         </h1>
         <div class="post-meta">
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        
+        <a class="category-link" href="/categories/Network/">Network</a>
     </span>
     
     
@@ -168,7 +169,7 @@ ga('send', 'pageview');
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/Python/" rel="tag">Python</a>
+            <a class="tag-none-link" href="/tags/Network/" rel="tag">Network</a>
             
         </span>
     </span>
@@ -178,7 +179,7 @@ ga('send', 'pageview');
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2017/11/19</span>
+            2020/09/21</span>
     </span>
     
     <span class="fa-wrap">
@@ -190,25 +191,14 @@ ga('send', 'pageview');
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                991</strong>
-            天之前發表，文章内容可能已經過時。
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <p>　　Python 神奇的 Join 使用</p>
+        <p>　　了解什麼是NAT機制？</p>
 <a id="more"></a>
 
-<p>最近開始嘗試寫 blog, 記錄一些過程<br>但每次都必須要輸入一些指令 生成 部署<br>實在讓我有點煩, 懶惰癌無限擴張<br>自己寫了一個 python 的小軟件<br>讓我只要確認路徑正確, 按下確定, 就能讓它自己完成這些小事情<br>就剛好使用了, 這個方法來打印出相關資訊</p>
-<h3 id="展示一下用法"><a href="#展示一下用法" class="headerlink" title="展示一下用法"></a>展示一下用法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 為自己 Hexo 的安装路徑</span></span><br><span class="line">hexo_install_folder = self.userinput</span><br><span class="line">target_folder_path = str(hexo_install_folder + <span class="string">'/source/_posts/'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 當前目錄下所有 檔案名稱 是個陣列 Array</span></span><br><span class="line">cur_filename_list = os.listdir(cur_folder_path)</span><br><span class="line">print(cur_filename_list) <span class="comment"># 直接打印 是沒問題的</span></span><br><span class="line"><span class="comment"># label 顯示相關訊息</span></span><br><span class="line">self.displayText[<span class="string">"text"</span>] = <span class="string">" "</span>.join(str(x) <span class="keyword">for</span> x <span class="keyword">in</span> cur_filename_list)</span><br></pre></td></tr></table></figure>
 
-<h3 id="解釋"><a href="#解釋" class="headerlink" title="解釋"></a>解釋</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 這邊結果會是 例如: 一個空格 加上 名稱</span></span><br><span class="line"><span class="comment">## 具體運作是, 取得 cur_filename_list 每一個內容 轉 String, 然後在前面加上 "空格"</span></span><br><span class="line"><span class="comment">## 再把他們都串起來, 變成一個字串</span></span><br><span class="line"><span class="comment">## 簡單來說 就是</span></span><br><span class="line"><span class="comment">## 返回值</span></span><br><span class="line"><span class="comment">## 回傳通過指定的字串連接陣列中元素後生成的新字串</span></span><br><span class="line"><span class="string">" "</span>.join(str(x) <span class="keyword">for</span> x <span class="keyword">in</span> cur_filename_list)</span><br></pre></td></tr></table></figure>
-
-
-<hr>
+<h3 id="了解什麼是NAT機制？"><a href="#了解什麼是NAT機制？" class="headerlink" title="了解什麼是NAT機制？"></a>了解什麼是NAT機制？</h3><p>網絡地址轉換（Network Address Translation，NAT）機制的問題在於，NAT設備自動屏蔽了非內網主機主動發起的連接，也就是說，從外網發往內網的數據包將被NAT設備丟棄，這使得位於不同NAT設備之後的主機之間無法直接交換信息。這一方面保護了內網主機免於來自外部網絡的攻擊，另一方面也為P2P通信帶來了一定困難。外部主機要與內網主機相互通信，必須由內網主機主動發起連接，使 NAT設備產生一個映射條目，這就有必要研究一下內網穿透技術。</p>
 
     </div>
     
@@ -227,17 +217,11 @@ ga('send', 'pageview');
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2017-11-19-21-37.html" class="pre-post btn btn-default" title='2017-11-19-21:37'>
-        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-        <span class="hidden-xs">
-            2017-11-19-21:37</span>
-    </a>
     
-    
-    <a href="/Obj-C-%E5%8B%95%E6%85%8B%E5%8F%96%E5%BE%97-Class-%E5%B1%AC%E6%80%A7%E5%90%8D%E7%A8%B1-and-%E5%B1%AC%E6%80%A7%E8%B3%AA%E5%80%BC.html" class="next-post btn btn-default" title='Obj-C 動態取得 Class 屬性名稱 and 屬性質值'>
+    <a href="/Docker-%E5%9C%A8%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%90%AD%E5%BB%BAFTP%E4%BC%BA%E6%9C%8D%E5%99%A8(vsftpd).html" class="next-post btn btn-default" title='Docker - 在容器中搭建 FTP 伺服器 (vsftpd)'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            Obj-C 動態取得 Class 屬性名稱 and 屬性質值</span><i class="fa fa-angle-right fa-fw"></i>
+            Docker - 在容器中搭建 FTP 伺服器 (vsftpd)</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -273,7 +257,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#展示一下用法"><span class="toc-text">展示一下用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解釋"><span class="toc-text">解釋</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E4%BB%80%E9%BA%BC%E6%98%AFNAT%E6%A9%9F%E5%88%B6%EF%BC%9F"><span class="toc-text">了解什麼是NAT機制？</span></a></li></ol>
         
     </div>
 </aside>

@@ -82,7 +82,7 @@ ga('send', 'pageview');
 
     
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -168,7 +168,7 @@ ga('send', 'pageview');
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/Objective-C/" rel="tag">Objective-C</a>
+            <a class="tag-none-link" href="/tags/Objective-C/" rel="tag">Objective-C</a>
             
         </span>
     </span>
@@ -192,7 +192,7 @@ ga('send', 'pageview');
         
         <p class="fa fa-exclamation-triangle warning">
             本文于<strong>
-                994</strong>
+                1039</strong>
             天之前發表，文章内容可能已經過時。
         </p>
         
@@ -202,10 +202,10 @@ ga('send', 'pageview');
         <p>　　Objective-C 擴充 NSArray 實現動態取得類別屬性, 縮減程式碼使用</p>
 <a id="more"></a>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import "NSArray+Extension.h"</span></span><br><span class="line"><span class="comment">#import &lt;objc/runtime.h&gt; // 導入運行時文件</span></span><br><span class="line"><span class="meta">@implementation NSArray (Extension)</span></span><br><span class="line"></span><br><span class="line">// 返回當前類別所有屬性</span><br><span class="line">+ (instancetype)getProperties:(Class)cls&#123;</span><br><span class="line"></span><br><span class="line">    // 取得當前類別所以屬性</span><br><span class="line">    unsigned int count; // 記錄屬性個數</span><br><span class="line">    objc_property_t *properties = class_copyPropertyList(cls, &amp;count);</span><br><span class="line">    //</span><br><span class="line">    NSMutableArray *mArray = [NSMutableArray array];</span><br><span class="line">    <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line"></span><br><span class="line">        // An opaque type that represents an Objective-C declared property.</span><br><span class="line">        // objc_property_t 屬性類型</span><br><span class="line">        objc_property_t property = properties[i];</span><br><span class="line">        // 獲取屬性的名稱 C語言 字串</span><br><span class="line">        const char *cName = property_getName(property);</span><br><span class="line">        // 轉換為 Objective C 字串</span><br><span class="line">        NSString *name = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];</span><br><span class="line"></span><br><span class="line">        [mArray addObject:name];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mArray.copy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import &quot;NSArray+Extension.h&quot;</span></span><br><span class="line"><span class="comment">#import &lt;objc/runtime.h&gt; // 導入運行時文件</span></span><br><span class="line"><span class="meta">@implementation NSArray (Extension)</span></span><br><span class="line"></span><br><span class="line">// 返回當前類別所有屬性</span><br><span class="line">+ (instancetype)getProperties:(Class)cls&#123;</span><br><span class="line"></span><br><span class="line">    // 取得當前類別所以屬性</span><br><span class="line">    unsigned int count; // 記錄屬性個數</span><br><span class="line">    objc_property_t *properties = class_copyPropertyList(cls, &amp;count);</span><br><span class="line">    //</span><br><span class="line">    NSMutableArray *mArray = [NSMutableArray array];</span><br><span class="line">    <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line"></span><br><span class="line">        // An opaque type that represents an Objective-C declared property.</span><br><span class="line">        // objc_property_t 屬性類型</span><br><span class="line">        objc_property_t property = properties[i];</span><br><span class="line">        // 獲取屬性的名稱 C語言 字串</span><br><span class="line">        const char *cName = property_getName(property);</span><br><span class="line">        // 轉換為 Objective C 字串</span><br><span class="line">        NSString *name = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];</span><br><span class="line"></span><br><span class="line">        [mArray addObject:name];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mArray.copy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@end</span></span><br></pre></td></tr></table></figure>
 
 
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt;= [datas count]; i++) &#123;</span><br><span class="line">        //取得所有屬性 ，檢查屬性值使否空</span><br><span class="line">        NSArray *names = [NSArray getProperties:[datas[i] class]];// #import "NSArray+Extension.h" 使用分類(擴充)</span><br><span class="line">        <span class="keyword">for</span> (NSString *name <span class="keyword">in</span> names) &#123;</span><br><span class="line">            // 取得Property的值</span><br><span class="line">            id propertyValue = [datas[i] valueForKey:name];</span><br><span class="line">            NSLog(@<span class="string">"checkJoinMemberAPIPostParameter \npropertyName: %@, propertyValue: %@"</span>, name, propertyValue);</span><br><span class="line">            <span class="keyword">if</span> !(propertyValue) &#123;</span><br><span class="line">                // 如果等於空 表示沒有值</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt;= [datas count]; i++) &#123;</span><br><span class="line">        //取得所有屬性 ，檢查屬性值使否空</span><br><span class="line">        NSArray *names = [NSArray getProperties:[datas[i] class]];// #import &quot;NSArray+Extension.h&quot; 使用分類(擴充)</span><br><span class="line">        <span class="keyword">for</span> (NSString *name <span class="keyword">in</span> names) &#123;</span><br><span class="line">            // 取得Property的值</span><br><span class="line">            id propertyValue = [datas[i] valueForKey:name];</span><br><span class="line">            NSLog(@<span class="string">&quot;checkJoinMemberAPIPostParameter \npropertyName: %@, propertyValue: %@&quot;</span>, name, propertyValue);</span><br><span class="line">            <span class="keyword">if</span> !(propertyValue) &#123;</span><br><span class="line">                // 如果等於空 表示沒有值</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//    &#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>這種方式可以使用在, 如果你有許多欄位要判斷的時候</p>
@@ -232,14 +232,14 @@ ga('send', 'pageview');
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/Python.html" class="pre-post btn btn-default" title='Python join 語法使用'>
+    <a href="/Python" class="pre-post btn btn-default" title='Python join 語法使用'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
             Python join 語法使用</span>
     </a>
     
     
-    <a href="/xcode.html" class="next-post btn btn-default" title='Xcode 中斷點 簡介'>
+    <a href="/xcode" class="next-post btn btn-default" title='Xcode 中斷點 簡介'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
             Xcode 中斷點 簡介</span><i class="fa fa-angle-right fa-fw"></i>
@@ -278,7 +278,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用方法"><span class="toc-text">使用方法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a></li></ol>
         
     </div>
 </aside>
