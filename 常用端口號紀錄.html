@@ -22,12 +22,13 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="　　簡單說明一下主流外掛種類與開發步驟
-　　
+<meta name="description" content="　　常用端口號紀錄
 
 
-遊戲外掛開發原理
-       外掛現在大體上來講分為三種，分別是模擬按鍵，WPE封包和內存(記憶體)掛。比如模擬鍵盤的、滑鼠的，這種就叫做按鍵..." />
+
+HTTP協議代理伺服器常用 port : 80/ 8080/ 3128/ 8081/ 9080
+SOCKS代理協議伺服器常用 port : 1080
+FTP(文件傳輸)..." />
 
 
 <meta name="robots" content="all" />
@@ -38,7 +39,7 @@
 
 <title>
     
-    遊戲外掛開發原理 |
+    常用端口號紀錄 |
     
     Tin Blog
 </title>
@@ -153,9 +154,9 @@ ga('send', 'pageview');
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="遊戲外掛開發原理">
+        <h1 id="常用端口號紀錄">
             
-            遊戲外掛開發原理
+            常用端口號紀錄
             
         </h1>
         <div class="post-meta">
@@ -178,7 +179,7 @@ ga('send', 'pageview');
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2019/04/23</span>
+            2020/12/17</span>
     </span>
     
     <span class="fa-wrap">
@@ -190,28 +191,19 @@ ga('send', 'pageview');
 </div>
         
         
-        <p class="fa fa-exclamation-triangle warning">
-            本文于<strong>
-                604</strong>
-            天之前發表，文章内容可能已經過時。
-        </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <p>　　簡單說明一下主流外掛種類與開發步驟
-　　</p>
+        <p>　　常用端口號紀錄</p>
 <a id="more"></a>
 
-<h2 id="遊戲外掛開發原理"><a href="#遊戲外掛開發原理" class="headerlink" title="遊戲外掛開發原理"></a>遊戲外掛開發原理</h2><br>
-       外掛現在大體上來講分為三種，分別是模擬按鍵，WPE封包和內存(記憶體)掛。比如模擬鍵盤的、滑鼠的，這種就叫做按鍵模擬，也叫腳本(按鍵)精靈；還有修改數據包(封包)的，這種就叫做WPE封包外掛，這種外掛相對而言比較穩定，但是對於技術要求難度也比較高，因為修改WPE封包，你需要知道與了解加密解密算法等等一系列的知識；還有最後一種就是修改本地記憶體的，這種相對而言比較常見，市場上面比較常見的也是這種遊戲外掛，相對而言技術要求也不是太高，資料也比較齊全，比較大眾；但好像沒有修改服務器內存的哦，呵呵。其實修改服務器也是有辦法的，只是技術太高一般人沒有辦法操作而已。
-<br>
-<br>
-       其實，製作內存(記憶體)掛也不是很難，步驟就這麼幾步。第一步，找遊戲數據內存(記憶體)地址，偏移地址；第二步，修改內存(記憶體)地址的值，達到外掛的目的；第三步，使用熟悉的語言寫出一支程式，使得外掛方便於攜帶傳輸，同時也方便於下次玩遊戲直接使用。其實第三步主要是方便使用，方便販賣等等，很多時候對於一個高手而言，根本不需要寫出來，記錄下內存(記憶體)地址，偏移地址以後，下次上游戲直接工具裡面修改就是了。但是如果經常玩某個遊戲，可以寫出來，用不著每次玩遊戲都去修改。<br>
-<br>
-<br>
-
-<hr>
+<ol>
+<li>HTTP協議代理伺服器常用 port : 80/ 8080/ 3128/ 8081/ 9080</li>
+<li>SOCKS代理協議伺服器常用 port : 1080</li>
+<li>FTP(文件傳輸)協議代理伺服器常用 port : 21</li>
+<li>Telnet(遠程登錄)協議代理伺服器常用 port : 23</li>
+</ol>
+<p>HTTP伺服器, 默認的 port 為80/ tcp(木馬Executor開放此端口); <br><br>HTTPS(securely transferring web pages)伺服器, 默認的 port 為443/ tcp 443/ udp; <br><br>Telnet(不安全的文本傳送), 默認 port 為23/ tcp(木馬Tiny Telnet Server所開放的端口); <br><br>FTP, 默認的 port 為21/ tcp(木馬Doly Trojan, Fore, Invisible FTP, WebEx, WinCrash和Blade Runner所開放的端口); <br><br>TFTP(Trivial File Transfer Protocol), 默認的 port 為69/ udp; <br><br>SSH(安全登錄), SCP(文件傳輸), 端口重定向, 默認的 port 為22/ tcp; <br><br>SMTP Simple Mail Transfer Protocol (E-mail), 默認的 port 為25/ tcp(木馬Antigen、Email Password Sender, Haebu Coceda, Shtrilitz Stealth, WinPC, WinSpy都開放這個端口); <br><br>POP3 Post Office Protocol (E-mail), 默認的 port 為110/ tcp; <br><br>WebLogic, 默認的 port 為7001; <br><br>Webshpere應用程序, 默認的 port 為9080; <br><br>webshpere管理工具, 默認的 port 為9090; <br><br>JBOSS, 默認的 port 為8080; <br><br>TOMCAT, 默認的 port 為8080; <br><br>WIN2003遠程登陸, 默認的 port 為3389; <br><br>Symantec AV/ Filter for MSE,默認 port 為 8081; <br><br>Oracle 數據庫, 默認的 port 為1521; <br><br>ORACLE EMCTL, 默認的 port 為1158; <br><br>Oracle XDB(XML 數據庫), 默認的 port 為8080; <br><br>Oracle XDB FTP服務, 默認的 port 為2100; <br><br>MS SQLSERVER數據庫server, 默認的 port 為1433/ tcp 1433/ udp; <br><br>MS SQLSERVER數據庫monitor, 默認的 port 為1434/ tcp 1434/ udp; <br></p>
 
     </div>
     
@@ -230,17 +222,17 @@ ga('send', 'pageview');
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/Xcode10LogosSupports.html" class="pre-post btn btn-default" title='Xcode10 配置 Logos 語法高亮'>
+    <a href="/firda_error.html" class="pre-post btn btn-default" title='Frida Error note'>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            Xcode10 配置 Logos 語法高亮</span>
+            Frida Error note</span>
     </a>
     
     
-    <a href="/iOS_APP_Safety_Detection_Experience.html" class="next-post btn btn-default" title='過去 iOS APP 安全檢測心得'>
+    <a href="/sysctl_%E7%B3%BB%E7%B5%B1%E5%85%A7%E6%A0%B8%E5%87%BD%E6%95%B8.html" class="next-post btn btn-default" title='sysctl 系統內核函數'>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            過去 iOS APP 安全檢測心得</span><i class="fa fa-angle-right fa-fw"></i>
+            sysctl 系統內核函數</span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -276,7 +268,7 @@ gitalk.render('gitalk-container');
             Table of Contents
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8A%E6%88%B2%E5%A4%96%E6%8E%9B%E9%96%8B%E7%99%BC%E5%8E%9F%E7%90%86"><span class="toc-text">遊戲外掛開發原理</span></a></li></ol>
+        <p>暫無目錄</p>
         
     </div>
 </aside>
