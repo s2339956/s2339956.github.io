@@ -277,20 +277,6 @@
 
   
   <url>
-    <loc>http://s2339956.github.io/tags/iOS/</loc>
-    <lastmod>2020-12-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://s2339956.github.io/tags/app/</loc>
-    <lastmod>2020-12-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://s2339956.github.io/tags/Docker/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
@@ -305,21 +291,14 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/MK5/</loc>
+    <loc>http://s2339956.github.io/tags/iOS/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/Golf/</loc>
-    <lastmod>2020-12-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://s2339956.github.io/tags/GTI/</loc>
+    <loc>http://s2339956.github.io/tags/app/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -354,14 +333,14 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/Python/</loc>
+    <loc>http://s2339956.github.io/tags/Objective-C/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/Objective-C/</loc>
+    <loc>http://s2339956.github.io/tags/Python/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -375,7 +354,21 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/MacOS/</loc>
+    <loc>http://s2339956.github.io/tags/MK5/</loc>
+    <lastmod>2020-12-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://s2339956.github.io/tags/Golf/</loc>
+    <lastmod>2020-12-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://s2339956.github.io/tags/GTI/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -396,7 +389,7 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/Network/</loc>
+    <loc>http://s2339956.github.io/tags/MacOS/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -409,14 +402,14 @@
     <priority>0.6</priority>
   </url>
   
-
-  
   <url>
-    <loc>http://s2339956.github.io/categories/iOS/</loc>
+    <loc>http://s2339956.github.io/tags/Network/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
+  
+
   
   <url>
     <loc>http://s2339956.github.io/categories/Docker/</loc>
@@ -433,7 +426,7 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/categories/MK5/</loc>
+    <loc>http://s2339956.github.io/categories/iOS/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -441,6 +434,13 @@
   
   <url>
     <loc>http://s2339956.github.io/categories/Xcode/</loc>
+    <lastmod>2020-12-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://s2339956.github.io/categories/MK5/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -468,13 +468,6 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/categories/MK5/Golf/</loc>
-    <lastmod>2020-12-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://s2339956.github.io/categories/Xcode/Logos/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
@@ -482,7 +475,7 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/categories/MacOS/app/</loc>
+    <loc>http://s2339956.github.io/categories/MK5/Golf/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -490,6 +483,13 @@
   
   <url>
     <loc>http://s2339956.github.io/categories/macOS/Shell/</loc>
+    <lastmod>2020-12-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://s2339956.github.io/categories/MacOS/app/</loc>
     <lastmod>2020-12-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
