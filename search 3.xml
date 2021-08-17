@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Frida Error note</title>
+      <link href="firda_error.html"/>
+      <url>firda_error.html</url>
+      
+        <content type="html"><![CDATA[<p>　　Frida Error</p><a id="more"></a><p>運行 <code>frida-ps -Uai</code>  <br><br>就會噴出以下錯誤</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(frida:12957): Frida-CRITICAL **: 10:47:11.886: file ../../../frida-core/lib/interfaces/session.vala: line 167: uncaught error: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “re.frida.HostSession12” on object at path /re/frida/HostSession (g-dbus-error-quark, 19)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>Mac OS 版本為</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Big Sur 11.0.1（20B50）</span><br></pre></td></tr></table></figure><p>frida 版本為</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">frida --version</span><br><span class="line">12.8.0</span><br></pre></td></tr></table></figure><p>iOS frida 版本為</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">14.1.3</span><br></pre></td></tr></table></figure><p>解法:</p><p>更新 frida 為匹配版本 frida-14.1.3</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo -H pip3 install --upgrade frida</span><br><span class="line">sudo -H pip3 install --upgrade frida-tools</span><br><span class="line"></span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.</span><br><span class="line">Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.</span><br><span class="line">To avoid this problem you can invoke Python with &#x27;-m pip&#x27; instead of running pip directly.</span><br><span class="line">Defaulting to user installation because normal site-packages is not writeable</span><br><span class="line">Requirement already satisfied: frida in /Users/tinxie/Library/Python/3.7/lib/python/site-packages (12.10.4)</span><br><span class="line">Collecting frida</span><br><span class="line">  Downloading frida-14.1.3.tar.gz (7.5 kB)</span><br><span class="line">Building wheels for collected packages: frida</span><br><span class="line">  Building wheel for frida (setup.py) ... done</span><br><span class="line">  Created wheel for frida: filename=frida-14.1.3-cp37-cp37m-macosx_10_9_x86_64.whl size=13544424 sha256=c71c579feb9486ae6f83d0553f135165fa75b446a76640d4e1779b9ab8e34c9f</span><br><span class="line">  Stored in directory: /Users/tinxie/Library/Caches/pip/wheels/b3/c1/d8/881183b64dcb20af479a2282454d65390369bbe25cde6f055e</span><br><span class="line">Successfully built frida</span><br><span class="line">Installing collected packages: frida</span><br><span class="line">  Attempting uninstall: frida</span><br><span class="line">    Found existing installation: frida 12.10.4</span><br><span class="line">    Uninstalling frida-12.10.4:</span><br><span class="line">      Successfully uninstalled frida-12.10.4</span><br><span class="line">ERROR: pip&#x27;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span><br><span class="line">frida-tools 5.3.0 requires frida&lt;13.0.0,&gt;=12.7.3, but you have frida 14.1.3 which is incompatible.</span><br><span class="line">frida-tools 5.3.0 requires prompt-toolkit&lt;3.0.0,&gt;=2.0.0, but you have prompt-toolkit 3.0.5 which is incompatible.</span><br><span class="line">Successfully installed frida-14.1.3</span><br></pre></td></tr></table></figure><p>搞定收工！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> frida </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>常用端口號紀錄</title>
+      <link href="%E5%B8%B8%E7%94%A8%E7%AB%AF%E5%8F%A3%E8%99%9F%E7%B4%80%E9%8C%84.html"/>
+      <url>%E5%B8%B8%E7%94%A8%E7%AB%AF%E5%8F%A3%E8%99%9F%E7%B4%80%E9%8C%84.html</url>
+      
+        <content type="html"><![CDATA[<p>　　常用端口號紀錄</p><a id="more"></a><ol><li>HTTP協議代理伺服器常用 port : 80/ 8080/ 3128/ 8081/ 9080</li><li>SOCKS代理協議伺服器常用 port : 1080</li><li>FTP(文件傳輸)協議代理伺服器常用 port : 21</li><li>Telnet(遠程登錄)協議代理伺服器常用 port : 23</li></ol><p>HTTP伺服器, 默認的 port 為80/ tcp(木馬Executor開放此端口); <br><br>HTTPS(securely transferring web pages)伺服器, 默認的 port 為443/ tcp 443/ udp; <br><br>Telnet(不安全的文本傳送), 默認 port 為23/ tcp(木馬Tiny Telnet Server所開放的端口); <br><br>FTP, 默認的 port 為21/ tcp(木馬Doly Trojan, Fore, Invisible FTP, WebEx, WinCrash和Blade Runner所開放的端口); <br><br>TFTP(Trivial File Transfer Protocol), 默認的 port 為69/ udp; <br><br>SSH(安全登錄), SCP(文件傳輸), 端口重定向, 默認的 port 為22/ tcp; <br><br>SMTP Simple Mail Transfer Protocol (E-mail), 默認的 port 為25/ tcp(木馬Antigen、Email Password Sender, Haebu Coceda, Shtrilitz Stealth, WinPC, WinSpy都開放這個端口); <br><br>POP3 Post Office Protocol (E-mail), 默認的 port 為110/ tcp; <br><br>WebLogic, 默認的 port 為7001; <br><br>Webshpere應用程序, 默認的 port 為9080; <br><br>webshpere管理工具, 默認的 port 為9090; <br><br>JBOSS, 默認的 port 為8080; <br><br>TOMCAT, 默認的 port 為8080; <br><br>WIN2003遠程登陸, 默認的 port 為3389; <br><br>Symantec AV/ Filter for MSE,默認 port 為 8081; <br><br>Oracle 數據庫, 默認的 port 為1521; <br><br>ORACLE EMCTL, 默認的 port 為1158; <br><br>Oracle XDB(XML 數據庫), 默認的 port 為8080; <br><br>Oracle XDB FTP服務, 默認的 port 為2100; <br><br>MS SQLSERVER數據庫server, 默認的 port 為1433/ tcp 1433/ udp; <br><br>MS SQLSERVER數據庫monitor, 默認的 port 為1434/ tcp 1434/ udp; <br></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>sysctl 系統內核函數</title>
+      <link href="sysctl_%E7%B3%BB%E7%B5%B1%E5%85%A7%E6%A0%B8%E5%87%BD%E6%95%B8.html"/>
+      <url>sysctl_%E7%B3%BB%E7%B5%B1%E5%85%A7%E6%A0%B8%E5%87%BD%E6%95%B8.html</url>
+      
+        <content type="html"><![CDATA[<p>　　sysctl 系統內核函數</p><a id="more"></a><h3 id="sysctl-系統內核函數"><a href="#sysctl-系統內核函數" class="headerlink" title="sysctl 系統內核函數"></a>sysctl 系統內核函數</h3><p>sysctl 用於系統的檢測和控制，監控進程是否被附加或者調試(debug)。</p><p>定義定時器，每幾秒檢測一下app是否被附加(注入)。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 定時器輪詢查詢app是否被調試，每秒鐘檢查一次</span><br><span class="line">static dispatch_source_t timer;</span><br><span class="line"></span><br><span class="line">BOOL isDebugger() &#123;</span><br><span class="line">    int name[4];</span><br><span class="line">    name[0] &#x3D; CTL_KERN; &#x2F;&#x2F; 內核</span><br><span class="line">    name[1] &#x3D; KERN_PROC; &#x2F;&#x2F; 查詢進程</span><br><span class="line">    name[2] &#x3D; KERN_PROC_PID; &#x2F;&#x2F; 通過進程ID查詢</span><br><span class="line">    name[3] &#x3D; getpid(); &#x2F;&#x2F; 獲取進程ID</span><br><span class="line">    </span><br><span class="line">    struct kinfo_proc info; &#x2F;&#x2F; 進程查詢結果的結構體</span><br><span class="line">    size_t info_size &#x3D; sizeof(info); &#x2F;&#x2F; 結構體大小</span><br><span class="line">    </span><br><span class="line">    int error &#x3D; sysctl(name, sizeof(name)&#x2F;sizeof(*name), &amp;info, &amp;info_size, 0, 0);</span><br><span class="line">    </span><br><span class="line">    assert(error &#x3D;&#x3D; 0);   &#x2F;&#x2F; 0就是沒有錯誤，其他就是錯誤碼</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; (info.kp_proc.p_flag &amp; P_TRACED) !&#x3D; 0; &#x2F;&#x2F; 0沒有調試 !&#x3D;0有調試</span><br><span class="line">    </span><br><span class="line">    return ((info.kp_proc.p_flag &amp; P_TRACED) !&#x3D; 0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (void)load &#123;</span><br><span class="line">    timer &#x3D; dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_global_queue(0, 0));</span><br><span class="line">    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);</span><br><span class="line">    dispatch_source_set_event_handler(timer, ^&#123;</span><br><span class="line">        if (isDebugger()) &#123;</span><br><span class="line">            exit(0);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    dispatch_resume(timer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>了解什麼是NAT機制</title>
+      <link href="%E4%BA%86%E8%A7%A3%E4%BB%80%E9%BA%BC%E6%98%AFNAT%E6%A9%9F%E5%88%B6.html"/>
+      <url>%E4%BA%86%E8%A7%A3%E4%BB%80%E9%BA%BC%E6%98%AFNAT%E6%A9%9F%E5%88%B6.html</url>
+      
+        <content type="html"><![CDATA[<p>　　了解什麼是NAT機制？</p><a id="more"></a><h3 id="了解什麼是NAT機制？"><a href="#了解什麼是NAT機制？" class="headerlink" title="了解什麼是NAT機制？"></a>了解什麼是NAT機制？</h3><p>網絡地址轉換（Network Address Translation，NAT）機制的問題在於，NAT設備自動屏蔽了非內網主機主動發起的連接，也就是說，從外網發往內網的數據包將被NAT設備丟棄，這使得位於不同NAT設備之後的主機之間無法直接交換信息。這一方面保護了內網主機免於來自外部網絡的攻擊，另一方面也為P2P通信帶來了一定困難。外部主機要與內網主機相互通信，必須由內網主機主動發起連接，使 NAT設備產生一個映射條目，這就有必要研究一下內網穿透技術。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Network </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Network </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker - 在容器中搭建 FTP 伺服器 (vsftpd)</title>
+      <link href="Docker-%E5%9C%A8%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%90%AD%E5%BB%BAFTP%E4%BC%BA%E6%9C%8D%E5%99%A8(vsftpd).html"/>
+      <url>Docker-%E5%9C%A8%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%90%AD%E5%BB%BAFTP%E4%BC%BA%E6%9C%8D%E5%99%A8(vsftpd).html</url>
+      
+        <content type="html"><![CDATA[<p>　　Docker - 在容器中搭建 FTP 伺服器 (vsftpd)</p><a id="more"></a><p>使用 Docker 搭建 FTP 服務，不僅十分簡單，而且可以對宿主機有一定的隔離。<br><br>下面以 CentOS 系統為例，演示如何通過容器運行 FTP 服務。</p><ol><li>拉取鏡像<br>首先執行如下命令將鏡像下載至電腦：</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull fauria&#x2F;vsftpd</span><br></pre></td></tr></table></figure><ol start="2"><li>啓動容器<br>執行如下命令實例化 FTP 服務：</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">參數說明：</span><br><span class="line">&#x2F;home&#x2F;ftp:&#x2F;home&#x2F;vsftpd: 映射 docker 容器 FTP 文件根目錄（冒號前面是宿主機的目錄）</span><br><span class="line">-p: 映射 docker 端口（冒號前面是宿主機的端口）</span><br><span class="line">-e FTP_USER&#x3D;test -e FTP_PASS&#x3D;test : 設置默認的用戶名密碼（都為 test）</span><br><span class="line">PASV_ADDRESS : 宿主機 ip，當需要使用被動模式時必須設置。</span><br><span class="line">PASV_MIN_PORT~ PASV_MAX_PORT : 給客服端提供下載服務隨機端口號範圍，</span><br><span class="line">默認 21100-21110，與前面的 docker 端口映射設置成一樣。</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -v &#x2F;home&#x2F;ftp:&#x2F;home&#x2F;vsftpd \</span><br><span class="line">-p 20:20 -p 21:21 -p  21100-21110:21100-21110 \</span><br><span class="line">-e FTP_USER&#x3D;test -e FTP_PASS&#x3D;test \</span><br><span class="line">-e PASV_ADDRESS&#x3D;192.168.60.128 \</span><br><span class="line">-e PASV_MIN_PORT&#x3D;21100 -e PASV_MAX_PORT&#x3D;21110 \</span><br><span class="line">--name vsftpd --restart&#x3D;always fauria&#x2F;vsftpd</span><br></pre></td></tr></table></figure><ol start="3"><li>防火牆配置<br> 如果 CentOS 服務器有防火牆，為了讓客戶端能夠訪問 FTP 服務。<br><br> 我們可以關閉防火牆，或者執行如下命令配置 firewall 防火牆策略：<br> (此步驟可忽略)</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port&#x3D;20&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21100&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21101&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21102&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21103&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21104&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21105&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21106&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21107&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21108&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21109&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21110&#x2F;tcp</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure><ol start="4"><li>新建用戶文件夾</li></ol><p>(1) 首先執行如下命令進入到容器裡面：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -i -t vsftpd bash</span><br></pre></td></tr></table></figure><p>(2) 由於前面我們啓動的時候設置用戶名為 test，<br><br>已經自動創建對應的用戶文件夾（所以下面這個文件夾無需我們再次手動創建）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;home&#x2F;vsftpd&#x2F;test</span><br></pre></td></tr></table></figure><p>(3) 為方便演示，在 test 用戶文件夾下新建一個 1.txt 文件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;home&#x2F;vsftpd&#x2F;test&#x2F;1.txt</span><br></pre></td></tr></table></figure><ol start="5"><li>訪問服務</li></ol><p>（1）我們可以直接使用瀏覽器進行訪問，地址如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp:&#x2F;&#x2F;test:test@192.168.60.128:21</span><br></pre></td></tr></table></figure><p>（2）也可以使用 FTP 客戶端工具進行訪問。</p><p>（3）如果是 MacOS，我們還可以通過「Finder」-&gt;「前往」-&gt;「連接伺服器…」來訪問 FTP 服務。</p><hr><h4 id="附：增加一個新用戶"><a href="#附：增加一個新用戶" class="headerlink" title="附：增加一個新用戶"></a>附：增加一個新用戶</h4><p>前面我們在啓動服務的時候就創建了個默認用戶 test。<br><br>如果需要新增一個新用戶，假設用戶名稱：tinxie，密碼：123456，具體操作如下。 </p><p>（1）首先執行如下命令進入到容器裡面：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -i -t vsftpd bash</span><br></pre></td></tr></table></figure><p>（2）創建新用戶的資料夾：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;home&#x2F;vsftpd&#x2F;tinxie</span><br></pre></td></tr></table></figure><p>（3）編輯用戶配置文件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.txt</span><br></pre></td></tr></table></figure><p>（4）在文件中新增新用戶的用戶名和密碼：</p><p>（5）保存退出後執行如下命令，把登錄的驗證資訊寫入資料庫。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;db_load -T -t hash -f &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.txt &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.db</span><br></pre></td></tr></table></figure><p>（6）最後退出容器，並重啓容器可以使用新用戶連接 FTP 服務了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line">docker restart vsftpd</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>(轉) IDA Pro 7.3 Release v1.0</title>
+      <link href="IDA_Pro_7.3_Release_v1.0.html"/>
+      <url>IDA_Pro_7.3_Release_v1.0.html</url>
+      
+        <content type="html"><![CDATA[<p>　　IDA Pro 7.3 Release v1.0 (July 2020)</p><a id="more"></a><h3 id="IDA-Pro-7-3-Release-v1-0-July-2020"><a href="#IDA-Pro-7-3-Release-v1-0-July-2020" class="headerlink" title="IDA Pro 7.3 Release v1.0 (July 2020)"></a>IDA Pro 7.3 Release v1.0 (July 2020)</h3><p>From the team: “Can re-post anywhere provided that the credits below are included and the archive/installer are shared without modifications.”</p><p>All HexRays vendor watermarks removed from the IDA executables.<br>Decompilers will be released soon after we clear the watermarks from them as well!</p><p><a href="https://www57.zippyshare.com/v/bEgaZn0p/file.html">https://www57.zippyshare.com/v/bEgaZn0p/file.html</a><br><br><a href="https://1fichier.com/?vcgww83zz8g06vwotkd5">https://1fichier.com/?vcgww83zz8g06vwotkd5</a><br><br><a href="https://dropapk.to/r1k13hmrodga">https://dropapk.to/r1k13hmrodga</a><br><br><a href="http://www.solidfiles.com/v/Q4xzgWMZ3gaqy">http://www.solidfiles.com/v/Q4xzgWMZ3gaqy</a><br><br><a href="https://turbobit.net/urgpttamvidv.html">https://turbobit.net/urgpttamvidv.html</a><br><br><a href="https://tusfiles.com/q1nnjgc3dgul">https://tusfiles.com/q1nnjgc3dgul</a><br></p><p>Pass (changed to comply with rules of this board): Board4all</p><p>The comments above are not mine.<br>Tested briefly and everything seems to work as expected.</p><p>###IDA 7.5 Demo+Hex-Rays x64 (Win/Mac/Linux) </p><p><a href="https://mega.nz/file/LVoFAbaJ#VYFpzoIMYOQSZ2xPTR64nzC-R-e1DG4KUxgEAdlGzZo">https://mega.nz/file/LVoFAbaJ#VYFpzoIMYOQSZ2xPTR64nzC-R-e1DG4KUxgEAdlGzZo</a></p><p>###IDA Pro 7.3 (Vendor Watermarks Removed)</p><p>pass: T3@M-1RA-IDA-PRO</p><p><a href="https://dropmefiles.com/NFK8H">https://dropmefiles.com/NFK8H</a></p><p>Credits to Team-IRA for cleaning watermarks </p><p>All HexRays vendor watermarks removed from the IDA executables (to avoid ban).</p><p>Decompilers will be rele&#65279;ased soon after we clear the watermarks from them as well!</p><p>You can expect the release of the version 7.5 also soon (after we clear off the watermarks fully)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> macOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>macOS_Time_Machine_時光機首次備份加速法</title>
+      <link href="macOS_Time_Machine_%E6%99%82%E5%85%89%E6%A9%9F%E9%A6%96%E6%AC%A1%E5%82%99%E4%BB%BD%E5%8A%A0%E9%80%9F%E6%B3%95.html"/>
+      <url>macOS_Time_Machine_%E6%99%82%E5%85%89%E6%A9%9F%E9%A6%96%E6%AC%A1%E5%82%99%E4%BB%BD%E5%8A%A0%E9%80%9F%E6%B3%95.html</url>
+      
+        <content type="html"><![CDATA[<p>　　如何解除 Time Machine 時光機備份時的限速封印</p><a id="more"></a><p>用電腦一段時間的人，都知道備份的重要性。<br><br>macOS 內建的時光機功能大概是對 Mac 使用者來說最方便的工具之一，既不用額外付費，<br><br>而且備份於無形，出問題或是重新安裝 macOS 時復原的相容性也高。<br><br>最近購入一顆 1TB 的外接硬碟，<br><br>大約 1TB 的首次備份竟然整整花了 48 小時都無法完成！<br><br>上網找了資訊，原因是 macOS 的時光機備份設有限流，<br><br>避免備份時影響到正在執行的工作，但是首次備時就悲劇了。<br><br>解除方式也很簡單，確定程式都關掉，時光機也沒啟動後，打開終端機程式，並輸入下面指令後按 Enter：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl debug.lowpri_throttle_enabled&#x3D;0</span><br></pre></td></tr></table></figure><p>這時你會發現時光機的備份速度變快很多，等首次備份完畢後，<br><br>重新開機或是再執行下面指令，即可恢復原先有限流的狀態：<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl debug.lowpri_throttle_enabled&#x3D;1</span><br></pre></td></tr></table></figure><p>參考資訊：<a href="https://www.imore.com/how-speed-your-time-machine-backups">How to speed up your Time Machine backups</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> macOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>轉_最差勁的上司常問的五個問題</title>
+      <link href="%E8%BD%89_%E6%9C%80%E5%B7%AE%E5%8B%81%E7%9A%84%E4%B8%8A%E5%8F%B8%E5%B8%B8%E5%95%8F%E7%9A%84%E4%BA%94%E5%80%8B%E5%95%8F%E9%A1%8C.html"/>
+      <url>%E8%BD%89_%E6%9C%80%E5%B7%AE%E5%8B%81%E7%9A%84%E4%B8%8A%E5%8F%B8%E5%B8%B8%E5%95%8F%E7%9A%84%E4%BA%94%E5%80%8B%E5%95%8F%E9%A1%8C.html</url>
+      
+        <content type="html"><![CDATA[<p>　　在<a href="https://www.jianshu.com/p/bb800a5e7a4b">《領導者不能沒有「問題」》</a>里，我提到領導者需要懂得提問。</p><p>通過問題，我們可以發現更多對自己有幫助的信息。</p><p>雖然提問可以帶來很多好處，但是有一個很關鍵的前提――要問對問題。</p><p>要掌握好問對問題的技巧需要時間。</p><p>在還沒練成這項技能前，有沒有哪些問題我們是應該避免的？</p><a id="more"></a><br><br>01<p>在<a href="https://www.jianshu.com/p/bb800a5e7a4b">《領導者不能沒有「問題」》</a>里，我提到領導者需要懂得提問。</p><p>通過問題，我們可以發現更多對自己有幫助的信息。</p><p>雖然提問可以帶來很多好處，但是有一個很關鍵的前提――要問對問題。</p><p>要掌握好問對問題的技巧需要時間。</p><p>在還沒練成這項技能前，有沒有哪些問題我們是應該避免的？</p><p>02</p><blockquote><p>沒水平的領導最愛問的五個問題</p></blockquote><br><ol><li><p>「出了什麼問題？」</p><p> 領導者會發現自己經常提出類似的問題——「出什麼事了」，「存在哪些差錯」，「我們現在的最大威脅是什麼？」很遺憾，80%的管理會議都是以這類問題開場。</p><p> 如果領導者著重關注問題和弱點，那麼整個組織也會將注意力集中於此，而非聚焦於自己的優勢與機遇。</p><p> 與其探究哪裡出了差錯和過失，不如提出利用優勢和長處達成目標的積極問題。</p><p> 例如我們在哪方面做得不錯？</p><p> 我們是怎麼成功的？</p><p> 理想的結果是什麼？</p><p> 我們怎麼做才能更接近目標？</p><p> 當我們提出「成長性」問題時，有可能對方開始會不習慣，畢竟大部分的時候他們面對的是「錯誤性」問題。</p><p> 我們需要給時間對方適應，逐漸培養新常態。</p></li></ol><ol start="2"><li><p>「誰該為此負責？」</p><p> 這個問題是將注意力聚焦在了尋找「替罪羊」上，但是現實中，很多人是需要對失誤或發生的問題負責任的。</p><p> 當領導者在追究員工責任時，通常是在為自己的失誤開脫。</p><p> 其實我們有更好的方法。</p><p> 通過提出：「我們該如何通過合作彌補弱點？」這樣做可以找到需要改善的薄弱環節，而不是把焦點放在職責錯誤上。</p><p> 除這之外，當下屬發現我們不是在追責，而是在找解決方案時，他們會更樂意把問題提早說出來。</p><p> 不然，他們可能為了避開負責任，而什麼都不說。</p></li><li><p>「為什麼不這麼做？」</p><p> 這句話聽起來更像是個建議，但若是領導者這麼說，就會變成一個引導性的問題。</p><p> 這是一種把自己的工作方法強加在他人身上（更糟糕的是，當事情發生後再提出這個問題時，就變成了「你當時為什麼不這麼做？」，這就成了事後怪罪）。</p><p> 在領導力專家Mary Jo Asmus看來，「每當領導者詢問員工為何不按照自己建議的方式進行工作時，這就是一種隱秘形式的權力控制。」</p><p> 她強調，如果領導者想雇傭到優秀的員工，那麼他「不應該控制員工如何開展工作」。</p><p> 最好的方式，是允許員工自己想出辦法。</p><p> 當然，偶爾我們也可以通過詢問的方式幫助員工開拓思路，但應該是這類詢問，比如「你怎麼看待這件事呢？你對此有什麼想法嗎？」等等。</p></li><li><p>「我們不是試過這個方法了嗎？」</p><p> 另一個糟糕的問題還包括，「這個方法過去行不通，你憑什麼相信它現在能成功？」</p><p> 這類問題有種高高在上的傲慢，甚至有種失敗主義的意味。</p><p> 當然，這不是說領導者不應質疑員工提出的策略，而是要特別注意詢問的語氣。</p><p> 這種觀點似乎是說，已經考慮過所有方法了，曾經試過但沒有成功的方法，以後就不該再考慮了。</p><p> 這種做法忽略了：某些想法過去之所以失敗，不是因為想法本身有錯，而也許是因為執行不力或時機不對。</p><p> 更好的詢問方式應該是，「如果重新考慮這個方法，這次會有什麼不同？怎麼做才能改變上次的結果？」</p></li></ol><ol start="5"><li><p>「我們怎麼沒做出新產品呢？」</p><p> 當競爭對手發佈一款新產品時，驚慌失措的老闆們通常會問類似的問題。</p><p> 事實上，領導者是想對他的下屬們說，「你為什麼沒想出這樣的好點子。快行動起來！」</p><p> 問題是，這類問題會誤導員工跟風，讓他們認為自己的工作就是用最快的速度去複製別人的新產品。</p><p> 與其讓團隊去仿造，不如這樣激勵下屬：「為何競爭對手的產品會如此成功？它滿足了哪些需求？我們如何運用自己的特長去滿足消費者的需求？」</p></li></ol><p>03</p><br>> 總結><br><p>身為領導者，掌握提問的技巧是我們必備的技能之一。</p><p>除非我們把問題背後的思考說出來，他人只能從我們的問題表面和場景來瞭解我們的意思。</p><p>總之，領導者應避免以「像是父母對小孩說話」的方式進行提問，而是要與下屬共同探究問題。</p><p>同時，雖然領導者有提問的權力，不要問一個連自己都想不到答案的問題。</p><p><br><br><br><br>作者：蕭理查德 <br><br>鏈接：<a href="https://www.jianshu.com/p/bca8276ddcc2">https://www.jianshu.com/p/bca8276ddcc2</a><br><br>來源：簡書<br></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>macOS 播放影片異常</title>
+      <link href="macOS_%E5%BD%B1%E7%89%87%E7%95%B0%E5%B8%B8.html"/>
+      <url>macOS_%E5%BD%B1%E7%89%87%E7%95%B0%E5%B8%B8.html</url>
+      
+        <content type="html"><![CDATA[<p>　　macOS 播放影片異常，如：自動超速快轉…等</p><a id="more"></a><ol><li><p>使用command + 空白鍵 開啟 Spotlight，搜尋：活動監視器</p></li><li><p>在活動監視器中搜尋：audiod，找到 coreaudiod</p><p> <img src="/images/MacOS_play_error/1.png" alt></p></li><li><p>雙擊，再點選結束，即可恢復正常。</p></li></ol><br>]]></content>
+      
+      
+      <categories>
+          
+          <category> macOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>macOS 定時任務</title>
+      <link href="macOS_%E5%AE%9A%E6%99%82%E4%BB%BB%E5%8B%99.html"/>
+      <url>macOS_%E5%AE%9A%E6%99%82%E4%BB%BB%E5%8B%99.html</url>
+      
+        <content type="html"><![CDATA[<p>　　macOS 定時執行 shell 腳本</p><a id="more"></a><ol><li><p>執行命令：crontab -e</p></li><li><p>按 i 編輯文件，添加命令如下：</p><br>`10 12 * * * sh /home/uploadFile.sh`<p> 10 12 * * * 指每天12點10分開始執行該定時任務<br> 分 时 日 月 周<br> sh /home/uploadFile.sh 指執行 home目錄下的腳本uploadFile.sh</p></li><li><p>按ESC返回命令行模式，再按:wq保存並退出，定時任務創建成功。</p></li></ol><br>ps: 關鍵是 sh 比須加上才可以順利執行。]]></content>
+      
+      
+      <categories>
+          
+          <category> macOS </category>
+          
+          <category> Shell </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> macOS </tag>
+            
+            <tag> Shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Android unlock &amp; magisk root</title>
+      <link href="Android_unlock_magisk_root.html"/>
+      <url>Android_unlock_magisk_root.html</url>
+      
+        <content type="html"><![CDATA[<p>　　android 解鎖與 magisk root</p><a id="more"></a><h3 id="HTC-New-One-m7-unlock-amp-magisk-root"><a href="#HTC-New-One-m7-unlock-amp-magisk-root" class="headerlink" title="HTC New One (m7) unlock &amp; magisk root"></a>HTC New One (m7) unlock &amp; magisk root</h3><h4 id="準備工具"><a href="#準備工具" class="headerlink" title="準備工具"></a>準備工具</h4><ol><li>HTC New One (m7) phone </li><li>macbook pro (or windows)</li><li>stable usb cable (穩定的線)</li><li>adb tool &amp; fastboot tool </li><li>MagiskManager-v7.5.1.apk &amp; Magisk-v20.3.zip</li><li>twrp-3.2.1-0-m7.img</li></ol><h4 id="unlock"><a href="#unlock" class="headerlink" title="unlock"></a>unlock</h4><ol><li>go to <a href="https://www.htcdev.com/">HTCdev</a></li><li>login HTCdev<br> <img src="/images/Android_unlock_magisk_root/htcdev_login.png" alt></li><li>Click on “unlock bootloader”<br> <img src="/images/Android_unlock_magisk_root/ClickOnUnlock.png" alt></li><li>Click on “Get Started”<br> <img src="/images/Android_unlock_magisk_root/ClickOnGetStarted.png" alt></li><li>Select your device<br> <img src="/images/Android_unlock_magisk_root/PleaseSelectYourDevice.png" alt></li><li>Click on Begin Unlock Bootloader<br> <img src="/images/Android_unlock_magisk_root/BeginUnlockBootloader.png" alt></li><li>Selecte Yes<br> <img src="/images/Android_unlock_magisk_root/SelecteYes.png" alt></li><li>Click on Proceed to Unlock Instructions, need to tick<br> <img src="/images/Android_unlock_magisk_root/UnlockInstructions.png" alt></li><li>接下來僅需照著官方步驟來操作，官方畫面為windows，mac 請自行意會<br> <img src="/images/Android_unlock_magisk_root/UnlockInstructions1.png" alt><br> 或者參考一下 <a href="https://dacota.tw/blog/post/30546572">雲爸</a></li></ol><h4 id="Magisk-root"><a href="#Magisk-root" class="headerlink" title="Magisk root"></a>Magisk root</h4><ol><li><p>download <a href="https://drive.google.com/file/d/1VSzwSSdgbmdLBJtQodPJbsG0SSCc1O23/view">twrp-3.2.1-0-m7.img</a>。</p></li><li><p>download <a href="https://github.com/topjohnwu/Magisk/releases">Magisk</a>，需下載兩個 apk(Magisk Manager v7.5.1)與zip(Magisk v20.3)。</p></li><li><p>將 apk 安裝至手機，與zip 上傳至手機上。</p></li><li><p>將手機與電腦連接，下指令 <code>adb reboot bootloader</code> ，畫面應該如下：<br> <img src="/images/Android_unlock_magisk_root/m7-bootloader.png" alt></p></li><li><p>下指令 <code>fastboot flash recovery twrp-3.2.1-0-m7.img</code></p> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  android platform-tools/fastboot flash recovery twrp-3.2.1-0-m7.img</span><br><span class="line">Sending &#x27;recovery&#x27; (12756 KB)                      OKAY [  1.592s]</span><br><span class="line">Writing &#x27;recovery&#x27;                                 OKAY [  0.870s]</span><br><span class="line">Finished. Total time: 2.464s</span><br></pre></td></tr></table></figure></li><li><p>至手機使用音量鍵移動，電源鍵選擇至以下畫面。<br> <img src="/images/Android_unlock_magisk_root/HBOOT.png" alt><br> 再來移動到 RECOVERY 反藍處按電源，<br><br> 就可以切換到以下twrp-Recovery 畫面。</p></li><li><p>點擊 Install 。<br> <img src="/images/Android_unlock_magisk_root/Screenshot_2020-02-21-01-08-44.png" alt></p></li><li><p>選擇第三步上傳的檔案。<br> <img src="/images/Android_unlock_magisk_root/Screenshot_2020-02-21-01-09-08.png" alt></p></li><li><p>滑動至右安裝。<br> <img src="/images/Android_unlock_magisk_root/Screenshot_2020-02-21-01-09-15.png" alt></p></li><li><p>完成 ROOT 程序後，選 Reboot system 重開機。</p></li><li><p>點Do Not Install(不要安裝)後就會重開機，<br><br>(這裡是問你要不要裝twrp的app)。</p></li><li><p>接下來就可以享用ROOT的樂趣了。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+          <category> app </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> app </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>修身養性</title>
+      <link href="%E4%BF%AE%E8%BA%AB%E9%A4%8A%E6%80%A7.html"/>
+      <url>%E4%BF%AE%E8%BA%AB%E9%A4%8A%E6%80%A7.html</url>
+      
+        <content type="html"><![CDATA[<p>　　改善自身</p><a id="more"></a><ol><li><p>清醒時做事，糊塗時讀書，大怒時睡覺，獨處時思考。</p></li><li><p>話別說太滿，人別熟太快。</p></li><li><p>人前不應該說的話，背後也別說。</p></li><li><p>在最憤怒時忍住最傷人對方的那句話。</p></li><li><p>刻薄嘴欠和幽默是兩回事；口無遮攔和坦率是兩回事；沒有教養和隨性是兩回事；輕重不分和耿直是兩回事。</p></li><li><p>學會控制自己的情緒，將每種情緒的感受記錄下來，幫助自己認知情緒。</p></li><li><p>不要吝嗇你的贊美和表達愛意的語言。</p></li><li><p>別人自嘲可以，但你千萬別附和。</p></li><li><p>可以嘲笑你的朋友，但不能嘲笑他喜歡的東西。</p></li><li><p>把「隨便」改成「聽你的」</p></li><li><p>有錯大大方方的認，一句對不起沒什麼大不了的，切記別找藉口。</p></li><li><p>請道歉而不是取笑別人開不起玩笑，你以為誰沒有底線只不過還沒到底而已。</p></li><li><p>不要把負能量帶給身邊的人。</p></li><li><p>如果沒有十足的把握和必要，就不要輕易說假話。</p></li><li><p>把「聽明白了嗎」換成「我說明白了嗎」。</p></li><li><p>如果遇到了傻Ⅹ，不要與他爭論，而且要同意他的一切觀點，把他培養成大傻Ⅹ！</p></li><li><p>越是親近的人越要用心對待，一句隨意的話會傷害她。</p></li><li><p>在拒絕這件事上，越簡單越好，明明是別人需求自己幫忙，解釋半天變成自己虧欠了別人的感覺，幫得上，想幫就幫，幫不上，就拒絕。人際交往，簡單明瞭有時最恰當，懂得拒絕，才可以灑脫不糾結。</p></li><li><p>不要在公眾場合揭別人的短處，讓別人難堪。</p></li><li><p>當你往上爬的時候對別人好一點，因為你走下坡路的時候會遇到他們。</p></li><li><p>逢人只說三分話，未可全拋一片心。</p></li><li><p>有分寸的信任，有理由的懷疑。</p></li><li><p>會說話就是讓自己尷尬，而不是讓別人尷尬。</p></li><li><p>把每一句「我不會」都改成「我可以學」。</p></li><li><p>學會拒絕，沒人會感激你的善良，他們只會得寸進尺。</p></li><li><p>「交友不必言盡，言盡則無友」。</p></li><li><p>不會講話時別瞎說沈默微笑更好。</p></li><li><p>請不要隨意出賣一個朋友的隱私來取悅另一個不熟的朋友。</p></li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MK5 Golf GTI</title>
+      <link href="MK5_Golf_GTI.html"/>
+      <url>MK5_Golf_GTI.html</url>
+      
+        <content type="html"><![CDATA[<p>　　基礎數據紀錄。</p><a id="more"></a><h2 id="MK5-Golf-GTI"><a href="#MK5-Golf-GTI" class="headerlink" title="MK5 Golf GTI"></a>MK5 Golf GTI</h2><h4 id="基礎數據"><a href="#基礎數據" class="headerlink" title="基礎數據"></a>基礎數據</h4><p>車身座位: 5門5人座<br>性能數據: 200hp@5100rpm 28.6kgm@1800rpm<br>變速系統: 6速自手排<br>能量消耗: 平均 11.9km/ltr、市區: 9km/ltr、高速: 14.7km/ltr<br>引擎形式: 渦輪增壓, 直列4缸, DOHC雙凸輪軸, 16氣門<br>壓縮比: 10.3<br>排氣量: 1984cc<br>驅動型式: 前驅</p><h4 id="車體數據"><a href="#車體數據" class="headerlink" title="車體數據"></a>車體數據</h4><p>車長: 4204mm<br>車寬: 1759mm<br>車高: 1485mm<br>車重: 1328kg<br>軸距: 2578mm</p><h4 id="底盤"><a href="#底盤" class="headerlink" title="底盤"></a>底盤</h4><p>採用 PQ35 底盤，「PQ35」中的P代表平台、Q代表發動機橫置、3代表A級轎車，5是指第五代。因此「PQ35」是指以發動機橫置的 Golf(高爾夫)五代為基礎，能夠拓展研發出各種車型的平台。</p><h4 id="變速箱"><a href="#變速箱" class="headerlink" title="變速箱"></a>變速箱</h4><p>代號：DQ250，濕式6速雙離合器變速箱，簡稱6速DSG</p><h4 id="引擎"><a href="#引擎" class="headerlink" title="引擎"></a>引擎</h4><p>型號： EA113 (皮帶帶動)</p><h4 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h4><p>一台 2005 年的車，或者更老的車，想入門去使用，就必須把車子相關歷史給了解清楚，這樣在後續任何操作上都會更為便利，<br>例如 PQ35 底盤，則可以使用mk6 或等等的底盤零件，進行更換或者升級～</p><br><br><h4 id="相關症狀維修"><a href="#相關症狀維修" class="headerlink" title="相關症狀維修"></a>相關症狀維修</h4><ol><li>出現轉速忽高忽低，在高速約莫2500轉掉至1500轉，又恢復至2500，渦輪壓力也隨之出現一直在-0.6~-0.4區間飄忽不定，車子會出現前後前後的感覺。</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">地址 01: 發動機        標簽:. ZHS\06F-907-115-AXX.clb</span><br><span class="line">零件號 軟件: 1K0 907 115 E    硬件: 1K0 907 115 E</span><br><span class="line">組件: 2.0l R4&#x2F;4V TFSI G00 0070  </span><br><span class="line"></span><br><span class="line">3 個故障碼已找到:</span><br><span class="line">000579 - 增压压力控制电磁阀(N75) </span><br><span class="line">               P0243 - 004 - 故障 - 間歇</span><br><span class="line">             故障發生環境要求:</span><br><span class="line">                    故障狀態: 00100100</span><br><span class="line">                    故障優先級: 0</span><br><span class="line">                    故障頻率: 1</span><br><span class="line"></span><br><span class="line">             故障發生環境要求:</span><br><span class="line">                    發動機轉速: 2507 &#x2F;min</span><br><span class="line">                    負荷: 43.5 %</span><br><span class="line">                    車速: 105.0 km&#x2F;h</span><br><span class="line">                    溫度: 57.0*C</span><br><span class="line">                    溫度: 24.0*C</span><br><span class="line">                    絕對壓力: 1010.0 mbar</span><br><span class="line">                    電壓: 14.097 V</span><br><span class="line"></span><br><span class="line">000048 - 氧传感器加热器控制电路（气缸列1（1）传感器1） </span><br><span class="line">               P0030 - 004 -  - 間歇</span><br><span class="line">             故障發生環境要求:</span><br><span class="line">                    故障狀態: 00100100</span><br><span class="line">                    故障優先級: 0</span><br><span class="line">                    故障頻率: 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">             故障發生環境要求:</span><br><span class="line">                    發動機轉速: 2507 &#x2F;min</span><br><span class="line">                    負荷: 43.5 %</span><br><span class="line">                    車速: 105.0 km&#x2F;h</span><br><span class="line">                    溫度: 57.0*C</span><br><span class="line">                    溫度: 24.0*C</span><br><span class="line">                    絕對壓力: 1010.0 mbar</span><br><span class="line">                    電壓: 14.097 V</span><br><span class="line"></span><br><span class="line">000801 - 点火&#x2F;分电器; 发动机转速; 输入电路 </span><br><span class="line">               P0321 - 008 - 范围&#x2F;性能</span><br><span class="line">             故障發生環境要求:</span><br><span class="line">                    故障狀態: 01101000</span><br><span class="line">                    故障優先級: 0</span><br><span class="line">                    故障頻率: 1</span><br><span class="line"></span><br><span class="line">             故障發生環境要求:</span><br><span class="line">                    發動機轉速: 0 &#x2F;min</span><br><span class="line">                    負荷: 0.0 %</span><br><span class="line">                    車速: 103.0 km&#x2F;h</span><br><span class="line">                    溫度: 57.0*C</span><br><span class="line">                    溫度: 24.0*C</span><br><span class="line">                    絕對壓力: 1010.0 mbar</span><br><span class="line">                    電壓: 14.097 V</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>    插上VCDS，可以發現點火分電器出現故障，因為只有他沒有轉速與負荷壓力，須對其進行更換即可。<p>點火分電器: 又名”汽油引擎轉速感應器”、”速度感應器”、”曲軸感應(知)器”<br>約莫 NT$1480~1900/個</p><h4 id="水龜節溫器"><a href="#水龜節溫器" class="headerlink" title="水龜節溫器"></a>水龜節溫器</h4><p>可直使用 Audi 8p S3 /Golf 6R 原裝<code>06F121111HKT</code>低溫水龜 82c 開，<br>原裝golf gti mk5 <code>06F121111F</code> 要 88c 才開。</p><h4 id="廢油回收"><a href="#廢油回收" class="headerlink" title="廢油回收"></a>廢油回收</h4><p>參考安裝完成效果<br><img src="/images/5205/IMG_8920.jpg" alt></p><hr><p><img src="/images/5205/IMG_4709.JPG" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MK5 </category>
+          
+          <category> Golf </category>
+          
+          <category> GTI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MK5 </tag>
+            
+            <tag> Golf </tag>
+            
+            <tag> GTI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Analysis .a static library</title>
+      <link href="Analysis_static_library.html"/>
+      <url>Analysis_static_library.html</url>
+      
+        <content type="html"><![CDATA[<p>　　分析 .a 靜態庫</p><a id="more"></a><h3 id="分析-a-靜態庫"><a href="#分析-a-靜態庫" class="headerlink" title="分析 .a 靜態庫"></a>分析 .a 靜態庫</h3><p>靜態庫 .a 就是一組 .o 文件的 ar 包，可以用<code>ar -t</code>查看 .a 包含的所有 .o 。<br></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar -x somelib_armv7.a </span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  CheckBundleIDSDK ar -t libDGCCheckBundleID_arm64.a</span><br><span class="line">__.SYMDEF</span><br><span class="line">1.o</span><br><span class="line">10.o</span><br><span class="line">11.o</span><br><span class="line">12.o</span><br><span class="line">13.o</span><br><span class="line">14.o</span><br><span class="line">....</span><br></pre></td></tr></table></figure><p>這是一個經過混淆加密後的 object code:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">➜  CheckBundleIDSDK cat 1.o</span><br><span class="line">����</span><br><span class="line">    � �� �__text__TEXT �</span><br><span class="line"><span class="meta">%</span><span class="bash">�__StaticInit__TEXT�4</span></span><br><span class="line">                       �__cstring__TEXT��__objc_methname__TEXT�^�__objc_classn__mod_init_func__DAT�ype__TEXT</span><br><span class="line">                   __cfstring__DATA @�</span><br><span class="line">                                           __objc_classlist__DATA�</span><br><span class="line">                                                                  __objc_imageinfo__DATA__objc_const__DATAp��</span><br><span class="line">__bss__DATA�__asm__LLVM��    __o__compact_unwind__LD�@�`</span><br><span class="line">p�W���O��&#123;������</span><br><span class="line">...</span><br></pre></td></tr></table></figure><h3 id="報錯"><a href="#報錯" class="headerlink" title="報錯"></a>報錯</h3><p>在解壓縮 .a 文件時，報錯：is a fat file (use libtool(1) or lipo(1) and ar(1) on it)，原因是 .a 文件包含了多個 cpu 架構，比如arm64, armv7, armv7s等。</p><p>解決方法：首先使用如下指令解壓出需要的架構（其中”CheckBundleIDSDK.a”代表需要解壓的 .a 文件)</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 解壓縮 64指令集</span></span></span><br><span class="line">lipo CheckBundleIDSDK.a -thin arm64 -output somelib_arm64.a</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 解壓縮 v7s指令集</span></span></span><br><span class="line">lipo CheckBundleIDSDK.a -thin armv7s -output somelib_armv7s.a</span><br></pre></td></tr></table></figure><p>這樣獲得解壓出來的.a（somelib_arm64.a，somelib_armv7s.a）後，再使用如下命令解壓獲得.o文件：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar -x somelib_armv7.a -o </span><br></pre></td></tr></table></figure><h4 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h4><p>armv7、armv7s、arm64都是ARM處理器的指令集 <br><br>i386、x86_64 是Mac處理器的指令集<br></p><p>目前市面上手機幾乎是arm64，故其他可以不用太過關注。</p><table><thead><tr><th>ARM 指令集</th><th>設備</th></tr></thead><tbody><tr><td>arm64</td><td><p> iPhone6s </p><p> iphone6s plus </p><p> iPhone6</p><p> iPhone6 plus </p><p> iPhone5S </p><p> iPad Air </p><p> iPad mini2(iPad mini with Retina Display)</p></td></tr><tr><td>armv7s</td><td><p> iPhone5 </p><p> iPhone5C </p><p> iPad4(iPad with Retina Display)</p></td></tr><tr><td>armv7</td><td><p> iPhone4 </p><p> iPhone4S </p><p> iPad2… 等</p></td></tr></tbody></table><p>i386 是針對 intel 通用微處理器32位處理器<br><br>x86_64 是針對 x86 架構的64位處理器<br></p><p>模擬器32位處理器測試需要 i386 架構，<br><br>模擬器64位處理器測試需要 x86_64 架構，<br><br>真機32位處理器需要 armv7, 或者 armv7s 架構，<br><br>真機64位處理器需要 arm64 架構。<br></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+          <category> app </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> app </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>openSSH Show Chinese</title>
+      <link href="openSSH_Show_Chinese.html"/>
+      <url>openSSH_Show_Chinese.html</url>
+      
+        <content type="html"><![CDATA[<p>　　openSSH 顯示中文</p><a id="more"></a><p>有些 app 的進程名稱可能是中文，還有一些應用創建的目錄可以也會是中文，在 SSH 上使用 debugserver 沒有辦法輸入中文的進程名稱，也沒辦法在 SSH 上操作中文的目錄，google 試了一些方法，不過還是不管用，後來在 Cydia 安裝了一個插件 Local Prefiles in UTF-8 就搞定了，這個插件在 BigBoss 源。<br><br><br>使用前<br><br><br><img src="source/images/openSSH_Show_Chinese/ps-e_Show2.png" alt><br><br><br>使用後<br><br><br><img src="source/images/openSSH_Show_Chinese/ps-e_Show1.png" alt></p><h6 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h6><ul><li>iOS 12.4 (<a href="https://github.com/pwn20wndstuff/Undecimus">JB: unc0ver</a>)</li><li>Chimera 越獄 不需要安裝此插件</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+          <category> app </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> app </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>iOS lldb + debugserver</title>
+      <link href="iOS_lldb+debugserver.html"/>
+      <url>iOS_lldb+debugserver.html</url>
+      
+        <content type="html"><![CDATA[<p>　　iOS lldb + debugserver 動態調適</p><a id="more"></a><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>關於 iOS 動態調適有許多方式，這邊介紹一種比較容易的方法，<br>通過 MacOS 中的 Xcode 自帶的 lldb 與 debugserver 來操作，可以比較便捷的使用，其中也能學習到 lldb 相關的指令，使用於日後正向開發操作上。 <br><br><br><br>在一般開發，使用 Xcode build 至 iphone(實體機) 中，會在手機上創建一個 debugserver，已進行動態調適 (debug)，然而在動態分析上，能通過越獄權限的提升，來自主構建 debugserver，依附至欲分析之app上，達成動態分析與調適。<br></p><h3 id="準備"><a href="#準備" class="headerlink" title="準備"></a>準備</h3><p>事前準備</p><ul><li>macOS 10.14+</li><li>Xcode 10.3</li><li>iphone iOS 12.4 (<a href="https://github.com/pwn20wndstuff/Undecimus">JB: unc0ver</a>)</li><li>openSSH （安裝於 iphone 上）</li><li><a href="https://github.com/libimobiledevice/usbmuxd">usbmuxd</a> （安裝於 mac 上）</li><li><a href="https://www.iterm2.com/">iTerm2</a> （或者其他終端機）</li></ul><p>由於 iOS 11 之前需求簽名與添加權限，有些許的難度，但在 iOS 12 之後，不需要再簽名與權限，所以統一使用12.4來操作。</p><h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ol><li><p>在 iTerm2 上，下指令 iproxy 1111 1111 <br><br> <img src="source/images/iOS_lldb+debugserver/iTerm.png" alt></p></li><li><p>在 iTerm2 上，開啟第二個分頁(command+T)，SSH 連線至手機，<br> 其操作可以讓mac 與 iphone 在同一個 wifi 下，會更好操作。</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.111.1 </span><br></pre></td></tr></table></figure><p> 密碼統一預設為: alpine <br><br> <img src="source/images/iOS_lldb+debugserver/ssh.png" alt></p></li><li><p>在 ssh 分頁中下指令: <code>ps -e</code>，可以找出當前運行中的 app，比如我們要 attach 的進程編號為 693，我們可以輸入如下命令：<code>debugserver *:1111 -a 693</code> <br> </p><ul><li><p>Chimera 越獄: </p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Developer/usr/bin/debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure></li><li><p>unc0ver 越獄: </p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure></li><li><p>如果要用 debugserver 啓動 app，而不是附加到已經啓動的 app，則使用 <code>debugserver localhost:1111 &lt;app mach-O 路徑&gt;</code>，例如:</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 /var/containers/Bundle/Application/107F3307-2900-4720-B9BA-0C7792D89DF2/APP_TO_DEBUG.app/APP_TO_DEBUG</span><br></pre></td></tr></table></figure></li></ul></li><li><p>在 iTerm2 上，開啟第第三個分頁，下指令: <code>lldb</code>，進入 lldb 界面，使用 process connect 指令連接至手機上。 用 WiFi 連接到 iOS 設備時：process connect connect://localhost:1234 <br><br> <img src="source/images/iOS_lldb+debugserver/lldb.png" alt></p></li></ol><h3 id="調適"><a href="#調適" class="headerlink" title="調適"></a>調適</h3><p>其餘奧秘，就留給大家研究嘗試一下吧～ <br><br><img src="source/images/iOS_lldb+debugserver/debug.png" alt></p><h3 id="錯誤"><a href="#錯誤" class="headerlink" title="錯誤"></a>錯誤</h3><p><code>error：failed to get reply to handshake packet</code><br></p><ol><li>wget <a href="http://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.bz2">http://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.bz2</a> </li><li>tar xjfv usbmuxd-1.0.8.tar.bz2</li><li>cd usbmuxd-1.0.8/python-clinet/</li><li>python2 tcprelay.py -t 1111:1111</li><li>lldb 連接時輸入 process connect connect://localhost:1111</li></ol><h6 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h6><ul><li>usbmuxd 退出: command + C</li><li>ssh 退出: exit</li><li>lldb 退出: exit</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+          <category> app </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+            <tag> app </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MacOS 開機自動運行(Boot Automatically)</title>
+      <link href="mac_Boot_Automatically.html"/>
+      <url>mac_Boot_Automatically.html</url>
+      
+        <content type="html"><![CDATA[<p>　　MacOS 開機自動運行(Boot Automatically)</p><a id="more"></a><h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Mac 的開機啟動項目一般會在 「系統偏好設定」 ＞「使用者與群組」＞「登入項目」可以找得到。<br><br>但是有時候也有例外。<br></p><p>因工作需要，有時需要掛上 VPN (Pulse Secure)，但這 APP 實在讓我有點困擾，一重啟電腦，他就自動運行…. <br><br>完全不管我是否有需要… <br><br><br><br>MacOS是有分成登入項目(Login Items) 與 啟動項目(Startup Items)兩種。</p><h3 id="Startup-Items"><a href="#Startup-Items" class="headerlink" title="Startup Items"></a>Startup Items</h3><p>早期版本的 OS X 依賴於兩個資料夾</p><ul><li>/Library/StartupItems </li><li>/System/Library/StartupItems</li></ul><p>來保存指定在啟動 Mac 時加載的項目。Apple 現在不鼓勵使用啟動項，但有些程式（主要是較舊的應用程式）仍然使用這種機制。通常你的 <code>/System/Library/StartupItems</code> 資料夾應為空; 但如果它包含您不再使用的內容，則可以將不需要的項目拖到垃圾桶中，以防止下次啟動 Mac 時自動加載。</p><h3 id="Launch-daemons-and-agents"><a href="#Launch-daemons-and-agents" class="headerlink" title="Launch daemons and agents"></a>Launch daemons and agents</h3><p>自從 OS X 10.4 Tiger 以來，Apple 已經為開發人員提供了另一種自動啟動項目的機制：啟動守護進程和代理，由 launchd 進程控制。此方法比登錄項或啟動項提供更大的靈活性，但對用戶而言不太透明。</p><p>UNIX 窗簾背後：launchd 不是直接打開應用程式，而是加載特殊格式的 .plist 文檔（XML首選項文件），指定應該啟動什麼以及在什麼情況下啟動。有時這些啟動項目在後台持續運行，有時它們按預定的時間間隔運行，有時它們會根據需要運行 </p><ul><li>例如，響應某個文件或資料夾中的更改等事件 </li><li>然後退出。</li></ul><p>launchd 使用的 .plist 文件可以佔用五個資料夾中的任何一個，它們的位置決定了項目加載的時間和權限：</p><ul><li>/Library/LaunchDaemons 和 /System/Library/LaunchDaemons中的項目在 Mac 啟動時加載，並以 root 用戶身份運行。</li><li>/Library/LaunchAgents 和 /System/Library/LaunchAgents 中的項在任何用戶登錄時加載，並以該用戶身份運行。</li><li>/Users/your-username/Library/LaunchAgents 中的項僅在特定用戶登錄時加載，並以該用戶身份運行。</li></ul><p>其中位於 System 資料夾中的 <code>/System/Library/LaunchDaemons</code> 和 <code>/System/Library/LaunchAgents</code> 是作為 OS X 的一部分包含的組件，他們對於保持 MAC 的正常運行非常重要，千萬不要動它們！！！</p><p>對於其它資料夾中的項目，你可以依照需求隨意修改他們。例如禁用它們或更改它們運行的頻率。但在此之前，最好要瞭解它的作用方式。</p><h3 id="關閉-Pulse-Secure-自動啟動"><a href="#關閉-Pulse-Secure-自動啟動" class="headerlink" title="關閉 Pulse Secure 自動啟動"></a>關閉 Pulse Secure 自動啟動</h3><p>使用終端機(Terminal)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜ ~ cd &#x2F;Library&#x2F;LaunchAgents</span><br></pre></td></tr></table></figure><p>找到 <code>net.pulsesecure.pulsetray.plist</code></p><p><img src="source/images/mac_Boot_Automatically/iTerm.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  LaunchAgents sudo vim net.pulsesecure.pulsetray.plist</span><br></pre></td></tr></table></figure><p><img src="source/images/mac_Boot_Automatically/iTerm1.png" alt></p><p>修改其中的 Disabled 改為 ture 即可，重開機後就不會再出現哩！</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--Disabled 原本應該為 false--&gt;</span><br><span class="line">&lt;key&gt;Disabled&lt;&#x2F;key&gt;</span><br><span class="line">&lt;true&#x2F;&gt;</span><br></pre></td></tr></table></figure><h3 id="開機自動運行"><a href="#開機自動運行" class="headerlink" title="開機自動運行"></a>開機自動運行</h3><p>下指令<br><code>sudo vim /Library/LaunchDaemons/com.go.agent.plist</code></p><p>修改其中的片段，指定為自己的腳本或者程序</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC &quot;-&#x2F;&#x2F;Apple&#x2F;&#x2F;DTD PLIST 1.0&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;www.apple.com&#x2F;DTDs&#x2F;PropertyList-1.0.dtd&quot;&gt;</span><br><span class="line">&lt;plist version&#x3D;&quot;1.0&quot;&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">        &lt;key&gt;Label&lt;&#x2F;key&gt;</span><br><span class="line">        &lt;string&gt;com.go.agent&lt;&#x2F;string&gt;</span><br><span class="line">        &lt;key&gt;ProgramArguments&lt;&#x2F;key&gt;</span><br><span class="line">        &lt;array&gt;</span><br><span class="line">        &lt;string&gt;python&lt;&#x2F;string&gt;</span><br><span class="line">        &lt;string&gt;&#x2F;Users&#x2F;leedani&#x2F;Downloads&#x2F;goagent&#x2F;local&#x2F;proxy.py（修改為存放goagent proxy.py的路徑）&lt;&#x2F;string&gt;</span><br><span class="line">        &lt;&#x2F;array&gt;</span><br><span class="line">        &lt;key&gt;RunAtLoad&lt;&#x2F;key&gt;</span><br><span class="line">        &lt;true&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;dict&gt;</span><br><span class="line">&lt;&#x2F;plist&gt;</span><br></pre></td></tr></table></figure><p>下指令<br><code>launchctl load /Library/LaunchDaemons/com.go.agent.plist</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MacOS </category>
+          
+          <category> app </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> app </tag>
+            
+            <tag> MacOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>apple api get app versions</title>
+      <link href="apple_api_get_app_versions.html"/>
+      <url>apple_api_get_app_versions.html</url>
+      
+        <content type="html"><![CDATA[<p>　　通過 apple api 取得舊版 app ID</p><a id="more"></a><h5 id="apple-api-get-app-versions"><a href="#apple-api-get-app-versions" class="headerlink" title="apple api get app versions"></a>apple api get app versions</h5><p>GET:<br><br><code>&quot;https://api.unlimapps.com/v1/apple_apps/&#123;ID&#125;/versions&quot;</code><br><br><br><br><br><code>ID: 請填入app編號</code><br><br><br><br><br>Response:<br><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;id&quot;: &quot;87945b4e-24de-4677-81c8-6f980839c8e5&quot;,</span><br><span class="line">        &quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">        &quot;bundle_version&quot;: &quot;10.49&quot;,</span><br><span class="line">        &quot;external_identifier&quot;: &quot;815198513&quot;,</span><br><span class="line">        &quot;created_at&quot;: &quot;2016-01-06T04:26:55.666Z&quot;,</span><br><span class="line">        &quot;updated_at&quot;: &quot;2016-01-06T04:26:55.666Z&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;id&quot;: &quot;3bf5ea73-0cd0-45ef-92c3-3a89b9c3543c&quot;,</span><br><span class="line">        &quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">        &quot;bundle_version&quot;: &quot;10.50&quot;,</span><br><span class="line">        &quot;external_identifier&quot;: &quot;815713258&quot;,</span><br><span class="line">        &quot;created_at&quot;: &quot;2016-01-11T14:51:41.430Z&quot;,</span><br><span class="line">        &quot;updated_at&quot;: &quot;2017-09-28T10:11:10.467Z&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;id&quot;: &quot;707e50be-82d0-480e-9da6-e9c3b4f9a7fd&quot;,</span><br><span class="line">        &quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">        &quot;bundle_version&quot;: &quot;10.38&quot;,</span><br><span class="line">        &quot;external_identifier&quot;: &quot;813553231&quot;,</span><br><span class="line">        &quot;created_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;,</span><br><span class="line">        &quot;updated_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    ......</span><br></pre></td></tr></table></figure><p>解析:<br><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&quot;id&quot;: &quot;707e50be-82d0-480e-9da6-e9c3b4f9a7fd&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;apple_app_id&quot;: &quot;84389e6e-852b-450b-be5b-5ab92ddcd667&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;bundle_version&quot;: &quot;10.38&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;external_identifier&quot;: &quot;813553231&quot;,</span><br><span class="line">## 此為下載舊版app的id</span><br><span class="line">&quot;created_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;,</span><br><span class="line">## </span><br><span class="line">&quot;updated_at&quot;: &quot;2016-01-17T09:21:09.179Z&quot;</span><br><span class="line">## </span><br></pre></td></tr></table></figure><p><img src="source/images/apple_api_get_app_versions/postman.png" alt></p><h5 id="app-id-取得方式"><a href="#app-id-取得方式" class="headerlink" title="app id 取得方式"></a>app id 取得方式</h5><p>如圖所示，直接在apple官方網中搜索，取得對應 ID</p><p><img src="source/images/apple_api_get_app_versions/getAppID.png" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MacOS </category>
+          
+          <category> app </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> app </tag>
+            
+            <tag> MacOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>無限試用 Navicat Premium</title>
+      <link href="%E7%84%A1%E9%99%90%E8%A9%A6%E7%94%A8Navicat%20Premium.html"/>
+      <url>%E7%84%A1%E9%99%90%E8%A9%A6%E7%94%A8Navicat%20Premium.html</url>
+      
+        <content type="html"><![CDATA[<p>　　逆向攻破，無限試用。</p><a id="more"></a><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>經過一段時間後，試用期已到期，無法再繼續享受 Navicat Premium，所帶來的方便，如下圖: <br></p><p><img src="source/images/Unlimited-trial-NavicatPremium/maturity.png" alt><br><br><br><br><br>決定來研究一下，該app相關的內碼，<br><br>在此聲明，該文章純屬學習研究，請勿用於其他途徑。<br><br><br><br><br></p><h3 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h3><ol><li>找出二進制文件(mach-O、unix執行檔)，<br><br><code>/Applications/Navicat Premium.app/Contents/MacOS/Navicat Premium</code></li><li>使用 Hopper Disassembler v4 Standard Edition (4.5.13)，來對二進制文件反編譯</li><li>搜索字串<code>http://www.navicat.com/cht/store</code>，<br><br>找到</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 找到使用者</span></span></span><br><span class="line">0000000102d5bf5b         db         &quot;http://www.navicat.com/cht/store&quot;, 0       ; DATA XREF=cfstring_http___www_navicat_com_cht_store</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 相關地址</span></span></span><br><span class="line">0000000103c2b600         dq         0x0000000104750310, 0x00000000000007c8, 0x0000000102d5bf5b, 0x0000000000000020 ; &quot;http://www.navicat.com/cht/store&quot;, DATA XREF=qword_103f773b8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 使用者</span></span></span><br><span class="line">0000000103f773b8         dq         0x0000000103c2b600                          ; @&quot;http://www.navicat.com/cht/store&quot;, DATA XREF=+[Registration ApplicationChecking:isLaunch:]+481, +[Registration ApplicationChecking:isLaunch:]+899, +[Registration ApplicationChecking:isLaunch:]+5518, +[Registration ApplicationChecking:isLaunch:]+5758, +[Registration ApplicationChecking:isLaunch:]+6039, +[Registration ApplicationChecking:isLaunch:]+9206, -[Registration BuyNow:]+52</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># ↑ [Registration ApplicationChecking:isLaunch:]，如名得知，這可能是一個檢查方法</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>查看一下方法的匯編程式碼(assembly language)，</p><p><img src="source/images/Unlimited-trial-NavicatPremium/assemblyLanguage.png" alt></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov        ebx, eax</span><br><span class="line">cmp        ebx, 0xffffffff</span><br><span class="line">je         loc_100325e47</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>其關鍵指令如上，賦值給<code>ebx</code>，再進行判斷<code>exb</code>如果等於1，就跳轉至地址<code>loc_100325e47</code>，然而如果不等於則跳轉至<code>loc_100325e47</code>，<code>loc_100325e47</code>也是通過檢測後執行的方法。<br><br></p><ol start="4"><li>修改指令 </li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mov        ebx, 0x0</span><br><span class="line">je         loc_100325e47</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>直接跳過判斷指令，來到最終目的。</p><ol start="5"><li>儲存並輸出</li><li>拖回原位置，並取代</li></ol><p><img src="source/images/Unlimited-trial-NavicatPremium/fulfil.png" alt></p><h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>此app對於購買流程的安全保護，幾乎可以說是零，對於一般攻擊者而言，很容易就可以完成了，另外也能使用插件的方式去hook相關方法再去繞過檢測，但如果熟悉匯編程式碼(assembly language)，在操作繞過方面會比較簡易且快速，另外呼籲大家務必支持正版，杜絕盜版。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MacOS </category>
+          
+          <category> app </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> app </tag>
+            
+            <tag> MacOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>iOS 密碼學(RSA)</title>
+      <link href="iOS_Cryptography(RSA).html"/>
+      <url>iOS_Cryptography(RSA).html</url>
+      
+        <content type="html"><![CDATA[<p>　　iOS 密碼學(RSA)，粗略介紹。　　</p><a id="more"></a><h2 id="導引"><a href="#導引" class="headerlink" title="導引"></a>導引</h2><p>我將從以下四點來講述密碼學相關內容：</p><ol><li>什麼是密碼學</li><li>RSA數學原理</li><li>RSA終端命令</li><li>總結</li></ol><h2 id="什麼是密碼學"><a href="#什麼是密碼學" class="headerlink" title="什麼是密碼學"></a>什麼是密碼學</h2><p>密碼學的歷史大致可以追溯到兩千年前，相傳古羅馬名將凱撒大帝為了防止敵方截獲情報，用密碼傳送情報。凱撒的做法很簡單，就是對二十幾個羅馬字母建立一張對應表。這樣，如果不知道密碼本，即使截獲一段信息也看不懂。</p><p>從凱撒大帝時代到上世紀70年代這段很長的時間裡，密碼學的發展非常的緩慢，因為設計者基本上靠經驗。沒有運用數學原理。<br>在1976年以前，所有的加密方法都是同一種模式：加密、解密使用同一種算法。在交互數據的時候，彼此通信的雙方就必須將規則告訴對方，否則沒法解密。那麼加密和解密的規則（簡稱密鑰），它保護就顯得尤其重要。傳遞密鑰就成為了最大的隱患。這種加密方式被成為對稱<a href="https://zh.wikipedia.org/wiki/%E5%B0%8D%E7%A8%B1%E5%AF%86%E9%91%B0%E5%8A%A0%E5%AF%86">密鑰演算法（英語：Symmetric-key algorithm）</a>。</p><p>1976年，兩位美國計算機學家 迪菲（W.Diffie）、赫爾曼（ M.Hellman ） 提出了一種嶄新構思，可以在不直接傳遞密鑰的情況下，完成密鑰交換。這被稱為”迪菲赫爾曼密鑰交換”算法。開創了密碼學研究的新方向。</p><p>1977年三位麻省理工學院的數學家羅納德·李維斯特（Ron Rivest）、阿迪·薩莫爾（Adi Shamir）和倫納德·阿德曼（Leonard Adleman）一起設計了一種算法，可以實現非對稱加密。這個算法用他們三個人的名字命名，叫做RSA算法。<br>也就是說「<a href="https://zh.wikipedia.org/wiki/%E8%BF%AA%E8%8F%B2-%E8%B5%AB%E7%88%BE%E6%9B%BC%E5%AF%86%E9%91%B0%E4%BA%A4%E6%8F%9B">迪菲-赫爾曼密鑰交換(英語：Diffie–Hellman key exchange，縮寫為D-H)</a>」在密碼學歷史的車輪中成為了一個轉折點。</p><h2 id="RSA數學原理"><a href="#RSA數學原理" class="headerlink" title="RSA數學原理"></a>RSA數學原理</h2><p>我們先把所有需要用到的公式定理列出來：</p><ol><li><a href="https://zh.wikipedia.org/wiki/%E6%A8%A1%E9%99%A4">取模運算</a></li><li><a href="https://zh.wikipedia.org/zh-tw/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0">歐拉函數φ</a></li><li>歐拉定理，<a href="https://zh.wikipedia.org/wiki/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86">費馬小定理</a></li><li><a href="https://zh.wikipedia.org/wiki/%E6%A8%A1%E5%8F%8D%E5%85%83%E7%B4%A0">模反元素</a></li><li><a href="https://zh.wikipedia.org/wiki/%E8%BF%AA%E8%8F%B2-%E8%B5%AB%E7%88%BE%E6%9B%BC%E5%AF%86%E9%91%B0%E4%BA%A4%E6%8F%9B">迪菲赫爾曼密鑰交換</a></li></ol><h4 id="1-取模運算"><a href="#1-取模運算" class="headerlink" title="1. 取模運算"></a>1. 取模運算</h4><p>取模運算（“Modulo Operation”）和取餘運算（“Complementation ”）兩個概念有重疊的部分但又不完全一致。主要的區別在於對負整數進行除法運算時操作不同。<br></p><p>在這列出各種負數情況的例子供大家理解：<br><br>7 mod 4 = 3（商 = 1 或 2，1&lt;2，取商=1）<br><br>-7 mod 4 = 1（商 = -1 或 -2，-2&lt;-1，取商=-2）<br><br>7 mod -4 = -1（商 = -1或-2，-2&lt;-1，取商=-2）<br><br>-7 mod -4 = -3（商 = 1或2，1&lt;2，取商=1）<br><br>函數值符號規律(餘數的符號) mod(負,正)=正 mod(正,負)=負</p><p>結論：兩個整數求餘時，其值的符號為除數的符號。</p><h4 id="2-歐拉函數φ"><a href="#2-歐拉函數φ" class="headerlink" title="2. 歐拉函數φ"></a>2. 歐拉函數φ</h4><p>可以簡單理解為：<br><br>如果n可以分解為兩個互質(不一定是兩個質數)的數之積A和B，那麼：<br><br>φ(n) = φ(A) * φ(B) <br><br>如果 A和B 又同時為質數，那麼： <br><br>φ(n) = (A-1) * (B-1)</p><h4 id="3-歐拉定理，費馬小定理"><a href="#3-歐拉定理，費馬小定理" class="headerlink" title="3. 歐拉定理，費馬小定理"></a>3. 歐拉定理，費馬小定理</h4><p>首先這裡說一下，定制之所以是定理是被人證明過的，如何證明的不管，當然你也可以增加去證明下，反正我不管（……&amp;%￥%……&amp;%&amp;……&amp;% ），哈哈</p><p>如果m、n為正整數，且m、n互質，那麼：<br></p><center>![](https://wikimedia.org/api/rest_v1/media/math/render/svg/2e818f3f88d3e71e569f171dd86f31e1903fdc55)</center><p>如果n為質數，那麼：<br></p><center>![](https://wikimedia.org/api/rest_v1/media/math/render/svg/5b71e80b05f598bfd9ac9618c87a94323e41e688)</center><p>公式轉換：<br></p><center>![](https://upload-images.jianshu.io/upload_images/1122613-3d34ffb888fe6ebe.png)</center><h4 id="4-模反元素"><a href="#4-模反元素" class="headerlink" title="4. 模反元素"></a>4. 模反元素</h4><p>如果兩個正整數e和x互質，那麼一定可以找到整數d，使得 e*d-1 被x整除。那麼d就是e對於x的”模反元素”。</p><center>![](https://upload-images.jianshu.io/upload_images/1122613-ce908da3ee97ec69.png)</center><h4 id="5-迪菲赫爾曼密鑰交換"><a href="#5-迪菲赫爾曼密鑰交換" class="headerlink" title="5. 迪菲赫爾曼密鑰交換"></a>5. 迪菲赫爾曼密鑰交換</h4><center><p><img src="https://upload-images.jianshu.io/upload_images/1122613-0717e6a5458fcf3d.png" alt></p></center><p>如上圖：<br><br>客戶端持有一個隨機數13 ，服務端持有隨機數15，再選一對特殊的數，3是17的<a href="https://zh.wikipedia.org/wiki/%E5%8E%9F%E6%A0%B9">原根</a>。<br>兩端交換的都是密文，就算中間被劫持，也不知道最後需要的傳輸的內容是10 <br><br>那麼這個10就是最後真正的密鑰。</p><p>證明過程：<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x3D;&#x3D;&gt;3^(13 * 15) mod 17 &#x3D; 3^(13 * 15) mod 17 </span><br><span class="line">根據模冪運算 ((m^e mod n)^d) mod n &#x3D; m^(e*d) mod n</span><br><span class="line">&#x3D;&#x3D;&gt;(3^13 mod 17)^13 mod 17 &#x3D; (3^15 mod 17)^15 mod 17</span><br><span class="line">由於3^13 mod 17 &#x3D; 12</span><br><span class="line">3^15 mod 17 &#x3D; 6</span><br><span class="line">&#x3D;&#x3D;&gt;6^13 mod 17 &#x3D;  12^15 mod 17 &#x3D; 10</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>設</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m&#x3D;3, e&#x3D;13, d&#x3D;15, n&#x3D;17, C&#x3D;12</span><br></pre></td></tr></table></figure><p>那麼</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m^e mod n &#x3D; c</span><br><span class="line">c^d mod n &#x3D; (m^e mod n)^d mod n &#x3D; m^(e*d) mod n</span><br></pre></td></tr></table></figure><p>又由於上面模反元素，最後得出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m^(e*d) mod n &#x3D; m</span><br></pre></td></tr></table></figure><p>所以得出最終結論：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m^e mod n &#x3D; c</span><br><span class="line">c^d  mod n &#x3D; m</span><br></pre></td></tr></table></figure><p>這個公式也就是我們最後的RSA加密公式！ ！ ！<br><br>其中：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">公鑰： n和e</span><br><span class="line">私鑰： n和d</span><br><span class="line">明文: m</span><br><span class="line">密文: c</span><br><span class="line">d是e對於φ(n)的&quot;模反元素&quot;。</span><br></pre></td></tr></table></figure><br>>補充：>1. n會非常大，長度一般為1024個二進制位。<br>>（目前人類已經分解的最大整數，232個十進制位，768個二進制位）<br>>2. 由於需要求出φ(n)，所以根據歐函數特點，最簡單的方式n 由兩個質數相乘得到: 質數：p1、p2 <br>Φ(n) = (p1 -1) * (p2 - 1) <br>>3. 最終由φ(n)得到e 和 d 。 <br>總共生成6個數字：p1、p2、n、φ(n)、e、d <br><br>關於RSA的安全：<br>除了公鑰用到了n和e 其餘的4個數字是不公開的。<br>目前破解RSA得到d的方式如下：<br><ol><li>要想求出私鑰 d 。由於ed = φ(n)k + 1。要知道e和φ(n);<br></li><li>e是知道的，但是要得到 φ(n)，必須知道p1 和 p2。<br></li><li>由於 n=p1*p2。只有將n因數分解才能算出。<br><br><br></li></ol><h2 id="RSA終端命令"><a href="#RSA終端命令" class="headerlink" title="RSA終端命令"></a>RSA終端命令</h2><br>由於Mac系統內的 OpenSSL(開源加密庫)，所以我們可以直接在iTerm上使用命令來玩RSA. OpenSSL中RSA算法常用指令主要有三個：<br><table><thead><tr><th align="left">命令</th><th align="left">說明</th></tr></thead><tbody><tr><td align="left">genrsa</td><td align="left">生成並且輸出一串RSA私鑰</td></tr><tr><td align="left">rsautl</td><td align="left">使用RSA密鑰進行加密、解密、簽名和驗證等運算</td></tr><tr><td align="left">rsa</td><td align="left">處理RSA密鑰的格式轉換等問題</td></tr><tr><td align="left"><br></td><td align="left"></td></tr></tbody></table><h4 id="1-生成RSA私鑰，密鑰長度為1024bit"><a href="#1-生成RSA私鑰，密鑰長度為1024bit" class="headerlink" title="1. 生成RSA私鑰，密鑰長度為1024bit"></a>1. 生成RSA私鑰，密鑰長度為1024bit</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 生成RSA私鑰，密鑰長度為1024bit</span><br><span class="line">openssl genrsa -out private.pem 1024</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  Downloads openssl genrsa -out private.pem 1024</span><br><span class="line">Generating RSA private key, 1024 bit long modulus</span><br><span class="line">........+++++</span><br><span class="line">................................+++++</span><br><span class="line">e is 65537 (0x10001)</span><br></pre></td></tr></table></figure><h4 id="2-從私鑰中提取公鑰"><a href="#2-從私鑰中提取公鑰" class="headerlink" title="2. 從私鑰中提取公鑰"></a>2. 從私鑰中提取公鑰</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 從私鑰中提取公鑰</span><br><span class="line">openssl rsa -in private.pem -pubout -out public.pem</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  Downloads openssl rsa -in private.pem -pubout -out public.pem</span><br><span class="line">writing RSA key</span><br></pre></td></tr></table></figure><h4 id="3-將私鑰轉換成為明文"><a href="#3-將私鑰轉換成為明文" class="headerlink" title="3. 將私鑰轉換成為明文"></a>3. 將私鑰轉換成為明文</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 將私鑰轉換成為明文</span><br><span class="line">openssl rsa -in private.pem -text -out private.txt cat private.txt</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  Downloads openssl rsa -in private.pem -text -out private.txt</span><br><span class="line">cat private.txt</span><br><span class="line">writing RSA key</span><br><span class="line">Private-Key: (1024 bit)</span><br><span class="line">modulus:</span><br><span class="line">    00:c6:46:ac:0e:4f:3b:01:2f:15:f3:94:23:50:32:</span><br></pre></td></tr></table></figure><h4 id="4-通過公鑰加密數據，私鑰解密數據"><a href="#4-通過公鑰加密數據，私鑰解密數據" class="headerlink" title="4. 通過公鑰加密數據，私鑰解密數據"></a>4. 通過公鑰加密數據，私鑰解密數據</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 新建一個文件，在文件中隨意輸入內容，比如輸入字符串”Hello“</span><br><span class="line">vim message.txt</span><br><span class="line">&#x2F;&#x2F; 查看文件</span><br><span class="line">cat message.txt</span><br><span class="line">&#x2F;&#x2F; 通過公鑰進行加密</span><br><span class="line">openssl rsautl -encrypt -in message.txt -inkey public.pem -pubin -out enc.txt</span><br><span class="line">&#x2F;&#x2F; 通過私鑰進行解密</span><br><span class="line">openssl rsautl -decrypt -in enc.txt -inkey private.pem -out dec.txt</span><br><span class="line">&#x2F;&#x2F; 查看加密後的文件</span><br><span class="line">cat enc.txt</span><br><span class="line">&#x2F;&#x2F; 查看解密後的文件</span><br><span class="line">cat dec.txt</span><br></pre></td></tr></table></figure><h4 id="5-通過私鑰加密數據，公鑰解密數據"><a href="#5-通過私鑰加密數據，公鑰解密數據" class="headerlink" title="5. 通過私鑰加密數據，公鑰解密數據"></a>5. 通過私鑰加密數據，公鑰解密數據</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 私鑰加密</span><br><span class="line">openssl rsautl -sign -in message.txt -inkey private.pem -out enc_2.txt</span><br><span class="line">&#x2F;&#x2F; 公鑰加密</span><br><span class="line">openssl rsautl -verify -in enc_2.txt -inkey public.pem -pubin -out dec_2.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure><br><br>## 總結<ol><li>由於RSA加密解密用的不是一套數據，所以其保證了安全性。</li><li>由於私鑰過大，所以效率較低</li><li>如果有一天量子計算機被普及(計算速度極快)，那麼1024位已經不足以讓RSA安全。<br><br><br></li></ol><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Xcode10 配置 Logos 語法高亮</title>
+      <link href="Xcode10LogosSupports.html"/>
+      <url>Xcode10LogosSupports.html</url>
+      
+        <content type="html"><![CDATA[<p>　　Xcode10 配置 Logos 語法高亮、模糊輸入　　</p><a id="more"></a><h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><ol start="0"><li>備份 /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources</li><li>下載<a href="https://github.com/s2339956/Logos-Xcode">連結</a>，或者 clone 到電腦上<pre><code>git clone https://github.com/s2339956/Logos-Xcode</code></pre></li><li>到剛下載的目錄下的src目錄(Logos-Xcode/src)</li><li>確保已經關閉結束運行 Xcode</li><li>使用python3 執行 xclangspec_generator.py 腳本</li><li>執行 <code>chmod +x install.sh</code>，使 install.sh 預備執行權限</li><li>執行 <code>sudo ./install.sh</code></li><li>開始享用</li></ol><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>Select Editor -&gt; Syntax Coloring -&gt; Logos on the menu. <br><br><img src="https://github.com/s2339956/Logos-Xcode/blob/master/imgs/SS_hook.png?raw=true" alt><br><img src="https://github.com/s2339956/Logos-Xcode/blob/master/imgs/SS_Live.png?raw=true" alt><br><img src="https://github.com/s2339956/Logos-Xcode/blob/master/imgs/SS_end.png?raw=true" alt></p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> Xcode </category>
+          
+          <category> Logos </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>遊戲外掛開發原理</title>
+      <link href="Game_plug-in%20development_principle.html"/>
+      <url>Game_plug-in%20development_principle.html</url>
+      
+        <content type="html"><![CDATA[<p>　　簡單說明一下主流外掛種類與開發步驟　　</p><a id="more"></a><h2 id="遊戲外掛開發原理"><a href="#遊戲外掛開發原理" class="headerlink" title="遊戲外掛開發原理"></a>遊戲外掛開發原理</h2><br>       外掛現在大體上來講分為三種，分別是模擬按鍵，WPE封包和內存(記憶體)掛。比如模擬鍵盤的、滑鼠的，這種就叫做按鍵模擬，也叫腳本(按鍵)精靈；還有修改數據包(封包)的，這種就叫做WPE封包外掛，這種外掛相對而言比較穩定，但是對於技術要求難度也比較高，因為修改WPE封包，你需要知道與了解加密解密算法等等一系列的知識；還有最後一種就是修改本地記憶體的，這種相對而言比較常見，市場上面比較常見的也是這種遊戲外掛，相對而言技術要求也不是太高，資料也比較齊全，比較大眾；但好像沒有修改服務器內存的哦，呵呵。其實修改服務器也是有辦法的，只是技術太高一般人沒有辦法操作而已。<br><br>       其實，製作內存(記憶體)掛也不是很難，步驟就這麼幾步。第一步，找遊戲數據內存(記憶體)地址，偏移地址；第二步，修改內存(記憶體)地址的值，達到外掛的目的；第三步，使用熟悉的語言寫出一支程式，使得外掛方便於攜帶傳輸，同時也方便於下次玩遊戲直接使用。其實第三步主要是方便使用，方便販賣等等，很多時候對於一個高手而言，根本不需要寫出來，記錄下內存(記憶體)地址，偏移地址以後，下次上游戲直接工具裡面修改就是了。但是如果經常玩某個遊戲，可以寫出來，用不著每次玩遊戲都去修改。<br><br><br><hr>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>過去 iOS APP 安全檢測心得</title>
+      <link href="iOS_APP_Safety_Detection_Experience.html"/>
+      <url>iOS_APP_Safety_Detection_Experience.html</url>
+      
+        <content type="html"><![CDATA[<p>　　iOS APP 安全檢測一些心得總結</p><a id="more"></a><h2 id="為什麼要進行-iOS-APP-檢測？"><a href="#為什麼要進行-iOS-APP-檢測？" class="headerlink" title="為什麼要進行 iOS APP 檢測？"></a>為什麼要進行 iOS APP 檢測？</h2><p>在2015年9月份時在 AppStore 很多 APP 被注入第三方惡意代碼，針對這個問題，盤古實驗室緊急開發了病毒檢測工具，並檢測到大量的受感染的樣本。這個事件大家比較熟悉，我不多做描述，有興趣可以去自己搜尋一下。<br><br><br><br>我們通過這個問題考慮為什麼進行 iOS APP 檢測？使用 iOS 的大部分用戶或者在傳統媒體只做app開發的人認為，使用 iphone 從 AppStore 下載一個應用是絕對安全的。事實上並不是這樣的，除了 ZipperDown 之外還有一些問題沒有被發出來。有些APP還會收集大家的隱私和通訊錄等等，所以 AppStore 下載的應用並不完全是安全的。<br><br><br><br>大部分 iOS 開發人員，認為安全相關的內容與自己無關，依賴卻並不是完全了解蘋果的安全機制，這是在開發中很常見的，因為趕進度或者產品經理奇怪的需求，開發人員會有意無意破壞蘋果提供的安全機制，導致他開發出來的 APP 並不安全。<br><br><br><br>iOS 平台檢測更依賴於經驗，Android 有很多自動化檢測工具，檢測 Android APP 時大家會使用自動化使用工具做出一個報表，然後看看有什麼需要人工去分析的地方再去深入分析。 iOS 不一樣，市面上用的自動化檢測工具非常簡單，檢測出來的報告沒什麼意義。做 iOS 的 APP 檢測時需要做人工檢測，更多工作內容放在人工，人工檢測非常依賴經驗。<br><br><br><br>iOS平台檢測的工具有很多，每個都有自己特定的作用。非常理解檢測基本結構，首先，拿到一個APP需要先做靜態分析，之後根據靜態分析出來的結果做一些簡單的動態分析，動態分析主要就是抓包，看看有沒有什麼危險的包，這是明顯一眼可以看出來的問題。其次，根據檢測出來的結果和靜態分析的代碼，看看比較容易出問題的代碼是否用到。大家去市面找到iOS 教學或書籍，可以詳細的大家告訴有哪些靜態工具、動態工具。可是它們沒有被整合在一起、很零散，做 iOS 立項或者檢測時需要大量時間熟悉我們用的工具。<br><br><br><br><br>這裡是給大家總結一下我們做這麼長時間 iOS APP 檢測的常見問題：<br></p><ol><li>不安全的隨機函數。<br></li><li>APP 切換到後台暴露敏感信息，比如你的手機 APP 在跟別人聊天，你按home會切到後台，它有一個截屏。當然，如果不是越獄的手機，基本是沒有風險的。 <br></li><li>存在本地數據庫的 SQL 注入。<br></li><li>自動使用第三方鍵盤輸入敏感訊息，第三方鍵盤上傳東西的話，可能敏感訊息會被上傳到伺服器。<br></li><li>沒有正確的使用SSL。<br></li><li>未能正確的處理所有的 urlscheme 接口沒有詳細過濾。<br></li><li>其他問題。這些都是常見的小問題，一般這種問題在開發者或者在廠商看來都不是什麼大問題。<br><br>接下來看看一般廠商比較重視的問題：<br><br>1、短信驗證未作限制。登入或註冊時未對獲取短信驗證碼的次數作限製或限制不夠嚴謹。這個問題的檢測方法是通過抓包，去請求驗證碼的請求包，看看這個驗證碼會不會重新放回來。做得最差的是沒有任何前置，可以向伺服器請求，伺服器可能會發幾十條幾百回，有的伺服器會做一天十條或者一天二十條，或者一段時間內頻繁發，它會把你阻塞，過一段時間再讓你發。開發者在做檢測這時一定要要嚴謹，我遇到一個做了檢測，他根據 cookie 和一堆亂七八糟的ID做檢測，我們通過抓包之後把所有的ID都刪了，它又可以通過了，它的伺服器代碼分支裡沒有考慮到所有的詞都沒有情況下，所以沒有做限制。最主要的問題是直接的經濟損失，一條短信幾分錢也是錢，一天可以發很多條。<br><br>2、非 HTTPS 網絡請求。在訪問資源沒有通過 HTTPS 做網絡請求，檢測方法是打開 APP 通過撞戶程式(與狀庫原理相同)去看是不是有不是 http 的請求。這個檢測方法也非常簡單，就打開 APP 通過帳號，去看是否有不是 http 的請求是不是在獲取敏感訊息，比如拉出資源包或者 txt 腳本。我見過最誇張的是整個 APP 裡面全部是 http 的網站，它裡面包括支付、登入，所有東西全在 http 裡，這是非常容易損失的。這裡多提一句，我們檢測國外 APP 時，在美國的 AppStore 上也檢測了很多APP，這個問題從來沒被發現過，但國內的 APP 中這個問題一抓一大把，所以國內在 https 的使用上需要加強。傳一些大的文件， CDN 太貴，可以通過 https 傳一個哈希，變通的方法，因為這個確實影響很大，在惡意的網路環境中資源文件會被替換，主要攻擊就是從這裡來做的，這是主要的入口。<br><br>3、敏感訊息儲存於本地。敏感的訊息例如帳號、密碼或者加密使用的密鑰保存在本地。這個檢測方法是通過靜態分析，看看有沒有敏感的。它的影響是不越獄的手機是不影響的，但是你把用戶的信息存在本地，如果手機丟了或者別人拿到你手機幫你越獄了，或者你的手機被別人越獄了，我就知道你 APP 裡面存在的敏感信息是什麼，這是其一。其二，密鑰會保存在本地，APP 廠商的用戶有幾十萬，它的密鑰都是這個，我自己越獄裝一個 APP，把這個密鑰提取出來，在非越獄的手機上通過 http 傳輸的數據是通過密鑰加密的，同樣又可以回到內容去替換它的資源。<br><br>4、伺服器信任客戶端的請求。這個問題比較常見，就是伺服器客戶端請求中的數，最常見的就是在做一款遊戲時，客戶端發過來的請求伺服器沒有做驗證，伺服器直接信任客戶端。 《吃雞》這種遊戲是沒有辦法的，但同時一些卡牌手遊也會有這種問題，比如遊戲功能完全信賴客戶端，客戶端告訴它"我的伺服器是完全信任的"，這樣導致廠商的損失。我遇到過檢測國外的 APP，它把信任本地保存的圖片同步到伺服器上，而這張圖片是做臉部識別的，只要我拿到別人的手機，把它越獄，這個 APP 再次打開時會把我修改過的照片上傳到伺服器。數據庫裡的照片就被換成了我的照片，我拿那個 APP 照我的臉就可以登入別人的帳號，這個影響比較大。這個排查起來比較簡單，主要是通過原始碼的開發軟體，檢查一下客戶端發出來的請求，伺服器是不是完全默認。這個問題雖然很簡單，但影響很大。這些都是傳統的檢測方法和得到的結果。<br><br></li></ol><h2 id="總結和思考"><a href="#總結和思考" class="headerlink" title="總結和思考"></a>總結和思考</h2><p>總結和思考，可看見實際情況與開發人員的猜測存在一定的出入，結合我自身的開發經驗，思考我自己開發的項目中存在過的安全問題，發現做安全和做開發時，開發人員不知道安全人員在想什麼。這叫”達克效應”，是一種認知的偏差，在某一方面的能力欠缺時錯誤的認為自己比真實情況更加優秀，認為只要做了 zip 加密就可以保護 APP 安全了。但在 ZipperDown 和論壇中反映了，hotpatch 相關程式碼的處理是完全沒有問題的，但是其他開發人員在 APP 下載一堆zip包且未使用 https 導致了最後的問題，對軟件開發和安全攻防中客觀存在的情況，是一個比較貼切的解釋和總結。<br><br><br><br>話說回來，開發人員的主要工作是開發軟體，業務壓力很大，精力有限。我作為開發人員經驗讓我明白在安全問題上犯下錯誤是難免的，所以開發人員可以多上論壇了解安全知識，減少程式碼及設計上的安全問題。一些非常隱蔽的小問題，開發人員覺得不是問題的，但其是可以被利用的，這就需要專業安全團隊幫助開發人員去檢測了。</p><hr>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>免越獄 ShootMoon.app 逆向</title>
+      <link href="Non-Jailbreak_Shoot_The%20Moon_Reverse.html"/>
+      <url>Non-Jailbreak_Shoot_The%20Moon_Reverse.html</url>
+      
+        <content type="html"><![CDATA[<p>　　免越獄 ShootMoon.app 逆向、修改</p><a id="more"></a><h3 id="輸出-IPA"><a href="#輸出-IPA" class="headerlink" title="輸出 IPA"></a>輸出 IPA</h3><p>![](source/images/Non-Jailbreak_Shoot_The Moon_Reverse/OutputIPA.png)<br></p><h3 id="使用Hopper-Disassembler"><a href="#使用Hopper-Disassembler" class="headerlink" title="使用Hopper Disassembler"></a>使用Hopper Disassembler</h3><p>啟動Hopper Disassembler，選單中選擇File-&gt;Read Executable to Disassembler…，或者按下快捷鍵Command+Shift+O，彈出的對話框中選擇 shootthemoon 文件，再點擊OK。<br><br>緊接著會彈出如下圖所示的對話框，保持默認選項，點擊OK。<br>![](source/images/Non-Jailbreak_Shoot_The Moon_Reverse/Hopper_Disassmbler_.png)<br></p><h3 id="分析與實現"><a href="#分析與實現" class="headerlink" title="分析與實現"></a>分析與實現</h3><p>找到 GamePlay Class，發現他有一個方法是 updateScore，<br>我們先對這方法 hook，嘗試看看<br><br>![](source/images/Non-Jailbreak_Shoot_The Moon_Reverse/CaptainHook_ UpdateScore.png)<br><br>這邊我們使用 <a href="https://github.com/rpetrich/CaptainHook/wiki">CaptainHook</a> 來撰寫Hook方法，<br><br>接著回到遊戲體驗一下，發現這樣的方法，只要射擊到月亮，就直接結束遊戲了…<br><br><br><br>![](source/images/Non-Jailbreak_Shoot_The Moon_Reverse/Hopper_Disassmbler_1.png)<br><br>看一下 method updateScore 反編譯結果，發現他呼叫了一個 ohHoHo 方法，也是在同一個 Class 底下，這邊經驗告述我們，傳進來的參數 arg2 != 0，就進到這個 if 中！ <br><br>八九不離十，這應該是最終更新分數的方法<br><br>![](source/images/Non-Jailbreak_Shoot_The Moon_Reverse/Hopper_Disassmbler_2.png)<br>在查看一下這方法，對他進行 hook <br><br>發現確實跟我們想的一樣 <br><br>![](source/images/Non-Jailbreak_Shoot_The Moon_Reverse/CaptainHook_ Ohohoh.png) <br><br>最終我們完成修改，為了不讓遊戲體驗變得太糟，我們讓原本分數乘10，並調用加時間，能避免一次就過關了…<br></p><p>![](source/images/Non-Jailbreak_Shoot_The Moon_Reverse/IMG_0030.PNG)</p><p>![](source/images/Non-Jailbreak_Shoot_The Moon_Reverse/Shoot_The Moon.gif)</p><h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>這個逆向工程，主要是為了練習 <a href="https://github.com/rpetrich/CaptainHook/wiki">CaptainHook</a> 的使用與寫法，logos 寫法在 Xcode 中無法模糊輸入，沒記下所有的code確實會很礙事…<br></p><hr>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>免越獄 iOS12 Badge Color Changer</title>
+      <link href="Non-Jailbreak_iOS12_Badge_Color_Changer.html"/>
+      <url>Non-Jailbreak_iOS12_Badge_Color_Changer.html</url>
+      
+        <content type="html"><![CDATA[<p>　　iOS 12 免越獄 修改桌面app Badge 顏色</p><a id="more"></a><p><a href="https://twitter.com/AltichaDev/status/1091159960828985344">twitter 原文</a><br><br><a href="https://www.reddit.com/r/sideloaded/comments/alye4r/release_ios_12_badge_color_changer/">reddit 原文</a><br></p><blockquote><p>主要利用 iOS 12～iOS 12.1.2 漏洞，提權，然後tfp0 patch <br><br>再去修改 “/private/var/mobile/Library/Caches/MappedImageCache/Persistent/SBIconBadgeView.BadgeBackground.cpbitmap” <br><br>就能達成修改顏色了 <br></p><blockquote><p><a href="tps://alticha.github.io/Badges.ipa">下載 ipa</a><br><img src="https://i.imgur.com/rA7Ha6G.jpg" alt><br><br><br><br><img src="https://i.imgur.com/7ILcy7m.jpgit" alt="app 運行畫面"><br><br><br><a href="https://htmlcolorpicker.com/">Get color codes</a></p></blockquote></blockquote><hr>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python 開發必備神器之一：virtualenv</title>
+      <link href="Python%20%E9%96%8B%E7%99%BC%E5%BF%85%E5%82%99%E7%A5%9E%E5%99%A8%E4%B9%8B%E4%B8%80%EF%BC%9Avirtualenv.html"/>
+      <url>Python%20%E9%96%8B%E7%99%BC%E5%BF%85%E5%82%99%E7%A5%9E%E5%99%A8%E4%B9%8B%E4%B8%80%EF%BC%9Avirtualenv.html</url>
+      
+        <content type="html"><![CDATA[<p>　　並獨立出 Python 環境。可使每個項目環境與其他項目獨立開來，保持環境的干淨，解決包衝突問題。</p><a id="more"></a><p>Python的第三方包成千上萬，在一個Python環境下開發時間越久，安裝依賴越多，就越容易出現依賴包衝突的問題。為了解決這個問題，開發者們開發出了 virtualenv，可以搭建虛擬 並獨立的Python環境。這樣就可以使每個項目環境與其他項目獨立開來，保持環境的干淨，解決包衝突問題。</p><h1 id="安裝-virtualenv"><a href="#安裝-virtualenv" class="headerlink" title="安裝 virtualenv"></a>安裝 virtualenv</h1><p>virtualenv 是一個第三方包，是管理虛擬環境的常用方法之一。<br>此外，Python 3 中還自帶了虛擬環境管理包。</p><p>我們可以用的 <code>easy_install</code> 或者 <code>pip</code> 安裝。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install virtualenv</span><br></pre></td></tr></table></figure><h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><h2 id="創建項目的虛擬環境"><a href="#創建項目的虛擬環境" class="headerlink" title="創建項目的虛擬環境"></a>創建項目的虛擬環境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd my_project_folder</span><br><span class="line">$ virtualenv venv <span class="comment"># venv 可替換為别的虛擬環境名稱</span></span><br></pre></td></tr></table></figure><p>執行後，在本地會生成一個與虛擬環境同名的文件夾，包含 Python 可執行文件和 pip 庫的拷貝，可用於安裝其他包。</p><p>但是默認情況下，虛擬環境中不會包含也無法使用系統環境的<code>global site-packages</code>。比如係統環境里安裝了請求<code>requests</code>，在虛擬環境裡<code>import requests</code>會提示 ImportError。如果想使用系統環境的第三方軟件包，可以在創建虛擬環境時使用參數<code>–system-site-packages</code>。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ virtualenv --system-site-packages venv</span><br></pre></td></tr></table></figure><p>另外，你還可以自己指定虛擬環境所使用的 Python 版本，但前提是系统中已經安裝了該版本：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ virtualenv -p /usr/bin/python2<span class="number">.7</span> venv</span><br></pre></td></tr></table></figure><h2 id="使用虛擬環境"><a href="#使用虛擬環境" class="headerlink" title="使用虛擬環境"></a>使用虛擬環境</h2><p>進入虛擬環境目錄，啟動虛擬環境。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd venv</span><br><span class="line">$ source bin/activate <span class="comment"># Windows 系統下運行 Scripts\</span></span><br><span class="line">$ python -V</span><br></pre></td></tr></table></figure><p>如果未對命令行進行個性化，此時命令行前面應該會多出一個括號，括號裡為虛擬環境的名稱。啟動虛擬環境後安裝的所有模塊都會安裝到該虛擬環境目錄裡。</p><p>退出虛擬環境：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ deactivate</span><br></pre></td></tr></table></figure><p>如果項目開發完成後想刪除虛擬環境，直接刪除虛擬環境目錄即可。</p><h1 id="使用-virtualenvwrapper"><a href="#使用-virtualenvwrapper" class="headerlink" title="使用 virtualenvwrapper"></a>使用 virtualenvwrapper</h1><p>上述 virtualenv 的操作其實已經夠簡單了，但對於開發者來說還是不夠簡便，所以便有了 virtualenvwrapper 。這是 virtualenv 的擴展工具，提供了一系列命令行命令，可以方便地創建，刪除，複製，切換不同的虛擬環境。同時，使用該擴展後，所有虛擬環境都會被放置在同一個目錄下。</p><h2 id="安装-virtualenvwrapper"><a href="#安装-virtualenvwrapper" class="headerlink" title="安装 virtualenvwrapper"></a>安装 virtualenvwrapper</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install virtualenvwrapper</span><br></pre></td></tr></table></figure><h2 id="設置環境參數"><a href="#設置環境參數" class="headerlink" title="設置環境參數"></a>設置環境參數</h2><p>把下面兩行添加到 <code>~/.bashrc（或者~/.zshrc）</code> 裡。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f /usr/local/bin/virtualenvwrapper.sh ]; then</span><br><span class="line">   export WORKON_HOME=$HOME/.virtualenvs</span><br><span class="line">   source /usr/local/bin/virtualenvwrapper.sh</span><br><span class="line">fi</span><br></pre></td></tr></table></figure><p>其中，<code>.virtualenvs</code> 是可以自定義的虛擬環境管理目錄。</p><p>然後執行：<code>source ~/.bashrc</code>，就可以使用 virtualenvwrapper 了。Windows 安裝過程，請参考<a href="http://virtualenvwrapper.readthedocs.io/en/latest/install.html">官方文件</a>。</p><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>創建虛擬環境：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkvirtualenv venv</span><br></pre></td></tr></table></figure><p>注意：mkvirtualenv 也可以使用 virtualenv 的參數，比如 –python 來指定 Python 版本。創建虛擬環境後，會自動切換到此虛擬環境裡。虛擬環境目錄都在 WORKON_HOME 裡。</p><p>其他命令如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">lsvirtualenv -b <span class="comment"># 列出虛擬環境</span></span><br><span class="line"></span><br><span class="line">workon [環境名稱] <span class="comment"># 切換虛擬環境</span></span><br><span class="line"></span><br><span class="line">lssitepackages <span class="comment"># 查看環境中安装了哪些包</span></span><br><span class="line"></span><br><span class="line">cdvirtualenv [子目錄名] <span class="comment"># 進入當前環境的目錄</span></span><br><span class="line"></span><br><span class="line">cpvirtualenv [source] [dest] <span class="comment"># 複製虛擬環境</span></span><br><span class="line"></span><br><span class="line">deactivate <span class="comment"># 退出虛擬環境</span></span><br><span class="line"></span><br><span class="line">rmvirtualenv [環境名稱] <span class="comment"># 刪除虛擬環境</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>跳過iOS網頁視頻廣告，這樣就可以簡單做到</title>
+      <link href="%E8%B7%B3%E9%81%8EiOS%E7%B6%B2%E9%A0%81%E8%A6%96%E9%A0%BB%E5%BB%A3%E5%91%8A%EF%BC%8C%E9%80%99%E6%A8%A3%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%B0%A1%E5%96%AE%E5%81%9A%E5%88%B0.html"/>
+      <url>%E8%B7%B3%E9%81%8EiOS%E7%B6%B2%E9%A0%81%E8%A6%96%E9%A0%BB%E5%BB%A3%E5%91%8A%EF%BC%8C%E9%80%99%E6%A8%A3%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%B0%A1%E5%96%AE%E5%81%9A%E5%88%B0.html</url>
+      
+        <content type="html"><![CDATA[<p>　　在網頁上看一些視頻的時候，難免會遇到一些視頻廣告。這些長達30秒甚至1分鐘的視頻廣告是挺令人討厭的。那麼怎麼跳過這些煩人的廣告呢？Tin教你一個小技巧。</p><a id="more"></a><h1 id="如何跳過視頻廣告"><a href="#如何跳過視頻廣告" class="headerlink" title="如何跳過視頻廣告"></a>如何跳過視頻廣告</h1><p>其實iOS自帶就有跳過網頁視頻廣告的功能。視頻廣告的長短不一樣，而一般都是由幾個短的廣告拼接而成的。下面就以腾讯視頻為例：</p><p>1.在視頻廣告播放時，我們進入iOS自帶的控制中心，如圖：<br><img src="http://jabizb.com/read/play/play014/0141.png" alt="腾讯視頻"></p><p>2.重按或者長按控制中心的音樂播放器部件，打開音樂播放界面，如圖：<br><img src="http://jabizb.com/read/play/play014/0142.png" alt="音樂播放界面"></p><p>3.拖動播放界面的進度條，把進度條拖到最後，如圖：<br><img src="http://jabizb.com/read/play/play014/0143.png" alt="進度條拖到最後"></p><p>4.回到播放的視頻網頁，發現當前廣告播完了，開始播下一個廣告了如圖：<br><img src="http://jabizb.com/read/play/play014/0144.png" alt="廣告播完"></p><p>5.有些長的廣告是由短的廣告拼接而成的，所以我們要重複上面的步驟，多拖幾次進度條，即可以跳過全部廣告了。</p><h1 id="支援-iOS-版本"><a href="#支援-iOS-版本" class="headerlink" title="支援 iOS 版本"></a>支援 iOS 版本</h1><p>實測:</p><ul><li>iphone6 10.2.1</li><li>iphoneX 11.1.2</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Reveal 14版 環境搭建</title>
+      <link href="Reveal14%20%E4%BD%BF%E7%94%A8.html"/>
+      <url>Reveal14%20%E4%BD%BF%E7%94%A8.html</url>
+      
+        <content type="html"><![CDATA[<p>　　使用 Reveal 14版, 來看 App 裸奔～</p><a id="more"></a><h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p><a href="https://revealapp.com/">Reveal</a> 是 Mac os 平台上的一款開發者調適 iOS app 的 Mac[開發軟體]<br><a href="https://revealapp.com/">Reveal</a> Mac 版它能夠在運行時調適和修改iOS app。<a href="https://revealapp.com/">Reveal</a> 能連接到設備上的 app ，並允許開發者編輯各種用户界面參數，這反過來會立即反應在程序的 UI 上。<br>[<a href="https://revealapp.com/">Reveal</a> 在官網售價119美元，約合台幣3570元]。</p><p><img src="https://upload-images.jianshu.io/upload_images/656644-1307312b296bb34e.png" alt="Reveal 運行"></p><h1 id="搭建準備"><a href="#搭建準備" class="headerlink" title="搭建準備"></a>搭建準備</h1><p>1.安裝好 <a href="https://revealapp.com/">Reveal</a><br>2.準備一隻已越獄 iOS10 iPhone (目前工具只支持iOS8~iOS10)<br>3.承接二項, 將設備安裝 <a href="https://github.com/Naville/Reveal2Loader">Reveal2Loader</a><br>4.承接二項, 將設備安裝 <a href="https://cydia.saurik.com/package/openssh/">OpenSSH</a></p><h1 id="環境搭建"><a href="#環境搭建" class="headerlink" title="環境搭建"></a>環境搭建</h1><p>1.運行 <a href="https://revealapp.com/">Reveal</a><br>2.點擊 help -&gt; Show Reveal Library in finder -&gt; iOS Library -&gt; RevealServer.framework, 複製路徑<br>3.複製 RevealServer.framework 至 設備路徑 /Library/Frameworks (ssh 相關使用就不多說了～),<br>scp -r <code>第二點複製的路徑</code> root@<code>192.168.2.X</code>:/Library/Frameworks (高亮的部分需修改)<br>4.到手機設定上, 找到剛安裝的 Reveal2Loader, 選取想讓他裸奔的 App<br>5.就能開始欣賞他裸奔囉 <img src="https://user-gold-cdn.xitu.io/2017/12/14/16052b31b8eb30f4?imageslim" alt="連接運行"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Xcode lldb 小技能</title>
+      <link href="Xcode-lldb-%E5%B0%8F%E6%8A%80%E8%83%BD.html"/>
+      <url>Xcode-lldb-%E5%B0%8F%E6%8A%80%E8%83%BD.html</url>
+      
+        <content type="html"><![CDATA[<p>　　Xcode lldb 我經常使用的小伎倆</p><a id="more"></a><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>下中斷點, 即可發現, 右下角出現 lldb 字樣, 就能開始輸入指令使用囉～</p><p><a href="https://imgur.com/0jBCoit">開始使用 lldb </a></p><h1 id="help-指令"><a href="#help-指令" class="headerlink" title="help 指令"></a>help 指令</h1><p>最間單指令是 help，它會列出所有的指令。如果你忘記了一個指令是做什麼的，或者想知道更多的話，你可以聽過 <code>help &lt;command&gt;</code> 來離解更多，例如 <code>help print</code> 或者 <code>help thread</code>。如果你甚至忘記了 help 指令是做什麼的，你可以試試 help help。不過你如果知道怎麼做，那就說明你大概還沒有忘光這個指令。😛</p><h1 id="打印資訊"><a href="#打印資訊" class="headerlink" title="打印資訊"></a>打印資訊</h1><p>打印某些資訊時, 我習慣使用 <code>po</code> (<code>print object</code> 的縮寫), 這樣就不用每次為了得到某些資訊都得下 print or NSLog 然後重新運行</p><p><a href="https://imgur.com/9mEhr2e">po</a></p><h1 id="修改數值"><a href="#修改數值" class="headerlink" title="修改數值"></a>修改數值</h1><p><code>expression</code><br>也能簡寫成 <code>e</code><br>可以動態的去修改, 某些值<br>最常使用在, 如果在測試階段時, 想強迫它進某一個判斷使用</p><p><a href="https://imgur.com/TCQ3VHn">expression</a></p><p><a href="https://imgur.com/V7qaaDH">expression</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Xcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2017-11-19-21:37</title>
+      <link href="2017-11-19-21-37.html"/>
+      <url>2017-11-19-21-37.html</url>
+      
+        <content type="html"><![CDATA[<p>我不問 + 你不說 = 這就是距離;<br>我問了 + 你不說 = 隔閡;<br>我問了 + 你說了 = 信任;<br>你不說 + 我不問 = 這就是默契;<br>我不問 + 你說了 = 這就是依賴。<br>心若親近，言行必如流水般自然;<br>心若疏遠，言行如如三秋之樹般蕭瑟。<br>不怕身隔天涯，只怕心在南北。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python join 語法使用</title>
+      <link href="/Python"/>
+      <url>/Python</url>
+      
+        <content type="html"><![CDATA[<p>　　Python 神奇的 Join 使用</p><a id="more"></a><p>最近開始嘗試寫 blog, 記錄一些過程<br>但每次都必須要輸入一些指令 生成 部署<br>實在讓我有點煩, 懶惰癌無限擴張<br>自己寫了一個 python 的小軟件<br>讓我只要確認路徑正確, 按下確定, 就能讓它自己完成這些小事情<br>就剛好使用了, 這個方法來打印出相關資訊</p><h3 id="展示一下用法"><a href="#展示一下用法" class="headerlink" title="展示一下用法"></a>展示一下用法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 為自己 Hexo 的安装路徑</span></span><br><span class="line">hexo_install_folder = self.userinput</span><br><span class="line">target_folder_path = str(hexo_install_folder + <span class="string">&#x27;/source/_posts/&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 當前目錄下所有 檔案名稱 是個陣列 Array</span></span><br><span class="line">cur_filename_list = os.listdir(cur_folder_path)</span><br><span class="line">print(cur_filename_list) <span class="comment"># 直接打印 是沒問題的</span></span><br><span class="line"><span class="comment"># label 顯示相關訊息</span></span><br><span class="line">self.displayText[<span class="string">&quot;text&quot;</span>] = <span class="string">&quot; &quot;</span>.join(str(x) <span class="keyword">for</span> x <span class="keyword">in</span> cur_filename_list)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="解釋"><a href="#解釋" class="headerlink" title="解釋"></a>解釋</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 這邊結果會是 例如: 一個空格 加上 名稱</span></span><br><span class="line"><span class="comment">## 具體運作是, 取得 cur_filename_list 每一個內容 轉 String, 然後在前面加上 &quot;空格&quot;</span></span><br><span class="line"><span class="comment">## 再把他們都串起來, 變成一個字串</span></span><br><span class="line"><span class="comment">## 簡單來說 就是</span></span><br><span class="line"><span class="comment">## 返回值</span></span><br><span class="line"><span class="comment">## 回傳通過指定的字串連接陣列中元素後生成的新字串</span></span><br><span class="line"><span class="string">&quot; &quot;</span>.join(str(x) <span class="keyword">for</span> x <span class="keyword">in</span> cur_filename_list)</span><br><span class="line"></span><br></pre></td></tr></table></figure><hr>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Obj-C 動態取得 Class 屬性名稱 and 屬性質值</title>
+      <link href="Obj-C-%E5%8B%95%E6%85%8B%E5%8F%96%E5%BE%97-Class-%E5%B1%AC%E6%80%A7%E5%90%8D%E7%A8%B1-and-%E5%B1%AC%E6%80%A7%E8%B3%AA%E5%80%BC.html"/>
+      <url>Obj-C-%E5%8B%95%E6%85%8B%E5%8F%96%E5%BE%97-Class-%E5%B1%AC%E6%80%A7%E5%90%8D%E7%A8%B1-and-%E5%B1%AC%E6%80%A7%E8%B3%AA%E5%80%BC.html</url>
+      
+        <content type="html"><![CDATA[<p>　　Objective-C 擴充 NSArray 實現動態取得類別屬性, 縮減程式碼使用</p><a id="more"></a><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import &quot;NSArray+Extension.h&quot;</span></span><br><span class="line"><span class="comment">#import &lt;objc/runtime.h&gt; // 導入運行時文件</span></span><br><span class="line"><span class="meta">@implementation NSArray (Extension)</span></span><br><span class="line"></span><br><span class="line">// 返回當前類別所有屬性</span><br><span class="line">+ (instancetype)getProperties:(Class)cls&#123;</span><br><span class="line"></span><br><span class="line">    // 取得當前類別所以屬性</span><br><span class="line">    unsigned int count; // 記錄屬性個數</span><br><span class="line">    objc_property_t *properties = class_copyPropertyList(cls, &amp;count);</span><br><span class="line">    //</span><br><span class="line">    NSMutableArray *mArray = [NSMutableArray array];</span><br><span class="line">    <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line"></span><br><span class="line">        // An opaque type that represents an Objective-C declared property.</span><br><span class="line">        // objc_property_t 屬性類型</span><br><span class="line">        objc_property_t property = properties[i];</span><br><span class="line">        // 獲取屬性的名稱 C語言 字串</span><br><span class="line">        const char *cName = property_getName(property);</span><br><span class="line">        // 轉換為 Objective C 字串</span><br><span class="line">        NSString *name = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];</span><br><span class="line"></span><br><span class="line">        [mArray addObject:name];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mArray.copy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@end</span></span><br></pre></td></tr></table></figure><h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt;= [datas count]; i++) &#123;</span><br><span class="line">        //取得所有屬性 ，檢查屬性值使否空</span><br><span class="line">        NSArray *names = [NSArray getProperties:[datas[i] class]];// #import &quot;NSArray+Extension.h&quot; 使用分類(擴充)</span><br><span class="line">        <span class="keyword">for</span> (NSString *name <span class="keyword">in</span> names) &#123;</span><br><span class="line">            // 取得Property的值</span><br><span class="line">            id propertyValue = [datas[i] valueForKey:name];</span><br><span class="line">            NSLog(@<span class="string">&quot;checkJoinMemberAPIPostParameter \npropertyName: %@, propertyValue: %@&quot;</span>, name, propertyValue);</span><br><span class="line">            <span class="keyword">if</span> !(propertyValue) &#123;</span><br><span class="line">                // 如果等於空 表示沒有值</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//    &#125;</span><br></pre></td></tr></table></figure><blockquote><p>這種方式可以使用在, 如果你有許多欄位要判斷的時候</p><blockquote><p>例如: 加入會員 Class 裡面屬性有 15 個, 每個都要填寫, 都得判斷是否有填寫,<br>如果一般寫法可能需要 15 個 if 去判斷是否有填寫, 但這樣的寫法只要一個 if</p></blockquote></blockquote><hr>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Objective-C </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Xcode 中斷點 簡介</title>
+      <link href="/xcode"/>
+      <url>/xcode</url>
+      
+        <content type="html"><![CDATA[<p>Xcode 中斷點 一些簡單的介紹</p><a id="more"></a><h2 id="中斷點"><a href="#中斷點" class="headerlink" title="中斷點"></a>中斷點</h2><h3 id="中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式："><a href="#中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式：" class="headerlink" title="中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式："></a>中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式：</h3><ol><li>Exception Breakpoint：程式碼出現問題，拋出異常時觸發。</li><li>Symbolic Breakpoint：當執行某個符號時觸發。</li><li>OpenGL ES Error Breakpoint：在 OpenGL ES 錯誤發生時觸發。</li><li>Test Failure Breakpoint：測試斷言失敗的時候觸發。</li><li>Swift Error Breakpoint：在 Swift 錯誤發生時觸發。</li></ol><h3 id="普通中斷點："><a href="#普通中斷點：" class="headerlink" title="普通中斷點："></a>普通中斷點：</h3><p>Condition：返回一個布林值，只有在布林值為 true 時才會觸發<br>Ignore：忽略前 n 次斷點，直到第 n+1 次遇到斷點才觸發。<br>Action：斷點觸發時，Xcode 執行的操作，如腳本等。</p><ul><li>AppleScript：用於執行腳本，如 display dialog “SwiftGO” 彈出對話框。</li><li>Capture GPU Frame：攔截在斷點處 GPU 當前繪製的幀圖，用於 OpenGL ES 應用的調適。</li><li>Debugger Command：相當於在控制台中輸入的 lldb 調適指令。</li><li>Log Message：將自定義格式、内容的信息輸出到控制台，常用的占位符有：<br>  %H(斷點第幾次觸發)，%B(斷點所在的方法的名字) 和 @expr@(輸出expr的值)。</li><li>Shell Command：接收命令文件以及相應的參數列表。Xcode 會異步執行 ShellCommand。<br>  勾選 “Waituntildone” 表示等待 Shell 命令執行结束後再執行調適工作。</li><li>Sound：觸發斷點的同時播放聲音。</li><li>Automatically continue after evaluating actions：勾選這個選項後，斷點不會中斷程式運行。</li></ul><h3 id="Swift-Error-Breakpoint："><a href="#Swift-Error-Breakpoint：" class="headerlink" title="Swift Error Breakpoint："></a>Swift Error Breakpoint：</h3><p>拋出一個繼承自 ErrorType 類型的錯誤時會觸發這個中斷點。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">enum ThisPersonError: ErrorType &#123;</span><br><span class="line">    case IsDead</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func findSomeone(name: String) throws &#123;</span><br><span class="line">    if name &#x3D;&#x3D; &quot;xx&quot; &#123;</span><br><span class="line">        throw ThisPersonError.IsDead    &#x2F;&#x2F; 這裡將觸發中斷點</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">do &#123;</span><br><span class="line">    try findSomeone(&quot;xx&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通過編輯 Swift Error Breakpoint，可以指定響應什麼類型的異常。</p><h3 id="Exception-Breakpoint："><a href="#Exception-Breakpoint：" class="headerlink" title="Exception Breakpoint："></a>Exception Breakpoint：</h3><p>只在 Objective-C 或 C++ 中有用。比如下面這段程式碼：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        @try &#123;</span><br><span class="line">            &#x2F;&#x2F; 打斷點後，程式在下一行程式碼中斷</span><br><span class="line">            @throw [NSException exceptionWithName:@&quot;名字&quot; reason:@&quot;原因&quot; userInfo:nil];</span><br><span class="line">        &#125;</span><br><span class="line">        @catch (NSException *exception) &#123;</span><br><span class="line">            NSLog(@&quot;catch斷點&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如果不添加 Exception Breakpoint，會執行到 @catch程式碼區域。這種斷點的編輯界面和以前不太一樣：</p><ul><li>Exception： 表示響應哪種語言的異常，可以是 Objective-C 或 C++</li><li>Break：是在 throw 還是在 catch 中觸發這個異常</li></ul><h3 id="Symbolic-Breakpoint："><a href="#Symbolic-Breakpoint：" class="headerlink" title="Symbolic Breakpoint："></a>Symbolic Breakpoint：</h3><p>符號斷點會在某個方法被調用時觸發:<br>如定義這樣的兩個函數：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">func burnAllCouples() &#123;</span><br><span class="line">    print(&quot;FFF Couples&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func burnAllSingleDogs() &#123;</span><br><span class="line">    print(&quot;FFF Single Dogs&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然後把 Symbol 設置成某個函數的名字：burnAllSingleDogs，這樣每次調用 burnAllSingleDogs 函數都會觸發這個中斷點<br>目前 Swift 中，Symbolic Breakpoint 一個比較大的問題是它不支持帶參數的方法名。</p><h3 id="Test-Failure-Breakpoint"><a href="#Test-Failure-Breakpoint" class="headerlink" title="Test Failure Breakpoint"></a>Test Failure Breakpoint</h3><p>這在測試的斷言失敗時觸發：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func testExample() &#123;</span><br><span class="line">    XCTAssert(1 &#x3D;&#x3D; 0)</span><br><span class="line">    &#x2F;&#x2F; This is an example of a functional test case.</span><br><span class="line">    &#x2F;&#x2F; Use XCTAssert and related functions to verify your tests produce the correct results.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如這個測試斷言必定失敗，添加 Test Failure Breakpoint 後，程式將在 XCTAssert(1 == 0) 處中斷。</p><hr>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Xcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown 表格樣式調整與自適應優化</title>
+      <link href="/markdown-table-style"/>
+      <url>/markdown-table-style</url>
+      
+        <content type="html"><![CDATA[<p>　　Markdown 寫的表格最終會被解析成 HTML 格式，如果使用的編輯器支持自定義 CSS，就能方便的調整樣式。如果可以引入 JavaScript，樣式自適應也能較好地實現。</p><a id="more"></a><p data-height="300" data-theme-id="0" data-slug-hash="ONyKqb" data-default-tab="css" data-user="MOxFIVE" class="codepen">See the Pen <a href="http://codepen.io/MOxFIVE/pen/ONyKqb/">Table style</a> by MOxFIVE (<a href="http://codepen.io/MOxFIVE">@MOxFIVE</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async src="//assets.codepen.io/assets/embed/ei.js"></script><h2 id="樣式調整"><a href="#樣式調整" class="headerlink" title="樣式調整"></a>樣式調整</h2><h3 id="基礎概念"><a href="#基礎概念" class="headerlink" title="基礎概念"></a>基礎概念</h3><pre><code>&lt;table&gt;: 表格&lt;thead&gt;: table header 表頭區&lt;th&gt;: table headings 表頭單元格内容&lt;tbody&gt;: table body 表格内容區&lt;tr&gt;: table row 表行&lt;td&gt;: table data 單元格内容</code></pre><h3 id="基本樣式"><a href="#基本樣式" class="headerlink" title="基本樣式"></a>基本樣式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*表格寬度*/</span></span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">65em</span>; <span class="comment">/*表格最大寬度，避免表格過寬*/</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*表格外邊框設置*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> auto; <span class="comment">/*外邊距*/</span></span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse; <span class="comment">/*使用單一線條的邊框*/</span></span><br><span class="line">    <span class="attribute">empty-cells</span>: show; <span class="comment">/*單元格無内容依舊繪製邊框*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span>,</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">35px</span>; <span class="comment">/*統一每一行的默認高度*/</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*内部邊框樣式*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="comment">/*内邊距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="表頭樣式"><a href="#表頭樣式" class="headerlink" title="表頭樣式"></a>表頭樣式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold; <span class="comment">/*加粗*/</span></span><br><span class="line">    <span class="attribute">text-align</span>: center <span class="meta">!important</span>; <span class="comment">/*内容居中，加上 !important 避免被 Markdown 樣式覆蓋*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.2</span>); <span class="comment">/*背景色*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="隔行變色"><a href="#隔行變色" class="headerlink" title="隔行變色"></a>隔行變色</h3><ul><li>使用選擇器選取復數行設置背景色。一般 Markdown 表格編譯後都有 <code>&lt;tbody&gt;</code> 包裹内容，那下面就相當於從表格第二行開始技術</li></ul><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">tbody</span> <span class="selector-tag">tr</span><span class="selector-pseudo">:nth-child(2n)</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">158</span>,<span class="number">188</span>,<span class="number">226</span>,<span class="number">0.12</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="懸浮變色"><a href="#懸浮變色" class="headerlink" title="懸浮變色"></a>懸浮變色</h3><ul><li>滑鼠懸浮時該行改變背景色</li></ul><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">tr</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#efefef</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="自適應優化"><a href="#自適應優化" class="headerlink" title="自適應優化"></a>自適應優化</h2><p>表格用 Markdown 書寫，編輯器解析，因而只能在已經生成好的程式碼上進行自適應優化。</p><h3 id="表頭不換行"><a href="#表頭不換行" class="headerlink" title="表頭不換行"></a>表頭不換行</h3><ul><li>設置表頭單元格内容不換行，這樣可以通過表頭控制該列的最小寬度，避免瀏覽器視窗缩小時内容被壓縮得太緊</li></ul><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap; <span class="comment">/*表頭内容強制在一行顯示*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="首列不換行"><a href="#首列不換行" class="headerlink" title="首列不換行"></a>首列不換行</h3><ul><li>表格第一列單元格内容不換行，多數情况下表格首列不應該被壓縮換行</li></ul><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span><span class="selector-pseudo">:nth-child(1)</span> &#123;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="表格滾動條"><a href="#表格滾動條" class="headerlink" title="表格滾動條"></a>表格滾動條</h3><ul><li>添加 JavaScript 代碼，用一個 <code>&lt;div&gt;</code> 把表格包裹起来，父元素寬度不足時顯示横向滾動條，避免表格撑破布局</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[].slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;table&#x27;</span>)).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">el</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> wrapper = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">    wrapper.className = <span class="string">&#x27;table-area&#x27;</span>;</span><br><span class="line">    el.parentNode.insertBefore(wrapper, el);</span><br><span class="line">    el.parentNode.removeChild(el);</span><br><span class="line">    wrapper.appendChild(el);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><ul><li>jQuery</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;table&quot;</span>).wrap(<span class="string">&quot;&lt;div class=&#x27;table-area&#x27;&gt;&lt;/div&gt;&quot;</span>);</span><br></pre></td></tr></table></figure><ul><li>同时添加如下 CSS</li></ul><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.table-area</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>To be added</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+            <tag> Table </tag>
+            
+            <tag> CSS </tag>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>常用 Hexo 指令</title>
+      <link href="%E5%B8%B8%E7%94%A8-Hexo-%E6%8C%87%E4%BB%A4.html"/>
+      <url>%E5%B8%B8%E7%94%A8-Hexo-%E6%8C%87%E4%BB%A4.html</url>
+      
+        <content type="html"><![CDATA[<p>&lt;Excerpt in index | 首页摘要&gt;<br>一些經常使用的 Hexo 指令.<a id="more"></a><br>&lt;The rest of contents | 余下全文&gt;</p><h3 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;postName&quot; # 產生新的文章</span><br><span class="line">$ hexo new page &quot;pageName&quot; # 產生新的頁面</span><br><span class="line">$ hexo clean # 清除快取檔案 (db.json) 和已產生的靜態檔案 (public)</span><br><span class="line">$ hexo list &lt;type&gt; # 列出網站資料</span><br><span class="line">$ hexo version # 顯示版本資訊</span><br></pre></td></tr></table></figure><h3 id="指令簡寫"><a href="#指令簡寫" class="headerlink" title="指令簡寫"></a>指令簡寫</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n &#x3D;&#x3D; hexo new   # 產生新的 post&#x2F;page&#x2F;draft</span><br><span class="line">$ hexo g &#x3D;&#x3D; hexo generate  # 產生靜態文件</span><br><span class="line">$ hexo s &#x3D;&#x3D; hexo server# 啟動本地瀏覽</span><br><span class="line">$ hexo d &#x3D;&#x3D; hexo deploy# 部署文件至 Github 上</span><br></pre></td></tr></table></figure><h3 id="指令組合"><a href="#指令組合" class="headerlink" title="指令組合"></a>指令組合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g# 產生靜態文件後，部署 blog</span><br><span class="line">$ hexo s -g# 產生靜態文件後，預覽 blog</span><br></pre></td></tr></table></figure><p><a href="https://hexo.io/zh-tw/docs/commands.html">Hexo 官方網</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
