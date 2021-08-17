@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Tin Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://s2339956.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="app,MacOS" />
+
+
+<meta name="description" content="　　逆向攻破，無限試用。
+
+
+前言經過一段時間後，試用期已到期，無法再繼續享受 Navicat Premium，所帶來的方便，如下圖: 
+決定來研究一下，該app相關的內碼，在此聲明，該文章純屬..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    無限試用 Navicat Premium |
+    
+    Tin Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+<script>
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-109722991-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+    
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                星星給予仰望者光芒
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://s2339956.github.io">
+                        Tin Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa fa-home"></i>
+                                首頁</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="無限試用 Navicat Premium">
+            
+            無限試用 Navicat Premium
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/MacOS/">MacOS</a> <a class="category-link" href="/categories/MacOS/app/">app</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/MacOS/" rel="tag">MacOS</a> <a class="tag-none-link" href="/tags/app/" rel="tag">app</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/08/11</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                736</strong>
+            天之前發表，文章内容可能已經過時。
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>　　逆向攻破，無限試用。</p>
+<a id="more"></a>
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>經過一段時間後，試用期已到期，無法再繼續享受 Navicat Premium，所帶來的方便，如下圖: <br></p>
+<p><img src="source/images/Unlimited-trial-NavicatPremium/maturity.png" alt><br><br><br><br><br>決定來研究一下，該app相關的內碼，<br><br>在此聲明，該文章純屬學習研究，請勿用於其他途徑。<br><br><br><br><br></p>
+<h3 id="過程"><a href="#過程" class="headerlink" title="過程"></a>過程</h3><ol>
+<li>找出二進制文件(mach-O、unix執行檔)，<br><br><code>/Applications/Navicat Premium.app/Contents/MacOS/Navicat Premium</code></li>
+<li>使用 Hopper Disassembler v4 Standard Edition (4.5.13)，來對二進制文件反編譯</li>
+<li>搜索字串<code>http://www.navicat.com/cht/store</code>，<br><br>找到</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 找到使用者</span></span></span><br><span class="line">0000000102d5bf5b         db         &quot;http://www.navicat.com/cht/store&quot;, 0       ; DATA XREF=cfstring_http___www_navicat_com_cht_store</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 相關地址</span></span></span><br><span class="line">0000000103c2b600         dq         0x0000000104750310, 0x00000000000007c8, 0x0000000102d5bf5b, 0x0000000000000020 ; &quot;http://www.navicat.com/cht/store&quot;, DATA XREF=qword_103f773b8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 使用者</span></span></span><br><span class="line">0000000103f773b8         dq         0x0000000103c2b600                          ; @&quot;http://www.navicat.com/cht/store&quot;, DATA XREF=+[Registration ApplicationChecking:isLaunch:]+481, +[Registration ApplicationChecking:isLaunch:]+899, +[Registration ApplicationChecking:isLaunch:]+5518, +[Registration ApplicationChecking:isLaunch:]+5758, +[Registration ApplicationChecking:isLaunch:]+6039, +[Registration ApplicationChecking:isLaunch:]+9206, -[Registration BuyNow:]+52</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># ↑ [Registration ApplicationChecking:isLaunch:]，如名得知，這可能是一個檢查方法</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>查看一下方法的匯編程式碼(assembly language)，</p>
+<p><img src="source/images/Unlimited-trial-NavicatPremium/assemblyLanguage.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov        ebx, eax</span><br><span class="line">cmp        ebx, 0xffffffff</span><br><span class="line">je         loc_100325e47</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其關鍵指令如上，賦值給<code>ebx</code>，再進行判斷<code>exb</code>如果等於1，就跳轉至地址<code>loc_100325e47</code>，然而如果不等於則跳轉至<code>loc_100325e47</code>，<code>loc_100325e47</code>也是通過檢測後執行的方法。<br><br></p>
+<ol start="4">
+<li>修改指令 </li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mov        ebx, 0x0</span><br><span class="line">je         loc_100325e47</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>直接跳過判斷指令，來到最終目的。</p>
+<ol start="5">
+<li>儲存並輸出</li>
+<li>拖回原位置，並取代</li>
+</ol>
+<p><img src="source/images/Unlimited-trial-NavicatPremium/fulfil.png" alt></p>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>此app對於購買流程的安全保護，幾乎可以說是零，對於一般攻擊者而言，很容易就可以完成了，另外也能使用插件的方式去hook相關方法再去繞過檢測，但如果熟悉匯編程式碼(assembly language)，在操作繞過方面會比較簡易且快速，另外呼籲大家務必支持正版，杜絕盜版。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            轉載聲明：
+            商業轉載請聯繫作者獲得授權, 非商業轉載請註明出處 © <a href="" target="_blank">TinXie</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/apple_api_get_app_versions.html" class="pre-post btn btn-default" title='apple api get app versions'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            apple api get app versions</span>
+    </a>
+    
+    
+    <a href="/iOS_Cryptography(RSA).html" class="next-post btn btn-default" title='iOS 密碼學(RSA)'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            iOS 密碼學(RSA)</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "zh-TW",
+    clientID: "963ce46b3653bea85cac",
+    clientSecret: "e3e6d59e4e9b0b7c7d639a92decbdfecc771e67e",
+    repo: "s2339956.github.is",
+    owner: "s2339956",
+    admin: ["s2339956"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目錄
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8E%E7%A8%8B"><span class="toc-text">過程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-text">總結</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    訪問量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    訪客數:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

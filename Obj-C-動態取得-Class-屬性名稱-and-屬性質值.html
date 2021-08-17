@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Tin Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://s2339956.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="{{ page.keywords }}" />
+
+
+<meta name="description" content="　　Objective-C 擴充 NSArray 實現動態取得類別屬性, 縮減程式碼使用
+
+
+12345678910111213141516171819202122232425262728#im..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    Obj-C 動態取得 Class 屬性名稱 and 屬性質值 |
+    
+    Tin Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+<script>
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-109722991-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+    
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                星星給予仰望者光芒
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://s2339956.github.io">
+                        Tin Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa fa-home"></i>
+                                首頁</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Obj-C 動態取得 Class 屬性名稱 and 屬性質值">
+            
+            Obj-C 動態取得 Class 屬性名稱 and 屬性質值
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Objective-C/" rel="tag">Objective-C</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2017/11/16</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1369</strong>
+            天之前發表，文章内容可能已經過時。
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>　　Objective-C 擴充 NSArray 實現動態取得類別屬性, 縮減程式碼使用</p>
+<a id="more"></a>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import &quot;NSArray+Extension.h&quot;</span></span><br><span class="line"><span class="comment">#import &lt;objc/runtime.h&gt; // 導入運行時文件</span></span><br><span class="line"><span class="meta">@implementation NSArray (Extension)</span></span><br><span class="line"></span><br><span class="line">// 返回當前類別所有屬性</span><br><span class="line">+ (instancetype)getProperties:(Class)cls&#123;</span><br><span class="line"></span><br><span class="line">    // 取得當前類別所以屬性</span><br><span class="line">    unsigned int count; // 記錄屬性個數</span><br><span class="line">    objc_property_t *properties = class_copyPropertyList(cls, &amp;count);</span><br><span class="line">    //</span><br><span class="line">    NSMutableArray *mArray = [NSMutableArray array];</span><br><span class="line">    <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line"></span><br><span class="line">        // An opaque type that represents an Objective-C declared property.</span><br><span class="line">        // objc_property_t 屬性類型</span><br><span class="line">        objc_property_t property = properties[i];</span><br><span class="line">        // 獲取屬性的名稱 C語言 字串</span><br><span class="line">        const char *cName = property_getName(property);</span><br><span class="line">        // 轉換為 Objective C 字串</span><br><span class="line">        NSString *name = [NSString stringWithCString:cName encoding:NSUTF8StringEncoding];</span><br><span class="line"></span><br><span class="line">        [mArray addObject:name];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mArray.copy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@end</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt;= [datas count]; i++) &#123;</span><br><span class="line">        //取得所有屬性 ，檢查屬性值使否空</span><br><span class="line">        NSArray *names = [NSArray getProperties:[datas[i] class]];// #import &quot;NSArray+Extension.h&quot; 使用分類(擴充)</span><br><span class="line">        <span class="keyword">for</span> (NSString *name <span class="keyword">in</span> names) &#123;</span><br><span class="line">            // 取得Property的值</span><br><span class="line">            id propertyValue = [datas[i] valueForKey:name];</span><br><span class="line">            NSLog(@<span class="string">&quot;checkJoinMemberAPIPostParameter \npropertyName: %@, propertyValue: %@&quot;</span>, name, propertyValue);</span><br><span class="line">            <span class="keyword">if</span> !(propertyValue) &#123;</span><br><span class="line">                // 如果等於空 表示沒有值</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>這種方式可以使用在, 如果你有許多欄位要判斷的時候</p>
+<blockquote>
+<p>例如: 加入會員 Class 裡面屬性有 15 個, 每個都要填寫, 都得判斷是否有填寫,<br>如果一般寫法可能需要 15 個 if 去判斷是否有填寫, 但這樣的寫法只要一個 if</p>
+</blockquote>
+</blockquote>
+<hr>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            轉載聲明：
+            商業轉載請聯繫作者獲得授權, 非商業轉載請註明出處 © <a href="" target="_blank">TinXie</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/Python" class="pre-post btn btn-default" title='Python join 語法使用'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Python join 語法使用</span>
+    </a>
+    
+    
+    <a href="/xcode" class="next-post btn btn-default" title='Xcode 中斷點 簡介'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Xcode 中斷點 簡介</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "zh-TW",
+    clientID: "963ce46b3653bea85cac",
+    clientSecret: "e3e6d59e4e9b0b7c7d639a92decbdfecc771e67e",
+    repo: "s2339956.github.is",
+    owner: "s2339956",
+    admin: ["s2339956"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目錄
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    訪問量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    訪客數:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

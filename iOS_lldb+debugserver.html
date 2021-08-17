@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Tin Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://s2339956.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="iOS,app" />
+
+
+<meta name="description" content="　　iOS lldb + debugserver 動態調適
+
+
+
+前言關於 iOS 動態調適有許多方式，這邊介紹一種比較容易的方法，通過 MacOS 中的 Xcode 自帶的 lldb 與 de..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    iOS lldb + debugserver |
+    
+    Tin Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+<script>
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-109722991-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+    
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                星星給予仰望者光芒
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://s2339956.github.io">
+                        Tin Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa fa-home"></i>
+                                首頁</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="iOS lldb + debugserver">
+            
+            iOS lldb + debugserver
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/iOS/">iOS</a> <a class="category-link" href="/categories/iOS/app/">app</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/app/" rel="tag">app</a> <a class="tag-none-link" href="/tags/iOS/" rel="tag">iOS</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/09/09</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                708</strong>
+            天之前發表，文章内容可能已經過時。
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>　　iOS lldb + debugserver 動態調適</p>
+<a id="more"></a>
+
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>關於 iOS 動態調適有許多方式，這邊介紹一種比較容易的方法，<br>通過 MacOS 中的 Xcode 自帶的 lldb 與 debugserver 來操作，可以比較便捷的使用，其中也能學習到 lldb 相關的指令，使用於日後正向開發操作上。 <br><br><br><br>在一般開發，使用 Xcode build 至 iphone(實體機) 中，會在手機上創建一個 debugserver，已進行動態調適 (debug)，然而在動態分析上，能通過越獄權限的提升，來自主構建 debugserver，依附至欲分析之app上，達成動態分析與調適。<br></p>
+<h3 id="準備"><a href="#準備" class="headerlink" title="準備"></a>準備</h3><p>事前準備</p>
+<ul>
+<li>macOS 10.14+</li>
+<li>Xcode 10.3</li>
+<li>iphone iOS 12.4 (<a target="_blank" rel="noopener" href="https://github.com/pwn20wndstuff/Undecimus">JB: unc0ver</a>)</li>
+<li>openSSH （安裝於 iphone 上）</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/libimobiledevice/usbmuxd">usbmuxd</a> （安裝於 mac 上）</li>
+<li><a target="_blank" rel="noopener" href="https://www.iterm2.com/">iTerm2</a> （或者其他終端機）</li>
+</ul>
+<p>由於 iOS 11 之前需求簽名與添加權限，有些許的難度，但在 iOS 12 之後，不需要再簽名與權限，所以統一使用12.4來操作。</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ol>
+<li><p>在 iTerm2 上，下指令 iproxy 1111 1111 <br><br> <img src="source/images/iOS_lldb+debugserver/iTerm.png" alt></p>
+</li>
+<li><p>在 iTerm2 上，開啟第二個分頁(command+T)，SSH 連線至手機，<br> 其操作可以讓mac 與 iphone 在同一個 wifi 下，會更好操作。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.111.1 </span><br></pre></td></tr></table></figure>
+<p> 密碼統一預設為: alpine <br><br> <img src="source/images/iOS_lldb+debugserver/ssh.png" alt></p>
+</li>
+<li><p>在 ssh 分頁中下指令: <code>ps -e</code>，可以找出當前運行中的 app，比如我們要 attach 的進程編號為 693，我們可以輸入如下命令：<code>debugserver *:1111 -a 693</code> <br> </p>
+<ul>
+<li><p>Chimera 越獄: </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Developer/usr/bin/debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure></li>
+<li><p>unc0ver 越獄: </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 -a 693</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果要用 debugserver 啓動 app，而不是附加到已經啓動的 app，則使用 <code>debugserver localhost:1111 &lt;app mach-O 路徑&gt;</code>，例如:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugserver localhost:1234 /var/containers/Bundle/Application/107F3307-2900-4720-B9BA-0C7792D89DF2/APP_TO_DEBUG.app/APP_TO_DEBUG</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在 iTerm2 上，開啟第第三個分頁，下指令: <code>lldb</code>，進入 lldb 界面，使用 process connect 指令連接至手機上。 用 WiFi 連接到 iOS 設備時：process connect connect://localhost:1234 <br><br> <img src="source/images/iOS_lldb+debugserver/lldb.png" alt></p>
+</li>
+</ol>
+<h3 id="調適"><a href="#調適" class="headerlink" title="調適"></a>調適</h3><p>其餘奧秘，就留給大家研究嘗試一下吧～ <br><br><img src="source/images/iOS_lldb+debugserver/debug.png" alt></p>
+<h3 id="錯誤"><a href="#錯誤" class="headerlink" title="錯誤"></a>錯誤</h3><p><code>error：failed to get reply to handshake packet</code><br></p>
+<ol>
+<li>wget <a target="_blank" rel="noopener" href="http://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.bz2">http://cgit.sukimashita.com/usbmuxd.git/snapshot/usbmuxd-1.0.8.tar.bz2</a> </li>
+<li>tar xjfv usbmuxd-1.0.8.tar.bz2</li>
+<li>cd usbmuxd-1.0.8/python-clinet/</li>
+<li>python2 tcprelay.py -t 1111:1111</li>
+<li>lldb 連接時輸入 process connect connect://localhost:1111</li>
+</ol>
+<h6 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h6><ul>
+<li>usbmuxd 退出: command + C</li>
+<li>ssh 退出: exit</li>
+<li>lldb 退出: exit</li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            轉載聲明：
+            商業轉載請聯繫作者獲得授權, 非商業轉載請註明出處 © <a href="" target="_blank">TinXie</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/openSSH_Show_Chinese.html" class="pre-post btn btn-default" title='openSSH Show Chinese'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            openSSH Show Chinese</span>
+    </a>
+    
+    
+    <a href="/mac_Boot_Automatically.html" class="next-post btn btn-default" title='MacOS 開機自動運行(Boot Automatically)'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            MacOS 開機自動運行(Boot Automatically)</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "zh-TW",
+    clientID: "963ce46b3653bea85cac",
+    clientSecret: "e3e6d59e4e9b0b7c7d639a92decbdfecc771e67e",
+    repo: "s2339956.github.is",
+    owner: "s2339956",
+    admin: ["s2339956"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目錄
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%96%E5%82%99"><span class="toc-text">準備</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C"><span class="toc-text">操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AA%BF%E9%81%A9"><span class="toc-text">調適</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%8C%AF%E8%AA%A4"><span class="toc-text">錯誤</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%82%99%E8%A8%BB"><span class="toc-text">備註</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    訪問量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    訪客數:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

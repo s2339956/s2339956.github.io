@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Tin Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://s2339956.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="iOS,frida" />
+
+
+<meta name="description" content="　　Frida Error
+
+
+
+運行 frida-ps -Uai  就會噴出以下錯誤
+123(frida:12957): Frida-CRITICAL **: 10:47:11.886: fi..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    Frida Error note |
+    
+    Tin Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+<script>
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-109722991-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+    
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                星星給予仰望者光芒
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://s2339956.github.io">
+                        Tin Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa fa-home"></i>
+                                首頁</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Frida Error note">
+            
+            Frida Error note
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/iOS/">iOS</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/frida/" rel="tag">frida</a> <a class="tag-none-link" href="/tags/iOS/" rel="tag">iOS</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2020/12/18</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>　　Frida Error</p>
+<a id="more"></a>
+
+
+<p>運行 <code>frida-ps -Uai</code>  <br><br>就會噴出以下錯誤</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(frida:12957): Frida-CRITICAL **: 10:47:11.886: file ../../../frida-core/lib/interfaces/session.vala: line 167: uncaught error: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such interface “re.frida.HostSession12” on object at path /re/frida/HostSession (g-dbus-error-quark, 19)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Mac OS 版本為</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Big Sur 11.0.1（20B50）</span><br></pre></td></tr></table></figure>
+
+<p>frida 版本為</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">frida --version</span><br><span class="line">12.8.0</span><br></pre></td></tr></table></figure>
+
+<p>iOS frida 版本為</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">14.1.3</span><br></pre></td></tr></table></figure>
+
+<p>解法:</p>
+<p>更新 frida 為匹配版本 frida-14.1.3</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo -H pip3 install --upgrade frida</span><br><span class="line">sudo -H pip3 install --upgrade frida-tools</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.</span><br><span class="line">Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.</span><br><span class="line">To avoid this problem you can invoke Python with &#x27;-m pip&#x27; instead of running pip directly.</span><br><span class="line">Defaulting to user installation because normal site-packages is not writeable</span><br><span class="line">Requirement already satisfied: frida in /Users/tinxie/Library/Python/3.7/lib/python/site-packages (12.10.4)</span><br><span class="line">Collecting frida</span><br><span class="line">  Downloading frida-14.1.3.tar.gz (7.5 kB)</span><br><span class="line">Building wheels for collected packages: frida</span><br><span class="line">  Building wheel for frida (setup.py) ... done</span><br><span class="line">  Created wheel for frida: filename=frida-14.1.3-cp37-cp37m-macosx_10_9_x86_64.whl size=13544424 sha256=c71c579feb9486ae6f83d0553f135165fa75b446a76640d4e1779b9ab8e34c9f</span><br><span class="line">  Stored in directory: /Users/tinxie/Library/Caches/pip/wheels/b3/c1/d8/881183b64dcb20af479a2282454d65390369bbe25cde6f055e</span><br><span class="line">Successfully built frida</span><br><span class="line">Installing collected packages: frida</span><br><span class="line">  Attempting uninstall: frida</span><br><span class="line">    Found existing installation: frida 12.10.4</span><br><span class="line">    Uninstalling frida-12.10.4:</span><br><span class="line">      Successfully uninstalled frida-12.10.4</span><br><span class="line">ERROR: pip&#x27;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span><br><span class="line">frida-tools 5.3.0 requires frida&lt;13.0.0,&gt;=12.7.3, but you have frida 14.1.3 which is incompatible.</span><br><span class="line">frida-tools 5.3.0 requires prompt-toolkit&lt;3.0.0,&gt;=2.0.0, but you have prompt-toolkit 3.0.5 which is incompatible.</span><br><span class="line">Successfully installed frida-14.1.3</span><br></pre></td></tr></table></figure>
+
+<p>搞定收工！</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            轉載聲明：
+            商業轉載請聯繫作者獲得授權, 非商業轉載請註明出處 © <a href="" target="_blank">TinXie</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/sublimetext_opne_plist_file.html" class="pre-post btn btn-default" title='Sublime text opne plist file'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Sublime text opne plist file</span>
+    </a>
+    
+    
+    <a href="/%E5%B8%B8%E7%94%A8%E7%AB%AF%E5%8F%A3%E8%99%9F%E7%B4%80%E9%8C%84.html" class="next-post btn btn-default" title='常用端口號紀錄'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            常用端口號紀錄</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "zh-TW",
+    clientID: "963ce46b3653bea85cac",
+    clientSecret: "e3e6d59e4e9b0b7c7d639a92decbdfecc771e67e",
+    repo: "s2339956.github.is",
+    owner: "s2339956",
+    admin: ["s2339956"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目錄
+        </h3>
+        
+        <p>暂无目录</p>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    訪問量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    訪客數:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

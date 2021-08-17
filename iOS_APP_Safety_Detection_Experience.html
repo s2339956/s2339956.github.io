@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Tin Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://s2339956.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="{{ page.keywords }}" />
+
+
+<meta name="description" content="　　iOS APP 安全檢測一些心得總結
+
+
+為什麼要進行 iOS APP 檢測？在2015年9月份時在 AppStore 很多 APP 被注入第三方惡意代碼，針對這個問題，盤古實驗室緊急開發了..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    過去 iOS APP 安全檢測心得 |
+    
+    Tin Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+<script>
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-109722991-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+    
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                星星給予仰望者光芒
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://s2339956.github.io">
+                        Tin Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa fa-home"></i>
+                                首頁</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="過去 iOS APP 安全檢測心得">
+            
+            過去 iOS APP 安全檢測心得
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/iOS/" rel="tag">iOS</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/03/12</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                888</strong>
+            天之前發表，文章内容可能已經過時。
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>　　iOS APP 安全檢測一些心得總結</p>
+<a id="more"></a>
+
+<h2 id="為什麼要進行-iOS-APP-檢測？"><a href="#為什麼要進行-iOS-APP-檢測？" class="headerlink" title="為什麼要進行 iOS APP 檢測？"></a>為什麼要進行 iOS APP 檢測？</h2><p>在2015年9月份時在 AppStore 很多 APP 被注入第三方惡意代碼，針對這個問題，盤古實驗室緊急開發了病毒檢測工具，並檢測到大量的受感染的樣本。這個事件大家比較熟悉，我不多做描述，有興趣可以去自己搜尋一下。<br><br><br><br>我們通過這個問題考慮為什麼進行 iOS APP 檢測？使用 iOS 的大部分用戶或者在傳統媒體只做app開發的人認為，使用 iphone 從 AppStore 下載一個應用是絕對安全的。事實上並不是這樣的，除了 ZipperDown 之外還有一些問題沒有被發出來。有些APP還會收集大家的隱私和通訊錄等等，所以 AppStore 下載的應用並不完全是安全的。<br><br><br><br>大部分 iOS 開發人員，認為安全相關的內容與自己無關，依賴卻並不是完全了解蘋果的安全機制，這是在開發中很常見的，因為趕進度或者產品經理奇怪的需求，開發人員會有意無意破壞蘋果提供的安全機制，導致他開發出來的 APP 並不安全。<br><br><br><br>iOS 平台檢測更依賴於經驗，Android 有很多自動化檢測工具，檢測 Android APP 時大家會使用自動化使用工具做出一個報表，然後看看有什麼需要人工去分析的地方再去深入分析。 iOS 不一樣，市面上用的自動化檢測工具非常簡單，檢測出來的報告沒什麼意義。做 iOS 的 APP 檢測時需要做人工檢測，更多工作內容放在人工，人工檢測非常依賴經驗。<br><br><br><br>iOS平台檢測的工具有很多，每個都有自己特定的作用。非常理解檢測基本結構，首先，拿到一個APP需要先做靜態分析，之後根據靜態分析出來的結果做一些簡單的動態分析，動態分析主要就是抓包，看看有沒有什麼危險的包，這是明顯一眼可以看出來的問題。其次，根據檢測出來的結果和靜態分析的代碼，看看比較容易出問題的代碼是否用到。大家去市面找到iOS 教學或書籍，可以詳細的大家告訴有哪些靜態工具、動態工具。可是它們沒有被整合在一起、很零散，做 iOS 立項或者檢測時需要大量時間熟悉我們用的工具。<br><br><br><br><br>這裡是給大家總結一下我們做這麼長時間 iOS APP 檢測的常見問題：<br></p>
+<ol>
+<li>不安全的隨機函數。<br></li>
+<li>APP 切換到後台暴露敏感信息，比如你的手機 APP 在跟別人聊天，你按home會切到後台，它有一個截屏。當然，如果不是越獄的手機，基本是沒有風險的。 <br></li>
+<li>存在本地數據庫的 SQL 注入。<br></li>
+<li>自動使用第三方鍵盤輸入敏感訊息，第三方鍵盤上傳東西的話，可能敏感訊息會被上傳到伺服器。<br></li>
+<li>沒有正確的使用SSL。<br></li>
+<li>未能正確的處理所有的 urlscheme 接口沒有詳細過濾。<br></li>
+<li>其他問題。這些都是常見的小問題，一般這種問題在開發者或者在廠商看來都不是什麼大問題。<br><br>
+接下來看看一般廠商比較重視的問題：<br>
+<br>
+1、短信驗證未作限制。登入或註冊時未對獲取短信驗證碼的次數作限製或限制不夠嚴謹。這個問題的檢測方法是通過抓包，去請求驗證碼的請求包，看看這個驗證碼會不會重新放回來。做得最差的是沒有任何前置，可以向伺服器請求，伺服器可能會發幾十條幾百回，有的伺服器會做一天十條或者一天二十條，或者一段時間內頻繁發，它會把你阻塞，過一段時間再讓你發。開發者在做檢測這時一定要要嚴謹，我遇到一個做了檢測，他根據 cookie 和一堆亂七八糟的ID做檢測，我們通過抓包之後把所有的ID都刪了，它又可以通過了，它的伺服器代碼分支裡沒有考慮到所有的詞都沒有情況下，所以沒有做限制。最主要的問題是直接的經濟損失，一條短信幾分錢也是錢，一天可以發很多條。<br>
+<br>
+2、非 HTTPS 網絡請求。在訪問資源沒有通過 HTTPS 做網絡請求，檢測方法是打開 APP 通過撞戶程式(與狀庫原理相同)去看是不是有不是 http 的請求。這個檢測方法也非常簡單，就打開 APP 通過帳號，去看是否有不是 http 的請求是不是在獲取敏感訊息，比如拉出資源包或者 txt 腳本。我見過最誇張的是整個 APP 裡面全部是 http 的網站，它裡面包括支付、登入，所有東西全在 http 裡，這是非常容易損失的。這裡多提一句，我們檢測國外 APP 時，在美國的 AppStore 上也檢測了很多APP，這個問題從來沒被發現過，但國內的 APP 中這個問題一抓一大把，所以國內在 https 的使用上需要加強。傳一些大的文件， CDN 太貴，可以通過 https 傳一個哈希，變通的方法，因為這個確實影響很大，在惡意的網路環境中資源文件會被替換，主要攻擊就是從這裡來做的，這是主要的入口。<br>
+<br>
+3、敏感訊息儲存於本地。敏感的訊息例如帳號、密碼或者加密使用的密鑰保存在本地。這個檢測方法是通過靜態分析，看看有沒有敏感的。它的影響是不越獄的手機是不影響的，但是你把用戶的信息存在本地，如果手機丟了或者別人拿到你手機幫你越獄了，或者你的手機被別人越獄了，我就知道你 APP 裡面存在的敏感信息是什麼，這是其一。其二，密鑰會保存在本地，APP 廠商的用戶有幾十萬，它的密鑰都是這個，我自己越獄裝一個 APP，把這個密鑰提取出來，在非越獄的手機上通過 http 傳輸的數據是通過密鑰加密的，同樣又可以回到內容去替換它的資源。<br>
+<br>
+4、伺服器信任客戶端的請求。這個問題比較常見，就是伺服器客戶端請求中的數，最常見的就是在做一款遊戲時，客戶端發過來的請求伺服器沒有做驗證，伺服器直接信任客戶端。 《吃雞》這種遊戲是沒有辦法的，但同時一些卡牌手遊也會有這種問題，比如遊戲功能完全信賴客戶端，客戶端告訴它"我的伺服器是完全信任的"，這樣導致廠商的損失。我遇到過檢測國外的 APP，它把信任本地保存的圖片同步到伺服器上，而這張圖片是做臉部識別的，只要我拿到別人的手機，把它越獄，這個 APP 再次打開時會把我修改過的照片上傳到伺服器。數據庫裡的照片就被換成了我的照片，我拿那個 APP 照我的臉就可以登入別人的帳號，這個影響比較大。這個排查起來比較簡單，主要是通過原始碼的開發軟體，檢查一下客戶端發出來的請求，伺服器是不是完全默認。這個問題雖然很簡單，但影響很大。這些都是傳統的檢測方法和得到的結果。<br>
+<br>
+
+</li>
+</ol>
+<h2 id="總結和思考"><a href="#總結和思考" class="headerlink" title="總結和思考"></a>總結和思考</h2><p>總結和思考，可看見實際情況與開發人員的猜測存在一定的出入，結合我自身的開發經驗，思考我自己開發的項目中存在過的安全問題，發現做安全和做開發時，開發人員不知道安全人員在想什麼。這叫”達克效應”，是一種認知的偏差，在某一方面的能力欠缺時錯誤的認為自己比真實情況更加優秀，認為只要做了 zip 加密就可以保護 APP 安全了。但在 ZipperDown 和論壇中反映了，hotpatch 相關程式碼的處理是完全沒有問題的，但是其他開發人員在 APP 下載一堆zip包且未使用 https 導致了最後的問題，對軟件開發和安全攻防中客觀存在的情況，是一個比較貼切的解釋和總結。<br><br><br><br>話說回來，開發人員的主要工作是開發軟體，業務壓力很大，精力有限。我作為開發人員經驗讓我明白在安全問題上犯下錯誤是難免的，所以開發人員可以多上論壇了解安全知識，減少程式碼及設計上的安全問題。一些非常隱蔽的小問題，開發人員覺得不是問題的，但其是可以被利用的，這就需要專業安全團隊幫助開發人員去檢測了。</p>
+<hr>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            轉載聲明：
+            商業轉載請聯繫作者獲得授權, 非商業轉載請註明出處 © <a href="" target="_blank">TinXie</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/Game_plug-in%20development_principle.html" class="pre-post btn btn-default" title='遊戲外掛開發原理'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            遊戲外掛開發原理</span>
+    </a>
+    
+    
+    <a href="/Non-Jailbreak_Shoot_The%20Moon_Reverse.html" class="next-post btn btn-default" title='免越獄 ShootMoon.app 逆向'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            免越獄 ShootMoon.app 逆向</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "zh-TW",
+    clientID: "963ce46b3653bea85cac",
+    clientSecret: "e3e6d59e4e9b0b7c7d639a92decbdfecc771e67e",
+    repo: "s2339956.github.is",
+    owner: "s2339956",
+    admin: ["s2339956"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目錄
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E9%80%B2%E8%A1%8C-iOS-APP-%E6%AA%A2%E6%B8%AC%EF%BC%9F"><span class="toc-text">為什麼要進行 iOS APP 檢測？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90%E5%92%8C%E6%80%9D%E8%80%83"><span class="toc-text">總結和思考</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    訪問量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    訪客數:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

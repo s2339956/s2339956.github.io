@@ -1,0 +1,372 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Tin Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://s2339956.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="Xcode" />
+
+
+<meta name="description" content="Xcode 中斷點 一些簡單的介紹
+
+中斷點中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式：
+Exception Breakpoint：程式碼出現問題，拋出異常時觸發。
+Sy..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    Xcode 中斷點 簡介 |
+    
+    Tin Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+<script>
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-109722991-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+    
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                星星給予仰望者光芒
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://s2339956.github.io">
+                        Tin Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa fa-home"></i>
+                                首頁</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Xcode 中斷點 簡介">
+            
+            Xcode 中斷點 簡介
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/Xcode/" rel="tag">Xcode</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2017/11/16</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                1370</strong>
+            天之前發表，文章内容可能已經過時。
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>Xcode 中斷點 一些簡單的介紹</p>
+<a id="more"></a>
+<h2 id="中斷點"><a href="#中斷點" class="headerlink" title="中斷點"></a>中斷點</h2><h3 id="中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式："><a href="#中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式：" class="headerlink" title="中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式："></a>中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式：</h3><ol>
+<li>Exception Breakpoint：程式碼出現問題，拋出異常時觸發。</li>
+<li>Symbolic Breakpoint：當執行某個符號時觸發。</li>
+<li>OpenGL ES Error Breakpoint：在 OpenGL ES 錯誤發生時觸發。</li>
+<li>Test Failure Breakpoint：測試斷言失敗的時候觸發。</li>
+<li>Swift Error Breakpoint：在 Swift 錯誤發生時觸發。</li>
+</ol>
+<h3 id="普通中斷點："><a href="#普通中斷點：" class="headerlink" title="普通中斷點："></a>普通中斷點：</h3><p>Condition：返回一個布林值，只有在布林值為 true 時才會觸發<br>Ignore：忽略前 n 次斷點，直到第 n+1 次遇到斷點才觸發。<br>Action：斷點觸發時，Xcode 執行的操作，如腳本等。</p>
+<ul>
+<li>AppleScript：用於執行腳本，如 display dialog “SwiftGO” 彈出對話框。</li>
+<li>Capture GPU Frame：攔截在斷點處 GPU 當前繪製的幀圖，用於 OpenGL ES 應用的調適。</li>
+<li>Debugger Command：相當於在控制台中輸入的 lldb 調適指令。</li>
+<li>Log Message：將自定義格式、内容的信息輸出到控制台，常用的占位符有：<br>  %H(斷點第幾次觸發)，%B(斷點所在的方法的名字) 和 @expr@(輸出expr的值)。</li>
+<li>Shell Command：接收命令文件以及相應的參數列表。Xcode 會異步執行 ShellCommand。<br>  勾選 “Waituntildone” 表示等待 Shell 命令執行结束後再執行調適工作。</li>
+<li>Sound：觸發斷點的同時播放聲音。</li>
+<li>Automatically continue after evaluating actions：勾選這個選項後，斷點不會中斷程式運行。</li>
+</ul>
+<h3 id="Swift-Error-Breakpoint："><a href="#Swift-Error-Breakpoint：" class="headerlink" title="Swift Error Breakpoint："></a>Swift Error Breakpoint：</h3><p>拋出一個繼承自 ErrorType 類型的錯誤時會觸發這個中斷點。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">enum ThisPersonError: ErrorType &#123;</span><br><span class="line">    case IsDead</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func findSomeone(name: String) throws &#123;</span><br><span class="line">    if name &#x3D;&#x3D; &quot;xx&quot; &#123;</span><br><span class="line">        throw ThisPersonError.IsDead    &#x2F;&#x2F; 這裡將觸發中斷點</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">do &#123;</span><br><span class="line">    try findSomeone(&quot;xx&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通過編輯 Swift Error Breakpoint，可以指定響應什麼類型的異常。</p>
+<h3 id="Exception-Breakpoint："><a href="#Exception-Breakpoint：" class="headerlink" title="Exception Breakpoint："></a>Exception Breakpoint：</h3><p>只在 Objective-C 或 C++ 中有用。比如下面這段程式碼：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    @autoreleasepool &#123;</span><br><span class="line">        @try &#123;</span><br><span class="line">            &#x2F;&#x2F; 打斷點後，程式在下一行程式碼中斷</span><br><span class="line">            @throw [NSException exceptionWithName:@&quot;名字&quot; reason:@&quot;原因&quot; userInfo:nil];</span><br><span class="line">        &#125;</span><br><span class="line">        @catch (NSException *exception) &#123;</span><br><span class="line">            NSLog(@&quot;catch斷點&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果不添加 Exception Breakpoint，會執行到 @catch程式碼區域。這種斷點的編輯界面和以前不太一樣：</p>
+<ul>
+<li>Exception： 表示響應哪種語言的異常，可以是 Objective-C 或 C++</li>
+<li>Break：是在 throw 還是在 catch 中觸發這個異常</li>
+</ul>
+<h3 id="Symbolic-Breakpoint："><a href="#Symbolic-Breakpoint：" class="headerlink" title="Symbolic Breakpoint："></a>Symbolic Breakpoint：</h3><p>符號斷點會在某個方法被調用時觸發:<br>如定義這樣的兩個函數：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">func burnAllCouples() &#123;</span><br><span class="line">    print(&quot;FFF Couples&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func burnAllSingleDogs() &#123;</span><br><span class="line">    print(&quot;FFF Single Dogs&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然後把 Symbol 設置成某個函數的名字：burnAllSingleDogs，這樣每次調用 burnAllSingleDogs 函數都會觸發這個中斷點<br>目前 Swift 中，Symbolic Breakpoint 一個比較大的問題是它不支持帶參數的方法名。</p>
+<h3 id="Test-Failure-Breakpoint"><a href="#Test-Failure-Breakpoint" class="headerlink" title="Test Failure Breakpoint"></a>Test Failure Breakpoint</h3><p>這在測試的斷言失敗時觸發：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func testExample() &#123;</span><br><span class="line">    XCTAssert(1 &#x3D;&#x3D; 0)</span><br><span class="line">    &#x2F;&#x2F; This is an example of a functional test case.</span><br><span class="line">    &#x2F;&#x2F; Use XCTAssert and related functions to verify your tests produce the correct results.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如這個測試斷言必定失敗，添加 Test Failure Breakpoint 後，程式將在 XCTAssert(1 == 0) 處中斷。</p>
+<hr>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            轉載聲明：
+            商業轉載請聯繫作者獲得授權, 非商業轉載請註明出處 © <a href="" target="_blank">TinXie</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/Obj-C-%E5%8B%95%E6%85%8B%E5%8F%96%E5%BE%97-Class-%E5%B1%AC%E6%80%A7%E5%90%8D%E7%A8%B1-and-%E5%B1%AC%E6%80%A7%E8%B3%AA%E5%80%BC.html" class="pre-post btn btn-default" title='Obj-C 動態取得 Class 屬性名稱 and 屬性質值'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Obj-C 動態取得 Class 屬性名稱 and 屬性質值</span>
+    </a>
+    
+    
+    <a href="/markdown-table-style" class="next-post btn btn-default" title='Markdown 表格樣式調整與自適應優化'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Markdown 表格樣式調整與自適應優化</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "zh-TW",
+    clientID: "963ce46b3653bea85cac",
+    clientSecret: "e3e6d59e4e9b0b7c7d639a92decbdfecc771e67e",
+    repo: "s2339956.github.is",
+    owner: "s2339956",
+    admin: ["s2339956"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目錄
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%B7%E9%BB%9E"><span class="toc-text">中斷點</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%B7%E9%BB%9E%EF%BC%88breakpoint%EF%BC%89%E9%99%A4%E4%BA%86%E6%99%AE%E9%80%9A%E7%9A%84%E4%B8%AD%E6%96%B7%E5%A4%96%EF%BC%8C%E9%82%84%E6%9C%89%E4%BA%94%E7%A8%AE%E7%89%B9%E6%AE%8A%E7%9A%84%E5%BD%A2%E5%BC%8F%EF%BC%9A"><span class="toc-text">中斷點（breakpoint）除了普通的中斷外，還有五種特殊的形式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E4%B8%AD%E6%96%B7%E9%BB%9E%EF%BC%9A"><span class="toc-text">普通中斷點：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Swift-Error-Breakpoint%EF%BC%9A"><span class="toc-text">Swift Error Breakpoint：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exception-Breakpoint%EF%BC%9A"><span class="toc-text">Exception Breakpoint：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Symbolic-Breakpoint%EF%BC%9A"><span class="toc-text">Symbolic Breakpoint：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Test-Failure-Breakpoint"><span class="toc-text">Test Failure Breakpoint</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    訪問量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    訪客數:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

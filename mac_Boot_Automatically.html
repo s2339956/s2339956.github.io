@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Tin Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://s2339956.github.io">
+    <!--SEO-->
+
+<meta name="keywords" content="app,MacOS" />
+
+
+<meta name="description" content="　　MacOS 開機自動運行(Boot Automatically)
+
+
+
+前言Mac 的開機啟動項目一般會在 「系統偏好設定」 ＞「使用者與群組」＞「登入項目」可以找得到。但是有時候也有例外。..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    MacOS 開機自動運行(Boot Automatically) |
+    
+    Tin Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Tin Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+<script>
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-109722991-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+    
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Tin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                星星給予仰望者光芒
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://s2339956.github.io">
+                        Tin Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa fa-home"></i>
+                                首頁</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="MacOS 開機自動運行(Boot Automatically)">
+            
+            MacOS 開機自動運行(Boot Automatically)
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/MacOS/">MacOS</a> <a class="category-link" href="/categories/MacOS/app/">app</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/MacOS/" rel="tag">MacOS</a> <a class="tag-none-link" href="/tags/app/" rel="tag">app</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/08/29</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+        <p class="fa fa-exclamation-triangle warning">
+            本文于<strong>
+                718</strong>
+            天之前發表，文章内容可能已經過時。
+        </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>　　MacOS 開機自動運行(Boot Automatically)</p>
+<a id="more"></a>
+
+
+<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>Mac 的開機啟動項目一般會在 「系統偏好設定」 ＞「使用者與群組」＞「登入項目」可以找得到。<br><br>但是有時候也有例外。<br></p>
+<p>因工作需要，有時需要掛上 VPN (Pulse Secure)，但這 APP 實在讓我有點困擾，一重啟電腦，他就自動運行…. <br><br>完全不管我是否有需要… <br><br><br><br>MacOS是有分成登入項目(Login Items) 與 啟動項目(Startup Items)兩種。</p>
+<h3 id="Startup-Items"><a href="#Startup-Items" class="headerlink" title="Startup Items"></a>Startup Items</h3><p>早期版本的 OS X 依賴於兩個資料夾</p>
+<ul>
+<li>/Library/StartupItems </li>
+<li>/System/Library/StartupItems</li>
+</ul>
+<p>來保存指定在啟動 Mac 時加載的項目。Apple 現在不鼓勵使用啟動項，但有些程式（主要是較舊的應用程式）仍然使用這種機制。通常你的 <code>/System/Library/StartupItems</code> 資料夾應為空; 但如果它包含您不再使用的內容，則可以將不需要的項目拖到垃圾桶中，以防止下次啟動 Mac 時自動加載。</p>
+<h3 id="Launch-daemons-and-agents"><a href="#Launch-daemons-and-agents" class="headerlink" title="Launch daemons and agents"></a>Launch daemons and agents</h3><p>自從 OS X 10.4 Tiger 以來，Apple 已經為開發人員提供了另一種自動啟動項目的機制：啟動守護進程和代理，由 launchd 進程控制。此方法比登錄項或啟動項提供更大的靈活性，但對用戶而言不太透明。</p>
+<p>UNIX 窗簾背後：launchd 不是直接打開應用程式，而是加載特殊格式的 .plist 文檔（XML首選項文件），指定應該啟動什麼以及在什麼情況下啟動。有時這些啟動項目在後台持續運行，有時它們按預定的時間間隔運行，有時它們會根據需要運行 </p>
+<ul>
+<li>例如，響應某個文件或資料夾中的更改等事件 </li>
+<li>然後退出。</li>
+</ul>
+<p>launchd 使用的 .plist 文件可以佔用五個資料夾中的任何一個，它們的位置決定了項目加載的時間和權限：</p>
+<ul>
+<li>/Library/LaunchDaemons 和 /System/Library/LaunchDaemons中的項目在 Mac 啟動時加載，並以 root 用戶身份運行。</li>
+<li>/Library/LaunchAgents 和 /System/Library/LaunchAgents 中的項在任何用戶登錄時加載，並以該用戶身份運行。</li>
+<li>/Users/your-username/Library/LaunchAgents 中的項僅在特定用戶登錄時加載，並以該用戶身份運行。</li>
+</ul>
+<p>其中位於 System 資料夾中的 <code>/System/Library/LaunchDaemons</code> 和 <code>/System/Library/LaunchAgents</code> 是作為 OS X 的一部分包含的組件，他們對於保持 MAC 的正常運行非常重要，千萬不要動它們！！！</p>
+<p>對於其它資料夾中的項目，你可以依照需求隨意修改他們。例如禁用它們或更改它們運行的頻率。但在此之前，最好要瞭解它的作用方式。</p>
+<h3 id="關閉-Pulse-Secure-自動啟動"><a href="#關閉-Pulse-Secure-自動啟動" class="headerlink" title="關閉 Pulse Secure 自動啟動"></a>關閉 Pulse Secure 自動啟動</h3><p>使用終端機(Terminal)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜ ~ cd &#x2F;Library&#x2F;LaunchAgents</span><br></pre></td></tr></table></figure>
+<p>找到 <code>net.pulsesecure.pulsetray.plist</code></p>
+<p><img src="source/images/mac_Boot_Automatically/iTerm.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  LaunchAgents sudo vim net.pulsesecure.pulsetray.plist</span><br></pre></td></tr></table></figure>
+
+<p><img src="source/images/mac_Boot_Automatically/iTerm1.png" alt></p>
+<p>修改其中的 Disabled 改為 ture 即可，重開機後就不會再出現哩！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--Disabled 原本應該為 false--&gt;</span><br><span class="line">&lt;key&gt;Disabled&lt;&#x2F;key&gt;</span><br><span class="line">&lt;true&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="開機自動運行"><a href="#開機自動運行" class="headerlink" title="開機自動運行"></a>開機自動運行</h3><p>下指令<br><code>sudo vim /Library/LaunchDaemons/com.go.agent.plist</code></p>
+<p>修改其中的片段，指定為自己的腳本或者程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC &quot;-&#x2F;&#x2F;Apple&#x2F;&#x2F;DTD PLIST 1.0&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;www.apple.com&#x2F;DTDs&#x2F;PropertyList-1.0.dtd&quot;&gt;</span><br><span class="line">&lt;plist version&#x3D;&quot;1.0&quot;&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">        &lt;key&gt;Label&lt;&#x2F;key&gt;</span><br><span class="line">        &lt;string&gt;com.go.agent&lt;&#x2F;string&gt;</span><br><span class="line">        &lt;key&gt;ProgramArguments&lt;&#x2F;key&gt;</span><br><span class="line">        &lt;array&gt;</span><br><span class="line">        &lt;string&gt;python&lt;&#x2F;string&gt;</span><br><span class="line">        &lt;string&gt;&#x2F;Users&#x2F;leedani&#x2F;Downloads&#x2F;goagent&#x2F;local&#x2F;proxy.py（修改為存放goagent proxy.py的路徑）&lt;&#x2F;string&gt;</span><br><span class="line">        &lt;&#x2F;array&gt;</span><br><span class="line">        &lt;key&gt;RunAtLoad&lt;&#x2F;key&gt;</span><br><span class="line">        &lt;true&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;dict&gt;</span><br><span class="line">&lt;&#x2F;plist&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>下指令<br><code>launchctl load /Library/LaunchDaemons/com.go.agent.plist</code></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            轉載聲明：
+            商業轉載請聯繫作者獲得授權, 非商業轉載請註明出處 © <a href="" target="_blank">TinXie</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/iOS_lldb+debugserver.html" class="pre-post btn btn-default" title='iOS lldb + debugserver'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            iOS lldb + debugserver</span>
+    </a>
+    
+    
+    <a href="/apple_api_get_app_versions.html" class="next-post btn btn-default" title='apple api get app versions'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            apple api get app versions</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.4.1/gitalk.min.css">
+<script src="//cdn.bootcss.com/gitalk/1.4.1/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.9.0/js/md5.min.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+var gitalk = new Gitalk({
+    // Gitalk配置
+    language: "zh-TW",
+    clientID: "963ce46b3653bea85cac",
+    clientSecret: "e3e6d59e4e9b0b7c7d639a92decbdfecc771e67e",
+    repo: "s2339956.github.is",
+    owner: "s2339956",
+    admin: ["s2339956"],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+});
+gitalk.render('gitalk-container');
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目錄
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Startup-Items"><span class="toc-text">Startup Items</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Launch-daemons-and-agents"><span class="toc-text">Launch daemons and agents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%9C%E9%96%89-Pulse-Secure-%E8%87%AA%E5%8B%95%E5%95%9F%E5%8B%95"><span class="toc-text">關閉 Pulse Secure 自動啟動</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%96%8B%E6%A9%9F%E8%87%AA%E5%8B%95%E9%81%8B%E8%A1%8C"><span class="toc-text">開機自動運行</span></a>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    訪問量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    訪客數:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
