@@ -305,14 +305,14 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/Docker/</loc>
+    <loc>http://s2339956.github.io/tags/macOS/</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/macOS/</loc>
+    <loc>http://s2339956.github.io/tags/Docker/</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -368,14 +368,14 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/Objective-C/</loc>
+    <loc>http://s2339956.github.io/tags/Python/</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/Python/</loc>
+    <loc>http://s2339956.github.io/tags/Objective-C/</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -389,14 +389,14 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/MacOS/</loc>
+    <loc>http://s2339956.github.io/tags/frida/</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/tags/frida/</loc>
+    <loc>http://s2339956.github.io/tags/MacOS/</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -447,6 +447,13 @@
   </url>
   
   <url>
+    <loc>http://s2339956.github.io/categories/macOS/</loc>
+    <lastmod>2021-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://s2339956.github.io/categories/Docker/</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>daily</changefreq>
@@ -461,28 +468,7 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/categories/macOS/</loc>
-    <lastmod>2021-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://s2339956.github.io/categories/MK5/</loc>
-    <lastmod>2021-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://s2339956.github.io/categories/Xcode/</loc>
-    <lastmod>2021-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://s2339956.github.io/categories/MacOS/</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -496,21 +482,7 @@
   </url>
   
   <url>
-    <loc>http://s2339956.github.io/categories/Xcode/Logos/</loc>
-    <lastmod>2021-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://s2339956.github.io/categories/MacOS/app/</loc>
-    <lastmod>2021-08-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://s2339956.github.io/categories/macOS/Shell/</loc>
+    <loc>http://s2339956.github.io/categories/Xcode/</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -518,6 +490,27 @@
   
   <url>
     <loc>http://s2339956.github.io/categories/MK5/Golf/GTI/</loc>
+    <lastmod>2021-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://s2339956.github.io/categories/Xcode/Logos/</loc>
+    <lastmod>2021-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://s2339956.github.io/categories/MacOS/</loc>
+    <lastmod>2021-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://s2339956.github.io/categories/macOS/Shell/</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -532,6 +525,13 @@
   
   <url>
     <loc>http://s2339956.github.io/categories/mac/</loc>
+    <lastmod>2021-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://s2339956.github.io/categories/MacOS/app/</loc>
     <lastmod>2021-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

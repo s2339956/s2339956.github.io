@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Sublime Text save file is readonly</title>
+      <link href="sublimetext_save_file_is_readonly.html"/>
+      <url>sublimetext_save_file_is_readonly.html</url>
+      
+        <content type="html"><![CDATA[<p>　　Sublime Text save file is readonly</p><a id="more"></a><p>修改並儲存 hosts(/private/etc/hosts) 時，出現</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Unable to save /private/etc/hosts Error: /private/etc/hosts is <span class="built_in">readonly</span> </span><br></pre></td></tr></table></figure><p><img src="/images/sublimetext_save_file_is_readonly/e135f8b2-52d2-44c4-8856-f04692bcee36.png" alt></p><p>mac os : 11.5.2（20G95）</p><p>sublime Text : 41113</p><p>上網搜索對 Sublime 添加權限等等，都沒有效果…</p><p>![](/images/sublimetext_save_file_is_readonly/截圖 2021-08-31 11.24.26.png)</p><h4 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h4><ol><li><p>對其檔案設置權限<br> ![](/images/sublimetext_save_file_is_readonly/截圖 2021-08-31 11.34.36.png)</p></li><li><p>改用 BBedit 來進行編輯儲存</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> mac </category>
+          
+          <category> sublimetext </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mac </tag>
+            
+            <tag> sublimetext </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Sublime text opne plist file</title>
       <link href="sublimetext_opne_plist_file.html"/>
       <url>sublimetext_opne_plist_file.html</url>
@@ -25,35 +54,6 @@
             <tag> iOS </tag>
             
             <tag> mac </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Sublime Text save file is readonly</title>
-      <link href="sublimetext_save_file_is_readonly.html"/>
-      <url>sublimetext_save_file_is_readonly.html</url>
-      
-        <content type="html"><![CDATA[<p>　　Sublime Text save file is readonly</p><a id="more"></a><p>修改並儲存 hosts(/private/etc/hosts) 時，出現</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Unable to save /private/etc/hosts Error: /private/etc/hosts is <span class="built_in">readonly</span> </span><br></pre></td></tr></table></figure><p><img src="/images/sublimetext_save_file_is_readonly/e135f8b2-52d2-44c4-8856-f04692bcee36.png" alt></p><p>mac os : 11.5.2（20G95）</p><p>sublime Text : 41113</p><p>上網搜索對 Sublime 添加權限等等，都沒有效果…</p><p>![](images/sublimetext_save_file_is_readonly/截圖 2021-08-31 11.24.26.png)</p><h4 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h4><ol><li><p>對其檔案設置權限<br> ![](images/sublimetext_save_file_is_readonly/截圖 2021-08-31 11.34.36.png)</p></li><li><p>改用 BBedit 來進行編輯儲存</p></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> mac </category>
-          
-          <category> sublimetext </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> mac </tag>
-            
-            <tag> sublimetext </tag>
             
         </tags>
       
@@ -152,31 +152,6 @@
     
     
     <entry>
-      <title>Docker - 在容器中搭建 FTP 伺服器 (vsftpd)</title>
-      <link href="Docker-%E5%9C%A8%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%90%AD%E5%BB%BAFTP%E4%BC%BA%E6%9C%8D%E5%99%A8(vsftpd).html"/>
-      <url>Docker-%E5%9C%A8%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%90%AD%E5%BB%BAFTP%E4%BC%BA%E6%9C%8D%E5%99%A8(vsftpd).html</url>
-      
-        <content type="html"><![CDATA[<p>　　Docker - 在容器中搭建 FTP 伺服器 (vsftpd)</p><a id="more"></a><p>使用 Docker 搭建 FTP 服務，不僅十分簡單，而且可以對宿主機有一定的隔離。<br><br>下面以 CentOS 系統為例，演示如何通過容器運行 FTP 服務。</p><ol><li>拉取鏡像<br>首先執行如下命令將鏡像下載至電腦：</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull fauria&#x2F;vsftpd</span><br></pre></td></tr></table></figure><ol start="2"><li>啓動容器<br>執行如下命令實例化 FTP 服務：</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">參數說明：</span><br><span class="line">&#x2F;home&#x2F;ftp:&#x2F;home&#x2F;vsftpd: 映射 docker 容器 FTP 文件根目錄（冒號前面是宿主機的目錄）</span><br><span class="line">-p: 映射 docker 端口（冒號前面是宿主機的端口）</span><br><span class="line">-e FTP_USER&#x3D;test -e FTP_PASS&#x3D;test : 設置默認的用戶名密碼（都為 test）</span><br><span class="line">PASV_ADDRESS : 宿主機 ip，當需要使用被動模式時必須設置。</span><br><span class="line">PASV_MIN_PORT~ PASV_MAX_PORT : 給客服端提供下載服務隨機端口號範圍，</span><br><span class="line">默認 21100-21110，與前面的 docker 端口映射設置成一樣。</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -v &#x2F;home&#x2F;ftp:&#x2F;home&#x2F;vsftpd \</span><br><span class="line">-p 20:20 -p 21:21 -p  21100-21110:21100-21110 \</span><br><span class="line">-e FTP_USER&#x3D;test -e FTP_PASS&#x3D;test \</span><br><span class="line">-e PASV_ADDRESS&#x3D;192.168.60.128 \</span><br><span class="line">-e PASV_MIN_PORT&#x3D;21100 -e PASV_MAX_PORT&#x3D;21110 \</span><br><span class="line">--name vsftpd --restart&#x3D;always fauria&#x2F;vsftpd</span><br></pre></td></tr></table></figure><ol start="3"><li>防火牆配置<br> 如果 CentOS 服務器有防火牆，為了讓客戶端能夠訪問 FTP 服務。<br><br> 我們可以關閉防火牆，或者執行如下命令配置 firewall 防火牆策略：<br> (此步驟可忽略)</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port&#x3D;20&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21100&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21101&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21102&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21103&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21104&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21105&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21106&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21107&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21108&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21109&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21110&#x2F;tcp</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure><ol start="4"><li>新建用戶文件夾</li></ol><p>(1) 首先執行如下命令進入到容器裡面：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -i -t vsftpd bash</span><br></pre></td></tr></table></figure><p>(2) 由於前面我們啓動的時候設置用戶名為 test，<br><br>已經自動創建對應的用戶文件夾（所以下面這個文件夾無需我們再次手動創建）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;home&#x2F;vsftpd&#x2F;test</span><br></pre></td></tr></table></figure><p>(3) 為方便演示，在 test 用戶文件夾下新建一個 1.txt 文件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;home&#x2F;vsftpd&#x2F;test&#x2F;1.txt</span><br></pre></td></tr></table></figure><ol start="5"><li>訪問服務</li></ol><p>（1）我們可以直接使用瀏覽器進行訪問，地址如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp:&#x2F;&#x2F;test:test@192.168.60.128:21</span><br></pre></td></tr></table></figure><p>（2）也可以使用 FTP 客戶端工具進行訪問。</p><p>（3）如果是 MacOS，我們還可以通過「Finder」-&gt;「前往」-&gt;「連接伺服器…」來訪問 FTP 服務。</p><hr><h4 id="附：增加一個新用戶"><a href="#附：增加一個新用戶" class="headerlink" title="附：增加一個新用戶"></a>附：增加一個新用戶</h4><p>前面我們在啓動服務的時候就創建了個默認用戶 test。<br><br>如果需要新增一個新用戶，假設用戶名稱：tinxie，密碼：123456，具體操作如下。 </p><p>（1）首先執行如下命令進入到容器裡面：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -i -t vsftpd bash</span><br></pre></td></tr></table></figure><p>（2）創建新用戶的資料夾：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;home&#x2F;vsftpd&#x2F;tinxie</span><br></pre></td></tr></table></figure><p>（3）編輯用戶配置文件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.txt</span><br></pre></td></tr></table></figure><p>（4）在文件中新增新用戶的用戶名和密碼：</p><p>（5）保存退出後執行如下命令，把登錄的驗證資訊寫入資料庫。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;db_load -T -t hash -f &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.txt &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.db</span><br></pre></td></tr></table></figure><p>（6）最後退出容器，並重啓容器可以使用新用戶連接 FTP 服務了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line">docker restart vsftpd</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>(轉) IDA Pro 7.3 Release v1.0</title>
       <link href="IDA_Pro_7.3_Release_v1.0.html"/>
       <url>IDA_Pro_7.3_Release_v1.0.html</url>
@@ -194,6 +169,31 @@
         <tags>
             
             <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker - 在容器中搭建 FTP 伺服器 (vsftpd)</title>
+      <link href="Docker-%E5%9C%A8%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%90%AD%E5%BB%BAFTP%E4%BC%BA%E6%9C%8D%E5%99%A8(vsftpd).html"/>
+      <url>Docker-%E5%9C%A8%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%90%AD%E5%BB%BAFTP%E4%BC%BA%E6%9C%8D%E5%99%A8(vsftpd).html</url>
+      
+        <content type="html"><![CDATA[<p>　　Docker - 在容器中搭建 FTP 伺服器 (vsftpd)</p><a id="more"></a><p>使用 Docker 搭建 FTP 服務，不僅十分簡單，而且可以對宿主機有一定的隔離。<br><br>下面以 CentOS 系統為例，演示如何通過容器運行 FTP 服務。</p><ol><li>拉取鏡像<br>首先執行如下命令將鏡像下載至電腦：</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull fauria&#x2F;vsftpd</span><br></pre></td></tr></table></figure><ol start="2"><li>啓動容器<br>執行如下命令實例化 FTP 服務：</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">參數說明：</span><br><span class="line">&#x2F;home&#x2F;ftp:&#x2F;home&#x2F;vsftpd: 映射 docker 容器 FTP 文件根目錄（冒號前面是宿主機的目錄）</span><br><span class="line">-p: 映射 docker 端口（冒號前面是宿主機的端口）</span><br><span class="line">-e FTP_USER&#x3D;test -e FTP_PASS&#x3D;test : 設置默認的用戶名密碼（都為 test）</span><br><span class="line">PASV_ADDRESS : 宿主機 ip，當需要使用被動模式時必須設置。</span><br><span class="line">PASV_MIN_PORT~ PASV_MAX_PORT : 給客服端提供下載服務隨機端口號範圍，</span><br><span class="line">默認 21100-21110，與前面的 docker 端口映射設置成一樣。</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -v &#x2F;home&#x2F;ftp:&#x2F;home&#x2F;vsftpd \</span><br><span class="line">-p 20:20 -p 21:21 -p  21100-21110:21100-21110 \</span><br><span class="line">-e FTP_USER&#x3D;test -e FTP_PASS&#x3D;test \</span><br><span class="line">-e PASV_ADDRESS&#x3D;192.168.60.128 \</span><br><span class="line">-e PASV_MIN_PORT&#x3D;21100 -e PASV_MAX_PORT&#x3D;21110 \</span><br><span class="line">--name vsftpd --restart&#x3D;always fauria&#x2F;vsftpd</span><br></pre></td></tr></table></figure><ol start="3"><li>防火牆配置<br> 如果 CentOS 服務器有防火牆，為了讓客戶端能夠訪問 FTP 服務。<br><br> 我們可以關閉防火牆，或者執行如下命令配置 firewall 防火牆策略：<br> (此步驟可忽略)</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port&#x3D;20&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21100&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21101&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21102&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21103&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21104&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21105&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21106&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21107&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21108&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21109&#x2F;tcp</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;21110&#x2F;tcp</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure><ol start="4"><li>新建用戶文件夾</li></ol><p>(1) 首先執行如下命令進入到容器裡面：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -i -t vsftpd bash</span><br></pre></td></tr></table></figure><p>(2) 由於前面我們啓動的時候設置用戶名為 test，<br><br>已經自動創建對應的用戶文件夾（所以下面這個文件夾無需我們再次手動創建）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;home&#x2F;vsftpd&#x2F;test</span><br></pre></td></tr></table></figure><p>(3) 為方便演示，在 test 用戶文件夾下新建一個 1.txt 文件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;home&#x2F;vsftpd&#x2F;test&#x2F;1.txt</span><br></pre></td></tr></table></figure><ol start="5"><li>訪問服務</li></ol><p>（1）我們可以直接使用瀏覽器進行訪問，地址如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp:&#x2F;&#x2F;test:test@192.168.60.128:21</span><br></pre></td></tr></table></figure><p>（2）也可以使用 FTP 客戶端工具進行訪問。</p><p>（3）如果是 MacOS，我們還可以通過「Finder」-&gt;「前往」-&gt;「連接伺服器…」來訪問 FTP 服務。</p><hr><h4 id="附：增加一個新用戶"><a href="#附：增加一個新用戶" class="headerlink" title="附：增加一個新用戶"></a>附：增加一個新用戶</h4><p>前面我們在啓動服務的時候就創建了個默認用戶 test。<br><br>如果需要新增一個新用戶，假設用戶名稱：tinxie，密碼：123456，具體操作如下。 </p><p>（1）首先執行如下命令進入到容器裡面：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -i -t vsftpd bash</span><br></pre></td></tr></table></figure><p>（2）創建新用戶的資料夾：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;home&#x2F;vsftpd&#x2F;tinxie</span><br></pre></td></tr></table></figure><p>（3）編輯用戶配置文件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.txt</span><br></pre></td></tr></table></figure><p>（4）在文件中新增新用戶的用戶名和密碼：</p><p>（5）保存退出後執行如下命令，把登錄的驗證資訊寫入資料庫。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;db_load -T -t hash -f &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.txt &#x2F;etc&#x2F;vsftpd&#x2F;virtual_users.db</span><br></pre></td></tr></table></figure><p>（6）最後退出容器，並重啓容器可以使用新用戶連接 FTP 服務了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line">docker restart vsftpd</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
             
         </tags>
       
