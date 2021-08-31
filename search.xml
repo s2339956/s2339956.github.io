@@ -33,6 +33,35 @@
     
     
     <entry>
+      <title>Sublime Text save file is readonly</title>
+      <link href="sublimetext_save_file_is_readonly.html"/>
+      <url>sublimetext_save_file_is_readonly.html</url>
+      
+        <content type="html"><![CDATA[<p>　　Sublime Text save file is readonly</p><a id="more"></a><p>修改並儲存 hosts(/private/etc/hosts) 時，出現</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Unable to save /private/etc/hosts Error: /private/etc/hosts is <span class="built_in">readonly</span> </span><br></pre></td></tr></table></figure><p><img src="/images/sublimetext_save_file_is_readonly/e135f8b2-52d2-44c4-8856-f04692bcee36.png" alt></p><p>mac os : 11.5.2（20G95）</p><p>sublime Text : 41113</p><p>上網搜索對 Sublime 添加權限等等，都沒有效果…</p><p>![](images/sublimetext_save_file_is_readonly/截圖 2021-08-31 11.24.26.png)</p><h4 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h4><ol><li><p>對其檔案設置權限<br> ![](images/sublimetext_save_file_is_readonly/截圖 2021-08-31 11.34.36.png)</p></li><li><p>改用 BBedit 來進行編輯儲存</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> mac </category>
+          
+          <category> sublimetext </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mac </tag>
+            
+            <tag> sublimetext </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Frida Error note</title>
       <link href="firda_error.html"/>
       <url>firda_error.html</url>
